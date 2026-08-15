@@ -12,8 +12,8 @@ from mcp.server.fastmcp import FastMCP
 
 from app.config import config
 from app.models import const
-from app.models.schema import VideoAspect, VideoParams
-from app.services import bgm, llm, material, subtitle, task_artifacts, voice
+from app.models.schema import VideoAspect, VideoConcatMode, VideoParams, VideoTransitionMode
+from app.services import bgm, llm, material, subtitle, task as tm, task_artifacts, voice
 from app.services import state as sm
 from app.utils import utils
 
@@ -794,3 +794,256 @@ def mpt_replace_scene_material(
         "new_material": new_material_path,
         "materials": materials,
     }
+
+
+@mcp.tool()
+def mpt_render_video(
+    task_id: str,
+    bgm_name: str = "random",
+    bgm_volume: float = 0.2,
+    video_concat_mode: str = "random",
+    video_transition_mode: Optional[str] = None,
+    video_clip_duration: int = 5,
+) -> dict[str, Any]:
+    """
+    Render and combine the final video(s) for a task using audio, subtitles, and downloaded materials.
+    """
+    script_data = _read_script_data(task_id)
+    params_dict = script_data.get("params") or {}
+    task_dir = utils.task_dir(task_id)
+
+    audio_file = script_data.get("audio_file") or os.path.join(task_dir, "audio.mp3")
+    audio_duration = float(script_data.get("audio_duration") or 0.0)
+    subtitle_path = script_data.get("subtitle_path") or os.path.join(task_dir, "subtitle.srt")
+    materials = list(script_data.get("materials") or [])
+
+    if not os.path.exists(audio_file):
+        return {
+            "success": False,
+            "task_id": task_id,
+            "error": f"Audio file not found at {audio_file}. Run synthesize_voice first.",
+        }
+
+    if not materials:
+        if os.path.isdir(task_dir):
+            for f in sorted(os.listdir(task_dir)):
+                if f.lower().endswith((".mp4", ".mov", ".mkv", ".webm")) and not f.startswith("final-"):
+                    materials.append(os.path.join(task_dir, f))
+
+    if not materials:
+        return {
+            "success": False,
+            "task_id": task_id,
+            "error": "No video materials found for task. Run fetch_materials first.",
+        }
+
+    if audio_duration == 0.0:
+        audio_duration = float(voice.get_audio_duration(audio_file) or 15.0)
+
+    concat_val = VideoConcatMode.random
+    if video_concat_mode in ("sequential", VideoConcatMode.sequential.value):
+        concat_val = VideoConcatMode.sequential
+
+    transition_val = None
+    if video_transition_mode:
+        for tm_enum in VideoTransitionMode:
+            if tm_enum.value and tm_enum.value.lower() == video_transition_mode.lower():
+                transition_val = tm_enum
+                break
+
+    params = VideoParams(
+        video_subject=params_dict.get("video_subject", ""),
+        video_script=script_data.get("script", ""),
+        video_terms=script_data.get("search_terms") or [],
+        video_aspect=params_dict.get("video_aspect", VideoAspect.portrait.value),
+        video_concat_mode=concat_val,
+        video_transition_mode=transition_val,
+        video_clip_duration=video_clip_duration or int(params_dict.get("video_clip_duration", 5)),
+        bgm_name=bgm_name,
+        bgm_volume=bgm_volume,
+        subtitle_enabled=bool(subtitle_path and os.path.exists(subtitle_path)),
+        font_name=script_data.get("font_name", "STHeitiMedium.ttc"),
+        text_fore_color=script_data.get("text_fore_color", "#FFFFFF"),
+        font_size=int(script_data.get("font_size", 60)),
+        subtitle_position=script_data.get("subtitle_position", "bottom"),
+    )
+
+    sm.state.update_task(task_id, state=const.TASK_STATE_PROCESSING, progress=60)
+
+    try:
+        final_video_paths, combined_video_paths, warnings = tm.generate_final_videos(
+            task_id=task_id,
+            params=params,
+            downloaded_videos=materials,
+            audio_file=audio_file,
+            subtitle_path=subtitle_path if os.path.exists(subtitle_path) else "",
+            audio_duration=audio_duration,
+        )
+    except Exception as e:
+        logger.exception(f"Error rendering final video for task {task_id}: {e}")
+        sm.state.update_task(task_id, state=const.TASK_STATE_FAILED, error=str(e))
+        return {
+            "success": False,
+            "task_id": task_id,
+            "error": f"Rendering failed: {str(e)}",
+        }
+
+    if not final_video_paths:
+        sm.state.update_task(task_id, state=const.TASK_STATE_FAILED, error="No final video produced.")
+        return {
+            "success": False,
+            "task_id": task_id,
+            "error": "Failed to generate final video output.",
+        }
+
+    task_artifacts.patch_script_data(
+        task_id,
+        videos=final_video_paths,
+        combined_videos=combined_video_paths,
+        bgm_name=bgm_name,
+        bgm_volume=bgm_volume,
+    )
+    sm.state.update_task(
+        task_id,
+        state=const.TASK_STATE_COMPLETE,
+        progress=100,
+        videos=final_video_paths,
+        combined_videos=combined_video_paths,
+    )
+
+    return {
+        "success": True,
+        "task_id": task_id,
+        "videos": final_video_paths,
+        "combined_videos": combined_video_paths,
+        "warnings": warnings or [],
+    }
+
+
+@mcp.tool()
+def mpt_generate_full_video(
+    subject: str,
+    aspect: str = "9:16",
+    voice_name: str = "",
+    language: str = "",
+    video_source: str = "pexels",
+    font_name: str = "STHeitiMedium.ttc",
+    font_size: int = 60,
+    text_color: str = "#FFFFFF",
+    bgm_volume: float = 0.2,
+    bgm_name: str = "random",
+    video_clip_duration: int = 5,
+    paragraph_number: int = 1,
+) -> dict[str, Any]:
+    """
+    One-Shot automated pipeline: generates script, TTS narration, subtitles, downloads stock footage, and renders final HD video.
+    """
+    task_id = utils.get_uuid()
+    task_dir = utils.task_dir(task_id)
+
+    aspect_val = aspect
+    if aspect in ("9:16", "portrait"):
+        aspect_val = VideoAspect.portrait.value
+    elif aspect in ("16:9", "landscape"):
+        aspect_val = VideoAspect.landscape.value
+    elif aspect in ("1:1", "square"):
+        aspect_val = VideoAspect.square.value
+
+    params = VideoParams(
+        video_subject=subject,
+        video_aspect=aspect_val,
+        voice_name=voice_name or config.app.get("voice_name", "zh-CN-XiaoxiaoNeural-Female"),
+        video_language=language or "",
+        video_source=video_source or "pexels",
+        font_name=font_name or "STHeitiMedium.ttc",
+        font_size=font_size,
+        text_fore_color=text_color,
+        bgm_volume=bgm_volume,
+        bgm_name=bgm_name,
+        video_clip_duration=video_clip_duration,
+        paragraph_number=paragraph_number,
+    )
+
+    sm.state.update_task(task_id, state=const.TASK_STATE_PROCESSING, progress=5, subject=subject)
+
+    try:
+        result = tm.start(task_id=task_id, params=params, stop_at="video")
+    except Exception as e:
+        logger.exception(f"One-shot task failed: {e}")
+        sm.state.update_task(task_id, state=const.TASK_STATE_FAILED, error=str(e))
+        return {
+            "success": False,
+            "task_id": task_id,
+            "error": f"Task execution failed: {str(e)}",
+        }
+
+    if not result or result.get("state") == const.TASK_STATE_FAILED:
+        err = result.get("error", "Unknown task failure") if result else "Empty result"
+        return {
+            "success": False,
+            "task_id": task_id,
+            "error": err,
+        }
+
+    final_videos = result.get("videos") or []
+    return {
+        "success": True,
+        "task_id": task_id,
+        "task_dir": task_dir,
+        "subject": subject,
+        "videos": final_videos,
+        "script": result.get("script", ""),
+        "terms": result.get("terms", []),
+        "audio_file": result.get("audio_file", ""),
+        "subtitle_path": result.get("subtitle_path", ""),
+        "materials": result.get("materials", []),
+    }
+
+
+@mcp.tool()
+def mpt_get_task_progress(task_id: str) -> dict[str, Any]:
+    """
+    Check the status and progress of a task (state, percentage, output videos, error if failed).
+    """
+    task = sm.state.get_task(task_id)
+    if not task:
+        script_data = _read_script_data(task_id)
+        if script_data:
+            videos = script_data.get("videos") or []
+            return {
+                "success": True,
+                "task_id": task_id,
+                "state": "complete" if videos else "processing",
+                "progress": 100 if videos else 50,
+                "videos": videos,
+                "script": script_data.get("script", ""),
+            }
+        return {
+            "success": False,
+            "task_id": task_id,
+            "state": "not_found",
+            "progress": 0,
+            "message": f"No task found with ID '{task_id}'",
+        }
+
+    state_code = task.get("state", const.TASK_STATE_PROCESSING)
+    progress_val = task.get("progress", 0)
+    videos = task.get("videos") or []
+    err = task.get("error")
+
+    state_str = "processing"
+    if state_code == const.TASK_STATE_COMPLETE:
+        state_str = "complete"
+    elif state_code == const.TASK_STATE_FAILED:
+        state_str = "failed"
+
+    return {
+        "success": state_code != const.TASK_STATE_FAILED,
+        "task_id": task_id,
+        "state": state_str,
+        "state_code": state_code,
+        "progress": progress_val,
+        "videos": videos,
+        "error": err,
+    }
+
