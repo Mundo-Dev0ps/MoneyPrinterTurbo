@@ -23,16 +23,35 @@ El agente de IA lanza el contenedor Docker automáticamente al interactuar:
         "run",
         "-i",
         "--rm",
-        "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/config.toml:/app/config.toml",
-        "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/storage:/app/storage",
-        "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/resource:/app/resource",
+        "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/config.toml:/MoneyPrinterTurbo/config.toml",
+        "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/storage:/MoneyPrinterTurbo/storage",
+        "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/app:/MoneyPrinterTurbo/app",
+        "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/mcp_server.py:/MoneyPrinterTurbo/mcp_server.py",
         "ghcr.io/harry0703/moneyprinterturbo:latest",
-        "python", "mcp_server.py"
+        "sh", "-c", "pip install -q 'mcp>=1.3.0,<2' >/dev/null 2>&1 && python3 mcp_server.py"
       ]
     }
   }
 }
 ```
+
+**En `~/.codex/config.toml` (para Codex CLI):**
+```toml
+[mcp_servers.moneyprinterturbo]
+command = "docker"
+args = [
+  "run",
+  "-i",
+  "--rm",
+  "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/config.toml:/MoneyPrinterTurbo/config.toml",
+  "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/storage:/MoneyPrinterTurbo/storage",
+  "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/app:/MoneyPrinterTurbo/app",
+  "-v", "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/mcp_server.py:/MoneyPrinterTurbo/mcp_server.py",
+  "ghcr.io/harry0703/moneyprinterturbo:latest",
+  "sh", "-c", "pip install -q 'mcp>=1.3.0,<2' >/dev/null 2>&1 && python3 mcp_server.py"
+]
+```
+
 
 #### 2. Modo Servicio con Docker Compose (SSE en puerto 8000)
 Agrega el servicio `mcp` a tu `docker-compose.yml`:
