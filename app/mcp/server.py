@@ -1048,6 +1048,79 @@ def mpt_get_task_progress(task_id: str) -> dict[str, Any]:
     }
 
 
+@mcp.tool()
+def mpt_publish_video(
+    task_id: str,
+    title: str = "",
+    platforms: Optional[list[str]] = None,
+    privacy_level: str = "PUBLIC_TO_EVERYONE",
+    youtube_title: str = "",
+    youtube_description: str = "",
+    tags: Optional[list[str]] = None,
+) -> dict[str, Any]:
+    """
+    Publish a generated video to TikTok, Instagram Reels, and YouTube Shorts via Upload-Post.
+    """
+    from app.services.upload_post import upload_post_service
+
+    if not upload_post_service.is_configured():
+        return {
+            "success": False,
+            "error": "Upload-Post is not configured in config.toml. Set upload_post_enabled = true, upload_post_api_key, and upload_post_username.",
+        }
+
+    script_data = _read_script_data(task_id)
+    videos = script_data.get("videos") or []
+    task_dir = utils.task_dir(task_id)
+
+    video_file = ""
+    if videos and os.path.exists(videos[0]):
+        video_file = videos[0]
+    else:
+        candidate = os.path.join(task_dir, "final-1.mp4")
+        if os.path.exists(candidate):
+            video_file = candidate
+
+    if not video_file or not os.path.exists(video_file):
+        return {
+            "success": False,
+            "task_id": task_id,
+            "error": f"No rendered video file found for task '{task_id}'. Render video first.",
+        }
+
+    video_title = title or script_data.get("params", {}).get("video_subject") or script_data.get("script", "")[:100]
+
+    youtube_extra = None
+    if youtube_title or youtube_description or tags:
+        youtube_extra = {
+            "youtube_title": youtube_title or video_title,
+            "youtube_description": youtube_description or script_data.get("script", ""),
+            "tags": tags or script_data.get("search_terms", []),
+            "privacyStatus": config.app.get("upload_post_youtube_privacy_status", "public"),
+            "containsSyntheticMedia": "true",
+        }
+
+    result = upload_post_service.upload_video(
+        video_path=video_file,
+        title=video_title,
+        platforms=platforms,
+        privacy_level=privacy_level,
+        youtube_extra=youtube_extra,
+    )
+    return result
+
+
+@mcp.tool()
+def mpt_get_publish_status(request_id: str) -> dict[str, Any]:
+    """
+    Check the publication status of an upload request sent to Upload-Post.
+    """
+    from app.services.upload_post import upload_post_service
+
+    return upload_post_service.check_status(request_id)
+
+
+
 # =============================================================================
 # FastMCP Resources
 # =============================================================================
