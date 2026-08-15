@@ -1047,3 +1047,55 @@ def mpt_get_task_progress(task_id: str) -> dict[str, Any]:
         "error": err,
     }
 
+
+# =============================================================================
+# FastMCP Resources
+# =============================================================================
+
+@mcp.resource("mpt://tasks/{task_id}/script")
+def get_task_script_resource(task_id: str) -> str:
+    """Read the script.json file for a task."""
+    script_data = _read_script_data(task_id)
+    if not script_data:
+        return f"Error: No script data found for task '{task_id}'."
+    return json.dumps(script_data, indent=2, ensure_ascii=False)
+
+
+@mcp.resource("mpt://tasks/{task_id}/subtitles")
+def get_task_subtitles_resource(task_id: str) -> str:
+    """Read the subtitle.srt content for a task."""
+    task_dir = utils.task_dir(task_id)
+    srt_file = os.path.join(task_dir, "subtitle.srt")
+    if not os.path.exists(srt_file):
+        return f"Error: No subtitles file found for task '{task_id}'."
+    try:
+        with open(srt_file, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        return f"Error reading subtitles for task '{task_id}': {e}"
+
+
+@mcp.resource("mpt://tasks/{task_id}/summary")
+def get_task_summary_resource(task_id: str) -> str:
+    """Get high-level artifact and status summary for a task."""
+    script_data = _read_script_data(task_id)
+    if not script_data:
+        return f"Error: Task '{task_id}' not found."
+    task_dir = utils.task_dir(task_id)
+    params = script_data.get("params") or {}
+    summary = {
+        "task_id": task_id,
+        "task_dir": task_dir,
+        "subject": params.get("video_subject", ""),
+        "aspect": params.get("video_aspect", ""),
+        "script": script_data.get("script", ""),
+        "search_terms": script_data.get("search_terms", []),
+        "audio_file": script_data.get("audio_file", ""),
+        "audio_duration": script_data.get("audio_duration", 0),
+        "subtitle_path": script_data.get("subtitle_path", ""),
+        "materials": script_data.get("materials", []),
+        "videos": script_data.get("videos", []),
+    }
+    return json.dumps(summary, indent=2, ensure_ascii=False)
+
+
