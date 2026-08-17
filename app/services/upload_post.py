@@ -32,6 +32,7 @@ class UploadPostService:
         platforms: Optional[list] = None,
         privacy_level: str = "PUBLIC_TO_EVERYONE",
         youtube_extra: Optional[dict] = None,
+        scheduled_date: Optional[str] = None,
     ) -> dict:
         if not self.is_configured():
             logger.warning("Upload-Post is not configured. Skipping cross-post.")
@@ -55,6 +56,9 @@ class UploadPostService:
                     ('title', title[:2200]),
                     ('privacy_level', privacy_level),
                 ]
+
+                if scheduled_date:
+                    data.append(('scheduled_date', scheduled_date))
 
                 for platform in platforms:
                     data.append(('platform[]', platform))

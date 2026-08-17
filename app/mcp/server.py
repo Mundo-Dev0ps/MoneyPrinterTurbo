@@ -568,13 +568,18 @@ def mpt_synthesize_voice(
 @mcp.tool()
 def mpt_generate_subtitles(
     task_id: str,
-    font_name: str = "STHeitiMedium.ttc",
+    font_name: str = "BeVietnamPro-Bold.ttf",
     text_color: str = "#FFFFFF",
-    font_size: int = 60,
+    font_size: int = 70,
+    stroke_color: str = "#000000",
+    stroke_width: float = 2.5,
+    text_background_color: Optional[str] = "#000000",
+    rounded_subtitle_background: bool = True,
     subtitle_position: str = "bottom",
+    custom_position: float = 70.0,
 ) -> dict[str, Any]:
     """
-    Generate subtitles (subtitle.srt) from audio/script and configure subtitle styling parameters.
+    Generate subtitles (subtitle.srt) from audio/script and configure premium subtitle styling parameters.
     """
     script_data = _read_script_data(task_id)
     script_text = script_data.get("script", "")
@@ -610,7 +615,12 @@ def mpt_generate_subtitles(
         font_name=font_name,
         text_fore_color=text_color,
         font_size=font_size,
+        stroke_color=stroke_color,
+        stroke_width=stroke_width,
+        text_background_color=text_background_color,
+        rounded_subtitle_background=rounded_subtitle_background,
         subtitle_position=subtitle_position,
+        custom_position=custom_position,
     )
     sm.state.patch_task(task_id, subtitle_path=subtitle_file, progress=40)
 
@@ -621,9 +631,13 @@ def mpt_generate_subtitles(
         "font_name": font_name,
         "text_color": text_color,
         "font_size": font_size,
+        "stroke_color": stroke_color,
+        "stroke_width": stroke_width,
+        "rounded_background": rounded_subtitle_background,
         "subtitle_position": subtitle_position,
         "subtitle_count": subtitle_count,
     }
+
 
 
 @mcp.tool()
@@ -858,14 +872,19 @@ def mpt_render_video(
         video_aspect=params_dict.get("video_aspect", VideoAspect.portrait.value),
         video_concat_mode=concat_val,
         video_transition_mode=transition_val,
-        video_clip_duration=video_clip_duration or int(params_dict.get("video_clip_duration", 5)),
+        video_clip_duration=video_clip_duration or int(params_dict.get("video_clip_duration", 2)),
         bgm_name=bgm_name,
         bgm_volume=bgm_volume,
         subtitle_enabled=bool(subtitle_path and os.path.exists(subtitle_path)),
-        font_name=script_data.get("font_name", "STHeitiMedium.ttc"),
+        font_name=script_data.get("font_name", "BeVietnamPro-Bold.ttf"),
         text_fore_color=script_data.get("text_fore_color", "#FFFFFF"),
-        font_size=int(script_data.get("font_size", 60)),
+        font_size=int(script_data.get("font_size", 70)),
+        stroke_color=script_data.get("stroke_color", "#000000"),
+        stroke_width=float(script_data.get("stroke_width", 2.5)),
+        text_background_color=script_data.get("text_background_color", "#000000"),
+        rounded_subtitle_background=bool(script_data.get("rounded_subtitle_background", True)),
         subtitle_position=script_data.get("subtitle_position", "bottom"),
+        custom_position=float(script_data.get("custom_position", 70.0)),
     )
 
     sm.state.update_task(task_id, state=const.TASK_STATE_PROCESSING, progress=60)
@@ -1057,9 +1076,11 @@ def mpt_publish_video(
     youtube_title: str = "",
     youtube_description: str = "",
     tags: Optional[list[str]] = None,
+    scheduled_date: Optional[str] = None,
 ) -> dict[str, Any]:
     """
-    Publish a generated video to TikTok, Instagram Reels, and YouTube Shorts via Upload-Post.
+    Publish or schedule a generated video to TikTok, Instagram Reels, and YouTube Shorts via Upload-Post.
+    scheduled_date format: 'YYYY-MM-DDTHH:MM:SSZ' (e.g. '2026-08-16T15:00:00Z') to place in Upload-Post Calendar.
     """
     from app.services.upload_post import upload_post_service
 
@@ -1106,6 +1127,7 @@ def mpt_publish_video(
         platforms=platforms,
         privacy_level=privacy_level,
         youtube_extra=youtube_extra,
+        scheduled_date=scheduled_date,
     )
     return result
 
