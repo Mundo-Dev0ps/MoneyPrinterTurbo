@@ -637,8 +637,9 @@ def generate_terms(
 1. the search terms are to be returned as a json-array of strings.
 2. each search term should consist of 1-3 words, always add the main subject of the video.
 3. you must only return the json-array of strings. you must not return anything else. you must not return the script.
-4. the search terms must be related to the subject of the video.
+4. the search terms must be directly and specifically related to the visual scenes described in the video script.
 5. reply with english search terms only.
+6. do NOT use ambiguous or generic destruction words like 'war', 'military', 'weapons', 'soldiers', 'bomb'. Always prioritize specific, realistic documentary and nature keywords (e.g. for earthquakes: 'seismograph monitor', 'ground crack geology', 'tectonic plates earth', 'fault line fissure').
 {ordering_rule}
 
 ## Output Example:
