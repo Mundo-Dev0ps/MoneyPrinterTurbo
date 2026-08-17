@@ -100,23 +100,21 @@ def get_gemini_voices() -> list[str]:
     Returns:
         声音列表，格式为 ["gemini:Zephyr-Female", "gemini:Puck-Male", ...]
     """
-    # Gemini TTS支持的语音列表
+    # Gemini TTS支持的官方语音列表
     voices_with_gender = [
-        ("Zephyr", "Female"),
-        ("Puck", "Male"), 
-        ("Charon", "Male"),
-        ("Kore", "Female"),
-        ("Fenrir", "Male"),
-        ("Aoede", "Female"),
-        ("Thalia", "Female"),
-        ("Sage", "Male"),
-        ("Echo", "Female"),
-        ("Harmony", "Female"),
-        ("Lux", "Female"),
-        ("Nova", "Female"),
-        ("Vale", "Male"),
-        ("Orion", "Male"),
-        ("Atlas", "Male"),
+        ("Charon", "Male"),       # Profunda, estilo documental épico
+        ("Puck", "Male"),         # Juvenil, enérgica, estilo YouTuber
+        ("Fenrir", "Male"),       # Intensa, cinematográfica
+        ("Orus", "Male"),         # Masculina clara y firme
+        ("Iapetus", "Male"),      # Masculina pausada y seria
+        ("Enceladus", "Male"),   # Masculina moderna
+        ("Aoede", "Female"),      # Femenina expresiva y fluida
+        ("Kore", "Female"),       # Femenina calmada y misteriosa
+        ("Zephyr", "Female"),     # Femenina suave y profesional
+        ("Autonoe", "Female"),    # Femenina dinámica
+        ("Callirrhoe", "Female"), # Femenina clara
+        ("Despina", "Female"),    # Femenina alegre
+        ("Leda", "Female"),       # Femenina elegante
     ]
     
     # 添加gemini:前缀，并格式化为显示名称
