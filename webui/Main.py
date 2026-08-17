@@ -653,7 +653,7 @@ def _collect_task_summaries(limit=20):
     return sorted(tasks, key=lambda item: item["mtime"], reverse=True)[:limit]
 
 
-@st.dialog(tr("Play") if tr_optional("Play") else "Reproducir Video", width="medium")
+@st.dialog(tr("Play"), width="medium")
 def _render_task_video_dialog(video_file, subject=""):
     tasks_root = os.path.abspath(utils.task_dir())
     normalized_file = os.path.abspath(video_file) if video_file else ""
@@ -666,7 +666,7 @@ def _render_task_video_dialog(video_file, subject=""):
             video_bytes = f.read()
         download_name = _build_video_download_name(subject, 1, 1)
         st.download_button(
-            label=f"⬇️ {tr('Download Video') if tr_optional('Download Video') else 'Descargar Video (.mp4)'}",
+            label=f"⬇️ {tr('Download Video')}",
             data=video_bytes,
             file_name=download_name,
             mime="video/mp4",
@@ -677,7 +677,7 @@ def _render_task_video_dialog(video_file, subject=""):
         logger.error(f"failed to read video for download: {e}")
 
 
-@st.dialog(tr("Open Task Folder") if tr_optional("Open Task Folder") else "Archivos del Video", width="medium")
+@st.dialog(tr("Open Task Folder"), width="medium")
 def _render_task_folder_dialog(task_id, task_path):
     tasks_root = os.path.abspath(utils.task_dir())
     normalized_path = os.path.abspath(task_path) if task_path else ""
