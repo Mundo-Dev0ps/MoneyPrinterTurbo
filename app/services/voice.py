@@ -1138,17 +1138,27 @@ def gemini_tts(
             ),
         )
 
-        # google-genai 使用统一 Client 调用文本和 TTS 模型。上下文管理器确保
-        # 请求结束后释放 HTTP 连接，同时保留原有 PCM 转码和字幕时间轴逻辑。
-        with genai.Client(api_key=api_key) as client:
-            response = client.models.generate_content(
-                model="gemini-2.5-flash-preview-tts",
-                contents=text,
-                config=generation_config,
-            )
+        max_retries = 3
+        response = None
+        for attempt in range(1, max_retries + 1):
+            try:
+                logger.info(f"Gemini TTS request attempt {attempt}/{max_retries}, voice: {voice_name}")
+                with genai.Client(api_key=api_key) as client:
+                    response = client.models.generate_content(
+                        model="gemini-2.5-flash-preview-tts",
+                        contents=text,
+                        config=generation_config,
+                    )
+                if response and response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
+                    break
+            except Exception as e:
+                logger.warning(f"Gemini TTS attempt {attempt} failed: {e}")
+                if attempt == max_retries:
+                    raise e
+                time.sleep(1.5)
 
         # 检查响应
-        if not response.candidates or not response.candidates[0].content:
+        if not response or not response.candidates or not response.candidates[0].content:
             logger.error("No audio content received from Gemini TTS")
             return None
             
