@@ -288,7 +288,8 @@ def _filter_materials_by_aspect(
             aspect,
         ):
             filtered_items.append(item)
-    return filtered_items
+    # 若严格方向过滤无结果但存在高质量素材，回退到全部素材交由合成阶段自动居中适配
+    return filtered_items if filtered_items else list(items)
 
 
 def search_videos_pexels(
@@ -304,12 +305,10 @@ def search_videos_pexels(
         "Authorization": api_key,
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
     }
-    # Build URL
-    params = {"query": search_term, "per_page": 20, "orientation": video_orientation}
-    query_url = f"https://api.pexels.com/v1/videos/search?{urlencode(params)}"
     logger.info(f"searching videos on pexels: term={search_term!r}")
 
-    try:
+    def _fetch_pexels(params_dict):
+        query_url = f"https://api.pexels.com/v1/videos/search?{urlencode(params_dict)}"
         r = requests.get(
             query_url,
             headers=headers,
@@ -317,52 +316,66 @@ def search_videos_pexels(
             verify=_get_tls_verify(),
             timeout=(30, 60),
         )
-        response = r.json()
+        return r.json()
+
+    try:
+        # 针对具体主体搜索，免受手机竖屏库极小（多为美食/做菜）的限制，直接拉取全画幅4K高清纪录片素材
+        params = {"query": search_term, "per_page": 30}
+        response = _fetch_pexels(params)
+        videos = response.get("videos", []) if isinstance(response, dict) else []
+
+        # 提取核心关键词（如 octopus）用于精准匹配
+        core_words = [w.lower() for w in search_term.split() if len(w) > 3]
+
+        def _score_video(v):
+            slug = str(v.get("url", "")).lower()
+            score = 0
+            for cw in core_words:
+                if cw in slug:
+                    score += 10
+            return score
+
+        # 优先排序含有核心主体名称的素材
+        videos = sorted(videos, key=_score_video, reverse=True)
+
         video_items = []
-        if "videos" not in response:
-            logger.error("pexels video search returned an unsupported response")
-            return video_items
-        videos = response["videos"]
-        # loop through each video in the result
         for v in videos:
-            duration = v["duration"]
-            # check if video has desired minimum duration
+            duration = v.get("duration", 0)
             if duration < minimum_duration:
                 continue
-            video_files = v["video_files"]
-            # loop through each url to determine the best quality
-            for video in video_files:
-                w = int(video["width"])
-                h = int(video["height"])
-                if (
-                    _matches_video_aspect(w, h, aspect)
-                    and w == video_width
-                    and h == video_height
-                ):
-                    item = MaterialInfo()
-                    item.provider = "pexels"
-                    item.url = video["link"]
-                    item.duration = duration
-                    item.source_info = {
-                        "provider": "pexels",
-                        "search_term": search_term,
-                        "asset_id": (
-                            str(v.get("id")) if v.get("id") is not None else None
-                        ),
-                        "source_page": _safe_public_url(v.get("url")),
-                        "creator": _creator_info(v.get("user")),
-                        "rendition": {
-                            "id": (
-                                str(video.get("id"))
-                                if video.get("id") is not None
-                                else None
-                            ),
-                            "width": w,
-                            "height": h,
-                        },
-                    }
-                    video_items.append(item)
-                    break
+            video_files = v.get("video_files", [])
+            # 寻找最高清的文件（优先 1080p / 4K）
+            best_file = None
+            max_res = 0
+            for vf in video_files:
+                w = int(vf.get("width", 0))
+                h = int(vf.get("height", 0))
+                # 优先原生竖屏且高清，否则取最高清全画幅素材
+                is_native_vertical = _matches_video_aspect(w, h, aspect)
+                res_score = (w * h) + (10000000 if is_native_vertical else 0)
+                if res_score > max_res:
+                    max_res = res_score
+                    best_file = vf
+
+            if best_file:
+                item = MaterialInfo()
+                item.provider = "pexels"
+                item.url = best_file["link"]
+                item.duration = duration
+                item.source_info = {
+                    "provider": "pexels",
+                    "search_term": search_term,
+                    "asset_id": str(v.get("id")) if v.get("id") is not None else None,
+                    "source_page": _safe_public_url(v.get("url")),
+                    "creator": _creator_info(v.get("user")),
+                    "rendition": {
+                        "id": str(best_file.get("id")) if best_file.get("id") is not None else None,
+                        "width": int(best_file.get("width", 0)),
+                        "height": int(best_file.get("height", 0)),
+                    },
+                }
+                video_items.append(item)
+
         return video_items
     except Exception as e:
         logger.error(
