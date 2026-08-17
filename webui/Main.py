@@ -653,38 +653,69 @@ def _collect_task_summaries(limit=20):
     return sorted(tasks, key=lambda item: item["mtime"], reverse=True)[:limit]
 
 
-def _open_task_path(task_path):
+@st.dialog(tr("Play") if tr_optional("Play") else "Reproducir Video", width="medium")
+def _render_task_video_dialog(video_file, subject=""):
     tasks_root = os.path.abspath(utils.task_dir())
-    normalized_path = os.path.abspath(task_path)
-    if not normalized_path.startswith(tasks_root + os.sep):
-        logger.warning(f"invalid task folder path: {normalized_path}")
+    normalized_file = os.path.abspath(video_file) if video_file else ""
+    if not normalized_file or not os.path.isfile(normalized_file):
+        st.error(tr("Video Generation Failed"))
         return
-    if os.path.isdir(normalized_path):
-        webbrowser.open(f"file://{normalized_path}")
+    st.video(normalized_file)
+    try:
+        with open(normalized_file, "rb") as f:
+            video_bytes = f.read()
+        download_name = _build_video_download_name(subject, 1, 1)
+        st.download_button(
+            label=f"⬇️ {tr('Download Video') if tr_optional('Download Video') else 'Descargar Video (.mp4)'}",
+            data=video_bytes,
+            file_name=download_name,
+            mime="video/mp4",
+            use_container_width=True,
+        )
+        st.caption(f"📁 Ruta en disco: `{normalized_file}`")
+    except Exception as e:
+        logger.error(f"failed to read video for download: {e}")
+
+
+@st.dialog(tr("Open Task Folder") if tr_optional("Open Task Folder") else "Archivos del Video", width="medium")
+def _render_task_folder_dialog(task_id, task_path):
+    tasks_root = os.path.abspath(utils.task_dir())
+    normalized_path = os.path.abspath(task_path) if task_path else ""
+    st.write(f"📁 **Ruta en disco:** `{normalized_path}`")
+    if not normalized_path or not os.path.isdir(normalized_path):
+        st.warning("La carpeta de la tarea no existe en el disco.")
+        return
+    files = sorted(os.listdir(normalized_path))
+    if not files:
+        st.info("No hay archivos en este directorio.")
+        return
+    for fname in files:
+        fpath = os.path.join(normalized_path, fname)
+        if os.path.isfile(fpath):
+            fsize_kb = os.path.getsize(fpath) / 1024
+            size_str = f"{fsize_kb:.1f} KB" if fsize_kb < 1024 else f"{fsize_kb/1024:.1f} MB"
+            col_a, col_b = st.columns([2.5, 1.5], vertical_alignment="center")
+            col_a.write(f"📄 **{fname}** (`{size_str}`)")
+            try:
+                with open(fpath, "rb") as f:
+                    col_b.download_button(
+                        label="⬇️ Descargar",
+                        data=f.read(),
+                        file_name=fname,
+                        key=f"dl_dialog_{task_id}_{fname}",
+                        use_container_width=True,
+                    )
+            except Exception:
+                pass
+
+
+def _open_task_path(task_path):
+    _render_task_folder_dialog("", task_path)
 
 
 def _open_task_video(video_file):
-    tasks_root = os.path.abspath(utils.task_dir())
-    normalized_file = os.path.abspath(video_file)
+    _render_task_video_dialog(video_file)
 
-    # 视频路径来自任务目录扫描或运行期状态。这里仍然限制只能打开任务目录
-    # 内的文件，避免 UI 操作被异常路径扩展成任意本地文件打开能力。
-    if not normalized_file.startswith(tasks_root + os.sep):
-        logger.warning(f"invalid task video path: {normalized_file}")
-        return
-    if not os.path.isfile(normalized_file):
-        logger.warning(f"task video does not exist: {normalized_file}")
-        return
-
-    try:
-        if sys.platform == "darwin":
-            subprocess.Popen(["open", normalized_file])
-        elif sys.platform.startswith("win"):
-            os.startfile(normalized_file)  # type: ignore[attr-defined]
-        else:
-            subprocess.Popen(["xdg-open", normalized_file])
-    except Exception as e:
-        logger.error(f"failed to open task video: {normalized_file}, {e}")
 
 
 def _delete_task(task_id, task_path, task_state=None):
@@ -812,7 +843,7 @@ def _render_task_table(filtered_tasks, key_prefix):
                         help=play_label,
                         disabled=not has_video,
                     ):
-                        _open_task_video(task["video_file"])
+                        _render_task_video_dialog(task["video_file"], task.get("subject", ""))
 
                 with action_cols[1]:
                     open_label = tr("Open Task Folder")
@@ -823,7 +854,7 @@ def _render_task_table(filtered_tasks, key_prefix):
                         icon=":material/folder_open:",
                         help=open_label,
                     ):
-                        _open_task_path(task["task_path"])
+                        _render_task_folder_dialog(task_id, task["task_path"])
 
                 with action_cols[2]:
                     restore_label = tr("Regenerate Task")
