@@ -651,17 +651,15 @@ def combine_videos(
                 if clip_ratio == video_ratio:
                     clip = clip.resized(new_size=(video_width, video_height))
                 else:
-                    if clip_ratio > video_ratio:
-                        scale_factor = video_width / clip_w
-                    else:
-                        scale_factor = video_height / clip_h
-
+                    # Smart Full-Screen Cover: scale to fill canvas and center-crop to avoid black bars
+                    scale_factor = max(video_width / clip_w, video_height / clip_h)
                     new_width = int(clip_w * scale_factor)
                     new_height = int(clip_h * scale_factor)
 
-                    background = ColorClip(size=(video_width, video_height), color=(0, 0, 0)).with_duration(clip_duration)
-                    clip_resized = clip.resized(new_size=(new_width, new_height)).with_position("center")
-                    clip = CompositeVideoClip([background, clip_resized])
+                    clip_resized = clip.resized(new_size=(new_width, new_height))
+                    x1 = max(0, (new_width - video_width) // 2)
+                    y1 = max(0, (new_height - video_height) // 2)
+                    clip = clip_resized.cropped(x1=x1, y1=y1, width=video_width, height=video_height)
                     
             shuffle_side = random.choice(["left", "right", "top", "bottom"])
             if transition_value in (None, VideoTransitionMode.none.value):
