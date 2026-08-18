@@ -20,7 +20,7 @@
       "id": "topic_001",
       "subject": "Que pasaria si el Sol se apagara por 24 horas",
       "category": "Cosmos & Que pasaria si",
-      "status": "pending",
+      "status": "rendered",
       "script": "Tardaríamos exactamente ocho minutos en darnos cuenta de que la luz del Sol se apagó. Al instante, la Tierra quedaría sumergida en una oscuridad total y las temperaturas comenzarían a desplomarse a toda velocidad. En pocas horas, la superficie de los océanos empezaría a congelarse y el cielo se llenaría de miles de millones de estrellas. Las plantas detendrían la fotosíntesis y el pánico se apoderaría de la humanidad. ¿Te imaginas sobrevivir a un día entero sin Sol? ¡Comenta tu respuesta!",
       "search_terms": [
         "sun solar flare dark space stars",
@@ -29,7 +29,20 @@
         "frozen ice snow arctic winter landscape",
         "milky way galaxy stars deep space"
       ],
-      "tags": ["shorts", "sol", "espacio", "ciencia", "planetatierra", "curiosidades", "astronomia", "erdivertido"]
+      "tags": [
+        "shorts",
+        "sol",
+        "espacio",
+        "ciencia",
+        "planetatierra",
+        "curiosidades",
+        "astronomia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-18T16:27:08.909029",
+      "task_id": "c0270f7a-9e62-432d-9941-1b55c0a5ddd5",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/c0270f7a-9e62-432d-9941-1b55c0a5ddd5/final-1.mp4",
+      "upload_result": null
     },
     {
       "id": "topic_002",
@@ -43,7 +56,16 @@
         "stunning cosmic nebula with stars deep space",
         "supernova explosion space stars cosmos"
       ],
-      "tags": ["shorts", "ton618", "agujeronegro", "espacio", "universo", "astronomia", "ciencia", "erdivertido"]
+      "tags": [
+        "shorts",
+        "ton618",
+        "agujeronegro",
+        "espacio",
+        "universo",
+        "astronomia",
+        "ciencia",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_003",
@@ -57,7 +79,16 @@
         "dark storm ocean rough water waves",
         "ocean storm waves high contrast motion"
       ],
-      "tags": ["shorts", "megatsunami", "lituya", "tsunami", "desastresnaturales", "ciencia", "oceano", "erdivertido"]
+      "tags": [
+        "shorts",
+        "megatsunami",
+        "lituya",
+        "tsunami",
+        "desastresnaturales",
+        "ciencia",
+        "oceano",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_004",
@@ -71,7 +102,16 @@
         "dark cave underground rocks exploration",
         "planet earth core geology science"
       ],
-      "tags": ["shorts", "pozodekola", "misterios", "geologia", "tierrapromundo", "ciencia", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "pozodekola",
+        "misterios",
+        "geologia",
+        "tierrapromundo",
+        "ciencia",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_005",
@@ -85,7 +125,16 @@
         "satellite view earth space clouds atmosphere",
         "dark stormy clouds hurricane timelapse"
       ],
-      "tags": ["shorts", "jupiter", "planetatierra", "gravedad", "espacio", "ciencia", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "jupiter",
+        "planetatierra",
+        "gravedad",
+        "espacio",
+        "ciencia",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_006",
@@ -99,7 +148,16 @@
         "bioluminescence deep sea glowing creature",
         "view of giant glaciers at antarctica"
       ],
-      "tags": ["shorts", "lagovostok", "antartida", "misterios", "ciencia", "biologia", "abismo", "erdivertido"]
+      "tags": [
+        "shorts",
+        "lagovostok",
+        "antartida",
+        "misterios",
+        "ciencia",
+        "biologia",
+        "abismo",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_007",
@@ -113,7 +171,16 @@
         "dark ocean waves in stormy weather",
         "aerial view open ocean blue water"
       ],
-      "tags": ["shorts", "triangulodelasbermudas", "misterios", "oceano", "ciencia", "barcos", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "triangulodelasbermudas",
+        "misterios",
+        "oceano",
+        "ciencia",
+        "barcos",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_008",
@@ -127,7 +194,16 @@
         "galaxy milky way stars nebula",
         "hurricane storm clouds satellite"
       ],
-      "tags": ["shorts", "jupiter", "granmancharoja", "espacio", "astronomia", "tormentas", "ciencia", "erdivertido"]
+      "tags": [
+        "shorts",
+        "jupiter",
+        "granmancharoja",
+        "espacio",
+        "astronomia",
+        "tormentas",
+        "ciencia",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_009",
@@ -141,7 +217,16 @@
         "galaxy spiral stars universe hubble",
         "space stars travel light speed warp"
       ],
-      "tags": ["shorts", "agujeronegro", "espacio", "relatividad", "fisica", "ciencia", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "agujeronegro",
+        "espacio",
+        "relatividad",
+        "fisica",
+        "ciencia",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_010",
@@ -155,7 +240,16 @@
         "abstract energy glow particle light",
         "active volcano glowing heat night"
       ],
-      "tags": ["shorts", "rayoglobular", "relampagos", "tormentas", "ciencia", "misterios", "fisica", "erdivertido"]
+      "tags": [
+        "shorts",
+        "rayoglobular",
+        "relampagos",
+        "tormentas",
+        "ciencia",
+        "misterios",
+        "fisica",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_011",
@@ -169,7 +263,16 @@
         "glowing hot magma lava flow",
         "drone footage of volcanic crater"
       ],
-      "tags": ["shorts", "naica", "cristalesgigantes", "geologia", "cuevas", "mexico", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "naica",
+        "cristalesgigantes",
+        "geologia",
+        "cuevas",
+        "mexico",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_012",
@@ -183,7 +286,16 @@
         "bioluminescence glowing creature underwater",
         "diver exploring deep blue underwater cavern"
       ],
-      "tags": ["shorts", "calamarcolosal", "oceano", "abismo", "misterios", "animalesmarinos", "ciencia", "erdivertido"]
+      "tags": [
+        "shorts",
+        "calamarcolosal",
+        "oceano",
+        "abismo",
+        "misterios",
+        "animalesmarinos",
+        "ciencia",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_013",
@@ -197,7 +309,16 @@
         "volcano eruption lava magma",
         "planet earth rotating space globe orbit"
       ],
-      "tags": ["shorts", "chicxulub", "asteroide", "dinosaurios", "ciencia", "historia", "megadesastres", "erdivertido"]
+      "tags": [
+        "shorts",
+        "chicxulub",
+        "asteroide",
+        "dinosaurios",
+        "ciencia",
+        "historia",
+        "megadesastres",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_014",
@@ -211,7 +332,16 @@
         "ocean waves tide coastal sea water",
         "planet earth rotating space globe orbit"
       ],
-      "tags": ["shorts", "oxigeno", "ciencia", "planetatierra", "quepasariasisi", "curiosidades", "fisica", "erdivertido"]
+      "tags": [
+        "shorts",
+        "oxigeno",
+        "ciencia",
+        "planetatierra",
+        "quepasariasisi",
+        "curiosidades",
+        "fisica",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_015",
@@ -225,7 +355,16 @@
         "volcanic crater smoke geology",
         "drone footage of volcanic crater"
       ],
-      "tags": ["shorts", "puertasdelinfierno", "darvaza", "fuego", "misterios", "geologia", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "puertasdelinfierno",
+        "darvaza",
+        "fuego",
+        "misterios",
+        "geologia",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_016",
@@ -239,7 +378,16 @@
         "stunning cosmic nebula with stars deep space",
         "planet earth rotating space globe orbit"
       ],
-      "tags": ["shorts", "anomaliadelatlanticosur", "espacio", "satelites", "nasa", "ciencia", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "anomaliadelatlanticosur",
+        "espacio",
+        "satelites",
+        "nasa",
+        "ciencia",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_017",
@@ -253,7 +401,16 @@
         "ocean storm waves high contrast motion",
         "dark storm clouds rolling timelapse"
       ],
-      "tags": ["shorts", "falladesanandres", "terremotos", "bigone", "geologia", "desastresnaturales", "ciencia", "erdivertido"]
+      "tags": [
+        "shorts",
+        "falladesanandres",
+        "terremotos",
+        "bigone",
+        "geologia",
+        "desastresnaturales",
+        "ciencia",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_018",
@@ -267,7 +424,16 @@
         "abstract energy glow particle light",
         "dramatic night sky with milky way galaxy"
       ],
-      "tags": ["shorts", "hessdalen", "misterios", "fenomenosinexplicables", "ciencia", "noruega", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "hessdalen",
+        "misterios",
+        "fenomenosinexplicables",
+        "ciencia",
+        "noruega",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_019",
@@ -281,7 +447,16 @@
         "planet earth rotating space globe orbit",
         "aerial view open ocean blue water"
       ],
-      "tags": ["shorts", "ojodelsahara", "richat", "misterios", "atlantida", "geologia", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "ojodelsahara",
+        "richat",
+        "misterios",
+        "atlantida",
+        "geologia",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_020",
@@ -295,7 +470,16 @@
         "glowing hot magma lava flow",
         "planet earth rotating space globe orbit"
       ],
-      "tags": ["shorts", "agua", "planetatierra", "quepasariasisi", "ciencia", "cambioclimatico", "curiosidades", "erdivertido"]
+      "tags": [
+        "shorts",
+        "agua",
+        "planetatierra",
+        "quepasariasisi",
+        "ciencia",
+        "cambioclimatico",
+        "curiosidades",
+        "erdivertido"
+      ]
     },
     {
       "id": "topic_021",
@@ -309,7 +493,16 @@
         "underwater deep blue ocean abyss",
         "diver exploring deep blue underwater cavern"
       ],
-      "tags": ["shorts", "pezdiablo", "abismo", "criaturasmarinas", "oceano", "misterios", "biologia", "erdivertido"]
+      "tags": [
+        "shorts",
+        "pezdiablo",
+        "abismo",
+        "criaturasmarinas",
+        "oceano",
+        "misterios",
+        "biologia",
+        "erdivertido"
+      ]
     }
   ]
 }

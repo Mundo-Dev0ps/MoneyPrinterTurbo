@@ -2,7 +2,7 @@
 set -e
 
 REPO_DIR="/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo"
-LOG_DIR="${REPO_DIR}/storage/logs"
+LOG_DIR="${REPO_DIR}/logs"
 mkdir -p "${LOG_DIR}"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 LOG_FILE="${LOG_DIR}/auto_producer_${TIMESTAMP}.log"
