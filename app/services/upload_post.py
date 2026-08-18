@@ -33,6 +33,7 @@ class UploadPostService:
         privacy_level: str = "PUBLIC_TO_EVERYONE",
         youtube_extra: Optional[dict] = None,
         scheduled_date: Optional[str] = None,
+        user_name: Optional[str] = None,
     ) -> dict:
         if not self.is_configured():
             logger.warning("Upload-Post is not configured. Skipping cross-post.")
@@ -45,14 +46,15 @@ class UploadPostService:
             logger.error(f"Video file not found: {video_path}")
             return {"success": False, "error": f"Video file not found: {video_path}"}
 
-        logger.info(f"Cross-posting video to {', '.join(platforms)} via Upload-Post...")
+        target_user = user_name or self.username
+        logger.info(f"Cross-posting video for user '{target_user}' to {', '.join(platforms)} via Upload-Post...")
 
         try:
             with open(video_path, 'rb') as video_file:
                 files = {'video': video_file}
 
                 data = [
-                    ('user', self.username),
+                    ('user', target_user),
                     ('title', title[:2200]),
                     ('privacy_level', privacy_level),
                 ]

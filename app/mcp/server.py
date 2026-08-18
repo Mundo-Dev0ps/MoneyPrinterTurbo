@@ -1077,10 +1077,12 @@ def mpt_publish_video(
     youtube_description: str = "",
     tags: Optional[list[str]] = None,
     scheduled_date: Optional[str] = None,
+    user_name: Optional[str] = None,
 ) -> dict[str, Any]:
     """
     Publish or schedule a generated video to TikTok, Instagram Reels, and YouTube Shorts via Upload-Post.
     scheduled_date format: 'YYYY-MM-DDTHH:MM:SSZ' (e.g. '2026-08-16T15:00:00Z') to place in Upload-Post Calendar.
+    user_name: Optional specific profile/channel username in Upload-Post (e.g. 'ErDivertido', 'AnimeDivertido').
     """
     from app.services.upload_post import upload_post_service
 
@@ -1128,6 +1130,7 @@ def mpt_publish_video(
         privacy_level=privacy_level,
         youtube_extra=youtube_extra,
         scheduled_date=scheduled_date,
+        user_name=user_name,
     )
     return result
 

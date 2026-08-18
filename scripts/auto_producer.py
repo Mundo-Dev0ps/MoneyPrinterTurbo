@@ -138,11 +138,13 @@ def run_production(auto_publish: bool = True) -> dict:
                 "containsSyntheticMedia": "true"
             }
             
+            target_user = topic.get("user_name") or settings.get("upload_post_username")
             upload_result = ups.upload_video(
                 video_path=video_path,
                 title=youtube_title,
                 platforms=["youtube"],
-                youtube_extra=youtube_extra
+                youtube_extra=youtube_extra,
+                user_name=target_user
             )
             logger.info(f"Resultado de publicación: {upload_result}")
         except Exception as e:
