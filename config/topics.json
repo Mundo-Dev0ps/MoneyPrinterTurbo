@@ -1,0 +1,315 @@
+{
+  "schedule_settings": {
+    "daily_slots": [
+      "10:30",
+      "14:30",
+      "19:30"
+    ],
+    "voice_name": "gemini:Charon-Male",
+    "clip_duration": 2,
+    "aspect": "9:16",
+    "font_name": "BeVietnamPro-Bold.ttf",
+    "font_size": 75,
+    "stroke_color": "#000000",
+    "stroke_width": 2.5,
+    "text_color": "#FFFFFF",
+    "rounded_subtitle_background": true
+  },
+  "topics": [
+    {
+      "id": "topic_001",
+      "subject": "Que pasaria si el Sol se apagara por 24 horas",
+      "category": "Cosmos & Que pasaria si",
+      "status": "pending",
+      "script": "Tardaríamos exactamente ocho minutos en darnos cuenta de que la luz del Sol se apagó. Al instante, la Tierra quedaría sumergida en una oscuridad total y las temperaturas comenzarían a desplomarse a toda velocidad. En pocas horas, la superficie de los océanos empezaría a congelarse y el cielo se llenaría de miles de millones de estrellas. Las plantas detendrían la fotosíntesis y el pánico se apoderaría de la humanidad. ¿Te imaginas sobrevivir a un día entero sin Sol? ¡Comenta tu respuesta!",
+      "search_terms": [
+        "sun solar flare dark space stars",
+        "planet earth dark night satellite view",
+        "aurora borealis northern lights night sky",
+        "frozen ice snow arctic winter landscape",
+        "milky way galaxy stars deep space"
+      ],
+      "tags": ["shorts", "sol", "espacio", "ciencia", "planetatierra", "curiosidades", "astronomia", "erdivertido"]
+    },
+    {
+      "id": "topic_002",
+      "subject": "TON 618: El Agujero Negro mas colosal del Universo",
+      "category": "Monstruos Cosmicos",
+      "status": "pending",
+      "script": "En el corazón del cosmos existe un monstruo que desafía la imaginación: TON seiscientos dieciocho. Este agujero negro ultramasivo tiene la masa de sesenta y seis mil millones de soles juntos. Su tamaño es tan titánico que once sistemas solares completos cabrían dentro de su horizonte de sucesos. Si estuvieras cerca, su brutal gravedad destrozaría el tiempo y la luz a tu alrededor en una milésima de segundo. ¿Te imaginas contemplar este abismo de cerca? ¡Comenta tu opinión!",
+      "search_terms": [
+        "black hole space cosmos gravity",
+        "galaxy spiral stars universe hubble",
+        "stunning cosmic nebula with stars deep space",
+        "supernova explosion space stars cosmos"
+      ],
+      "tags": ["shorts", "ton618", "agujeronegro", "espacio", "universo", "astronomia", "ciencia", "erdivertido"]
+    },
+    {
+      "id": "topic_003",
+      "subject": "El Megatsunami de Bahia Lituya: La ola de 500 metros",
+      "category": "Megadesastres Naturales",
+      "status": "pending",
+      "script": "En mil novecientos cincuenta y ocho, un gigantesco terremoto en Alaska provocó el desprendimiento de una montaña entera sobre el agua. El impacto levantó una colosal ola de más de quinientos metros de altura, más alta que el mismísimo Empire State. La fuerza del agua arrancó millones de árboles y borró bosques enteros en cuestión de segundos, convirtiéndose en la ola más alta jamás registrada por la humanidad. ¿Te imaginas ver una ola así frente a ti? ¡Comenta qué harías!",
+      "search_terms": [
+        "giant tsunami ocean wave storm",
+        "mountain landslide rockfall nature",
+        "dark storm ocean rough water waves",
+        "ocean storm waves high contrast motion"
+      ],
+      "tags": ["shorts", "megatsunami", "lituya", "tsunami", "desastresnaturales", "ciencia", "oceano", "erdivertido"]
+    },
+    {
+      "id": "topic_004",
+      "subject": "El Pozo Superprofundo de Kola: Lo que hallaron a 12 km bajo tierra",
+      "category": "Secretos de la Tierra",
+      "status": "pending",
+      "script": "Durante casi dos décadas, científicos soviéticos perforaron la corteza terrestre hasta alcanzar más de doce kilómetros de profundidad en el Pozo de Kola. A esa distancia encontraron temperaturas extremas de ciento ochenta grados, rocas saturadas de agua hirviendo y gases que desafiaban todas las teorías geológicas. Las perforadoras se derretían y el proyecto tuvo que ser sellado para siempre. ¿Qué otros secretos crees que oculta el centro de la Tierra? ¡Comenta tu teoría!",
+      "search_terms": [
+        "deep drill drilling machinery geology",
+        "glowing hot magma lava flow",
+        "dark cave underground rocks exploration",
+        "planet earth core geology science"
+      ],
+      "tags": ["shorts", "pozodekola", "misterios", "geologia", "tierrapromundo", "ciencia", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_005",
+      "subject": "Que pasaria si la Tierra fuera del tamano de Jupiter",
+      "category": "Cosmos & Que pasaria si",
+      "status": "pending",
+      "script": "Si nuestro planeta tuviera las dimensiones descomunales de Júpiter, tu peso aumentaría casi tres veces al instante debido a la brutal gravedad. Caminar se volvería casi imposible, la atmósfera se volvería tan densa que aplastaría estructuras y la Luna se estrellaría contra nosotros o saldría disparada al espacio. Los continentes serían tan gigantescos que tardarías meses en viajar de una costa a otra. ¿Crees que podríamos sobrevivir? ¡Comenta qué opinas!",
+      "search_terms": [
+        "planet jupiter space cosmos gas giant",
+        "planet earth rotating space globe orbit",
+        "satellite view earth space clouds atmosphere",
+        "dark stormy clouds hurricane timelapse"
+      ],
+      "tags": ["shorts", "jupiter", "planetatierra", "gravedad", "espacio", "ciencia", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_006",
+      "subject": "El Lago Vostok: El mundo sellado bajo el hielo de la Antartida",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "A cuatro mil metros bajo el hielo eterno de la Antártida se oculta el Lago Vostok, una masa de agua completamente aislada del resto del mundo durante más de quince millones de años. Sin luz solar y bajo una presión descomunal, este ecosistema congelado alberga bacterias y microorganismos únicos que no existen en ninguna otra parte de la Tierra. Los científicos creen que podría ser la clave para hallar vida en lunas alienígenas. ¿Qué seres crees que habitan allí abajo? ¡Comenta!",
+      "search_terms": [
+        "antarctica ice glaciers frozen water",
+        "underwater blue deep cave ice",
+        "bioluminescence deep sea glowing creature",
+        "view of giant glaciers at antarctica"
+      ],
+      "tags": ["shorts", "lagovostok", "antartida", "misterios", "ciencia", "biologia", "abismo", "erdivertido"]
+    },
+    {
+      "id": "topic_007",
+      "subject": "El Misterio del Triangulo de las Bermudas: Lo que la ciencia descubrio",
+      "category": "Misterios del Oceano",
+      "status": "pending",
+      "script": "Durante décadas, el Triángulo de las Bermudas fue el epicentro de misteriosas desapariciones de barcos y aviones. Aunque las leyendas hablaban de portales o fuerzas sobrenaturales, los oceanógrafos descubrieron que en esta zona confluyen violentas olas gigantescas de más de treinta metros y profundas fosas marinas donde las corrientes oceánicas tragan cualquier resto en minutos. El mar es implacable. ¿Crees en la ciencia o en la leyenda? ¡Comenta tu opinión!",
+      "search_terms": [
+        "ocean storm waves high contrast motion",
+        "underwater deep blue ocean abyss",
+        "dark ocean waves in stormy weather",
+        "aerial view open ocean blue water"
+      ],
+      "tags": ["shorts", "triangulodelasbermudas", "misterios", "oceano", "ciencia", "barcos", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_008",
+      "subject": "La Gran Mancha Roja de Jupiter: La tormenta que devora planetas",
+      "category": "Monstruos Cosmicos",
+      "status": "pending",
+      "script": "En la atmósfera de Júpiter ruge un huracán monstruoso conocido como la Gran Mancha Roja. Esta gigantesca tormenta lleva activa más de trescientos años ininterrumpidos y tiene un tamaño tan colosal que la Tierra entera cabría en su interior con facilidad. Sus vientos superan los seiscientos kilómetros por hora con relámpagos mil veces más potentes que los terrestres. ¿Te imaginas presenciar una tormenta eterna desde el espacio? ¡Comenta qué te parece!",
+      "search_terms": [
+        "planet jupiter space cosmos gas giant",
+        "dark storm clouds rolling timelapse",
+        "galaxy milky way stars nebula",
+        "hurricane storm clouds satellite"
+      ],
+      "tags": ["shorts", "jupiter", "granmancharoja", "espacio", "astronomia", "tormentas", "ciencia", "erdivertido"]
+    },
+    {
+      "id": "topic_009",
+      "subject": "Que pasaria si cayeras dentro de un Agujero Negro",
+      "category": "Cosmos & Que pasaria si",
+      "status": "pending",
+      "script": "Si cruzaras el horizonte de sucesos de un agujero negro, experimentarías un fenómeno aterrador conocido como espaguetificación. La gravedad en tus pies sería millones de veces más fuerte que en tu cabeza, estirando tu cuerpo como un hilo. Desde tu perspectiva verías la historia entera del universo acelerándose frente a tus ojos en un solo segundo debido a la distorsión extrema del tiempo. Nadie ha regresado para contarlo. ¿Te atreverías a entrar? ¡Comenta!",
+      "search_terms": [
+        "black hole space cosmos gravity",
+        "stunning cosmic nebula with stars deep space",
+        "galaxy spiral stars universe hubble",
+        "space stars travel light speed warp"
+      ],
+      "tags": ["shorts", "agujeronegro", "espacio", "relatividad", "fisica", "ciencia", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_010",
+      "subject": "El Rayo Globular: La misteriosa esfera de fuego flotante",
+      "category": "Fenomenos Extremos",
+      "status": "pending",
+      "script": "Durante violentas tormentas eléctricas, testigos de todo el mundo han reportado un fenómeno inexplicable: el rayo globular. Se trata de esferas de plasma brillante del tamaño de un balón que flotan en el aire, atraviesan paredes sólidas y emiten un zumbido aterrador antes de explotar con fuerza destructiva. Durante siglos se creyó que era un mito, pero la física moderna aún lucha por explicar cómo se forman. ¿Alguna vez has visto algo similar? ¡Comenta tu experiencia!",
+      "search_terms": [
+        "lightning storm night dramatic sky",
+        "dark stormy clouds hurricane timelapse",
+        "abstract energy glow particle light",
+        "active volcano glowing heat night"
+      ],
+      "tags": ["shorts", "rayoglobular", "relampagos", "tormentas", "ciencia", "misterios", "fisica", "erdivertido"]
+    },
+    {
+      "id": "topic_011",
+      "subject": "La Cueva de los Cristales Gigantes de Naica",
+      "category": "Secretos de la Tierra",
+      "status": "pending",
+      "script": "A trescientos metros bajo el desierto de Chihuahua se oculta la Cueva de los Cristales, un lugar que parece sacado de otro planeta. Allí se encuentran columnas de selenita de más de doce metros de largo y cincuenta toneladas de peso. Con una temperatura de cincuenta grados y cien por ciento de humedad, un ser humano sin equipo especial moriría asfixiado en menos de diez minutos. Es un horno subterráneo de belleza letal. ¿Te atreverías a explorarla? ¡Comenta!",
+      "search_terms": [
+        "dark cave underground rocks exploration",
+        "crystal mineral rock texture closeup",
+        "glowing hot magma lava flow",
+        "drone footage of volcanic crater"
+      ],
+      "tags": ["shorts", "naica", "cristalesgigantes", "geologia", "cuevas", "mexico", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_012",
+      "subject": "El Calamar Colosal: El titan de las aguas antarticas",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "En las gélidas profundidades del océano Antártico habita el invertebrado más grande del planeta: el calamar colosal. Con ojos del tamaño de platos de comida capaces de ver en la oscuridad total y tentáculos armados con afilados garfios giratorios, este cazador del abismo lucha a muerte contra los cachalotes a miles de metros bajo el mar. Muy pocos humanos han logrado ver uno con vida. ¿Te da miedo lo que se oculta en el océano profundo? ¡Comenta!",
+      "search_terms": [
+        "deep sea creature swimming in underwater darkness",
+        "underwater deep blue ocean abyss",
+        "bioluminescence glowing creature underwater",
+        "diver exploring deep blue underwater cavern"
+      ],
+      "tags": ["shorts", "calamarcolosal", "oceano", "abismo", "misterios", "animalesmarinos", "ciencia", "erdivertido"]
+    },
+    {
+      "id": "topic_013",
+      "subject": "El Impacto de Chicxulub: El dia que murieron los dinosaurios",
+      "category": "Megadesastres Naturales",
+      "status": "pending",
+      "script": "Hace sesenta y seis millones de años, un asteroide de diez kilómetros de ancho impactó contra la península de Yucatán con la fuerza de diez mil millones de bombas atómicas. La colisión desató incendios globales, megatsunamis de cientos de metros y una nube de polvo que bloqueó la luz solar durante décadas, extinguiendo al setenta y cinco por ciento de las especies de la Tierra. Si un asteroide similar viniera hoy, ¿crees que podríamos detenerlo? ¡Comenta tu opinión!",
+      "search_terms": [
+        "meteor asteroid falling fire impact space",
+        "giant tsunami ocean wave storm",
+        "volcano eruption lava magma",
+        "planet earth rotating space globe orbit"
+      ],
+      "tags": ["shorts", "chicxulub", "asteroide", "dinosaurios", "ciencia", "historia", "megadesastres", "erdivertido"]
+    },
+    {
+      "id": "topic_014",
+      "subject": "Que pasaria si el Oxigeno desapareciera por 5 segundos",
+      "category": "Cosmos & Que pasaria si",
+      "status": "pending",
+      "script": "Si el oxígeno desapareciera por solo cinco segundos, el cielo se volvería completamente negro en pleno día. Todas las construcciones de hormigón se desmoronarían al instante, el tímpano de cada ser humano explotaría por el cambio de presión y la corteza terrestre se fracturaría al perder su enlace químico. Al mismo tiempo, los océanos comenzarían a evaporarse al espacio. Cinco segundos bastarían para acabar con la civilización. ¿Te imaginas ese instante? ¡Comenta qué opinas!",
+      "search_terms": [
+        "satellite view earth space clouds atmosphere",
+        "dark storm clouds rolling timelapse",
+        "ocean waves tide coastal sea water",
+        "planet earth rotating space globe orbit"
+      ],
+      "tags": ["shorts", "oxigeno", "ciencia", "planetatierra", "quepasariasisi", "curiosidades", "fisica", "erdivertido"]
+    },
+    {
+      "id": "topic_015",
+      "subject": "Las Puertas del Infierno: El crater de fuego eterno de Darvaza",
+      "category": "Secretos de la Tierra",
+      "status": "pending",
+      "script": "En medio del desierto de Turkmenistán arde un cráter colosal de setenta metros de ancho conocido como Las Puertas del Infierno. En mil novecientos setenta y uno, ingenieros soviéticos perforaron accidentalmente una bolsa de gas y decidieron encenderle fuego esperando que se apagara en pocos días. Han pasado más de cincuenta años y el pozo sigue ardiendo con llamaradas incandescentes día y noche. ¿Visitarías este lugar de pesadilla? ¡Comenta tu respuesta!",
+      "search_terms": [
+        "active volcano glowing heat night",
+        "glowing hot magma lava flow",
+        "volcanic crater smoke geology",
+        "drone footage of volcanic crater"
+      ],
+      "tags": ["shorts", "puertasdelinfierno", "darvaza", "fuego", "misterios", "geologia", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_016",
+      "subject": "El Triangulo de las Bermudas del Espacio: La Anomalia del Atlantico Sur",
+      "category": "Monstruos Cosmicos",
+      "status": "pending",
+      "script": "Sobre las costas de Sudamérica se encuentra una falla invisible en el campo magnético de la Tierra: la Anomalía del Atlántico Sur. Cuando los satélites espaciales y la Estación Espacial Internacional cruzan esta región, la radiación cósmica bombardea sus circuitos, provocando apagones, reinicios inesperados y fallos en los sistemas electrónicos. Los astronautas incluso afirman ver extraños destellos en sus ojos al cerrarlos. ¿Qué opinas de este misterio invisible? ¡Comenta!",
+      "search_terms": [
+        "satellite view earth space clouds atmosphere",
+        "aurora borealis northern lights night sky",
+        "stunning cosmic nebula with stars deep space",
+        "planet earth rotating space globe orbit"
+      ],
+      "tags": ["shorts", "anomaliadelatlanticosur", "espacio", "satelites", "nasa", "ciencia", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_017",
+      "subject": "La Falla de San Andres: El terremoto colosal que espera a California",
+      "category": "Megadesastres Naturales",
+      "status": "pending",
+      "script": "A lo largo de más de mil trescientos kilómetros en la costa oeste de América se extiende la Falla de San Andrés. Los geólogos advierten que la fricción entre las placas tectónicas del Pacífico y Norteamérica lleva acumulando energía durante más de un siglo. El temido Big One liberará una sacudida telúrica de magnitud superior a ocho, alterando la geografía para siempre. La naturaleza es imparable. ¿Crees que las ciudades modernas resistirían? ¡Comenta tu opinión!",
+      "search_terms": [
+        "drone footage of volcanic crater",
+        "mountain landslide rockfall nature",
+        "ocean storm waves high contrast motion",
+        "dark storm clouds rolling timelapse"
+      ],
+      "tags": ["shorts", "falladesanandres", "terremotos", "bigone", "geologia", "desastresnaturales", "ciencia", "erdivertido"]
+    },
+    {
+      "id": "topic_018",
+      "subject": "El Misterio de las Luces de Hessdalen",
+      "category": "Fenomenos Extremos",
+      "status": "pending",
+      "script": "En un solitario valle de Noruega ocurre uno de los fenómenos más desconcertantes del mundo: las Luces de Hessdalen. Desde hace décadas, esferas luminosas multicolores del tamaño de automóviles flotan silenciosamente sobre las montañas, aceleran a velocidades supersónicas y cambian de forma en segundos. Científicos de todo el planeta han instalado radares y cámaras de espectro sin lograr descifrar su origen. ¿Fenómeno natural o algo más? ¡Comenta tu teoría!",
+      "search_terms": [
+        "aurora borealis northern lights night sky",
+        "milky way stars night sky galaxy",
+        "abstract energy glow particle light",
+        "dramatic night sky with milky way galaxy"
+      ],
+      "tags": ["shorts", "hessdalen", "misterios", "fenomenosinexplicables", "ciencia", "noruega", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_019",
+      "subject": "El Ojo del Sahara: La colosal estructura misteriosa de Africa",
+      "category": "Secretos de la Tierra",
+      "status": "pending",
+      "script": "En medio de las dunas del desierto de Mauritania se encuentra la Estructura de Richat, conocida como El Ojo del Sahara. Con más de cuarenta kilómetros de diámetro, estos anillos concéntricos son tan inmensos que solo pueden apreciarse en su totalidad desde la órbita espacial. Aunque la geología indica un domo erosionado, muchos teóricos e historiadores sugieren que coincide con las descripciones de la legendaria Atlántida. ¿Qué crees tú? ¡Comenta tu opinión!",
+      "search_terms": [
+        "satellite view earth space clouds atmosphere",
+        "drone footage of volcanic crater",
+        "planet earth rotating space globe orbit",
+        "aerial view open ocean blue water"
+      ],
+      "tags": ["shorts", "ojodelsahara", "richat", "misterios", "atlantida", "geologia", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_020",
+      "subject": "Que pasaria si toda el agua de la Tierra se evaporara",
+      "category": "Cosmos & Que pasaria si",
+      "status": "pending",
+      "script": "Si los océanos de la Tierra se evaporaran por completo, el planeta se transformaría en un desierto gigantesco y sofocante similar a Venus. Sin agua para regular la temperatura, el calor subiría a más de cien grados en pocos días, la vegetación ardería en incendios masivos y la atmósfera se volvería irrespirable. La Tierra se convertiría en una roca estéril flotando en el vacío del espacio. El agua es nuestra vida. ¿Te imaginas un mundo así? ¡Comenta qué opinas!",
+      "search_terms": [
+        "dark storm clouds rolling timelapse",
+        "sun solar flare dark space stars",
+        "glowing hot magma lava flow",
+        "planet earth rotating space globe orbit"
+      ],
+      "tags": ["shorts", "agua", "planetatierra", "quepasariasisi", "ciencia", "cambioclimatico", "curiosidades", "erdivertido"]
+    },
+    {
+      "id": "topic_021",
+      "subject": "El Monstruo de la Zona Abisal: El Pez Diablo Negro",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "A miles de metros en la negrura absoluta del océano vive el rape abisal o pez diablo negro. Con dientes transparentes como agujas y una antena con una bombilla bioluminiscente que brilla en la oscuridad para atraer presas, este depredador es capaz de engullir criaturas dos veces más grandes que su propio cuerpo gracias a su estómago expandible. La evolución creó criaturas de pesadilla en el fondo del mundo. ¿Te atreverías a tocarlo? ¡Comenta!",
+      "search_terms": [
+        "bioluminescence glowing creature underwater",
+        "deep sea creature swimming in underwater darkness",
+        "underwater deep blue ocean abyss",
+        "diver exploring deep blue underwater cavern"
+      ],
+      "tags": ["shorts", "pezdiablo", "abismo", "criaturasmarinas", "oceano", "misterios", "biologia", "erdivertido"]
+    }
+  ]
+}
