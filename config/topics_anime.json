@@ -1,0 +1,78 @@
+{
+  "schedule_settings": {
+    "daily_slots": [
+      "11:00",
+      "16:00",
+      "21:00"
+    ],
+    "upload_post_username": "AnimeDivertido",
+    "voice_name": "gemini:Charon-Male",
+    "clip_duration": 2,
+    "aspect": "9:16",
+    "transition_mode": "random",
+    "font_name": "BeVietnamPro-Bold.ttf",
+    "font_size": 75,
+    "stroke_color": "#000000",
+    "stroke_width": 2.5,
+    "text_color": "#FFFFFF",
+    "rounded_subtitle_background": true
+  },
+  "topics": [
+    {
+      "id": "anime_001",
+      "subject": "El secreto de la fruta de Luffy que Oda oculto por 25 anos",
+      "anime": "One Piece",
+      "status": "pending",
+      "script": "Durante más de veinticinco años, todos creímos que Luffy comió la fruta de la goma. Sin embargo, el autor Eiichiro Oda planeó desde el primer capítulo el secreto más grande del anime: la legendaria fruta Hito Hito modelo Nika, el Dios del Sol. El Gobierno Mundial borró su verdadero nombre de la historia para ocultar el poder de la liberación. Cuando Luffy despertó el Gear Fifth, el mundo del anime cambió para siempre. ¿Sospechabas este secreto desde el inicio? ¡Comenta tu opinión!",
+      "tags": ["shorts", "onepiece", "luffy", "gear5", "anime", "curiosidades", "manga", "animedivertido"]
+    },
+    {
+      "id": "anime_002",
+      "subject": "El diseno original de Goku que casi cancela Dragon Ball",
+      "anime": "Dragon Ball",
+      "status": "pending",
+      "script": "Antes de convertirse en el guerrero más famoso de la historia, Akira Toriyama diseñó originalmente a Goku como un mono parlante real con ropa humana, inspirado en la leyenda de Sun Wukong. Los editores rechazaron el diseño advirtiendo que la serie fracasaría de inmediato. Toriyama decidió entonces crear un niño humano pero conservando la cola de mono y el báculo sagrado, naciendo así la leyenda de Dragon Ball. ¿Te imaginas a Goku como un mono real? ¡Comenta qué te parece!",
+      "tags": ["shorts", "dragonball", "goku", "toriyama", "anime", "manga", "curiosidadesanime", "animedivertido"]
+    },
+    {
+      "id": "anime_003",
+      "subject": "El aterrador presagio del capitulo 1 de Attack on Titan",
+      "anime": "Shingeki no Kyojin",
+      "status": "pending",
+      "script": "En el mismísimo primer episodio de Attack on Titan, titulado A ti, dos mil años después, Eren Jaeger despierta llorando de una pesadilla. Más de diez años después, los fanáticos descubrieron que en ese sueño Eren vio en flashforwards el colosal Retumbar de la Tierra y la muerte de millones de personas antes de poseer el Titán de Ataque. Isayama conectó el inicio con el final exacto de la historia. ¿Habías notado esta pista maestra? ¡Comenta tu teoría!",
+      "tags": ["shorts", "attackontitan", "shingekinokyojin", "erenjaeger", "anime", "manga", "curiosidades", "animedivertido"]
+    },
+    {
+      "id": "anime_004",
+      "subject": "El oscuro secreto de Itachi Uchiha y el cuervo de Shisui",
+      "anime": "Naruto Shippuden",
+      "status": "pending",
+      "script": "Itachi Uchiha no solo era un prodigio del combate, sino el estratega más frío del mundo ninja. Para proteger a Konoha incluso después de su muerte, implantó el ojo de Shisui en un cuervo y lo introdujo dentro de Naruto con la orden de activarse si Sasuke intentaba destruir la aldea. El Kotoamatsukami fue el seguro de vida que salvó al mundo shinobi. ¿Consideras a Itachi el mejor personaje de Naruto? ¡Comenta tu respuesta!",
+      "tags": ["shorts", "naruto", "itachi", "sasuke", "anime", "shippuden", "uchiha", "animedivertido"]
+    },
+    {
+      "id": "anime_005",
+      "subject": "La regla oculta de la Death Note que Ryuk jamas conto",
+      "anime": "Death Note",
+      "status": "pending",
+      "script": "En las páginas del cuaderno de la muerte existe una regla aterradora que Light Yagami descubrió demasiado tarde: todos los humanos que utilizan la Death Note, sin importar sus intenciones de justicia, no pueden ir ni al cielo ni al infierno al morir; su destino es la nada absoluta conocida como Mu. Ryuk siempre supo que Light terminaría derrotado desde el primer día. ¿Crees que Light tenía razón o era un villano? ¡Comenta tu opinión!",
+      "tags": ["shorts", "deathnote", "lightyagami", "ryuk", "anime", "manga", "curiosidades", "animedivertido"]
+    },
+    {
+      "id": "anime_006",
+      "subject": "Por que Gojo Satoru siempre cubre sus ojos en Jujutsu Kaisen",
+      "anime": "Jujutsu Kaisen",
+      "status": "pending",
+      "script": "Gojo Satoru no usa su venda por estilo, sino por pura supervivencia mental. Sus Seis Ojos perciben el flujo de energía maldita a nivel atómico y procesan millones de datos por segundo. Si mantuviera los ojos descubiertos todo el tiempo, su cerebro colapsaría de agotamiento. La venda filtra la información para mantenerlo lúcido, y solo se la quita cuando desata su Expansión de Dominio. ¿Es Gojo el hechicero más poderoso? ¡Comenta!",
+      "tags": ["shorts", "jujutsukaisen", "gojosatoru", "anime", "sukuna", "curiosidadesanime", "manga", "animedivertido"]
+    },
+    {
+      "id": "anime_007",
+      "subject": "El entrenamiento real de Saitama en One Punch Man",
+      "anime": "One Punch Man",
+      "status": "pending",
+      "script": "Cien flexiones, cien abdominales, cien sentadillas y diez kilómetros de carrera todos los días. Aunque parece una rutina de gimnasio común, la clave de Saitama fue que la realizó hasta romper su limitador biológico natural, un sello divino impuesto a los seres vivos para evitar que su cuerpo colapse bajo un poder descomunal. Al destruirlo, su fuerza se volvió literalmente infinita. ¿Podrías aguantar el entrenamiento de Saitama? ¡Comenta!",
+      "tags": ["shorts", "onepunchman", "saitama", "anime", "manga", "curiosidades", "animedivertido"]
+    }
+  ]
+}

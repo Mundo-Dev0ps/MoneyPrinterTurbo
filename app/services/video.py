@@ -582,7 +582,27 @@ def combine_videos(
     processed_clips = []
     subclipped_items = []
     video_duration = 0
+    IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.webp', '.bmp')
+
     for video_path in video_paths:
+        is_image = str(video_path).lower().endswith(IMAGE_EXTENSIONS)
+        if is_image:
+            img_clip, _ = _open_image_clip_with_fallback(video_path)
+            clip_w, clip_h = img_clip.size
+            close_clip(img_clip)
+            subclipped_items.append(
+                SubClippedVideoClip(
+                    file_path=video_path,
+                    start_time=0,
+                    end_time=source_clip_duration,
+                    duration=source_clip_duration,
+                    width=clip_w,
+                    height=clip_h,
+                    source_file_path=video_path,
+                )
+            )
+            continue
+
         clip = _open_video_clip_quietly(video_path)
         clip_duration = clip.duration
         clip_w, clip_h = clip.size
@@ -632,9 +652,15 @@ def combine_videos(
         )
         
         try:
-            clip = _open_video_clip_quietly(subclipped_item.file_path).subclipped(
-                subclipped_item.start_time, subclipped_item.end_time
-            )
+            is_image = str(subclipped_item.file_path).lower().endswith(IMAGE_EXTENSIONS)
+            if is_image:
+                clip_duration = subclipped_item.end_time - subclipped_item.start_time
+                img_clip, _ = _open_image_clip_with_fallback(subclipped_item.file_path)
+                clip = img_clip.with_duration(clip_duration)
+            else:
+                clip = _open_video_clip_quietly(subclipped_item.file_path).subclipped(
+                    subclipped_item.start_time, subclipped_item.end_time
+                )
             # 播放速度属于素材本身属性，应在转场前应用。这样 Fade/Slide 等一秒转场
             # 不会跟随素材速度变成 0.5 秒或 2 秒；后续最大时长裁剪继续作为
             # 浮点误差或异常素材时长的安全兜底，保证最终片段不突破配置上限。
