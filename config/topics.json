@@ -48,7 +48,7 @@
       "id": "topic_002",
       "subject": "TON 618: El Agujero Negro mas colosal del Universo",
       "category": "Monstruos Cosmicos",
-      "status": "pending",
+      "status": "published",
       "script": "En el corazón del cosmos existe un monstruo que desafía la imaginación: TON seiscientos dieciocho. Este agujero negro ultramasivo tiene la masa de sesenta y seis mil millones de soles juntos. Su tamaño es tan titánico que once sistemas solares completos cabrían dentro de su horizonte de sucesos. Si estuvieras cerca, su brutal gravedad destrozaría el tiempo y la luz a tu alrededor en una milésima de segundo. ¿Te imaginas contemplar este abismo de cerca? ¡Comenta tu opinión!",
       "search_terms": [
         "black hole space cosmos gravity",
@@ -65,13 +65,47 @@
         "astronomia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-18T18:40:10.958365",
+      "task_id": "25ec142b-2386-42ff-bf84-3b472c302b61",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/25ec142b-2386-42ff-bf84-3b472c302b61/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "hsqfemu_LNo",
+            "url": "https://www.youtube.com/watch?v=hsqfemu_LNo",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 37.6,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 14,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "7532f41bb5254b149f1df9a2b111d21e",
+        "job_id": "58ef8b48d2f9468e927f6c81cfd319d7",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_003",
       "subject": "El Megatsunami de Bahia Lituya: La ola de 500 metros",
       "category": "Megadesastres Naturales",
-      "status": "pending",
+      "status": "published",
       "script": "En mil novecientos cincuenta y ocho, un gigantesco terremoto en Alaska provocó el desprendimiento de una montaña entera sobre el agua. El impacto levantó una colosal ola de más de quinientos metros de altura, más alta que el mismísimo Empire State. La fuerza del agua arrancó millones de árboles y borró bosques enteros en cuestión de segundos, convirtiéndose en la ola más alta jamás registrada por la humanidad. ¿Te imaginas ver una ola así frente a ti? ¡Comenta qué harías!",
       "search_terms": [
         "giant tsunami ocean wave storm",
@@ -88,7 +122,41 @@
         "ciencia",
         "oceano",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-19T00:02:54.443229",
+      "task_id": "a777a4cb-1d46-4c88-89cd-2453d2246041",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a777a4cb-1d46-4c88-89cd-2453d2246041/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "NccK1xP9Gv4",
+            "url": "https://www.youtube.com/watch?v=NccK1xP9Gv4",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 30.57,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 22,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "c05f3976aa6e4c9886fca74f407c6f82",
+        "job_id": "e0f37d3e98dc46aeb1796b1b55b7d492",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_004",
