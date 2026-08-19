@@ -162,7 +162,7 @@
       "id": "topic_004",
       "subject": "El Pozo Superprofundo de Kola: Lo que hallaron a 12 km bajo tierra",
       "category": "Secretos de la Tierra",
-      "status": "pending",
+      "status": "rendered",
       "script": "Durante casi dos décadas, científicos soviéticos perforaron la corteza terrestre hasta alcanzar más de doce kilómetros de profundidad en el Pozo de Kola. A esa distancia encontraron temperaturas extremas de ciento ochenta grados, rocas saturadas de agua hirviendo y gases que desafiaban todas las teorías geológicas. Las perforadoras se derretían y el proyecto tuvo que ser sellado para siempre. ¿Qué otros secretos crees que oculta el centro de la Tierra? ¡Comenta tu teoría!",
       "search_terms": [
         "deep drill drilling machinery geology",
@@ -179,13 +179,17 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-19T14:42:35.596055",
+      "task_id": "14a8cd0b-56d6-49b8-afc5-029ff8339b59",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/14a8cd0b-56d6-49b8-afc5-029ff8339b59/final-1.mp4",
+      "upload_result": null
     },
     {
       "id": "topic_005",
       "subject": "Que pasaria si la Tierra fuera del tamano de Jupiter",
       "category": "Cosmos & Que pasaria si",
-      "status": "pending",
+      "status": "published",
       "script": "Si nuestro planeta tuviera las dimensiones descomunales de Júpiter, tu peso aumentaría casi tres veces al instante debido a la brutal gravedad. Caminar se volvería casi imposible, la atmósfera se volvería tan densa que aplastaría estructuras y la Luna se estrellaría contra nosotros o saldría disparada al espacio. Los continentes serían tan gigantescos que tardarías meses en viajar de una costa a otra. ¿Crees que podríamos sobrevivir? ¡Comenta qué opinas!",
       "search_terms": [
         "planet jupiter space cosmos gas giant",
@@ -202,7 +206,41 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-19T19:45:11.996619",
+      "task_id": "0ce92583-7690-4818-9dca-abea9766a46d",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/0ce92583-7690-4818-9dca-abea9766a46d/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "JeObd2L_M4Q",
+            "url": "https://www.youtube.com/watch?v=JeObd2L_M4Q",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 33.37,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 23,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "f916f29a9f884032884fa1a6d7a7ba3e",
+        "job_id": "676292c13fbb4e24a6e98aa20ae6f6c6",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_006",
