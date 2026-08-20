@@ -84,10 +84,101 @@ def check_smart_slot_needed(data: dict) -> tuple[bool, str]:
     return False, f"Al día: Hoy ya se publicaron {published_today}/{len(daily_slots)} videos correspondientes a la hora actual ({current_time_str})."
 
 
+def refill_topics_if_needed(data: dict, min_pending: int = 3, batch_size: int = 10) -> int:
+    """
+    If pending topics count drops below min_pending, automatically uses Gemini LLM
+    to brainstorm and append new high-retention viral topics following our winning formula.
+    """
+    pending_count = sum(1 for t in data.get("topics", []) if t.get("status") == "pending")
+    if pending_count >= min_pending:
+        return 0
+
+    logger.info(f"Quedan solo {pending_count} temas pendientes. Autogenerando {batch_size} nuevos temas virales con Gemini LLM...")
+    
+    # Extract existing subjects to avoid duplicates
+    existing_subjects = [t.get("subject", "") for t in data.get("topics", [])]
+    existing_list_str = "\n- ".join(existing_subjects[-30:])
+
+    prompt = f"""Eres un creador de contenido experto en YouTube Shorts virales de ciencia, misterios cosmicos y geologia.
+Genera exactamente {batch_size} NUEVOS temas virales que sigan las tematicas con mayor retencion:
+1. Misterios del cosmos y agujeros negros
+2. Misterios abisales y del fondo del oceano
+3. Megadesastres naturales y volcanes
+4. Secretos geologicos de la Tierra
+5. "¿Que pasaria si...?" (experimentos mentales extremos de fisica)
+
+IMPORTANTE:
+- NO repitas ninguno de estos temas que ya hicimos:
+- {existing_list_str}
+
+Responde UNICAMENTE con un JSON valido que sea una lista de objetos con esta estructura exacta (sin texto adicional):
+[
+  {{
+    "subject": "Titulo atractivo y con gancho (sin emojis)",
+    "category": "Cosmos / Misterios Abisales / Megadesastres Naturales / Secretos de la Tierra / Fenomenos Extremos / Que pasaria si",
+    "script": "Guion completo en espanol narrativo continuo de 60 a 75 palabras. Debe empezar con un gancho demoledor en la primera frase, desarrollar el dato cientifico o misterio con tension y terminar con una pregunta/llamado a la accion: '¿Que opinas? ¡Comenta tu respuesta!'.",
+    "search_terms": [
+      "4 or 5 descriptive english search keywords for stock footage in pexels",
+      "space stars galaxy dark",
+      "ocean deep water abyss"
+    ],
+    "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+  }}
+]"""
+
+    try:
+        from app.services import llm
+        response_text = llm.generate_response(prompt=prompt)
+        
+        # Clean JSON block
+        clean_json = response_text.strip()
+        if "```json" in clean_json:
+            clean_json = clean_json.split("```json")[1].split("```")[0].strip()
+        elif "```" in clean_json:
+            clean_json = clean_json.split("```")[1].split("```")[0].strip()
+            
+        new_topics = json.loads(clean_json)
+        if not isinstance(new_topics, list):
+            logger.warning("LLM response did not contain a valid list of topics.")
+            return 0
+            
+        # Get max existing index
+        max_idx = 0
+        for t in data.get("topics", []):
+            t_id = t.get("id", "")
+            if t_id.startswith("topic_"):
+                try:
+                    num = int(t_id.replace("topic_", ""))
+                    if num > max_idx:
+                        max_idx = num
+                except ValueError:
+                    pass
+                    
+        added = 0
+        for item in new_topics:
+            max_idx += 1
+            new_id = f"topic_{max_idx:03d}"
+            item["id"] = new_id
+            item["status"] = "pending"
+            data["topics"].append(item)
+            added += 1
+            logger.info(f"Nuevo tema agregado a la cola: [{new_id}] {item.get('subject')}")
+            
+        save_topics_data(data)
+        logger.info(f"Se agregaron {added} nuevos temas virales automaticamente a topics.json.")
+        return added
+    except Exception as e:
+        logger.error(f"Error autogenerando temas con LLM: {e}")
+        return 0
+
+
 def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict:
     logger.info("=== INICIANDO AUTO-PRODUCER MONEYPRINTERTURBO ===")
     data = load_topics_data()
     settings = data.get("schedule_settings", {})
+    
+    # Auto-refill queue with new viral topics if running low
+    refill_topics_if_needed(data, min_pending=3, batch_size=10)
     
     if smart_check:
         should_run, reason = check_smart_slot_needed(data)
