@@ -304,7 +304,7 @@
       "id": "topic_007",
       "subject": "El Misterio del Triangulo de las Bermudas: Lo que la ciencia descubrio",
       "category": "Misterios del Oceano",
-      "status": "pending",
+      "status": "published",
       "script": "Durante décadas, el Triángulo de las Bermudas fue el epicentro de misteriosas desapariciones de barcos y aviones. Aunque las leyendas hablaban de portales o fuerzas sobrenaturales, los oceanógrafos descubrieron que en esta zona confluyen violentas olas gigantescas de más de treinta metros y profundas fosas marinas donde las corrientes oceánicas tragan cualquier resto en minutos. El mar es implacable. ¿Crees en la ciencia o en la leyenda? ¡Comenta tu opinión!",
       "search_terms": [
         "ocean storm waves high contrast motion",
@@ -321,7 +321,41 @@
         "barcos",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-20T16:52:24.277118",
+      "task_id": "2126efed-0dc2-4d54-818e-c23266f8e351",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/2126efed-0dc2-4d54-818e-c23266f8e351/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "LorW4Mb33v8",
+            "url": "https://www.youtube.com/watch?v=LorW4Mb33v8",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 32.9,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 30,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "45f0695e46b340db967fc3f01c92b5b2",
+        "job_id": "59da1c25119d483eb8ced0fa2442acf9",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_008",
