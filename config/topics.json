@@ -361,7 +361,7 @@
       "id": "topic_008",
       "subject": "La Gran Mancha Roja de Jupiter: La tormenta que devora planetas",
       "category": "Monstruos Cosmicos",
-      "status": "pending",
+      "status": "published",
       "script": "En la atmósfera de Júpiter ruge un huracán monstruoso conocido como la Gran Mancha Roja. Esta gigantesca tormenta lleva activa más de trescientos años ininterrumpidos y tiene un tamaño tan colosal que la Tierra entera cabría en su interior con facilidad. Sus vientos superan los seiscientos kilómetros por hora con relámpagos mil veces más potentes que los terrestres. ¿Te imaginas presenciar una tormenta eterna desde el espacio? ¡Comenta qué te parece!",
       "search_terms": [
         "planet jupiter space cosmos gas giant",
@@ -378,7 +378,41 @@
         "tormentas",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-20T17:09:37.347482",
+      "task_id": "7e10ec4c-1e26-406f-be32-2f5518dfa4e7",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/7e10ec4c-1e26-406f-be32-2f5518dfa4e7/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "55fMQvkAJL8",
+            "url": "https://www.youtube.com/watch?v=55fMQvkAJL8",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 34.33,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 31,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "5e42ef312921484dac02d626bc15fdb1",
+        "job_id": "6f82c6cf735a4817bfbee06958d92304",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_009",
