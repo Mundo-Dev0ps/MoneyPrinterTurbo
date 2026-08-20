@@ -1,6 +1,12 @@
 .DS_Store
 /config.toml
 /config.toml.bak
+/gcp-key.json
+/secrets/
+/voices/*.wav
+/voices/*.mp3
+/voices/*.mp4
+/voices/*.srt
 /storage/
 /.idea/
 /app/services/__pycache__
