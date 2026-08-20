@@ -247,7 +247,7 @@
       "id": "topic_006",
       "subject": "El Lago Vostok: El mundo sellado bajo el hielo de la Antartida",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "A cuatro mil metros bajo el hielo eterno de la Antártida se oculta el Lago Vostok, una masa de agua completamente aislada del resto del mundo durante más de quince millones de años. Sin luz solar y bajo una presión descomunal, este ecosistema congelado alberga bacterias y microorganismos únicos que no existen en ninguna otra parte de la Tierra. Los científicos creen que podría ser la clave para hallar vida en lunas alienígenas. ¿Qué seres crees que habitan allí abajo? ¡Comenta!",
       "search_terms": [
         "antarctica ice glaciers frozen water",
@@ -264,7 +264,41 @@
         "biologia",
         "abismo",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-20T14:40:55.372644",
+      "task_id": "7a89b88d-ec80-4cfd-a53b-01e9f0ae0ac3",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/7a89b88d-ec80-4cfd-a53b-01e9f0ae0ac3/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "L1mxLtdYqSc",
+            "url": "https://www.youtube.com/watch?v=L1mxLtdYqSc",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 32.9,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 25,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "ed975519a28a41fc8a0ef3d1cb8f1b5a",
+        "job_id": "02bc4004556a4b1e80764f72f0ecfba6",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_007",
