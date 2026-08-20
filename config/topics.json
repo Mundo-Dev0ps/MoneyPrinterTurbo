@@ -1,9 +1,10 @@
 {
   "schedule_settings": {
     "daily_slots": [
-      "10:30",
+      "09:30",
+      "12:00",
       "14:30",
-      "19:30"
+      "17:00"
     ],
     "voice_name": "gemini:Charon-Male",
     "clip_duration": 2,

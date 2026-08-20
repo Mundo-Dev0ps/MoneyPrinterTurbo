@@ -52,10 +52,48 @@ def get_next_pending_topic(data: dict) -> dict | None:
     return None
 
 
-def run_production(auto_publish: bool = True) -> dict:
+def check_smart_slot_needed(data: dict) -> tuple[bool, str]:
+    """
+    Checks if a video needs to be produced based on today's slots and what has already run.
+    Daily slots: ["10:30", "14:30", "19:30"]
+    Returns (should_run, reason)
+    """
+    now = datetime.now()
+    today_str = now.strftime("%Y-%m-%d")
+    current_time_str = now.strftime("%H:%M")
+
+    # Count how many videos were rendered/published today
+    published_today = 0
+    for topic in data.get("topics", []):
+        rendered_at = topic.get("rendered_at")
+        if rendered_at and rendered_at.startswith(today_str):
+            published_today += 1
+
+    settings = data.get("schedule_settings", {})
+    daily_slots = sorted(settings.get("daily_slots", ["10:30", "14:30", "19:30"]))
+
+    # Find how many slots should have occurred by now
+    expected_slots_by_now = sum(1 for slot in daily_slots if current_time_str >= slot)
+
+    if expected_slots_by_now == 0:
+        return False, f"Aún no es la hora del primer slot de hoy ({daily_slots[0]}). Hora actual: {current_time_str}"
+
+    if published_today < expected_slots_by_now:
+        return True, f"Slot pendiente detectado: Deberían haberse publicado {expected_slots_by_now} video(s) a las {current_time_str}, pero van {published_today}."
+
+    return False, f"Al día: Hoy ya se publicaron {published_today}/{len(daily_slots)} videos correspondientes a la hora actual ({current_time_str})."
+
+
+def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict:
     logger.info("=== INICIANDO AUTO-PRODUCER MONEYPRINTERTURBO ===")
     data = load_topics_data()
     settings = data.get("schedule_settings", {})
+    
+    if smart_check:
+        should_run, reason = check_smart_slot_needed(data)
+        logger.info(f"Smart Check: {reason}")
+        if not should_run:
+            return {"success": True, "skipped": True, "reason": reason}
     
     topic = get_next_pending_topic(data)
     if not topic:
@@ -174,5 +212,6 @@ def run_production(auto_publish: bool = True) -> dict:
 
 if __name__ == "__main__":
     auto_pub = "--no-publish" not in sys.argv
-    result = run_production(auto_publish=auto_pub)
+    smart_mode = "--smart" in sys.argv
+    result = run_production(auto_publish=auto_pub, smart_check=smart_mode)
     print(json.dumps(result, indent=2, ensure_ascii=False))

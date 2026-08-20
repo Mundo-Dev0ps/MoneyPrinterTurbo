@@ -15,8 +15,7 @@ docker run -i --rm \
   -v "${REPO_DIR}/app:/MoneyPrinterTurbo/app" \
   -v "${REPO_DIR}/config:/MoneyPrinterTurbo/config" \
   -v "${REPO_DIR}/scripts:/MoneyPrinterTurbo/scripts" \
-  -v "${REPO_DIR}/mcp_server.py:/MoneyPrinterTurbo/mcp_server.py" \
   ghcr.io/harry0703/moneyprinterturbo:latest \
-  sh -c "pip install -q 'mcp>=1.3.0,<2' >/dev/null 2>&1 && python3 /MoneyPrinterTurbo/scripts/auto_producer.py \"$@\"" 2>&1 | tee -a "${LOG_FILE}"
+  sh -c 'pip install -q "mcp>=1.3.0,<2" >/dev/null 2>&1 && python3 /MoneyPrinterTurbo/scripts/auto_producer.py "$@"' sh "$@" 2>&1 | tee -a "${LOG_FILE}"
 
 echo "[$(date)] Ejecucion programada finalizada." | tee -a "${LOG_FILE}"
