@@ -3,7 +3,7 @@ set -e
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOG_DIR="${REPO_DIR}/logs"
-mkdir -p "${LOG_DIR}"
+mkdir -p "${LOG_DIR}" "${REPO_DIR}/models" "${REPO_DIR}/storage"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 LOG_FILE="${LOG_DIR}/auto_producer_${TIMESTAMP}.log"
 
@@ -28,7 +28,7 @@ fi
 
 # 1. Obtener el secreto desde GCP Secret Manager via REST API
 python3 -c "
-import json, urllib.request, urllib.parse, base64
+import json, urllib.request, urllib.parse, base64, re
 from google.oauth2 import service_account
 from google.auth.transport.requests import Request
 
@@ -44,6 +44,13 @@ req = urllib.request.Request(url, headers={'Authorization': f'Bearer {token}'})
 with urllib.request.urlopen(req) as resp:
     res = json.loads(resp.read().decode('utf-8'))
     payload = base64.b64decode(res['payload']['data']).decode('utf-8')
+    
+    # Asegurar modelo Whisper eficiente (medium/small) en CPU para máxima velocidad
+    if '[whisper]' in payload:
+        payload = re.sub(r'model_size\s*=\s*\"large-v3\"', 'model_size = \"medium\"', payload)
+    else:
+        payload += '\n[whisper]\nmodel_size = \"medium\"\ndevice = \"cpu\"\ncompute_type = \"int8\"\n'
+
     with open('${RAM_CONFIG_PATH}', 'w', encoding='utf-8') as f:
         f.write(payload)
 " 2>&1 | tee -a "${LOG_FILE}"
@@ -51,9 +58,11 @@ with urllib.request.urlopen(req) as resp:
 chmod 600 "${RAM_CONFIG_PATH}"
 echo "[$(date)] Secreto descargado exitosamente en memoria RAM (/dev/shm)." | tee -a "${LOG_FILE}"
 
-# 2. Ejecutar contenedor Docker montando el config desde memoria RAM
+# 2. Ejecutar contenedor Docker montando el config desde memoria RAM y caché persistente de modelos
 docker run -i --rm \
   -v "${RAM_CONFIG_PATH}:/MoneyPrinterTurbo/config.toml:ro" \
+  -v "${REPO_DIR}/models:/root/.cache/huggingface" \
+  -v "${REPO_DIR}/models:/MoneyPrinterTurbo/models" \
   -v "${REPO_DIR}/storage:/MoneyPrinterTurbo/storage" \
   -v "${REPO_DIR}/app:/MoneyPrinterTurbo/app" \
   -v "${REPO_DIR}/config:/MoneyPrinterTurbo/config" \
