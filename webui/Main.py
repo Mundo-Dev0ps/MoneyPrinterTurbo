@@ -655,14 +655,32 @@ def _collect_task_summaries(limit=20):
 
 @st.dialog(tr("Play"), width="medium")
 def _render_task_video_dialog(video_file, subject=""):
-    tasks_root = os.path.abspath(utils.task_dir())
-    normalized_file = os.path.abspath(video_file) if video_file else ""
-    if not normalized_file or not os.path.isfile(normalized_file):
+    if not video_file:
         st.error(tr("Video Generation Failed"))
         return
-    st.video(normalized_file)
+
+    candidate_paths = [
+        video_file,
+        os.path.abspath(video_file),
+        os.path.join(utils.root_dir(), video_file.lstrip("/")),
+        os.path.join(utils.task_dir(), os.path.basename(os.path.dirname(video_file)), os.path.basename(video_file)),
+        os.path.join("/MoneyPrinterTurbo", video_file.lstrip(".")),
+        os.path.join("/MoneyPrinterTurbo/storage/tasks", os.path.basename(os.path.dirname(video_file)), os.path.basename(video_file)),
+    ]
+
+    valid_file = None
+    for p in candidate_paths:
+        if p and os.path.isfile(p):
+            valid_file = p
+            break
+
+    if not valid_file:
+        st.error(f"El archivo de video no se encuentra en el disco: `{video_file}`")
+        return
+
+    st.video(valid_file)
     try:
-        with open(normalized_file, "rb") as f:
+        with open(valid_file, "rb") as f:
             video_bytes = f.read()
         download_name = _build_video_download_name(subject, 1, 1)
         st.download_button(
@@ -672,19 +690,31 @@ def _render_task_video_dialog(video_file, subject=""):
             mime="video/mp4",
             use_container_width=True,
         )
-        st.caption(f"📁 Ruta en disco: `{normalized_file}`")
+        st.caption(f"📁 Ruta en disco: `{valid_file}`")
     except Exception as e:
         logger.error(f"failed to read video for download: {e}")
 
 
 @st.dialog(tr("Open Task Folder"), width="medium")
 def _render_task_folder_dialog(task_id, task_path):
-    tasks_root = os.path.abspath(utils.task_dir())
-    normalized_path = os.path.abspath(task_path) if task_path else ""
-    st.write(f"📁 **Ruta en disco:** `{normalized_path}`")
-    if not normalized_path or not os.path.isdir(normalized_path):
+    candidate_dirs = [
+        task_path,
+        os.path.abspath(task_path) if task_path else "",
+        os.path.join(utils.task_dir(), task_id) if task_id else "",
+        os.path.join(utils.root_dir(), "storage", "tasks", task_id) if task_id else "",
+        os.path.join("/MoneyPrinterTurbo/storage/tasks", task_id) if task_id else "",
+    ]
+    normalized_path = None
+    for d in candidate_dirs:
+        if d and os.path.isdir(d):
+            normalized_path = d
+            break
+
+    if not normalized_path:
         st.warning("La carpeta de la tarea no existe en el disco.")
         return
+
+    st.write(f"📁 **Ruta en disco:** `{normalized_path}`")
     files = sorted(os.listdir(normalized_path))
     if not files:
         st.info("No hay archivos en este directorio.")
