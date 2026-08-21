@@ -418,7 +418,7 @@
       "id": "topic_009",
       "subject": "Que pasaria si cayeras dentro de un Agujero Negro",
       "category": "Cosmos & Que pasaria si",
-      "status": "pending",
+      "status": "published",
       "script": "Si cruzaras el horizonte de sucesos de un agujero negro, experimentarías un fenómeno aterrador conocido como espaguetificación. La gravedad en tus pies sería millones de veces más fuerte que en tu cabeza, estirando tu cuerpo como un hilo. Desde tu perspectiva verías la historia entera del universo acelerándose frente a tus ojos en un solo segundo debido a la distorsión extrema del tiempo. Nadie ha regresado para contarlo. ¿Te atreverías a entrar? ¡Comenta!",
       "search_terms": [
         "black hole space cosmos gravity",
@@ -435,7 +435,41 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-20T21:10:59.942115",
+      "task_id": "defe14da-db83-4f1e-a9ae-8c693b126eb2",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/defe14da-db83-4f1e-a9ae-8c693b126eb2/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "9OdIuotGwc8",
+            "url": "https://www.youtube.com/watch?v=9OdIuotGwc8",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 31.1,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 44,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "0271965f409f4a9f92818ad876e46e80",
+        "job_id": "20565da165294c66b9c3edb355e4bc6a",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_010",
