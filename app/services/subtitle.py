@@ -87,28 +87,43 @@ def create(audio_file, subtitle_file: str = ""):
         seg_start = 0
         seg_end = 0
         seg_text = ""
+        current_chunk_words = []
 
         if segment.words:
             is_segmented = False
             for word in segment.words:
+                w_str = word.word.strip()
                 if not is_segmented:
                     seg_start = word.start
                     is_segmented = True
 
                 seg_end = word.end
-                # If it contains punctuation, then break the sentence.
                 seg_text += word.word
+                if w_str:
+                    current_chunk_words.append({
+                        "word": w_str,
+                        "start": word.start,
+                        "end": word.end
+                    })
 
-                if utils.str_contains_punctuation(word.word):
-                    # remove last char
-                    seg_text = seg_text[:-1]
-                    if not seg_text:
-                        continue
+                if utils.str_contains_punctuation(word.word) or len(current_chunk_words) >= 4:
+                    clean_text = seg_text.strip()
+                    if clean_text and utils.str_contains_punctuation(clean_text[-1:]):
+                        clean_text = clean_text[:-1].strip()
 
-                    recognized(seg_text, seg_start, seg_end)
+                    if clean_text:
+                        recognized(clean_text, seg_start, seg_end)
+                        if current_chunk_words:
+                            words_data.append({
+                                "phrase": clean_text,
+                                "start_time": seg_start,
+                                "end_time": seg_end,
+                                "words": current_chunk_words
+                            })
 
                     is_segmented = False
                     seg_text = ""
+                    current_chunk_words = []
 
                 if words_idx == 0 and segment.start < word.start:
                     seg_start = word.start
@@ -116,10 +131,16 @@ def create(audio_file, subtitle_file: str = ""):
                     seg_end = word.end
                 words_idx += 1
 
-        if not seg_text:
-            continue
-
-        recognized(seg_text, seg_start, seg_end)
+        if seg_text.strip():
+            clean_text = seg_text.strip()
+            recognized(clean_text, seg_start, seg_end)
+            if current_chunk_words:
+                words_data.append({
+                    "phrase": clean_text,
+                    "start_time": seg_start,
+                    "end_time": seg_end,
+                    "words": current_chunk_words
+                })
 
     end = timer()
 
@@ -142,6 +163,15 @@ def create(audio_file, subtitle_file: str = ""):
     with open(subtitle_file, "w", encoding="utf-8") as f:
         f.write(sub)
     logger.info(f"subtitle file created: {subtitle_file}")
+
+    if words_data:
+        words_file = f"{subtitle_file}.words.json"
+        try:
+            with open(words_file, "w", encoding="utf-8") as f:
+                json.dump(words_data, f, indent=2, ensure_ascii=False)
+            logger.info(f"word-level subtitle metadata created: {words_file}")
+        except Exception as e:
+            logger.warning(f"failed to save word-level subtitle metadata: {e}")
 
 
 def file_to_subtitles(filename):

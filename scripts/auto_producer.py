@@ -217,20 +217,20 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
     voice_res = mpt_synthesize_voice(task_id=task_id, voice_name=voice_name)
     logger.info(f"Voz sintetizada con {voice_name}: {voice_res}")
     
-    # 4. Generación de Subtítulos Premium
+    # 4. Generación de Subtítulos Dinámicos Karaoke (Amarillo + Blanco + Borde Negro)
     sub_res = mpt_generate_subtitles(
         task_id=task_id,
         font_name=settings.get("font_name", "BeVietnamPro-Bold.ttf"),
-        font_size=settings.get("font_size", 75),
+        font_size=settings.get("font_size", 70),
         stroke_color=settings.get("stroke_color", "#000000"),
-        stroke_width=settings.get("stroke_width", 2.5),
+        stroke_width=settings.get("stroke_width", 6),
         text_color=settings.get("text_color", "#FFFFFF"),
-        text_background_color="#000000",
-        rounded_subtitle_background=settings.get("rounded_subtitle_background", True),
+        text_background_color="",
+        rounded_subtitle_background=False,
         subtitle_position="bottom",
         custom_position=72.0
     )
-    logger.info("Subtítulos generados con estilo premium.")
+    logger.info("Subtítulos dinámicos karaoke generados.")
     
     # 5. Descarga de Materiales 4K (Pexels)
     mat_res = mpt_fetch_materials(task_id=task_id, source="pexels")

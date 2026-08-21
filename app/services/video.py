@@ -978,18 +978,122 @@ def _subtitle_font_supports_sample(font_path: str, sample: str) -> bool:
         return True
 
 
-def subtitle_font_supports_text(font_path: str, text: str) -> bool:
-    """检查字体能否绘制文本中的字母和数字，忽略空白及标点符号。"""
-    sample = "".join(
-        dict.fromkeys(
-            char
-            for char in str(text or "")
-            if unicodedata.category(char)[0] in {"L", "N"}
-        )
-    )[:64]
-    if not sample:
-        return True
-    return _subtitle_font_supports_sample(font_path, sample)
+def create_dynamic_karaoke_clips(
+    words_file: str,
+    font_path: str,
+    font_size: int,
+    video_width: int,
+    video_height: int,
+    active_color: str = "#FFE600",
+    inactive_color: str = "#FFFFFF",
+    stroke_color: str = "#000000",
+    stroke_width: int = 6,
+    subtitle_position: str = "bottom",
+    custom_position: float = 70.0,
+) -> list:
+    """
+    Creates dynamic word-by-word karaoke highlighted ImageClips from word-level subtitle JSON.
+    Each active word is highlighted in active_color (vibrant yellow) with thick stroke_color (black).
+    """
+    if not words_file or not os.path.exists(words_file):
+        return []
+
+    try:
+        with open(words_file, "r", encoding="utf-8") as f:
+            chunks = json.load(f)
+    except Exception as e:
+        logger.warning(f"failed to load word metadata from {words_file}: {e}")
+        return []
+
+    try:
+        font = ImageFont.truetype(font_path, int(font_size))
+    except Exception as e:
+        logger.warning(f"failed to load font for karaoke {font_path}: {e}")
+        return []
+
+    max_line_width = int(video_width * 0.88)
+    space_w = font.getbbox(" ")[2] - font.getbbox(" ")[0]
+    line_height = int(font_size * 1.35)
+
+    clips = []
+
+    for chunk in chunks:
+        words = chunk.get("words", [])
+        if not words:
+            continue
+
+        # Split words into lines for this chunk
+        lines = []
+        current_line = []
+        current_line_w = 0
+
+        for idx, w_obj in enumerate(words):
+            w_text = w_obj.get("word", "").strip().upper()
+            if not w_text:
+                continue
+            w_width = font.getbbox(w_text)[2] - font.getbbox(w_text)[0]
+            needed_w = w_width if not current_line else current_line_w + space_w + w_width
+
+            if current_line and needed_w > max_line_width:
+                lines.append((current_line, current_line_w))
+                current_line = [(idx, w_text, w_width)]
+                current_line_w = w_width
+            else:
+                current_line.append((idx, w_text, w_width))
+                current_line_w = needed_w
+
+        if current_line:
+            lines.append((current_line, current_line_w))
+
+        total_h = max(int(font_size * 2.2), len(lines) * line_height + int(font_size * 0.5))
+
+        # Determine Y position
+        if subtitle_position == "bottom":
+            y_pos = int(video_height * 0.72)
+        elif subtitle_position == "top":
+            y_pos = int(video_height * 0.12)
+        elif subtitle_position == "custom":
+            y_pos = int((video_height - total_h) * (custom_position / 100))
+        else:  # center
+            y_pos = int((video_height - total_h) / 2)
+
+        # For each word in chunk, generate active frame
+        for active_idx, w_obj in enumerate(words):
+            w_start = w_obj.get("start")
+            w_end = w_obj.get("end")
+            if w_start is None or w_end is None or w_end <= w_start:
+                continue
+
+            img = Image.new("RGBA", (video_width, total_h), (0, 0, 0, 0))
+            draw = ImageDraw.Draw(img)
+
+            for line_idx, (line_words, line_w) in enumerate(lines):
+                curr_x = (video_width - line_w) // 2
+                curr_y = line_idx * line_height + int(font_size * 0.2)
+                for (w_idx, w_text, w_w) in line_words:
+                    color = active_color if w_idx == active_idx else inactive_color
+                    draw.text(
+                        (curr_x, curr_y),
+                        w_text,
+                        fill=color,
+                        font=font,
+                        stroke_width=int(stroke_width),
+                        stroke_fill=stroke_color,
+                    )
+                    curr_x += w_w + space_w
+
+            arr = np.array(img)
+            duration = w_end - w_start
+            img_clip = (
+                ImageClip(arr)
+                .with_start(w_start)
+                .with_end(w_end)
+                .with_duration(duration)
+                .with_position(("center", y_pos))
+            )
+            clips.append(img_clip)
+
+    return clips
 
 
 def generate_video(
@@ -1210,19 +1314,52 @@ def generate_video(
             )
 
         if subtitle_path and os.path.exists(subtitle_path):
-            sub = clip_stack.enter_context(
-                SubtitlesClip(
-                    subtitles=subtitle_path,
-                    encoding="utf-8",
-                    make_textclip=make_textclip,
+            words_file = f"{subtitle_path}.words.json"
+            if not os.path.exists(words_file):
+                words_file = os.path.join(os.path.dirname(subtitle_path), "subtitle.srt.words.json")
+
+            use_dynamic_karaoke = os.path.exists(words_file)
+
+            if use_dynamic_karaoke:
+                logger.info("rendering dynamic word-by-word highlighted subtitles (karaoke style)")
+                active_color = getattr(params, "subtitle_active_color", "#FFE600") or "#FFE600"
+                inactive_color = params.text_fore_color or "#FFFFFF"
+                stroke_color = params.stroke_color or "#000000"
+                stroke_width = params.stroke_width if params.stroke_width else 6
+
+                karaoke_clips = create_dynamic_karaoke_clips(
+                    words_file=words_file,
+                    font_path=font_path,
+                    font_size=params.font_size,
+                    video_width=video_width,
+                    video_height=video_height,
+                    active_color=active_color,
+                    inactive_color=inactive_color,
+                    stroke_color=stroke_color,
+                    stroke_width=stroke_width,
+                    subtitle_position=params.subtitle_position,
+                    custom_position=params.custom_position,
                 )
-            )
-            text_clips = []
-            for item in sub.subtitles:
-                clip = create_text_clip(subtitle_item=item)
-                text_clips.append(clip)
-            video_clip = CompositeVideoClip([video_clip, *text_clips])
-            clip_stack.callback(video_clip.close)
+                if karaoke_clips:
+                    video_clip = CompositeVideoClip([video_clip, *karaoke_clips])
+                    clip_stack.callback(video_clip.close)
+                else:
+                    use_dynamic_karaoke = False
+
+            if not use_dynamic_karaoke:
+                sub = clip_stack.enter_context(
+                    SubtitlesClip(
+                        subtitles=subtitle_path,
+                        encoding="utf-8",
+                        make_textclip=make_textclip,
+                    )
+                )
+                text_clips = []
+                for item in sub.subtitles:
+                    clip = create_text_clip(subtitle_item=item)
+                    text_clips.append(clip)
+                video_clip = CompositeVideoClip([video_clip, *text_clips])
+                clip_stack.callback(video_clip.close)
 
         bgm_enabled = bgm_service.should_use_bgm(
             params.bgm_type, params.bgm_volume

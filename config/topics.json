@@ -10,11 +10,14 @@
     "clip_duration": 2,
     "aspect": "9:16",
     "font_name": "BeVietnamPro-Bold.ttf",
-    "font_size": 75,
+    "font_size": 70,
     "stroke_color": "#000000",
-    "stroke_width": 2.5,
+    "stroke_width": 6,
     "text_color": "#FFFFFF",
-    "rounded_subtitle_background": true
+    "subtitle_active_color": "#FFE600",
+    "subtitle_position": "bottom",
+    "rounded_subtitle_background": false,
+    "user_name": "ErDivertido"
   },
   "topics": [
     {
