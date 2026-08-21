@@ -478,7 +478,7 @@
       "id": "topic_010",
       "subject": "El Rayo Globular: La misteriosa esfera de fuego flotante",
       "category": "Fenomenos Extremos",
-      "status": "pending",
+      "status": "published",
       "script": "Durante violentas tormentas eléctricas, testigos de todo el mundo han reportado un fenómeno inexplicable: el rayo globular. Se trata de esferas de plasma brillante del tamaño de un balón que flotan en el aire, atraviesan paredes sólidas y emiten un zumbido aterrador antes de explotar con fuerza destructiva. Durante siglos se creyó que era un mito, pero la física moderna aún lucha por explicar cómo se forman. ¿Alguna vez has visto algo similar? ¡Comenta tu experiencia!",
       "search_terms": [
         "lightning storm night dramatic sky",
@@ -495,7 +495,41 @@
         "misterios",
         "fisica",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-21T13:40:57.992038",
+      "task_id": "8917c27b-79ff-4154-815e-5564eb48d971",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/8917c27b-79ff-4154-815e-5564eb48d971/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "qW1MD_bGo7U",
+            "url": "https://www.youtube.com/watch?v=qW1MD_bGo7U",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 32.2,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 57,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "03da967ee7994296a1898a6cb63d38f2",
+        "job_id": "c2d48635ebbe460db600e2205d5d479e",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_011",
