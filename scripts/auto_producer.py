@@ -99,30 +99,29 @@ def refill_topics_if_needed(data: dict, min_pending: int = 3, batch_size: int = 
     existing_subjects = [t.get("subject", "") for t in data.get("topics", [])]
     existing_list_str = "\n- ".join(existing_subjects[-30:])
 
-    prompt = f"""Eres un creador de contenido experto en YouTube Shorts virales de ciencia, misterios cosmicos y geologia.
-Genera exactamente {batch_size} NUEVOS temas virales que sigan las tematicas con mayor retencion:
-1. Misterios del cosmos y agujeros negros
-2. Misterios abisales y del fondo del oceano
-3. Megadesastres naturales y volcanes
-4. Secretos geologicos de la Tierra
-5. "¿Que pasaria si...?" (experimentos mentales extremos de fisica)
+    prompt = f"""Eres un creador de contenido experto en YouTube Shorts virales de ciencia, megaterremotos, misterios cósmicos y curiosidades de la Tierra.
+Genera exactamente {batch_size} NUEVOS temas virales de alto impacto y retención, alternando entre:
+1. Megaterremotos históricos, sismos extremos, fallas geológicas colosales (Cascadia, San Andrés, Valdivia, Cinturón de Fuego)
+2. Misterios y curiosidades del cosmos (agujeros negros, supernovas, planetas extraños)
+3. Secretos geológicos y abismales de la Tierra (fosas submarinas, supervolcanes, fenómenos inexplicables)
+4. "¿Qué pasaría si...?" (experimentos mentales extremos de física y geología)
 
 IMPORTANTE:
 - NO repitas ninguno de estos temas que ya hicimos:
 - {existing_list_str}
 
-Responde UNICAMENTE con un JSON valido que sea una lista de objetos con esta estructura exacta (sin texto adicional):
+Responde ÚNICAMENTE con un JSON válido que sea una lista de objetos con esta estructura exacta (sin texto adicional):
 [
   {{
-    "subject": "Titulo atractivo y con gancho (sin emojis)",
-    "category": "Cosmos / Misterios Abisales / Megadesastres Naturales / Secretos de la Tierra / Fenomenos Extremos / Que pasaria si",
-    "script": "Guion completo en espanol narrativo continuo de 60 a 75 palabras. Debe empezar con un gancho demoledor en la primera frase, desarrollar el dato cientifico o misterio con tension y terminar con una pregunta/llamado a la accion: '¿Que opinas? ¡Comenta tu respuesta!'.",
+    "subject": "Título atractivo y con gancho (sin emojis)",
+    "category": "Megaterremotos & Sismos / Cosmos & Espacio / Misterios Abisales / Secretos de la Tierra / Que pasaria si",
+    "script": "Guion completo en español narrativo continuo de 60 a 75 palabras. Debe empezar con un gancho demoledor en la primera frase, desarrollar el misterio o dato científico con máxima tensión y terminar obligatoriamente con una pregunta potente seguida del llamado a la acción: '¿Qué opinas? ¡Déjamelo saber en los comentarios!' o '¿Crees que podría ocurrir pronto? ¡Déjalo en los comentarios!'.",
     "search_terms": [
       "4 or 5 descriptive english search keywords for stock footage in pexels",
-      "space stars galaxy dark",
-      "ocean deep water abyss"
+      "earthquake cracked ground seismic",
+      "space galaxy planet dark"
     ],
-    "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+    "tags": ["shorts", "terremoto", "ciencia", "misterios", "curiosidades", "erdivertido"]
   }}
 ]"""
 
@@ -257,7 +256,7 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
             logger.info("Iniciando publicación en YouTube...")
             ups = UploadPostService()
             youtube_title = f"{subject[:75]} 😱 #Shorts"
-            youtube_desc = f"{script_text}\n\n¿Qué opinas? ¡Comenta tu respuesta! 👇\n\n" + " ".join(f"#{t}" for t in tags)
+            youtube_desc = f"{script_text}\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n" + " ".join(f"#{t}" for t in tags)
             
             youtube_extra = {
                 "youtube_title": youtube_title,
