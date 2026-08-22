@@ -535,7 +535,7 @@
       "id": "topic_011",
       "subject": "La Cueva de los Cristales Gigantes de Naica",
       "category": "Secretos de la Tierra",
-      "status": "pending",
+      "status": "published",
       "script": "A trescientos metros bajo el desierto de Chihuahua se oculta la Cueva de los Cristales, un lugar que parece sacado de otro planeta. Allí se encuentran columnas de selenita de más de doce metros de largo y cincuenta toneladas de peso. Con una temperatura de cincuenta grados y cien por ciento de humedad, un ser humano sin equipo especial moriría asfixiado en menos de diez minutos. Es un horno subterráneo de belleza letal. ¿Te atreverías a explorarla? ¡Comenta!",
       "search_terms": [
         "dark cave underground rocks exploration",
@@ -552,7 +552,41 @@
         "mexico",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-22T13:40:16.483535",
+      "task_id": "f646f01b-9129-427a-bf8f-af0e128bfc60",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/f646f01b-9129-427a-bf8f-af0e128bfc60/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "qnufokmLqKA",
+            "url": "https://www.youtube.com/watch?v=qnufokmLqKA",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 30.8,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 73,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "debc1e537a9b4dcbb4a90ae4d949b5a6",
+        "job_id": "ed01596257ba40a2b7f7fc43506861e7",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_012",
