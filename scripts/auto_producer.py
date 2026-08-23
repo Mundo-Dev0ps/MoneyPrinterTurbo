@@ -267,16 +267,17 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
             }
             
             target_user = topic.get("user_name") or settings.get("upload_post_username")
+            target_platforms = settings.get("platforms", ["youtube"])
             upload_result = ups.upload_video(
                 video_path=video_path,
                 title=youtube_title,
-                platforms=["youtube"],
+                platforms=target_platforms,
                 youtube_extra=youtube_extra,
                 user_name=target_user
             )
-            logger.info(f"Resultado de publicación: {upload_result}")
+            logger.info(f"Resultado de publicación en {target_platforms}: {upload_result}")
         except Exception as e:
-            logger.error(f"Error publicando en YouTube: {e}")
+            logger.error(f"Error publicando en {target_platforms}: {e}")
             upload_result = {"success": False, "error": str(e)}
     
     # 8. Actualizar topics.json

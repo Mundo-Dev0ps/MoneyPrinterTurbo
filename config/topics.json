@@ -17,7 +17,11 @@
     "subtitle_active_color": "#FFE600",
     "subtitle_position": "bottom",
     "rounded_subtitle_background": false,
-    "user_name": "ErDivertido"
+    "user_name": "ErDivertido",
+    "platforms": [
+      "youtube",
+      "instagram"
+    ]
   },
   "topics": [
     {
