@@ -767,7 +767,7 @@
       "id": "topic_015",
       "subject": "Las Puertas del Infierno: El crater de fuego eterno de Darvaza",
       "category": "Secretos de la Tierra",
-      "status": "pending",
+      "status": "published",
       "script": "En medio del desierto de Turkmenistán arde un cráter colosal de setenta metros de ancho conocido como Las Puertas del Infierno. En mil novecientos setenta y uno, ingenieros soviéticos perforaron accidentalmente una bolsa de gas y decidieron encenderle fuego esperando que se apagara en pocos días. Han pasado más de cincuenta años y el pozo sigue ardiendo con llamaradas incandescentes día y noche. ¿Visitarías este lugar de pesadilla? ¡Comenta tu respuesta!",
       "search_terms": [
         "active volcano glowing heat night",
@@ -784,13 +784,23 @@
         "geologia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-23T15:34:08.100364",
+      "task_id": "9af5894a-c37a-479e-a455-1fcbbd282a9f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/9af5894a-c37a-479e-a455-1fcbbd282a9f/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=62907590e613444eb1c4245f367fea6f. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "62907590e613444eb1c4245f367fea6f",
+        "total_platforms": 2,
+        "job_id": "0d1dbf53b0ba4730ab47d9b8e90b2d45"
+      }
     },
     {
       "id": "topic_016",
       "subject": "El Triangulo de las Bermudas del Espacio: La Anomalia del Atlantico Sur",
       "category": "Monstruos Cosmicos",
-      "status": "pending",
+      "status": "published",
       "script": "Sobre las costas de Sudamérica se encuentra una falla invisible en el campo magnético de la Tierra: la Anomalía del Atlántico Sur. Cuando los satélites espaciales y la Estación Espacial Internacional cruzan esta región, la radiación cósmica bombardea sus circuitos, provocando apagones, reinicios inesperados y fallos en los sistemas electrónicos. Los astronautas incluso afirman ver extraños destellos en sus ojos al cerrarlos. ¿Qué opinas de este misterio invisible? ¡Comenta!",
       "search_terms": [
         "satellite view earth space clouds atmosphere",
@@ -807,7 +817,17 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-23T15:57:08.935385",
+      "task_id": "06eaa79c-121e-477c-a7a7-3591dd6150a8",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/06eaa79c-121e-477c-a7a7-3591dd6150a8/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=2258940865ba4adca09b0489be4f94c5. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "2258940865ba4adca09b0489be4f94c5",
+        "total_platforms": 2,
+        "job_id": "c05909b0c8d441a4af8de071a83fe528"
+      }
     },
     {
       "id": "topic_017",
