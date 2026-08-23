@@ -979,6 +979,20 @@ def _subtitle_font_supports_sample(font_path: str, sample: str) -> bool:
         return True
 
 
+def subtitle_font_supports_text(font_path: str, text: str) -> bool:
+    """检查字体能否绘制文本中的字母和数字，忽略空白及标点符号。"""
+    sample = "".join(
+        dict.fromkeys(
+            char
+            for char in str(text or "")
+            if unicodedata.category(char)[0] in {"L", "N"}
+        )
+    )[:64]
+    if not sample:
+        return True
+    return _subtitle_font_supports_sample(font_path, sample)
+
+
 def create_dynamic_karaoke_clips(
     words_file: str,
     font_path: str,
