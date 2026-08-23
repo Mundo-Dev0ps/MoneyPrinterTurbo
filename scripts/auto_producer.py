@@ -229,7 +229,12 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
         subtitle_position="bottom",
         custom_position=72.0
     )
-    logger.info("Subtítulos dinámicos karaoke generados.")
+    # QA Check 1: Validar que el archivo de subtítulos (.srt) existe y no está vacío
+    task_dir = os.path.join(utils.task_dir(), task_id)
+    srt_file = os.path.join(task_dir, "subtitle.srt")
+    if not os.path.isfile(srt_file) or os.path.getsize(srt_file) < 30:
+        raise RuntimeError(f"QA GATE FAILED: El archivo de subtítulos {srt_file} no existe o está vacío. Abortando producción para evitar video sin subtítulos.")
+    logger.info(f"QA GATE PASSED: Subtítulos verificados ({os.path.getsize(srt_file)} bytes).")
     
     # 5. Descarga de Materiales 4K (Pexels)
     mat_res = mpt_fetch_materials(task_id=task_id, source="pexels")
@@ -246,8 +251,9 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
     logger.info(f"Render final completado: {render_res}")
     
     video_path = render_res["videos"][0] if render_res.get("videos") else None
-    if not video_path or not os.path.isfile(video_path):
-        raise RuntimeError(f"El video generado no existe en la ruta: {video_path}")
+    if not video_path or not os.path.isfile(video_path) or os.path.getsize(video_path) < 1_000_000:
+        raise RuntimeError(f"QA GATE FAILED: El video generado no existe o pesa menos de 1MB: {video_path}")
+    logger.info(f"QA GATE PASSED: Video final verificado ({os.path.getsize(video_path)/(1024*1024):.2f} MB).")
     
     # 7. Publicación en YouTube
     upload_result = None
