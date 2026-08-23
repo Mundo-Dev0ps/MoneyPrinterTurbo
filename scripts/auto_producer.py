@@ -25,6 +25,7 @@ from app.mcp.server import (
     mpt_render_video,
 )
 from app.services.upload_post import UploadPostService
+from app.utils import utils
 
 
 TOPICS_FILE = os.path.join(PROJECT_ROOT, "config", "topics.json")
