@@ -107,7 +107,7 @@ def create(audio_file, subtitle_file: str = ""):
                         "end": word.end
                     })
 
-                if utils.str_contains_punctuation(word.word) or len(current_chunk_words) >= 4:
+                if utils.str_contains_punctuation(word.word) or len(current_chunk_words) >= 3:
                     clean_text = seg_text.strip()
                     if clean_text and utils.str_contains_punctuation(clean_text[-1:]):
                         clean_text = clean_text[:-1].strip()

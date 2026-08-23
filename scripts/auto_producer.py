@@ -228,7 +228,7 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
         text_background_color="",
         rounded_subtitle_background=False,
         subtitle_position="bottom",
-        custom_position=72.0
+        custom_position=58.0
     )
     # QA Check 1: Validar que el archivo de subtítulos (.srt) existe y no está vacío
     task_dir = os.path.join(utils.task_dir(), task_id)

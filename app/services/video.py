@@ -1048,9 +1048,9 @@ def create_dynamic_karaoke_clips(
 
         total_h = max(int(font_size * 2.2), len(lines) * line_height + int(font_size * 0.5))
 
-        # Determine Y position
+        # Determine Y position (Safe Zone: 58% screen height avoids YouTube/TikTok UI avatar and title)
         if subtitle_position == "bottom":
-            y_pos = int(video_height * 0.72)
+            y_pos = int(video_height * 0.58)
         elif subtitle_position == "top":
             y_pos = int(video_height * 0.12)
         elif subtitle_position == "custom":
