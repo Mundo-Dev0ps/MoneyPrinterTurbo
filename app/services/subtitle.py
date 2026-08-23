@@ -12,7 +12,7 @@ from loguru import logger
 from app.config import config
 from app.utils import utils
 
-model_size = config.whisper.get("model_size", "large-v3")
+model_size = config.whisper.get("model_size", "medium")
 device = config.whisper.get("device", "cpu")
 compute_type = config.whisper.get("compute_type", "int8")
 initial_prompt = config.whisper.get("initial_prompt", "") or None
@@ -67,6 +67,7 @@ def create(audio_file, subtitle_file: str = ""):
 
     start = timer()
     subtitles = []
+    words_data = []
 
     def recognized(seg_text, seg_start, seg_end):
         seg_text = seg_text.strip()
