@@ -596,7 +596,7 @@
       "id": "topic_012",
       "subject": "El Calamar Colosal: El titan de las aguas antarticas",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "En las gélidas profundidades del océano Antártico habita el invertebrado más grande del planeta: el calamar colosal. Con ojos del tamaño de platos de comida capaces de ver en la oscuridad total y tentáculos armados con afilados garfios giratorios, este cazador del abismo lucha a muerte contra los cachalotes a miles de metros bajo el mar. Muy pocos humanos han logrado ver uno con vida. ¿Te da miedo lo que se oculta en el océano profundo? ¡Comenta!",
       "search_terms": [
         "deep sea creature swimming in underwater darkness",
@@ -613,13 +613,47 @@
         "animalesmarinos",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-22T16:10:30.281718",
+      "task_id": "0ec4038d-c641-4374-a165-f29c0d0a1c61",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/0ec4038d-c641-4374-a165-f29c0d0a1c61/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "MtH_RyPhXoQ",
+            "url": "https://www.youtube.com/watch?v=MtH_RyPhXoQ",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 32.23,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 78,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "8c323b8718514443a2e90b4d9da0fb6d",
+        "job_id": "96b8023750434168aa37774f14e3460f",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_013",
       "subject": "El Impacto de Chicxulub: El dia que murieron los dinosaurios",
       "category": "Megadesastres Naturales",
-      "status": "pending",
+      "status": "published",
       "script": "Hace sesenta y seis millones de años, un asteroide de diez kilómetros de ancho impactó contra la península de Yucatán con la fuerza de diez mil millones de bombas atómicas. La colisión desató incendios globales, megatsunamis de cientos de metros y una nube de polvo que bloqueó la luz solar durante décadas, extinguiendo al setenta y cinco por ciento de las especies de la Tierra. Si un asteroide similar viniera hoy, ¿crees que podríamos detenerlo? ¡Comenta tu opinión!",
       "search_terms": [
         "meteor asteroid falling fire impact space",
@@ -636,13 +670,47 @@
         "historia",
         "megadesastres",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-22T18:39:26.689618",
+      "task_id": "4c166ca8-3453-4d54-a5eb-f303cd51ac72",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4c166ca8-3453-4d54-a5eb-f303cd51ac72/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "vHd-V9mQn5U",
+            "url": "https://www.youtube.com/watch?v=vHd-V9mQn5U",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 31.03,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 85,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "b365e3d488084765bbd42a4a1f353507",
+        "job_id": "107bed5bafef473bb111ffef52b46d8c",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_014",
       "subject": "Que pasaria si el Oxigeno desapareciera por 5 segundos",
       "category": "Cosmos & Que pasaria si",
-      "status": "pending",
+      "status": "published",
       "script": "Si el oxígeno desapareciera por solo cinco segundos, el cielo se volvería completamente negro en pleno día. Todas las construcciones de hormigón se desmoronarían al instante, el tímpano de cada ser humano explotaría por el cambio de presión y la corteza terrestre se fracturaría al perder su enlace químico. Al mismo tiempo, los océanos comenzarían a evaporarse al espacio. Cinco segundos bastarían para acabar con la civilización. ¿Te imaginas ese instante? ¡Comenta qué opinas!",
       "search_terms": [
         "satellite view earth space clouds atmosphere",
@@ -659,7 +727,41 @@
         "curiosidades",
         "fisica",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-22T21:09:05.334053",
+      "task_id": "4ba1f16f-c277-4598-ba8c-2e4a79aef2d4",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4ba1f16f-c277-4598-ba8c-2e4a79aef2d4/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "tgIrlEKBUEY",
+            "url": "https://www.youtube.com/watch?v=tgIrlEKBUEY",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 31.17,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 90,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "0c84e1acf2f641ef8e8f6f16d6a3eeb4",
+        "job_id": "4a56ba28e572421dad5fa6f8a49f9a0e",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_015",
