@@ -1,10 +1,12 @@
 {
   "schedule_settings": {
     "daily_slots": [
-      "09:30",
-      "12:00",
-      "14:30",
-      "17:00"
+      "08:30",
+      "11:30",
+      "14:00",
+      "16:30",
+      "19:30",
+      "22:00"
     ],
     "voice_name": "gemini:Charon-Male",
     "clip_duration": 2,
@@ -1274,6 +1276,466 @@
         "oceano",
         "misterios",
         "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_037",
+      "subject": "El Megaterremoto de Sumatra 2004: El tsunami que cambio el planeta",
+      "category": "Megasismos & Catástrofes",
+      "status": "pending",
+      "script": "En diciembre de 2004, un terremoto submarino de magnitud 9.1 sacudió las costas de Sumatra. La energía liberada fue tan colosal que alteró la rotación de la Tierra y generó olas de tsunami de más de 30 metros de altura que cruzaron océanos enteros. Ciudades costeras enteras fueron barridas en cuestión de minutos. ¿Te imaginas la fuerza implacable de la naturaleza bajo el océano? ¡Comenta tu respuesta!",
+      "search_terms": [
+        "massive ocean tsunami wave disaster",
+        "earthquake destruction building rubble",
+        "huge stormy sea ocean waves crashing",
+        "satellite view ocean earth planet"
+      ],
+      "tags": [
+        "shorts",
+        "tsunami",
+        "terremoto",
+        "sumatra",
+        "catastrofe",
+        "geologia",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_038",
+      "subject": "El Gran Terremoto de Lisboa 1755: El sismo que destruyo un imperio",
+      "category": "Megasismos & Catástrofes",
+      "status": "pending",
+      "script": "El 1 de noviembre de 1755, Lisboa fue sacudida por un megaterremoto de magnitud estimada de 8.7. En cuestión de minutos, las iglesias colapsaron, gigantescos incendios consumieron la ciudad y un brutal tsunami arrasó las costas. El 85 por ciento de los edificios fueron reducidos a escombros en una mañana. ¿Conocías este evento que cambió la historia del mundo? ¡Comenta tu opinión!",
+      "search_terms": [
+        "ancient city ruins earthquake destruction",
+        "raging fire flames burning city",
+        "huge tidal wave ocean storm tsunami",
+        "dramatic dark storm clouds lightning"
+      ],
+      "tags": [
+        "shorts",
+        "terremoto",
+        "lisboa",
+        "historia",
+        "geologia",
+        "misterios",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_039",
+      "subject": "El Relampago del Catatumbo: La tormenta eterna de mil rayos",
+      "category": "Fenómenos Extremos",
+      "status": "pending",
+      "script": "En el lago de Maracaibo ocurre el fenómeno meteorológico más extremo del planeta: el Relámpago del Catatumbo. Durante casi trescientas noches al año, el cielo se ilumina con miles de rayos continuos durante diez horas seguidas. Es el mayor generador de ozono del planeta y no produce truenos audibles a distancia. ¿Te atreverías a navegar bajo esta tormenta eléctrica infinita? ¡Comenta!",
+      "search_terms": [
+        "lightning storm electric flashes night sky",
+        "dark thundercloud storm lake water",
+        "intense lightning strike slow motion",
+        "night thunderstorm dramatic electrical arcs"
+      ],
+      "tags": [
+        "shorts",
+        "catatumbo",
+        "rayos",
+        "tormenta",
+        "meteorologia",
+        "naturaleza",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_040",
+      "subject": "El Agujero Azul de Belice: El abismo submarino que asusto a Jacques Cousteau",
+      "category": "Secretos del Océano",
+      "status": "pending",
+      "script": "En medio del mar Caribe se abre una caverna vertical de más de ciento veinte metros de profundidad conocida como el Gran Agujero Azul. En su fondo no existe oxígeno y yacen estalactitas gigantescas formadas en la última era de hielo. A medida que los buzos descienden, el agua se vuelve completamente negra y sin vida. ¿Te sumergirías en este abismo del océano? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "aerial view great blue hole ocean reef",
+        "deep scuba diver underwater dark abyss",
+        "underwater cave stalactites ocean deep",
+        "crystal clear tropical ocean water aerial"
+      ],
+      "tags": [
+        "shorts",
+        "agujeroazul",
+        "oceano",
+        "misterios",
+        "buceo",
+        "naturaleza",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_041",
+      "subject": "El Planeta de Diamante 55 Cancri e: Un mundo alienigena de piedras preciosas",
+      "category": "Monstruos Cósmicos",
+      "status": "pending",
+      "script": "A cuarenta años luz de la Tierra orbita un exoplaneta dos veces más grande que el nuestro: 55 Cancri e. Debido a su extrema temperatura de dos mil grados y una presión descomunal, los astrónomos estiman que un tercio de su masa es puro diamante comprimido. Es un mundo ardiente cubierto de grafito y gemas brillantes. ¿Te imaginas cómo se vería el cielo en un planeta de diamante? ¡Comenta!",
+      "search_terms": [
+        "exoplanet glowing hot magma lava space",
+        "sparkling diamond crystal glowing abstract",
+        "deep space alien planet glowing orbit star",
+        "futuristic space telescope nebula exploration"
+      ],
+      "tags": [
+        "shorts",
+        "diamante",
+        "exoplaneta",
+        "espacio",
+        "astronomia",
+        "cosmos",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_042",
+      "subject": "La Falla de Anatolia del Norte: La bomba de tiempo sismica de Europa",
+      "category": "Megasismos & Catástrofes",
+      "status": "pending",
+      "script": "Cruzando Turquía de este a oeste se extiende la Falla de Anatolia del Norte, una de las fracturas tectónicas más activas del planeta. En el último siglo, una serie de terremotos en cadena ha roto casi toda la falla, avanzando directamente hacia Estambul. Los sismólogos advierten que un sismo superior a magnitud 7.5 es inminente. ¿Qué medidas crees que deben tomarse? ¡Comenta tu opinión!",
+      "search_terms": [
+        "geological fault line crack earth ground",
+        "earthquake seismograph seismic waves monitor",
+        "aerial view Istanbul city landscape geology",
+        "cracked highway ground tectonic shift"
+      ],
+      "tags": [
+        "shorts",
+        "anatolia",
+        "falla",
+        "terremoto",
+        "sismos",
+        "estambul",
+        "geologia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_043",
+      "subject": "El Lago Karachay: El lugar mas radiactivo y letal de la Tierra",
+      "category": "Secretos de la Tierra",
+      "status": "pending",
+      "script": "En Rusia existe un lago tan contaminado que permanecer una sola hora en su orilla bastaba para recibir una dosis mortal de radiación. Durante la Guerra Fría, fue utilizado como vertedero de desechos nucleares. La radiación era tan letal que el lago tuvo que ser completamente cubierto con bloques masivos de concreto. ¿Conocías este oscuro secreto de la Tierra? ¡Comenta!",
+      "search_terms": [
+        "nuclear radiation hazard wasteland abandoned",
+        "toxic green lake polluted water aerial",
+        "abandoned concrete bunker industrial site",
+        "danger radioactivity symbol biohazard wasteland"
+      ],
+      "tags": [
+        "shorts",
+        "radiactivo",
+        "nuclear",
+        "karachay",
+        "misterios",
+        "ciencia",
+        "historia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_044",
+      "subject": "HD 189733b: El planeta infernal donde llueve cristal hirviendo de lado",
+      "category": "Monstruos Cósmicos",
+      "status": "pending",
+      "script": "En el espacio profundo existe un planeta azul cobalto que parece hermoso a simple vista, pero es una trampa mortal. En HD 189733b los vientos alcanzan más de ocho mil kilómetros por hora y la atmósfera está llena de partículas de silicato. Esto provoca una lluvia constante de vidrio derretido que cae de costado a velocidades supersónicas. ¿Sobrevivirías un segundo allí? ¡Comenta!",
+      "search_terms": [
+        "deep space blue giant planet storm nebula",
+        "violent hypersonic wind space storm hurricane",
+        "glowing molten glass magma fiery liquid",
+        "alien star system planetary orbit cosmos"
+      ],
+      "tags": [
+        "shorts",
+        "espacio",
+        "exoplaneta",
+        "vidrio",
+        "astronomia",
+        "cosmos",
+        "curiosidades",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_045",
+      "subject": "El Gran Atractor: La misteriosa fuerza que arrastra a nuestra galaxia",
+      "category": "Monstruos Cósmicos",
+      "status": "pending",
+      "script": "Nuestra galaxia, la Vía Láctea, y miles de otras galaxias están siendo arrastradas a millones de kilómetros por hora hacia un punto oculto en el espacio conocido como el Gran Atractor. Se encuentra oculto detrás del plano galáctico y posee una masa equivalente a decenas de miles de billones de soles. ¿Qué crees que nos espera al final de ese viaje cósmico? ¡Comenta tu teoría!",
+      "search_terms": [
+        "massive gravitational anomaly deep space void",
+        "milky way galaxy rotating deep cosmos",
+        "cluster of galaxies deep space hubble",
+        "dark matter cosmic web universe simulation"
+      ],
+      "tags": [
+        "shorts",
+        "granatractor",
+        "galaxia",
+        "universo",
+        "astronomia",
+        "misterios",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_046",
+      "subject": "El Megaterremoto de Kamchatka 1952: La furia del Pacifico Norte",
+      "category": "Megasismos & Catástrofes",
+      "status": "pending",
+      "script": "En noviembre de 1952, la península de Kamchatka sufrió un monstruoso terremoto de magnitud 9.0. El lecho marino se desplazó violentamente generando tsunamis que golpearon Hawái, Japón y las costas de América. Ciudades enteras de la costa soviética fueron borradas en cuestión de horas. ¿Conocías este sismo entre los cinco más fuertes de la historia? ¡Comenta tu opinión!",
+      "search_terms": [
+        "huge ocean storm waves tsunami coastal destruction",
+        "snowy volcanic mountain peninsula Kamchatka",
+        "earthquake seismic rupture ground shake",
+        "raging arctic sea waves rocky shore"
+      ],
+      "tags": [
+        "shorts",
+        "kamchatka",
+        "terremoto",
+        "sismos",
+        "tsunami",
+        "geologia",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_047",
+      "subject": "Las Rocas Navegantes de Racetrack Playa: El enigma del valle de la muerte",
+      "category": "Secretos de la Tierra",
+      "status": "pending",
+      "script": "En un lago seco de California, rocas de cientos de kilos se desplazan solas por el desierto dejando largos surcos grabados en la tierra. Durante décadas fue un misterio total, hasta que científicos descubrieron que en invierno se forman delgadísimas capas de hielo que, empujadas por el viento suave, hacen flotar y deslizar las piedras. ¿Habías visto estas rocas móviles? ¡Comenta!",
+      "search_terms": [
+        "sailing stones racetrack playa death valley desert",
+        "cracked dry mud ground long trails rocks",
+        "thin ice sheet winter desert sunrise",
+        "vast arid desert landscape mountains drone"
+      ],
+      "tags": [
+        "shorts",
+        "deathvalley",
+        "rocasnavegantes",
+        "geologia",
+        "misterios",
+        "naturaleza",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_048",
+      "subject": "Betelgeuse: La supergigante roja a punto de explotar en supernova",
+      "category": "Monstruos Cósmicos",
+      "status": "pending",
+      "script": "En la constelación de Orión brilla Betelgeuse, una estrella gigantesca setecientas veces más grande que el Sol. Se encuentra al final de su vida y en cualquier momento colapsará en una supernova descomunal. Cuando explote, brillará tanto en nuestro cielo que la noche se volverá día durante semanas enteras. ¿Te gustaría presenciar este estallido cósmico? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "red supergiant star glowing surface space",
+        "massive supernova explosion nebula cosmic burst",
+        "night sky constellation Orion glowing stars",
+        "glowing stellar plasma space astronomy telescope"
+      ],
+      "tags": [
+        "shorts",
+        "betelgeuse",
+        "supernova",
+        "estrellas",
+        "espacio",
+        "astronomia",
+        "cosmos",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_049",
+      "subject": "El Terremoto de Tangshan 1976: La peor tragedia sismica moderna",
+      "category": "Megasismos & Catástrofes",
+      "status": "pending",
+      "script": "En julio de 1976, mientras una ciudad industrial de un millón de habitantes dormía, un sismo de magnitud 7.8 golpeó Tangshan sin previo aviso. En solo quince segundos, el 85 por ciento de los edificios colapsó por completo, cobrando más de doscientas cuarenta mil vidas. Fue uno de los terremotos más letales del siglo veinte. ¿Qué opinas de esta impactante tragedia? ¡Comenta!",
+      "search_terms": [
+        "devastating earthquake rubble collapsed buildings",
+        "seismic crack ground night destruction rescue",
+        "historic ruins dust debris city disaster",
+        "aerial view devastated city aftermath earthquake"
+      ],
+      "tags": [
+        "shorts",
+        "tangshan",
+        "terremoto",
+        "sismos",
+        "historia",
+        "catastrofe",
+        "geologia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_050",
+      "subject": "El Lago Natron: Las aguas saladas que petrifican a los animales",
+      "category": "Secretos de la Tierra",
+      "status": "pending",
+      "script": "En Tanzania se encuentra el Lago Natron, un lago de aguas rojas con un pH alcalino tan alto como el amoníaco y temperaturas de hasta sesenta grados. Los animales que mueren en sus aguas son calcificados y preservados como estatuas de sal por los minerales volcánicos. Es un paisaje surrealista que parece de otro mundo. ¿Conocías este lago petrificador? ¡Comenta tu respuesta!",
+      "search_terms": [
+        "lake natron red saline water aerial view",
+        "crystallized salt mineral crust volcanic lake",
+        "flamingos flying red shallow mineral lake",
+        "surreal red landscape volcanic rift valley"
+      ],
+      "tags": [
+        "shorts",
+        "lagonatron",
+        "tanzania",
+        "naturaleza",
+        "misterios",
+        "ciencia",
+        "curiosidades",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_051",
+      "subject": "La Falla Liquine-Ofqui: El gigante sismico oculto en la Patagonia",
+      "category": "Megasismos & Catástrofes",
+      "status": "pending",
+      "script": "A lo largo de más de mil kilómetros en el sur de Chile se extiende la Falla Liquiñe-Ofqui, una fractura que conecta volcanes activos, fiordos y glaciares. Esta gigantesca falla controla la actividad de varios de los volcanes más peligrosos de América del Sur y es capaz de desatar sismos destructivos. ¿Conocías esta poderosa falla geológica de la Patagonia? ¡Comenta!",
+      "search_terms": [
+        "patagonia fiords snow mountains aerial drone",
+        "active volcano smoke and ash eruption",
+        "geological fault mountain crack tectonic",
+        "glacier ice blue water southern Andes"
+      ],
+      "tags": [
+        "shorts",
+        "patagonia",
+        "chile",
+        "volcanes",
+        "falla",
+        "geologia",
+        "sismos",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_052",
+      "subject": "El Vertedero Espacial: Que pasara si el Sindrome de Kessler se desata",
+      "category": "Cosmos & Futuro",
+      "status": "pending",
+      "script": "Más de treinta mil fragmentos de chatarra espacial orbitan la Tierra a veintiocho mil kilómetros por hora. Si dos satélites grandes colisionan, desatarían una reacción en cadena conocida como el Síndrome de Kessler, destruyendo satélites de comunicación, GPS e internet, y atrapando a la humanidad en la Tierra durante décadas. ¿Qué opinas de esta amenaza invisible? ¡Comenta!",
+      "search_terms": [
+        "space debris junk orbiting planet earth satellite",
+        "satellite explosion orbital collision space animation",
+        "planet earth surrounded by debris swarm",
+        "astronaut working international space station orbit"
+      ],
+      "tags": [
+        "shorts",
+        "basuraespacial",
+        "satelites",
+        "espacio",
+        "tecnologia",
+        "ciencia",
+        "futuro",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_053",
+      "subject": "El Volcan Tambora 1815: La erupcion que cancelo el verano en el mundo",
+      "category": "Megasismos & Catástrofes",
+      "status": "pending",
+      "script": "En 1815, el volcán Tambora en Indonesia desató la erupción más potente registrada en la historia humana. Lanzó tanta ceniza y azufre a la estratosfera que bloqueó la luz del Sol, provocando nevadas en pleno julio en Europa y América, y causando el famoso año sin verano. Millones sufrieron heladas y hambrunas. ¿Te imaginas un verano bajo cero? ¡Comenta tu opinión!",
+      "search_terms": [
+        "massive volcanic eruption ash cloud lightning plume",
+        "volcano crater caldera aerial dramatic",
+        "snow winter landscape freezing summer dark sky",
+        "historical painting volcanic dark skies dramatic"
+      ],
+      "tags": [
+        "shorts",
+        "tambora",
+        "volcan",
+        "erupcion",
+        "clima",
+        "historia",
+        "geologia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_054",
+      "subject": "El Ojo del Sahara: La colosal estructura misteriosa vista desde el espacio",
+      "category": "Secretos de la Tierra",
+      "status": "pending",
+      "script": "En medio del desierto de Mauritania se encuentra la Estructura de Richat, un gigantesco círculo concéntrico de cuarenta kilómetros de diámetro conocido como el Ojo del Sahara. Es tan inmenso que los astronautas lo usan como punto de referencia desde el espacio. Aunque parece un impacto de meteorito, es un domo geológico erosionado. ¿Qué misterios crees que oculta? ¡Comenta!",
+      "search_terms": [
+        "eye of the sahara richat structure aerial satellite",
+        "vast golden sand desert dunes aerial drone",
+        "satellite view earth geographic wonder landscape",
+        "concentric circular rock formation desert plateau"
+      ],
+      "tags": [
+        "shorts",
+        "ojodelsahara",
+        "richat",
+        "geologia",
+        "sahara",
+        "misterios",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_055",
+      "subject": "El Megaterremoto de Cascadia 1700: Cuando el tsunami llego a Japon",
+      "category": "Megasismos & Catástrofes",
+      "status": "pending",
+      "script": "En enero de 1700, la Falla de Cascadia en Norteamérica se rompió con un terremoto de magnitud 9.0. El fondo oceánico se levantó varios metros, arrasando bosques enteros y enviando un tsunami huérfano que cruzó el Pacífico y golpeó Japón sin que allá se sintiera sismo alguno. Los árboles muertos aún siguen en pie en el bosque fantasma. ¿Habías escuchado esta fascinante historia? ¡Comenta!",
+      "search_terms": [
+        "pacific northwest coastline rough waves drone",
+        "ghost forest dead trees standing coastal marsh",
+        "massive ocean tsunami wave disaster incoming",
+        "deep tectonic plate subduction animation earth"
+      ],
+      "tags": [
+        "shorts",
+        "cascadia",
+        "terremoto",
+        "tsunami",
+        "geologia",
+        "historia",
+        "sismos",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_056",
+      "subject": "El Gran Agujero de la Capa de Ozono: Como la humanidad evito el fin del mundo",
+      "category": "Ciencia & Planeta",
+      "status": "pending",
+      "script": "En los años ochenta, científicos descubrieron que los gases industriales estaban destruyendo la capa de ozono sobre la Antártida a un ritmo alarmante. Si no se actuaba, la radiación ultravioleta habría hecho inviable la agricultura y la vida al aire libre para el año 2050. Gracias al Protocolo de Montreal, el mundo se unió y el agujero comenzó a cerrarse. ¿Qué opinas de este gran logro? ¡Comenta!",
+      "search_terms": [
+        "planet earth atmosphere blue glow space view",
+        "antarctica ice sheets glaciers snowy mountains aerial",
+        "bright sun rays shining earth atmosphere lens flare",
+        "satellite earth ozone layer data visualization"
+      ],
+      "tags": [
+        "shorts",
+        "ozono",
+        "planetatierra",
+        "ciencia",
+        "medioambiente",
+        "historia",
+        "futuro",
         "erdivertido"
       ]
     }
