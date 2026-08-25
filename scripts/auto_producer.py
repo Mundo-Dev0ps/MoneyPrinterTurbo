@@ -261,8 +261,11 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
     if auto_publish:
         try:
             logger.info("Iniciando publicación en YouTube...")
-            ups = UploadPostService()
-            youtube_title = f"{subject[:75]} 😱 #Shorts"
+            clean_subject = subject.strip()
+            if "#shorts" not in clean_subject.lower():
+                youtube_title = f"{clean_subject[:80]} #Shorts"
+            else:
+                youtube_title = clean_subject[:95]
             youtube_desc = f"{script_text}\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n" + " ".join(f"#{t}" for t in tags)
             
             youtube_extra = {
