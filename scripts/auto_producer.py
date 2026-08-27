@@ -277,7 +277,7 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
                 "containsSyntheticMedia": "true"
             }
             
-            target_user = topic.get("user_name") or settings.get("upload_post_username")
+            target_user = topic.get("user_name") or settings.get("user_name") or settings.get("upload_post_username")
             target_platforms = settings.get("platforms", ["youtube"])
             upload_result = ups.upload_video(
                 video_path=video_path,
