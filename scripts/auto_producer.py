@@ -261,6 +261,7 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
     if auto_publish:
         try:
             logger.info("Iniciando publicación en YouTube...")
+            ups = UploadPostService()
             clean_subject = subject.strip()
             if "#shorts" not in clean_subject.lower():
                 youtube_title = f"{clean_subject[:80]} #Shorts"
