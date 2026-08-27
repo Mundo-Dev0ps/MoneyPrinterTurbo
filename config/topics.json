@@ -1006,7 +1006,7 @@
       "id": "topic_027",
       "subject": "¿La Luna suena como una campana? El aterrador misterio de los sismos lunares 😱",
       "category": "Misterios del Cosmos",
-      "status": "pending",
+      "status": "rendered",
       "script": "Cuando la misión Apolo estrelló deliberadamente una etapa del cohete contra la Luna, los sismógrafos registraron algo escalofriante: la Luna comenzó a vibrar como una campana hueca durante más de tres horas. A diferencia de la Tierra, los terremotos lunares duran hasta diez minutos y pueden alcanzar magnitud cinco y medio sin placas tectónicas. ¿Por qué vibra así nuestro satélite? ¡Comenta tu teoría!",
       "search_terms": [
         "apollo astronaut walking moon surface nasa",
@@ -1023,13 +1023,20 @@
         "astronomia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-25T20:36:40.122404",
+      "task_id": "057bc09e-f8df-4480-85a2-80a0ccd442a2",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/057bc09e-f8df-4480-85a2-80a0ccd442a2/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_036",
       "subject": "Lo que hallaron a 11.000 metros en el fondo de la Fosa de las Marianas 🌊",
       "category": "Secretos del Océano",
-      "status": "pending",
+      "status": "rendered",
       "script": "En el punto más profundo de la Tierra, la presión equivale a tener cincuenta aviones jumbo sobre tu cabeza y la oscuridad es absoluta. Sin embargo, los submarinos han descubierto criaturas transparentes que desafían la biología, volcanes de lodo hirviendo y misteriosas señales sonoras no identificadas en el lecho marino. ¿Bajarías a este abismo sin luz? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
         "deep sea submarine lights abyss dark ocean",
@@ -1046,13 +1053,20 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-25T23:38:45.602888",
+      "task_id": "34bfe7b3-263d-487f-8957-43f85c59e599",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/34bfe7b3-263d-487f-8957-43f85c59e599/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_032",
       "subject": "¿Qué pasaría si la Luna chocara contra la Tierra hoy mismo? 💥",
       "category": "¿Qué pasaría si...?",
-      "status": "pending",
+      "status": "rendered",
       "script": "Si la Luna comenzara a caer hacia nosotros, el primer síntoma serían mareas gigantescas de mil metros de altura arrasando todos los continentes. A medida que cruzara el límite de Roche, la gravedad de la Tierra destrozaría la Luna en millones de fragmentos incandescentes, creando un anillo brillante como el de Saturno antes de que una lluvia de meteoritos esterilizara el planeta. ¿Te gustaría ver un anillo en el cielo? ¡Comenta!",
       "search_terms": [
         "moon crashing into earth space collision asteroid",
@@ -1069,13 +1083,20 @@
         "ciencia",
         "finisterre",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-26T02:08:03.033597",
+      "task_id": "a69fa1e3-c1ad-496a-9e42-dc5a140287d1",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a69fa1e3-c1ad-496a-9e42-dc5a140287d1/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_043",
       "subject": "El lago más letal del mundo: Una hora aquí basta para perder la vida ☢️",
       "category": "Lugares Prohibidos",
-      "status": "pending",
+      "status": "rendered",
       "script": "En los montes Urales se esconde el Lago Karachay, un cuerpo de agua tan radiactivo que permanecer sesenta minutos en su orilla te expondría a una dosis mortal de seiscientos roentgens. Utilizado en secreto para verter desechos nucleares, el polvo de sus aguas secas contaminó a medio millón de personas, obligando a sepultarlo bajo diez mil bloques de concreto. ¿Conocías este letal lugar? ¡Comenta!",
       "search_terms": [
         "toxic green glowing radioactive waste water",
@@ -1092,13 +1113,20 @@
         "historia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-26T12:41:17.120910",
+      "task_id": "1acf06e5-9d62-4754-8289-7225bcc21ee2",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/1acf06e5-9d62-4754-8289-7225bcc21ee2/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_044",
       "subject": "El planeta infernal donde llueve vidrio derretido a 8.000 km/h 🌪️",
       "category": "Monstruos Cósmicos",
-      "status": "pending",
+      "status": "rendered",
       "script": "A sesenta y cuatro años luz orbita un exoplaneta con un color azul cobalto fascinante pero engañoso: HD 189733b. En su atmósfera ruge un huracán eterno de vientos a ocho mil kilómetros por hora, cargado de partículas de silicato que forman una lluvia constante de cristal fundido que cae de forma horizontal a velocidades hipersónicas. ¿Te imaginas sobrevivir un segundo allí? ¡Comenta tu opinión!",
       "search_terms": [
         "deep space blue giant planet violent storm",
@@ -1115,13 +1143,20 @@
         "astronomia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-26T15:45:06.653964",
+      "task_id": "dcd484e9-abc8-4d19-aec1-3fd2a56b69bc",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/dcd484e9-abc8-4d19-aec1-3fd2a56b69bc/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_037",
       "subject": "El tsunami de 2004 que cambió la rotación de la Tierra en 10 minutos 🌊",
       "category": "Megasismos & Catástrofes",
-      "status": "pending",
+      "status": "rendered",
       "script": "El 26 de diciembre de 2004, una falla submarina de mil seiscientos kilómetros se rompió con una violencia equivalente a veintitrés mil bombas atómicas. La sacudida fue tan descomunal que hizo tambalear el eje del planeta y desató un tsunami de treinta metros que cruzó océanos enteros a la velocidad de un avión comercial. ¿Te imaginas la fuerza imparable del océano? ¡Comenta tu respuesta!",
       "search_terms": [
         "massive ocean tsunami wave disaster incoming",
@@ -1138,13 +1173,20 @@
         "geologia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-26T18:09:19.159099",
+      "task_id": "21d819e4-7e9b-480f-9917-97a8b9a203ce",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/21d819e4-7e9b-480f-9917-97a8b9a203ce/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_039",
       "subject": "La tormenta infinita que lanza 280 rayos por hora durante 300 noches al año ⚡",
       "category": "Fenómenos Extremos",
-      "status": "pending",
+      "status": "rendered",
       "script": "En el lago de Maracaibo ocurre el show de luces más extremo del planeta: el Relámpago del Catatumbo. Durante diez horas continuas casi todas las noches del año, el cielo se ilumina con miles de descargas eléctricas silenciosas alimentadas por gases de metano y vientos andinos. Es el mayor faro natural y protector de la capa de ozono. ¿Te atreverías a navegar bajo esta tormenta? ¡Comenta!",
       "search_terms": [
         "lightning storm electric flashes night sky lake",
@@ -1161,13 +1203,20 @@
         "naturaleza",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-26T20:35:41.071223",
+      "task_id": "1cffd23c-f103-405e-87db-6bcb494f18f3",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/1cffd23c-f103-405e-87db-6bcb494f18f3/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_028",
       "subject": "El monstruoso agujero negro descubierto acechando cerca de la Tierra 🕳️",
       "category": "Monstruos Cósmicos",
-      "status": "pending",
+      "status": "rendered",
       "script": "A tan solo mil quinientos años luz, en nuestro propio patio trasero galáctico, los astrónomos descubrieron a Gaia BH1: un agujero negro durmiente diez veces más masivo que el Sol. No emite radiación ni devora materia visible, lo que lo hace completamente invisible hasta que su gravedad desvía la luz de su estrella compañera. ¿Qué otros titanes invisibles nos rodean en la oscuridad? ¡Comenta!",
       "search_terms": [
         "black hole gravitational lensing deep space nebula",
@@ -1184,13 +1233,20 @@
         "cosmos",
         "misterios",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-26T23:39:16.201645",
+      "task_id": "d169a4d6-c371-4a79-b500-7da5cb92cf13",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/d169a4d6-c371-4a79-b500-7da5cb92cf13/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_030",
       "subject": "¿Qué pasará el día que despierte el Supervolcán de Yellowstone? 🌋",
       "category": "Catástrofes Globales",
-      "status": "pending",
+      "status": "rendered",
       "script": "Bajo los géiseres del parque de Yellowstone duerme una cámara de magma de setenta kilómetros de largo. Si hiciera erupción, lanzaría miles de kilómetros cúbicos de roca pulverizada y ceniza tóxica, enterrando a Estados Unidos bajo un metro de polvo y sumergiendo al planeta entero en un invierno volcánico sin cosechas durante una década. ¿Crees que la humanidad sobreviviría? ¡Comenta tu opinión!",
       "search_terms": [
         "yellowstone geyser hot spring aerial steam",
@@ -1207,13 +1263,20 @@
         "catastrofe",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-27T02:08:37.392740",
+      "task_id": "5f48b906-19d4-430b-aeb5-d6cd579f30d6",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/5f48b906-19d4-430b-aeb5-d6cd579f30d6/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_041",
       "subject": "El exoplaneta ardiente compuesto de puro diamante comprimido 💎",
       "category": "Monstruos Cósmicos",
-      "status": "pending",
+      "status": "rendered",
       "script": "Imagina un mundo dos veces más grande que la Tierra donde el suelo no está hecho de roca, sino de puro diamante y grafito. En 55 Cancri e, las temperaturas de dos mil grados y una presión extrema convirtieron todo su carbono interior en piedras preciosas descomunales. Su valor estimado supera trillones de veces toda la economía mundial. ¿Viajarías a este tesoro del cosmos? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
         "exoplanet glowing hot magma lava space orbit",
@@ -1230,13 +1293,20 @@
         "cosmos",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-27T12:39:10.265081",
+      "task_id": "f1e38b4a-6f88-4737-aea9-ef5e5ae64ec2",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/f1e38b4a-6f88-4737-aea9-ef5e5ae64ec2/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
     },
     {
       "id": "topic_040",
       "subject": "El aterrador abismo submarino que congeló a los exploradores en el Caribe 🤿",
       "category": "Secretos del Océano",
-      "status": "pending",
+      "status": "published",
       "script": "En el Gran Agujero Azul de Belice se abre una caverna vertical de ciento veinticinco metros de profundidad. Al descender más allá de los noventa metros, una densa capa de sulfuro de hidrógeno bloquea toda la luz solar y el agua pierde todo su oxígeno, preservando intactas enormes estalactitas prehistóricas en un silencio sepulcral. ¿Te atreverías a bucear en este pozo sin fondo? ¡Comenta!",
       "search_terms": [
         "aerial view great blue hole ocean reef turquoise",
@@ -1253,7 +1323,17 @@
         "naturaleza",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-27T14:54:39.242083",
+      "task_id": "4c036f60-d473-4c37-a5ae-79cd4ebf28a0",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4c036f60-d473-4c37-a5ae-79cd4ebf28a0/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=ba5c6e66d5a64e539bf022e427a95357. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "ba5c6e66d5a64e539bf022e427a95357",
+        "total_platforms": 2,
+        "job_id": "8a07b3c56ac747118d8e3de3577eff57"
+      }
     },
     {
       "id": "topic_045",
