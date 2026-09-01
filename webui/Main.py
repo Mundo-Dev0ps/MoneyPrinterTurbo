@@ -1001,7 +1001,8 @@ def _open_task_path(task_path):
     if not os.path.isdir(normalized_path) and not os.path.isdir(task_path):
         return
     if _is_headless_server():
-        _render_task_folder_dialog("", task_path)
+        rel_path = os.path.relpath(normalized_path, os.path.dirname(tasks_root))
+        st.toast(f"{tr('Open Task Folder')}: ./storage/{rel_path}", icon="📂")
         return
     webbrowser.open(f"file://{normalized_path}")
 
@@ -1017,7 +1018,7 @@ def _open_task_video(video_file):
         return
 
     if _is_headless_server():
-        _render_task_video_dialog(video_file)
+        st.session_state["task_preview_video_file"] = normalized_file
         return
 
     try:
@@ -1161,7 +1162,7 @@ def _render_task_table(filtered_tasks, key_prefix):
                         help=play_label,
                         disabled=not has_video,
                     ):
-                        _render_task_video_dialog(task["video_file"], task.get("subject", ""))
+                        _open_task_video(task["video_file"])
 
                 with action_cols[1]:
                     open_label = tr("Open Task Folder")
@@ -1172,7 +1173,7 @@ def _render_task_table(filtered_tasks, key_prefix):
                         icon=":material/folder_open:",
                         help=open_label,
                     ):
-                        _render_task_folder_dialog(task_id, task["task_path"])
+                        _open_task_path(task["task_path"])
 
                 with action_cols[2]:
                     restore_label = tr("Regenerate Task")
@@ -3011,10 +3012,12 @@ def _render_settings_dialog():
             if upload_post_username != config.app.get("upload_post_username", ""):
                 _set_runtime_config("app", "upload_post_username", upload_post_username)
 
+            available_platforms = ["tiktok", "instagram", "youtube", "facebook", "twitter", "linkedin", "threads"]
+            saved_platforms = [p for p in config.app.get("upload_post_platforms", ["tiktok", "instagram"]) if p in available_platforms]
             upload_post_platforms = st.multiselect(
                 tr("Platforms"),
-                options=["tiktok", "instagram", "youtube"],
-                default=config.app.get("upload_post_platforms", ["tiktok", "instagram"]),
+                options=available_platforms,
+                default=saved_platforms if saved_platforms else ["tiktok", "instagram"],
                 help="Select platforms to publish to",
                 key="upload_post_platforms_multiselect"
             )

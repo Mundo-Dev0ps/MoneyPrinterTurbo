@@ -325,8 +325,7 @@ def search_videos_pexels(
         return r.json()
 
     try:
-        # 针对具体主体搜索，免受手机竖屏库极小（多为美食/做菜）的限制，直接拉取全画幅4K高清纪录片素材
-        params = {"query": search_term, "per_page": 30}
+        params = {"query": search_term, "per_page": 30, "orientation": video_orientation}
         response = _fetch_pexels(params)
         videos = response.get("videos", []) if isinstance(response, dict) else []
 
@@ -356,9 +355,9 @@ def search_videos_pexels(
             for vf in video_files:
                 w = int(vf.get("width", 0))
                 h = int(vf.get("height", 0))
-                # 优先原生竖屏且高清，否则取最高清全画幅素材
-                is_native_vertical = _matches_video_aspect(w, h, aspect)
-                res_score = (w * h) + (10000000 if is_native_vertical else 0)
+                if not _matches_video_aspect(w, h, aspect):
+                    continue
+                res_score = w * h
                 if res_score > max_res:
                     max_res = res_score
                     best_file = vf
