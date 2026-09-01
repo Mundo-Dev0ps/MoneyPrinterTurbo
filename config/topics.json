@@ -1335,7 +1335,7 @@
       "id": "topic_045",
       "subject": "El Gran Atractor: El misterioso monstruo que arrastra a nuestra galaxia 🌌",
       "category": "Monstruos Cósmicos",
-      "status": "pending",
+      "status": "published",
       "script": "Nuestra Vía Láctea y millones de otras galaxias están siendo succionadas a más de dos millones de kilómetros por hora hacia una fuerza invisible conocida como el Gran Atractor. Oculto detrás del centro galáctico, posee una gravedad equivalente a decenas de miles de billones de soles. Nadie sabe con certeza qué colosal megaestructura nos espera allí. ¿Qué crees que hay al final del viaje? ¡Comenta tu teoría!",
       "search_terms": [
         "deep space cosmic web gravitational anomaly void",
@@ -1352,13 +1352,23 @@
         "misterios",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-31T23:38:46.882141",
+      "task_id": "fd649f52-dc25-46c1-9712-95a28e107d0a",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/fd649f52-dc25-46c1-9712-95a28e107d0a/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=86af8bdc55da4d3aac30ecd544dd68b9. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "86af8bdc55da4d3aac30ecd544dd68b9",
+        "total_platforms": 2,
+        "job_id": "5570122c12794207b1db0bd4f02381b8"
+      }
     },
     {
       "id": "topic_038",
       "subject": "El terremoto que destruyó una ciudad entera en 6 minutos en 1755 🏛️",
       "category": "Megasismos & Catástrofes",
-      "status": "pending",
+      "status": "published",
       "script": "El día de Todos los Santos de 1755, Lisboa fue sacudida por un megaterremoto de magnitud casi nueve. Mientras las catedrales colapsaban sobre miles de fieles, el mar se retiró varios kilómetros para regresar como un tsunami de quince metros, seguido de incendios imparables que ardieron durante cinco días seguidos. El ochenta y cinco por ciento de la capital quedó borrada del mapa. ¿Conocías esta tragedia histórica? ¡Comenta!",
       "search_terms": [
         "historic city ruins rubble earthquake disaster",
@@ -1375,13 +1385,23 @@
         "geologia",
         "catastrofe",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-01T16:08:20.549350",
+      "task_id": "34c8d392-bb47-43b2-890a-08c59783a4d8",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/34c8d392-bb47-43b2-890a-08c59783a4d8/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=cd240bc53ea940c3b77ff29a084c6954. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "cd240bc53ea940c3b77ff29a084c6954",
+        "total_platforms": 2,
+        "job_id": "85c12d711b1c45b78d8d4510628457e4"
+      }
     },
     {
       "id": "topic_034",
       "subject": "La explosión de Tunguska: La detonación espacial que arrasó un bosque entero 💥",
       "category": "Misterios de la Tierra",
-      "status": "pending",
+      "status": "published",
       "script": "En 1908, una explosión mil veces más potente que la bomba de Hiroshima detonó en el cielo de Siberia, derribando ochenta millones de árboles en dos mil kilómetros cuadrados en un parpadeo. No dejó cráter alguno, y el brillo nocturno fue tan intenso que en Londres se podía leer el periódico a medianoche. ¿Asteroide, cometa o antimateria? ¿Cuál es tu teoría? ¡Comenta!",
       "search_terms": [
         "meteor fireball burning atmosphere airburst explosion",
@@ -1398,7 +1418,17 @@
         "siberia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-01T23:44:54.629999",
+      "task_id": "7cd60c42-b328-4940-8e7a-0e0a9e892b81",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/7cd60c42-b328-4940-8e7a-0e0a9e892b81/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=8eb5251da6454e11afe69e0391ffe3bd. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "8eb5251da6454e11afe69e0391ffe3bd",
+        "total_platforms": 2,
+        "job_id": "eb4b4c7f6c474e82880d7b7d2a108fc5"
+      }
     },
     {
       "id": "topic_050",
