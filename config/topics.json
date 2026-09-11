@@ -1451,7 +1451,17 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-02T16:11:08.801585",
+      "task_id": "1306d850-9121-4286-b610-4237dbecb5a0",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/1306d850-9121-4286-b610-4237dbecb5a0/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=b88652a630954b60a3350945d59bd8e5. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "b88652a630954b60a3350945d59bd8e5",
+        "total_platforms": 2,
+        "job_id": "5fb3c4796e3f40018d139f11325b4e8c"
+      }
     },
     {
       "id": "topic_048",
@@ -1474,7 +1484,17 @@
         "astronomia",
         "cosmos",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-02T23:37:48.988033",
+      "task_id": "3f8262f2-1d72-407a-b954-eb219f18f1b8",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/3f8262f2-1d72-407a-b954-eb219f18f1b8/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=44b5c50d269741b6b86eaf831463e2e2. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "44b5c50d269741b6b86eaf831463e2e2",
+        "total_platforms": 2,
+        "job_id": "ffdfe5b88ab44f1c87ef9b32a6ec6959"
+      }
     },
     {
       "id": "topic_053",
@@ -1497,7 +1517,17 @@
         "historia",
         "geologia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-03T16:07:08.783153",
+      "task_id": "25868c7b-68d4-4929-b944-d90916158891",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/25868c7b-68d4-4929-b944-d90916158891/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=89a4d7aeae4a491db2730a43cf813994. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "89a4d7aeae4a491db2730a43cf813994",
+        "total_platforms": 2,
+        "job_id": "5629e570b5b0415dbd09375f1fe156dc"
+      }
     },
     {
       "id": "topic_051",
@@ -1520,7 +1550,17 @@
         "geologia",
         "sismos",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-03T23:37:43.527960",
+      "task_id": "5ef26fb7-a8ce-4074-ba21-50f08e0875ce",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/5ef26fb7-a8ce-4074-ba21-50f08e0875ce/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=1957b589477a492fac723553dde510b0. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "1957b589477a492fac723553dde510b0",
+        "total_platforms": 2,
+        "job_id": "529cdd5a2e314e459eafe16c57dd6f9f"
+      }
     },
     {
       "id": "topic_052",
@@ -1543,7 +1583,17 @@
         "ciencia",
         "futuro",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-04T16:08:47.717760",
+      "task_id": "ba3bcdad-00c9-4a2e-92ce-bc91d142ca65",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/ba3bcdad-00c9-4a2e-92ce-bc91d142ca65/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=3643ab7aec9546d9bd63eb045a55c703. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "3643ab7aec9546d9bd63eb045a55c703",
+        "total_platforms": 2,
+        "job_id": "4eca48673504422291f3c33b4d3b6cb7"
+      }
     },
     {
       "id": "topic_055",
@@ -1566,7 +1616,17 @@
         "historia",
         "misterios",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-04T23:40:25.948274",
+      "task_id": "6eb0aa01-168e-4302-9d86-53a813feee8d",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/6eb0aa01-168e-4302-9d86-53a813feee8d/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=fc80815e03014b65a79807ed6e7d98a0. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "fc80815e03014b65a79807ed6e7d98a0",
+        "total_platforms": 2,
+        "job_id": "48343c1e76d643fdb6778b50ebc125bd"
+      }
     },
     {
       "id": "topic_057",
@@ -1589,7 +1649,17 @@
         "curiosidades",
         "catastrofe",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-05T16:10:46.317496",
+      "task_id": "0f54490b-7146-4f15-88cb-3967c5e6592f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/0f54490b-7146-4f15-88cb-3967c5e6592f/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=cb1801e661d545e4961ac6f7a6e9ea6f. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "cb1801e661d545e4961ac6f7a6e9ea6f",
+        "total_platforms": 2,
+        "job_id": "dc8b57a6dc494cdf84cd205528679045"
+      }
     },
     {
       "id": "topic_058",
@@ -1612,7 +1682,17 @@
         "antartida",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-05T23:39:53.489167",
+      "task_id": "390ac99a-e964-45cb-a133-05e01940bb85",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/390ac99a-e964-45cb-a133-05e01940bb85/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=7216f38d019f4e64aeead2cadfa4758b. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "7216f38d019f4e64aeead2cadfa4758b",
+        "total_platforms": 2,
+        "job_id": "7d9c89adffc14654837702cb6b639598"
+      }
     },
     {
       "id": "topic_059",
@@ -1635,7 +1715,17 @@
         "geologia",
         "lugaresprohibidos",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-06T15:09:26.927150",
+      "task_id": "9f088390-2508-4dcf-88a2-4fbcef726909",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/9f088390-2508-4dcf-88a2-4fbcef726909/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=c28b17e427124c66b451027823e7db0d. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "c28b17e427124c66b451027823e7db0d",
+        "total_platforms": 2,
+        "job_id": "1a30230c9cc54b8aa749d5aac89974cf"
+      }
     },
     {
       "id": "topic_060",
@@ -1658,7 +1748,17 @@
         "fisica",
         "cosmos",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-06T22:39:37.799935",
+      "task_id": "4daa4978-1490-431c-8712-ad24310d5cfa",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4daa4978-1490-431c-8712-ad24310d5cfa/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=86e8f1ec03c54e119463eec8ae056f18. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "86e8f1ec03c54e119463eec8ae056f18",
+        "total_platforms": 2,
+        "job_id": "12ec461963b1440da3c3ff96fe07ca4d"
+      }
     },
     {
       "id": "topic_061",
@@ -1681,7 +1781,17 @@
         "geologia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-07T15:08:32.389948",
+      "task_id": "737ae8b4-818b-46d8-badf-0bec89f4aa17",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/737ae8b4-818b-46d8-badf-0bec89f4aa17/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=8801eb0b21e24772b545ff5f5cabbfc5. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "8801eb0b21e24772b545ff5f5cabbfc5",
+        "total_platforms": 2,
+        "job_id": "f2554644d76046b4a7e460bee59c770c"
+      }
     },
     {
       "id": "topic_062",
@@ -1704,7 +1814,17 @@
         "geologia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-07T22:36:52.587612",
+      "task_id": "400a8d4e-1692-4484-bc58-a713c02f3437",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/400a8d4e-1692-4484-bc58-a713c02f3437/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=54c6110cd6e346c58755ff0e93473132. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "54c6110cd6e346c58755ff0e93473132",
+        "total_platforms": 2,
+        "job_id": "87827e28e5dd4b2a8a76928697f037ce"
+      }
     },
     {
       "id": "topic_063",
@@ -1727,7 +1847,17 @@
         "planetatierra",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-08T15:08:54.291624",
+      "task_id": "b3a4fecc-6f3d-49d5-a11c-acf92be87505",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/b3a4fecc-6f3d-49d5-a11c-acf92be87505/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=fad53e872bd14acd865c2c4ab0c4983b. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "fad53e872bd14acd865c2c4ab0c4983b",
+        "total_platforms": 2,
+        "job_id": "4a203d72554641f5a7b3470a1f65062f"
+      }
     },
     {
       "id": "topic_064",
@@ -1750,7 +1880,17 @@
         "naturaleza",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-08T22:41:05.046391",
+      "task_id": "8d09cc95-c7b4-4158-a90d-5435fab99d0d",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/8d09cc95-c7b4-4158-a90d-5435fab99d0d/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=35577b6391d44d2fa63a78a8b03ed73a. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "35577b6391d44d2fa63a78a8b03ed73a",
+        "total_platforms": 2,
+        "job_id": "b8eb3b60501643a1a78d7778eb5d8d4b"
+      }
     },
     {
       "id": "topic_065",
@@ -1773,7 +1913,17 @@
         "astronomia",
         "tecnologia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-09T15:11:27.385247",
+      "task_id": "94d95fd1-59c2-477c-a4f2-3b139b500fc3",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/94d95fd1-59c2-477c-a4f2-3b139b500fc3/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=303e1b1c2ded4edb974d95bc0657ae29. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "303e1b1c2ded4edb974d95bc0657ae29",
+        "total_platforms": 2,
+        "job_id": "3fccd88ab81b464fbd1f5d480d19bbdd"
+      }
     },
     {
       "id": "topic_066",
@@ -1796,7 +1946,17 @@
         "lugaresprohibidos",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-09T22:41:45.518487",
+      "task_id": "4f570ab6-9b4e-4e3d-9c44-7174d4463f2f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4f570ab6-9b4e-4e3d-9c44-7174d4463f2f/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=1383a3d2f7fe48c888f14e2b72711946. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "1383a3d2f7fe48c888f14e2b72711946",
+        "total_platforms": 2,
+        "job_id": "6ccc86ffe4d0429c80a3bea62d5f5fa2"
+      }
     },
     {
       "id": "topic_067",
