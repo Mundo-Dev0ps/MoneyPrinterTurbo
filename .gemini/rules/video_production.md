@@ -45,3 +45,20 @@ Este documento define las reglas de calidad obligatorias para la generación de 
   ```
 * **Patrón en VPS:** Se utiliza siempre el wrapper `scripts/run_remote_producer.sh`.
 
+---
+
+## 5. Regla Obligatoria de Ejecución de Comandos con RTK (Rust Token Killer)
+* **Principio:** Siempre que se ejecuten comandos en la shell o terminal (git, docker, consultas de archivos, inspecciones), **DEBEN ejecutarse a través de `rtk`** (`rtk <comando>`) para filtrar la salida excesiva, prevenir desbordamiento de contexto y optimizar el consumo de tokens (hasta un 90% de reducción de tokens).
+* **Ejemplos de Uso Obligatorio:**
+  * `rtk git status`
+  * `rtk git diff`
+  * `rtk git log -n <N>`
+  * `rtk docker ps`
+  * `rtk docker exec ...`
+  * `rtk docker run ...`
+* **Búsquedas:**
+  * Para código (Python, TS, Go): usar `sg -p '<pattern>'` (ast-grep).
+  * Para texto plano, logs, JSON, TOML o Markdown: usar `rtk rg` o `rtk grep`.
+* **Depuración Cruda:** Si un comando requiere la salida completa sin filtrado para diagnóstico extremo, usar `rtk proxy <cmd>`.
+
+
