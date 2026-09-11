@@ -1206,6 +1206,7 @@ def create_dynamic_karaoke_clips(
     stroke_width: int = 6,
     subtitle_position: str = "bottom",
     custom_position: float = 70.0,
+    subtitle_animation: str = "pop_spring",
 ) -> list:
     """
     Creates dynamic word-by-word karaoke highlighted ImageClips from word-level subtitle JSON.
@@ -1307,6 +1308,8 @@ def create_dynamic_karaoke_clips(
                 .with_duration(duration)
                 .with_position(("center", y_pos))
             )
+            if subtitle_animation in ("pop_spring", "spring", "pop"):
+                img_clip = _apply_subtitle_spring_animation(img_clip, duration)
             clips.append(img_clip)
 
     return clips
@@ -1575,6 +1578,7 @@ def generate_video(
                     stroke_width=stroke_width,
                     subtitle_position=params.subtitle_position,
                     custom_position=params.custom_position,
+                    subtitle_animation=getattr(params, "subtitle_animation", "pop_spring"),
                 )
                 if karaoke_clips:
                     video_clip = CompositeVideoClip([video_clip, *karaoke_clips])

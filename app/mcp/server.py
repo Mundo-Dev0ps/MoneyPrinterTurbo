@@ -577,6 +577,7 @@ def mpt_generate_subtitles(
     rounded_subtitle_background: bool = True,
     subtitle_position: str = "bottom",
     custom_position: float = 70.0,
+    subtitle_animation: str = "pop_spring",
 ) -> dict[str, Any]:
     """
     Generate subtitles (subtitle.srt) from audio/script and configure premium subtitle styling parameters.
@@ -621,6 +622,7 @@ def mpt_generate_subtitles(
         rounded_subtitle_background=rounded_subtitle_background,
         subtitle_position=subtitle_position,
         custom_position=custom_position,
+        subtitle_animation=subtitle_animation,
     )
     sm.state.patch_task(task_id, subtitle_path=subtitle_file, progress=40)
 

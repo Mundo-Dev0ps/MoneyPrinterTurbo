@@ -100,12 +100,13 @@ def refill_topics_if_needed(data: dict, min_pending: int = 3, batch_size: int = 
     existing_subjects = [t.get("subject", "") for t in data.get("topics", [])]
     existing_list_str = "\n- ".join(existing_subjects[-30:])
 
-    prompt = f"""Eres un creador de contenido experto en YouTube Shorts virales de ciencia, megaterremotos, misterios cósmicos y curiosidades de la Tierra.
-Genera exactamente {batch_size} NUEVOS temas virales de alto impacto y retención, alternando entre:
-1. Megaterremotos históricos, sismos extremos, fallas geológicas colosales (Cascadia, San Andrés, Valdivia, Cinturón de Fuego)
-2. Misterios y curiosidades del cosmos (agujeros negros, supernovas, planetas extraños)
-3. Secretos geológicos y abismales de la Tierra (fosas submarinas, supervolcanes, fenómenos inexplicables)
-4. "¿Qué pasaría si...?" (experimentos mentales extremos de física y geología)
+    prompt = f"""Eres un creador de contenido experto en YouTube Shorts virales de ciencia, catástrofes históricas, megaterremotos y misterios abisales del océano.
+Genera exactamente {batch_size} NUEVOS temas virales de altísima retención e intriga visual, alternando entre:
+1. Megaterremotos colosales y tsunamis históricos (Valdivia 1960 9.5, Tsunami de 2004, Falla de Cascadia, Krakatoa 1883)
+2. Misterios y anomalías del océano profundo (Fosa de las Marianas, El Bloop, criaturas abisales extremas, el Agujero Azul de Belice)
+3. Enigmas cósmicos y cataclismos espaciales reales (La Señal Wow!, El Gran Atractor, magnetars, meteoritos colosales)
+4. Fenómenos geológicos extremos de la Tierra (Supervolcán de Yellowstone, la Puerta del Infierno, el Lago Vostok)
+PROHIBIDO generar temas hipotéticos abstractos tipo "¿Qué pasaría si...?" porque carecen de imágenes reales de stock.
 
 IMPORTANTE:
 - NO repitas ninguno de estos temas que ya hicimos:
@@ -115,14 +116,14 @@ Responde ÚNICAMENTE con un JSON válido que sea una lista de objetos con esta e
 [
   {{
     "subject": "Título atractivo y con gancho (sin emojis)",
-    "category": "Megaterremotos & Sismos / Cosmos & Espacio / Misterios Abisales / Secretos de la Tierra / Que pasaria si",
-    "script": "Guion completo en español narrativo continuo de 60 a 75 palabras. Debe empezar con un gancho demoledor en la primera frase, desarrollar el misterio o dato científico con máxima tensión y terminar obligatoriamente con una pregunta potente seguida del llamado a la acción: '¿Qué opinas? ¡Déjamelo saber en los comentarios!' o '¿Crees que podría ocurrir pronto? ¡Déjalo en los comentarios!'.",
+    "category": "Megaterremotos & Sismos / Misterios Abisales / Cosmos Extremo / Secretos Geológicos",
+    "script": "Guion completo en español narrativo de 60 a 75 palabras con pausas dramáticas obligatorias. DEBES incluir exactamente 2 pausas dramáticas usando la etiqueta '[pause:0.6]': una obligatoria justo después del gancho inicial para crear tensión y suspenso, y otra antes del dato o revelación más sorprendente. Terminar obligatoriamente con una pregunta potente seguida del llamado a la acción: '¿Qué opinas? ¡Déjamelo saber en los comentarios!'.",
     "search_terms": [
-      "4 or 5 descriptive english search keywords for stock footage in pexels",
-      "earthquake cracked ground seismic",
-      "space galaxy planet dark"
+      "4 or 5 descriptive english search keywords for realistic 4K stock footage in pexels",
+      "deep ocean abyss trench underwater",
+      "massive earthquake cracked ground seismic"
     ],
-    "tags": ["shorts", "terremoto", "ciencia", "misterios", "curiosidades", "erdivertido"]
+    "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
   }}
 ]"""
 
@@ -172,6 +173,22 @@ Responde ÚNICAMENTE con un JSON válido que sea una lista de objetos con esta e
         return 0
 
 
+def ensure_dramatic_pauses(script_text: str) -> str:
+    """
+    Garantiza que el guion tenga pausas dramáticas [pause:0.6] para generar suspenso y retención.
+    Si el guion no tiene pausas, inserta una automáticamente tras la primera frase gancho.
+    """
+    if "[pause:" in script_text:
+        return script_text
+    
+    import re
+    match = re.search(r'([.!?])\s+', script_text)
+    if match:
+        idx = match.end()
+        return script_text[:idx] + "[pause:0.6] " + script_text[idx:]
+    return script_text
+
+
 def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict:
     logger.info("=== INICIANDO AUTO-PRODUCER MONEYPRINTERTURBO ===")
     data = load_topics_data()
@@ -193,7 +210,7 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
     
     topic_id = topic["id"]
     subject = topic["subject"]
-    script_text = topic["script"]
+    script_text = ensure_dramatic_pauses(topic["script"])
     terms = topic.get("search_terms", [])
     tags = topic.get("tags", [])
     
@@ -217,7 +234,7 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
     voice_res = mpt_synthesize_voice(task_id=task_id, voice_name=voice_name)
     logger.info(f"Voz sintetizada con {voice_name}: {voice_res}")
     
-    # 4. Generación de Subtítulos Dinámicos Karaoke (Amarillo + Blanco + Borde Negro)
+    # 4. Generación de Subtítulos Dinámicos Karaoke (Amarillo + Blanco + Borde Negro + Pop Spring)
     sub_res = mpt_generate_subtitles(
         task_id=task_id,
         font_name=settings.get("font_name", "BeVietnamPro-Bold.ttf"),
@@ -228,7 +245,8 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
         text_background_color="",
         rounded_subtitle_background=False,
         subtitle_position="bottom",
-        custom_position=58.0
+        custom_position=58.0,
+        subtitle_animation="pop_spring"
     )
     # QA Check 1: Validar que el archivo de subtítulos (.srt) existe y no está vacío
     task_dir = os.path.join(utils.task_dir(), task_id)
@@ -274,7 +292,8 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
                 "youtube_description": youtube_desc,
                 "tags": tags,
                 "privacyStatus": "public",
-                "containsSyntheticMedia": "true"
+                "containsSyntheticMedia": "true",
+                "selfDeclaredMadeForKids": False
             }
             
             target_user = topic.get("user_name") or settings.get("user_name") or settings.get("upload_post_username")
