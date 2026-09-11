@@ -189,6 +189,87 @@ def ensure_dramatic_pauses(script_text: str) -> str:
     return script_text
 
 
+def publish_topic_video(topic: dict, settings: dict, video_path: str | None = None) -> dict:
+    """
+    Sube un video renderizado a las plataformas configuradas (YouTube Shorts).
+    """
+    subject = topic["subject"]
+    script_text = topic["script"]
+    target_video = video_path or topic.get("video_path")
+    tags = topic.get("tags", [])
+
+    ups = UploadPostService()
+    clean_subject = subject.strip()
+    if "#shorts" not in clean_subject.lower():
+        youtube_title = f"{clean_subject[:80]} #Shorts"
+    else:
+        youtube_title = clean_subject[:95]
+    youtube_desc = f"{script_text}\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n" + " ".join(f"#{t}" for t in tags)
+    
+    youtube_extra = {
+        "youtube_title": youtube_title,
+        "youtube_description": youtube_desc,
+        "tags": tags,
+        "privacyStatus": "public",
+        "containsSyntheticMedia": "true",
+        "selfDeclaredMadeForKids": False
+    }
+    
+    target_user = topic.get("user_name") or settings.get("user_name") or settings.get("upload_post_username")
+    target_platforms = settings.get("platforms", ["youtube"])
+    logger.info(f"Publicando [{topic.get('id')}] en {target_platforms} con usuario: {target_user}...")
+    
+    return ups.upload_video(
+        video_path=target_video,
+        title=youtube_title,
+        platforms=target_platforms,
+        youtube_extra=youtube_extra,
+        user_name=target_user
+    )
+
+
+def publish_rendered_topic(topic_id: str) -> dict:
+    """
+    Publica un video previamente renderizado (en estado 'rendered') a YouTube.
+    """
+    data = load_topics_data()
+    topic = next((t for t in data.get("topics", []) if t.get("id") == topic_id), None)
+    if not topic:
+        raise ValueError(f"Tema con id '{topic_id}' no encontrado en topics.json")
+    
+    video_path = topic.get("video_path")
+    if not video_path or not os.path.isfile(video_path):
+        task_id = topic.get("task_id", "")
+        candidate = os.path.join(PROJECT_ROOT, "storage", "tasks", task_id, "final-1.mp4")
+        if os.path.isfile(candidate):
+            video_path = candidate
+            topic["video_path"] = candidate
+        else:
+            raise FileNotFoundError(f"Video final no encontrado para el tema {topic_id}: {video_path}")
+    
+    settings = data.get("schedule_settings", {})
+    try:
+        upload_result = publish_topic_video(topic, settings)
+        logger.info(f"Resultado de publicación para [{topic_id}]: {upload_result}")
+    except Exception as e:
+        logger.error(f"Error publicando [{topic_id}]: {e}")
+        upload_result = {"success": False, "error": str(e)}
+    
+    if upload_result and upload_result.get("success"):
+        topic["status"] = "published"
+        topic["upload_result"] = upload_result
+        topic["published_at"] = datetime.now().isoformat()
+        save_topics_data(data)
+        logger.info(f"Tema [{topic_id}] actualizado como 'published' en topics.json.")
+    
+    return {
+        "success": bool(upload_result and upload_result.get("success")),
+        "topic_id": topic_id,
+        "video_path": video_path,
+        "upload_result": upload_result
+    }
+
+
 def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict:
     logger.info("=== INICIANDO AUTO-PRODUCER MONEYPRINTERTURBO ===")
     data = load_topics_data()
@@ -279,35 +360,10 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
     if auto_publish:
         try:
             logger.info("Iniciando publicación en YouTube...")
-            ups = UploadPostService()
-            clean_subject = subject.strip()
-            if "#shorts" not in clean_subject.lower():
-                youtube_title = f"{clean_subject[:80]} #Shorts"
-            else:
-                youtube_title = clean_subject[:95]
-            youtube_desc = f"{script_text}\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n" + " ".join(f"#{t}" for t in tags)
-            
-            youtube_extra = {
-                "youtube_title": youtube_title,
-                "youtube_description": youtube_desc,
-                "tags": tags,
-                "privacyStatus": "public",
-                "containsSyntheticMedia": "true",
-                "selfDeclaredMadeForKids": False
-            }
-            
-            target_user = topic.get("user_name") or settings.get("user_name") or settings.get("upload_post_username")
-            target_platforms = settings.get("platforms", ["youtube"])
-            upload_result = ups.upload_video(
-                video_path=video_path,
-                title=youtube_title,
-                platforms=target_platforms,
-                youtube_extra=youtube_extra,
-                user_name=target_user
-            )
-            logger.info(f"Resultado de publicación en {target_platforms}: {upload_result}")
+            upload_result = publish_topic_video(topic, settings, video_path=video_path)
+            logger.info(f"Resultado de publicación en {settings.get('platforms', ['youtube'])}: {upload_result}")
         except Exception as e:
-            logger.error(f"Error publicando en {target_platforms}: {e}")
+            logger.error(f"Error publicando en {settings.get('platforms', ['youtube'])}: {e}")
             upload_result = {"success": False, "error": str(e)}
     
     # 8. Actualizar topics.json
@@ -332,6 +388,13 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
 
 
 if __name__ == "__main__":
+    if "--publish-rendered" in sys.argv:
+        idx = sys.argv.index("--publish-rendered")
+        target_id = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else "topic_067"
+        res = publish_rendered_topic(target_id)
+        print(json.dumps(res, indent=2, ensure_ascii=False))
+        sys.exit(0 if res.get("success") else 1)
+
     auto_pub = "--no-publish" not in sys.argv
     smart_mode = "--smart" in sys.argv
     result = run_production(auto_publish=auto_pub, smart_check=smart_mode)

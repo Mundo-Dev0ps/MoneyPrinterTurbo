@@ -10,6 +10,8 @@ class TestAutoProducer(unittest.TestCase):
     def test_imports_and_symbols(self):
         """Verifica que todos los módulos y funciones requeridos por auto_producer existen."""
         self.assertTrue(hasattr(auto_producer, "run_production"))
+        self.assertTrue(hasattr(auto_producer, "publish_rendered_topic"))
+        self.assertTrue(hasattr(auto_producer, "publish_topic_video"))
         self.assertTrue(hasattr(auto_producer, "load_topics_data"))
         self.assertTrue(hasattr(auto_producer, "save_topics_data"))
         self.assertTrue(hasattr(auto_producer, "UploadPostService"))
@@ -199,6 +201,57 @@ class TestAutoProducer(unittest.TestCase):
             auto_producer.run_production(auto_publish=True)
         self.assertIn("QA GATE FAILED", str(ctx.exception))
 
+    @patch("scripts.auto_producer.UploadPostService")
+    @patch("scripts.auto_producer.load_topics_data")
+    @patch("scripts.auto_producer.save_topics_data")
+    @patch("os.path.isfile")
+    def test_publish_rendered_topic_success(
+        self,
+        mock_isfile,
+        mock_save_topics,
+        mock_load_topics,
+        mock_upload_post_cls,
+    ):
+        """Valida que publish_rendered_topic publica un video en estado rendered."""
+        mock_data = {
+            "schedule_settings": {
+                "platforms": ["youtube"],
+                "user_name": "ErDivertido"
+            },
+            "topics": [
+                {
+                    "id": "topic_067",
+                    "subject": "El Megaterremoto de Valdivia 1960",
+                    "script": "Texto de Valdivia.",
+                    "status": "rendered",
+                    "task_id": "valdivia-task-id",
+                    "video_path": "/storage/tasks/valdivia-task-id/final-1.mp4",
+                    "tags": ["valdivia", "chile"]
+                }
+            ]
+        }
+        mock_load_topics.return_value = mock_data
+        mock_isfile.return_value = True
+
+        mock_ups_instance = MagicMock()
+        mock_ups_instance.upload_video.return_value = {
+            "success": True,
+            "request_id": "req-valdivia",
+            "job_id": "job-valdivia"
+        }
+        mock_upload_post_cls.return_value = mock_ups_instance
+
+        res = auto_producer.publish_rendered_topic("topic_067")
+        self.assertTrue(res["success"])
+        self.assertEqual(res["topic_id"], "topic_067")
+        self.assertEqual(mock_data["topics"][0]["status"], "published")
+        mock_ups_instance.upload_video.assert_called_once()
+        call_kwargs = mock_ups_instance.upload_video.call_args.kwargs
+        self.assertEqual(call_kwargs["user_name"], "ErDivertido")
+        self.assertEqual(call_kwargs["platforms"], ["youtube"])
+        self.assertEqual(call_kwargs["youtube_extra"]["selfDeclaredMadeForKids"], False)
+
 
 if __name__ == "__main__":
     unittest.main()
+
