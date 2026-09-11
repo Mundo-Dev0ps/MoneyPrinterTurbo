@@ -26,3 +26,22 @@ Este documento define las reglas de calidad obligatorias para la generación de 
 * **Declaración de IA:** `containsSyntheticMedia = "true"` para cumplir con normativas de YouTube
 * **Formato de título:** Gancho de menos de 100 caracteres con `#Shorts` al final
 * **Descripción:** 2 párrafos explicativos + llamada a la acción en comentarios + 5-7 hashtags relevantes
+
+---
+
+## 4. Regla Obligatoria de Ejecución en Contenedores Docker
+* **Principio:** Todos los comandos de ejecución (pruebas con `pytest`, scripts de producción `auto_producer.py`, comandos CLI y Python) **DEBEN ejecutarse siempre DENTRO de los contenedores Docker**, NUNCA directamente en el host.
+* **Patrón de Ejecución Local de Pruebas:**
+  ```bash
+  docker run --rm \
+    -v /home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo:/MoneyPrinterTurbo \
+    -w /MoneyPrinterTurbo \
+    ghcr.io/harry0703/moneyprinterturbo:latest \
+    sh -c "pip install -q pytest 'mcp>=1.3.0,<2' >/dev/null 2>&1 && pytest <ruta_test> -v"
+  ```
+* **Patrón de Ejecución en Contenedores Vivos:**
+  ```bash
+  docker exec <container_id_or_name> python3 <script>
+  ```
+* **Patrón en VPS:** Se utiliza siempre el wrapper `scripts/run_remote_producer.sh`.
+
