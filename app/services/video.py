@@ -83,6 +83,9 @@ _MIN_MATERIAL_DIMENSION = 480
 # 既能放行仅仅因为取整而略低于阈值的素材，也仍然能挡住真正的低清素材。
 _MIN_DIMENSION_TOLERANCE = 10
 _DEFAULT_VIDEO_CODEC = "libx264"
+_SUBTITLE_SPRING_DURATION_SECONDS = 0.18
+_MIN_SUBTITLE_SPRING_SCALE = 0.05
+_MAX_SUBTITLE_SPRING_SCALE = 1.35
 _SUPPORTED_VIDEO_CODECS = (
     "libx264",
     "h264_nvenc",
@@ -92,6 +95,83 @@ _SUPPORTED_VIDEO_CODECS = (
     "h264_videotoolbox",
 )
 _runtime_disabled_video_codecs = set()
+
+
+def _get_subtitle_spring_scale(time_seconds: float, duration_seconds: float) -> float:
+    """返回字幕弹跳动画在指定时间点使用的缩放比例。"""
+    if duration_seconds <= 0 or time_seconds >= duration_seconds:
+        return 1.0
+
+    progress = max(0.0, min(time_seconds / duration_seconds, 1.0))
+    scale = 1.0 - math.exp(-6.0 * progress) * math.cos(2.5 * math.pi * progress)
+    return max(
+        _MIN_SUBTITLE_SPRING_SCALE,
+        min(scale, _MAX_SUBTITLE_SPRING_SCALE),
+    )
+
+
+def _scale_subtitle_frame_on_canvas(frame: np.ndarray, scale: float) -> np.ndarray:
+    """
+    在保持画布尺寸不变的前提下，围绕中心缩放字幕画面或透明蒙版。
+
+    MoviePy 将字幕颜色帧和透明蒙版分开保存。弹跳动画必须对二者使用完全
+    相同的缩放与裁剪，否则动画首帧会把透明区域当成黑色文字轮廓合成到视频
+    上。二维数组表示取值为 0～1 的蒙版，三维数组表示 RGB/RGBA 颜色帧。
+    """
+    if frame.ndim not in (2, 3):
+        raise ValueError("subtitle frame must be a 2D mask or 3D color frame")
+
+    height, width = frame.shape[:2]
+    scaled_width = max(1, int(round(width * scale)))
+    scaled_height = max(1, int(round(height * scale)))
+    offset = ((width - scaled_width) // 2, (height - scaled_height) // 2)
+
+    if frame.ndim == 2:
+        # MoviePy 蒙版使用 0～1 浮点数，Pillow 的 L 模式使用 0～255；转换后
+        # 再恢复原始类型和范围，确保 CompositeVideoClip 的透明度语义不变。
+        mask_image = Image.fromarray(
+            np.clip(frame * 255.0, 0, 255).astype(np.uint8)
+        )
+        resized_mask = mask_image.resize(
+            (scaled_width, scaled_height),
+            Image.Resampling.BILINEAR,
+        )
+        mask_canvas = Image.new("L", (width, height), 0)
+        mask_canvas.paste(resized_mask, offset)
+        return (np.asarray(mask_canvas) / 255.0).astype(frame.dtype, copy=False)
+
+    if frame.shape[2] not in (3, 4):
+        raise ValueError("subtitle color frame must use RGB or RGBA channels")
+    color_image = Image.fromarray(frame)
+    resized_color = color_image.resize(
+        (scaled_width, scaled_height),
+        Image.Resampling.BILINEAR,
+    )
+    background = (0, 0, 0, 0) if frame.shape[2] == 4 else (0, 0, 0)
+    color_canvas = Image.new(color_image.mode, (width, height), background)
+    color_canvas.paste(resized_color, offset)
+    return np.asarray(color_canvas).astype(frame.dtype, copy=False)
+
+
+def _apply_subtitle_spring_animation(clip, subtitle_duration: float):
+    """同时缩放字幕颜色帧与蒙版，避免弹跳动画出现黑色首帧。"""
+    animation_duration = min(
+        _SUBTITLE_SPRING_DURATION_SECONDS,
+        max(0.0, subtitle_duration),
+    )
+    if animation_duration <= 0:
+        return clip
+
+    def transform_frame(get_frame, time_seconds):
+        frame = get_frame(time_seconds)
+        scale = _get_subtitle_spring_scale(time_seconds, animation_duration)
+        if scale == 1.0:
+            return frame
+        return _scale_subtitle_frame_on_canvas(frame, scale)
+
+    # apply_to=["mask"] 是修复的关键：MoviePy 默认只处理颜色帧，旧实现因此
+    # 在每条字幕出现时短暂保留原尺寸蒙版，并显示黑色文字轮廓。
+    return clip.transform(transform_frame, apply_to=["mask"])
 
 
 def _get_required_video_duration(audio_duration: float) -> float:
@@ -119,6 +199,8 @@ def is_material_resolution_acceptable(width: int, height: int) -> bool:
 def _prioritize_unique_source_clips(
     subclipped_items: List[SubClippedVideoClip],
     concat_mode: VideoConcatMode,
+    source_usage: dict[str, int] | None = None,
+    source_groups: dict[str, str] | None = None,
 ) -> List[SubClippedVideoClip]:
     """
     优先让每个源素材只出现一次，降低成片里同一素材反复出现的概率。
@@ -135,7 +217,26 @@ def _prioritize_unique_source_clips(
 
     concat_mode_value = getattr(concat_mode, "value", concat_mode)
     if concat_mode_value != VideoConcatMode.random.value:
-        return subclipped_items
+        if source_usage is None:
+            return subclipped_items
+        if not source_groups:
+            return sorted(
+                subclipped_items,
+                key=lambda item: source_usage.get(item.source_file_path, 0),
+            )
+        # Keep keyword rounds in order while rotating candidates within each keyword.
+        groups = {}
+        for item in subclipped_items:
+            key = source_groups.get(item.source_file_path, item.source_file_path)
+            groups.setdefault(key, []).append(item)
+        for items in groups.values():
+            items.sort(key=lambda item: source_usage.get(item.source_file_path, 0))
+        return [
+            item
+            for row in itertools.zip_longest(*groups.values())
+            for item in row
+            if item is not None
+        ]
 
     grouped_items: dict[str, list[SubClippedVideoClip]] = {}
     for item in subclipped_items:
@@ -150,6 +251,10 @@ def _prioritize_unique_source_clips(
 
     random.shuffle(primary_items)
     random.shuffle(overflow_items)
+    if source_usage is not None:
+        # Stable sorting retains randomness among equally used sources.
+        primary_items.sort(key=lambda item: source_usage.get(item.source_file_path, 0))
+        overflow_items.sort(key=lambda item: source_usage.get(item.source_file_path, 0))
     logger.info(
         "prioritized unique video materials, "
         f"sources: {len(grouped_items)}, "
@@ -610,6 +715,9 @@ def combine_videos(
     threads: int = 2,
     clip_speed: float = 1.0,
     video_fit_mode: VideoFitMode = VideoFitMode.cover,
+    source_usage: dict[str, int] | None = None,
+    source_groups: dict[str, str] | None = None,
+    used_video_paths: List[str] | None = None,
 ) -> str:
     audio_clip = AudioFileClip(audio_file)
     try:
@@ -701,6 +809,8 @@ def combine_videos(
     subclipped_items = _prioritize_unique_source_clips(
         subclipped_items=subclipped_items,
         concat_mode=video_concat_mode,
+        **({"source_usage": source_usage, "source_groups": source_groups}
+           if source_usage is not None else {}),
     )
         
     logger.debug(f"total subclipped items: {len(subclipped_items)}")
@@ -842,6 +952,14 @@ def combine_videos(
         output_dir=output_dir,
         max_duration=audio_duration,
     )
+    if used_video_paths is not None:
+        # Exclude safety-margin clips that FFmpeg trims entirely from the output.
+        elapsed = 0.0
+        for clip in processed_clips:
+            if elapsed >= audio_duration:
+                break
+            used_video_paths.append(clip.source_file_path)
+            elapsed += clip.duration
     
     # clean temp files
     delete_files(clip_files)
@@ -1383,10 +1501,20 @@ def generate_video(
         _clip = _clip.with_start(subtitle_item[0][0])
         _clip = _clip.with_end(subtitle_item[0][1])
         _clip = _clip.with_duration(duration)
+
+        # 弹跳动画只在用户显式选择时启用；默认 none 完全沿用原字幕渲染路径。
+        anim_type = getattr(params, "subtitle_animation", "none")
+        if anim_type in ("pop_spring", "spring", "pop"):
+            _clip = _apply_subtitle_spring_animation(_clip, duration)
+
         if params.subtitle_position == "bottom":
             _clip = _clip.with_position(("center", video_height * 0.95 - _clip.h))
         elif params.subtitle_position == "top":
             _clip = _clip.with_position(("center", video_height * 0.05))
+        elif params.subtitle_position in ("two_thirds_bottom", "two_thirds", "2/3_bottom"):
+            # 2/3 from the bottom = 1/3 from the top: y = (video_height - _clip.h) * (1/3)
+            y_two_thirds = (video_height - _clip.h) / 3.0
+            _clip = _clip.with_position(("center", y_two_thirds))
         elif params.subtitle_position == "custom":
             # Ensure the subtitle is fully within the screen bounds
             margin = 10  # Additional margin, in pixels
