@@ -1962,7 +1962,7 @@
       "id": "topic_067",
       "subject": "El Megaterremoto de Valdivia 1960: El sismo más colosal jamás registrado en la Tierra 🇨🇱",
       "category": "Megaterremotos & Tsunamis",
-      "status": "pending",
+      "status": "published",
       "script": "En 1960, el sur de Chile tembló con una violencia nunca antes vista. [pause:0.7] Un terremoto magnitud 9.5 liberó tanta energía que desgarró la corteza terrestre, hundió ciudades enteras y generó tsunamis que cruzaron todo el océano Pacífico hasta Japón. Fue el sismo más destructivo de la historia moderna. ¿Crees que la naturaleza podría superar esta magnitud? ¡Comenta tu opinión!",
       "search_terms": [
         "colossal earthquake tsunami waves ocean coastline",
@@ -1979,7 +1979,18 @@
         "historia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-11T16:44:58.610036",
+      "task_id": "4d21c092-f81d-4104-976b-3b5ac50596a0",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4d21c092-f81d-4104-976b-3b5ac50596a0/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=bd4fe5f545bb4314a9f4e3815683dd8c. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "bd4fe5f545bb4314a9f4e3815683dd8c",
+        "total_platforms": 2,
+        "job_id": "ecc58c1d83494eb48857214849c97319"
+      },
+      "published_at": "2026-09-11T19:33:34.959035"
     },
     {
       "id": "topic_068",
