@@ -96,20 +96,21 @@ def refill_topics_if_needed(data: dict, min_pending: int = 3, batch_size: int = 
 
     logger.info(f"Quedan solo {pending_count} temas pendientes. Autogenerando {batch_size} nuevos temas virales con Gemini LLM...")
     
-    # Extract existing subjects to avoid duplicates
-    existing_subjects = [t.get("subject", "") for t in data.get("topics", [])]
-    existing_list_str = "\n- ".join(existing_subjects[-30:])
+    # Extract all existing subjects and core keywords to avoid duplicates
+    existing_subjects = [t.get("subject", "").strip() for t in data.get("topics", []) if t.get("subject")]
+    existing_list_str = "\n- ".join(existing_subjects)
 
     prompt = f"""Eres un creador de contenido experto en YouTube Shorts virales de ciencia, catástrofes históricas, megaterremotos y misterios abisales del océano.
 Genera exactamente {batch_size} NUEVOS temas virales de altísima retención e intriga visual, alternando entre:
-1. Megaterremotos colosales y tsunamis históricos (Valdivia 1960 9.5, Tsunami de 2004, Falla de Cascadia, Krakatoa 1883)
-2. Misterios y anomalías del océano profundo (Fosa de las Marianas, El Bloop, criaturas abisales extremas, el Agujero Azul de Belice)
-3. Enigmas cósmicos y cataclismos espaciales reales (La Señal Wow!, El Gran Atractor, magnetars, meteoritos colosales)
-4. Fenómenos geológicos extremos de la Tierra (Supervolcán de Yellowstone, la Puerta del Infierno, el Lago Vostok)
+1. Grandes terremotos y megatsunamis históricos o zonas de subducción activas poco exploradas
+2. Anomalías abisales oceánicas, fosas inexploradas y criaturas de aguas profundas extremas
+3. Enigmas astrofísicos reales, impactos de asteroides y colisiones cósmicas
+4. Procesos geológicos colosales (fosas tectónicas submarinas, calderas activas, emanaciones hidrotermales extremas)
 PROHIBIDO generar temas hipotéticos abstractos tipo "¿Qué pasaría si...?" porque carecen de imágenes reales de stock.
 
-IMPORTANTE:
-- NO repitas ninguno de estos temas que ya hicimos:
+CRÍTICO - CONTROL ESTRICTO ANTI-DUPLICIDAD:
+Está TERMINANTEMENTE PROHIBIDO repetir temas, lugares o eventos ya cubiertos.
+Lista COMPLETA de temas que YA HICIMOS (NO REPETIR NINGUNO):
 - {existing_list_str}
 
 Responde ÚNICAMENTE con un JSON válido que sea una lista de objetos con esta estructura exacta (sin texto adicional):
@@ -142,6 +143,17 @@ Responde ÚNICAMENTE con un JSON válido que sea una lista de objetos con esta e
         if not isinstance(new_topics, list):
             logger.warning("LLM response did not contain a valid list of topics.")
             return 0
+
+        def _is_duplicate(new_title: str, past_titles: list[str]) -> bool:
+            stop = {"el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "en", "a", "al", "con", "por", "para", "que", "y", "o", "se", "su", "sus", "mas", "lo"}
+            norm = lambda s: [w for w in re.sub(r'[^\w\s]', ' ', s.lower()).split() if w not in stop and len(w) > 2]
+            new_tokens = set(norm(new_title))
+            for pt in past_titles:
+                pt_tokens = set(norm(pt))
+                overlap = new_tokens.intersection(pt_tokens)
+                if len(overlap) >= 3:
+                    return True
+            return False
             
         # Get max existing index
         max_idx = 0
@@ -156,14 +168,22 @@ Responde ÚNICAMENTE con un JSON válido que sea una lista de objetos con esta e
                     pass
                     
         added = 0
+        all_current_subjects = [t.get("subject", "") for t in data.get("topics", [])]
         for item in new_topics:
+            subj = item.get("subject", "").strip()
+            if not subj:
+                continue
+            if _is_duplicate(subj, all_current_subjects):
+                logger.warning(f"Descartando tema duplicado detectado por filtro anti-repetición: '{subj}'")
+                continue
             max_idx += 1
             new_id = f"topic_{max_idx:03d}"
             item["id"] = new_id
             item["status"] = "pending"
             data["topics"].append(item)
+            all_current_subjects.append(subj)
             added += 1
-            logger.info(f"Nuevo tema agregado a la cola: [{new_id}] {item.get('subject')}")
+            logger.info(f"Nuevo tema agregado a la cola: [{new_id}] {subj}")
             
         save_topics_data(data)
         logger.info(f"Se agregaron {added} nuevos temas virales automaticamente a topics.json.")
