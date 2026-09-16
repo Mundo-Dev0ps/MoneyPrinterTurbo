@@ -310,10 +310,16 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
     mpt_update_script(task_id=task_id, script_text=script_text, terms=terms)
     logger.info("Guion y términos actualizados.")
     
-    # 3. Síntesis de Voz
+    # 3. Síntesis de Voz con Fallback Inteligente (Gemini -> Edge-TTS)
     voice_name = settings.get("voice_name", "gemini:Charon-Male")
-    voice_res = mpt_synthesize_voice(task_id=task_id, voice_name=voice_name)
-    logger.info(f"Voz sintetizada con {voice_name}: {voice_res}")
+    try:
+        voice_res = mpt_synthesize_voice(task_id=task_id, voice_name=voice_name)
+        logger.info(f"Voz sintetizada con {voice_name}: {voice_res}")
+    except Exception as e:
+        logger.warning(f"Fallo síntesis con {voice_name} ({e}). Aplicando fallback a Edge-TTS (es-ES-AlvaroNeural)...")
+        voice_name = "es-ES-AlvaroNeural"
+        voice_res = mpt_synthesize_voice(task_id=task_id, voice_name=voice_name)
+        logger.info(f"Voz sintetizada con fallback {voice_name}: {voice_res}")
     
     # 4. Generación de Subtítulos Dinámicos Karaoke (Amarillo + Blanco + Borde Negro + Pop Spring)
     sub_res = mpt_generate_subtitles(
@@ -346,7 +352,8 @@ def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict
         task_id=task_id,
         bgm_name="random",
         bgm_volume=0.10,
-        video_clip_duration=clip_dur
+        video_clip_duration=clip_dur,
+        video_fit_mode="cover"
     )
     logger.info(f"Render final completado: {render_res}")
     

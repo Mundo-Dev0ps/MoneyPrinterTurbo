@@ -105,6 +105,8 @@ class TestAutoProducer(unittest.TestCase):
         self.assertEqual(call_kwargs["user_name"], "ErDivertido")
         self.assertIn("#Shorts", call_kwargs["title"])
 
+    @patch("scripts.auto_producer.refill_topics_if_needed")
+    @patch("scripts.auto_producer.save_topics_data")
     @patch("scripts.auto_producer.mpt_create_task")
     @patch("scripts.auto_producer.mpt_synthesize_voice")
     @patch("scripts.auto_producer.mpt_generate_subtitles")
@@ -119,6 +121,8 @@ class TestAutoProducer(unittest.TestCase):
         mock_gen_subtitles,
         mock_synth_voice,
         mock_create_task,
+        mock_save_topics,
+        mock_refill,
     ):
         """Valida que el QA Gate 1 aborta la producción si subtitle.srt no existe o está vacío."""
         mock_data = {
