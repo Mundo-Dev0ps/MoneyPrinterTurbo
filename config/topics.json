@@ -2293,7 +2293,7 @@
       "id": "topic_077",
       "subject": "La Falla de San Andrés: La cuenta regresiva del gran terremoto que partirá a California ⚡",
       "category": "Megaterremotos & Sismos",
-      "status": "pending",
+      "status": "published",
       "script": "Bajo las colinas de California dos placas tectónicas monstruosas están trabadas acumulando una tensión titánica. [pause:0.7] Los geólogos advierten que el sector sur no ha liberado energía en más de trescientos años. El 'Big One' no es una posibilidad, es una certeza matemática que ocurrirá en cualquier momento. ¿Estás preparado si ocurriera hoy? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
         "san andreas fault line aerial view desert california",
@@ -2310,28 +2310,38 @@
         "geologia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-16T15:08:17.080037",
+      "task_id": "26c4e89a-8cc3-4a7c-bd90-c6d8d8a7c742",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/26c4e89a-8cc3-4a7c-bd90-c6d8d8a7c742/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=4fac94e4c4df4a6ea03d212a1e4f2d7f. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "4fac94e4c4df4a6ea03d212a1e4f2d7f",
+        "total_platforms": 2,
+        "job_id": "32ce8b2d0b474120aa278bc0f97bed39"
+      }
     },
     {
       "id": "topic_078",
-      "subject": "El Lago Vostok: El océano subterráneo atrapado bajo 4 kilómetros de hielo antártico 🧊",
+      "subject": "La Fosa de las Sandwich del Sur: El abismo helado y volcánico de la Antártida 🌋",
       "category": "Misterios Abisales",
       "status": "pending",
-      "script": "A cuatro mil metros bajo la capa de hielo más gélida de la Antártida descansa un lago colosal del tamaño del lago Ontario. [pause:0.6] Lleva aislado del resto del mundo quince millones de años en total oscuridad y alta presión. Los científicos creen que allí habitan formas de vida alienígenas únicas en el planeta. ¿Te atreverías a beber agua de hace millones de años? ¡Comenta!",
+      "script": "En las aguas más gélidas del planeta, cerca de la Antártida, la tierra se abre en un abismo de más de ocho mil metros. [pause:0.6] Es la Fosa de las Sandwich del Sur, donde volcanes submarinos activos conviven con aguas bajo cero y presiones colosales. Allí habitan criaturas transparentes que jamás han visto la luz solar y sobreviven comiendo azufre volcánico hirviente. ¿Te atreverías a descender a este infierno congelado? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
-        "antarctic ice sheet vast snowy blizzard glacier aerial",
-        "deep ice drilling scientific station antarctica snow",
-        "underwater subglacial liquid water dark cave blue",
-        "antarctic research expedition extreme cold landscape"
+        "deep sea underwater hydrothermal vent boiling volcanic",
+        "antarctic frozen ocean deep trench abyss dark",
+        "strange bioluminescent deep sea transparent creature",
+        "submarine lights exploring extreme deep sea ocean floor"
       ],
       "tags": [
         "shorts",
-        "vostok",
+        "sandwichdelsur",
+        "abismo",
         "antartida",
-        "hielo",
+        "volcanes",
         "misterios",
-        "ciencia",
-        "naturaleza",
+        "oceanos",
         "erdivertido"
       ]
     },
