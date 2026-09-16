@@ -26,3 +26,39 @@ Este documento define las reglas de calidad obligatorias para la generación de 
 * **Declaración de IA:** `containsSyntheticMedia = "true"` para cumplir con normativas de YouTube
 * **Formato de título:** Gancho de menos de 100 caracteres con `#Shorts` al final
 * **Descripción:** 2 párrafos explicativos + llamada a la acción en comentarios + 5-7 hashtags relevantes
+
+---
+
+## 4. Regla Obligatoria de Ejecución en Contenedores Docker
+* **Principio:** Todos los comandos de ejecución (pruebas con `pytest`, scripts de producción `auto_producer.py`, comandos CLI y Python) **DEBEN ejecutarse siempre DENTRO de los contenedores Docker**, NUNCA directamente en el host.
+* **Patrón de Ejecución Local de Pruebas:**
+  ```bash
+  docker run --rm \
+    -v /home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo:/MoneyPrinterTurbo \
+    -w /MoneyPrinterTurbo \
+    ghcr.io/harry0703/moneyprinterturbo:latest \
+    sh -c "pip install -q pytest 'mcp>=1.3.0,<2' >/dev/null 2>&1 && pytest <ruta_test> -v"
+  ```
+* **Patrón de Ejecución en Contenedores Vivos:**
+  ```bash
+  docker exec <container_id_or_name> python3 <script>
+  ```
+* **Patrón en VPS:** Se utiliza siempre el wrapper `scripts/run_remote_producer.sh`.
+
+---
+
+## 5. Regla Obligatoria de Ejecución de Comandos con RTK (Rust Token Killer)
+* **Principio:** Siempre que se ejecuten comandos en la shell o terminal (git, docker, consultas de archivos, inspecciones), **DEBEN ejecutarse a través de `rtk`** (`rtk <comando>`) para filtrar la salida excesiva, prevenir desbordamiento de contexto y optimizar el consumo de tokens (hasta un 90% de reducción de tokens).
+* **Ejemplos de Uso Obligatorio:**
+  * `rtk git status`
+  * `rtk git diff`
+  * `rtk git log -n <N>`
+  * `rtk docker ps`
+  * `rtk docker exec ...`
+  * `rtk docker run ...`
+* **Búsquedas:**
+  * Para código (Python, TS, Go): usar `sg -p '<pattern>'` (ast-grep).
+  * Para texto plano, logs, JSON, TOML o Markdown: usar `rtk rg` o `rtk grep`.
+* **Depuración Cruda:** Si un comando requiere la salida completa sin filtrado para diagnóstico extremo, usar `rtk proxy <cmd>`.
+
+

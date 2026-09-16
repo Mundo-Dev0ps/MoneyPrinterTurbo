@@ -25,6 +25,7 @@ from app.mcp.server import (
     mpt_render_video,
 )
 from app.services.upload_post import UploadPostService
+from app.utils import utils
 
 
 TOPICS_FILE = os.path.join(PROJECT_ROOT, "config", "topics.json")
@@ -52,10 +53,236 @@ def get_next_pending_topic(data: dict) -> dict | None:
     return None
 
 
-def run_production(auto_publish: bool = True) -> dict:
+def check_smart_slot_needed(data: dict) -> tuple[bool, str]:
+    """
+    Checks if a video needs to be produced based on today's slots and what has already run.
+    Daily slots: ["10:30", "14:30", "19:30"]
+    Returns (should_run, reason)
+    """
+    now = datetime.now()
+    today_str = now.strftime("%Y-%m-%d")
+    current_time_str = now.strftime("%H:%M")
+
+    # Count how many videos were rendered/published today
+    published_today = 0
+    for topic in data.get("topics", []):
+        rendered_at = topic.get("rendered_at")
+        if rendered_at and rendered_at.startswith(today_str):
+            published_today += 1
+
+    settings = data.get("schedule_settings", {})
+    daily_slots = sorted(settings.get("daily_slots", ["10:30", "14:30", "19:30"]))
+
+    # Find how many slots should have occurred by now
+    expected_slots_by_now = sum(1 for slot in daily_slots if current_time_str >= slot)
+
+    if expected_slots_by_now == 0:
+        return False, f"Aún no es la hora del primer slot de hoy ({daily_slots[0]}). Hora actual: {current_time_str}"
+
+    if published_today < expected_slots_by_now:
+        return True, f"Slot pendiente detectado: Deberían haberse publicado {expected_slots_by_now} video(s) a las {current_time_str}, pero van {published_today}."
+
+    return False, f"Al día: Hoy ya se publicaron {published_today}/{len(daily_slots)} videos correspondientes a la hora actual ({current_time_str})."
+
+
+def refill_topics_if_needed(data: dict, min_pending: int = 3, batch_size: int = 10) -> int:
+    """
+    If pending topics count drops below min_pending, automatically uses Gemini LLM
+    to brainstorm and append new high-retention viral topics following our winning formula.
+    """
+    pending_count = sum(1 for t in data.get("topics", []) if t.get("status") == "pending")
+    if pending_count >= min_pending:
+        return 0
+
+    logger.info(f"Quedan solo {pending_count} temas pendientes. Autogenerando {batch_size} nuevos temas virales con Gemini LLM...")
+    
+    # Extract existing subjects to avoid duplicates
+    existing_subjects = [t.get("subject", "") for t in data.get("topics", [])]
+    existing_list_str = "\n- ".join(existing_subjects[-30:])
+
+    prompt = f"""Eres un creador de contenido experto en YouTube Shorts virales de ciencia, catástrofes históricas, megaterremotos y misterios abisales del océano.
+Genera exactamente {batch_size} NUEVOS temas virales de altísima retención e intriga visual, alternando entre:
+1. Megaterremotos colosales y tsunamis históricos (Valdivia 1960 9.5, Tsunami de 2004, Falla de Cascadia, Krakatoa 1883)
+2. Misterios y anomalías del océano profundo (Fosa de las Marianas, El Bloop, criaturas abisales extremas, el Agujero Azul de Belice)
+3. Enigmas cósmicos y cataclismos espaciales reales (La Señal Wow!, El Gran Atractor, magnetars, meteoritos colosales)
+4. Fenómenos geológicos extremos de la Tierra (Supervolcán de Yellowstone, la Puerta del Infierno, el Lago Vostok)
+PROHIBIDO generar temas hipotéticos abstractos tipo "¿Qué pasaría si...?" porque carecen de imágenes reales de stock.
+
+IMPORTANTE:
+- NO repitas ninguno de estos temas que ya hicimos:
+- {existing_list_str}
+
+Responde ÚNICAMENTE con un JSON válido que sea una lista de objetos con esta estructura exacta (sin texto adicional):
+[
+  {{
+    "subject": "Título atractivo y con gancho (sin emojis)",
+    "category": "Megaterremotos & Sismos / Misterios Abisales / Cosmos Extremo / Secretos Geológicos",
+    "script": "Guion completo en español narrativo de 60 a 75 palabras con pausas dramáticas obligatorias. DEBES incluir exactamente 2 pausas dramáticas usando la etiqueta '[pause:0.6]': una obligatoria justo después del gancho inicial para crear tensión y suspenso, y otra antes del dato o revelación más sorprendente. Terminar obligatoriamente con una pregunta potente seguida del llamado a la acción: '¿Qué opinas? ¡Déjamelo saber en los comentarios!'.",
+    "search_terms": [
+      "4 or 5 descriptive english search keywords for realistic 4K stock footage in pexels",
+      "deep ocean abyss trench underwater",
+      "massive earthquake cracked ground seismic"
+    ],
+    "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+  }}
+]"""
+
+    try:
+        from app.services import llm
+        response_text = llm.generate_response(prompt=prompt)
+        
+        # Clean JSON block
+        clean_json = response_text.strip()
+        if "```json" in clean_json:
+            clean_json = clean_json.split("```json")[1].split("```")[0].strip()
+        elif "```" in clean_json:
+            clean_json = clean_json.split("```")[1].split("```")[0].strip()
+            
+        new_topics = json.loads(clean_json)
+        if not isinstance(new_topics, list):
+            logger.warning("LLM response did not contain a valid list of topics.")
+            return 0
+            
+        # Get max existing index
+        max_idx = 0
+        for t in data.get("topics", []):
+            t_id = t.get("id", "")
+            if t_id.startswith("topic_"):
+                try:
+                    num = int(t_id.replace("topic_", ""))
+                    if num > max_idx:
+                        max_idx = num
+                except ValueError:
+                    pass
+                    
+        added = 0
+        for item in new_topics:
+            max_idx += 1
+            new_id = f"topic_{max_idx:03d}"
+            item["id"] = new_id
+            item["status"] = "pending"
+            data["topics"].append(item)
+            added += 1
+            logger.info(f"Nuevo tema agregado a la cola: [{new_id}] {item.get('subject')}")
+            
+        save_topics_data(data)
+        logger.info(f"Se agregaron {added} nuevos temas virales automaticamente a topics.json.")
+        return added
+    except Exception as e:
+        logger.error(f"Error autogenerando temas con LLM: {e}")
+        return 0
+
+
+def ensure_dramatic_pauses(script_text: str) -> str:
+    """
+    Garantiza que el guion tenga pausas dramáticas [pause:0.6] para generar suspenso y retención.
+    Si el guion no tiene pausas, inserta una automáticamente tras la primera frase gancho.
+    """
+    if "[pause:" in script_text:
+        return script_text
+    
+    import re
+    match = re.search(r'([.!?])\s+', script_text)
+    if match:
+        idx = match.end()
+        return script_text[:idx] + "[pause:0.6] " + script_text[idx:]
+    return script_text
+
+
+def publish_topic_video(topic: dict, settings: dict, video_path: str | None = None) -> dict:
+    """
+    Sube un video renderizado a las plataformas configuradas (YouTube Shorts).
+    """
+    subject = topic["subject"]
+    script_text = topic["script"]
+    target_video = video_path or topic.get("video_path")
+    tags = topic.get("tags", [])
+
+    ups = UploadPostService()
+    clean_subject = subject.strip()
+    if "#shorts" not in clean_subject.lower():
+        youtube_title = f"{clean_subject[:80]} #Shorts"
+    else:
+        youtube_title = clean_subject[:95]
+    youtube_desc = f"{script_text}\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n" + " ".join(f"#{t}" for t in tags)
+    
+    youtube_extra = {
+        "youtube_title": youtube_title,
+        "youtube_description": youtube_desc,
+        "tags": tags,
+        "privacyStatus": "public",
+        "containsSyntheticMedia": "true",
+        "selfDeclaredMadeForKids": False
+    }
+    
+    target_user = topic.get("user_name") or settings.get("user_name") or settings.get("upload_post_username")
+    target_platforms = settings.get("platforms", ["youtube"])
+    logger.info(f"Publicando [{topic.get('id')}] en {target_platforms} con usuario: {target_user}...")
+    
+    return ups.upload_video(
+        video_path=target_video,
+        title=youtube_title,
+        platforms=target_platforms,
+        youtube_extra=youtube_extra,
+        user_name=target_user
+    )
+
+
+def publish_rendered_topic(topic_id: str) -> dict:
+    """
+    Publica un video previamente renderizado (en estado 'rendered') a YouTube.
+    """
+    data = load_topics_data()
+    topic = next((t for t in data.get("topics", []) if t.get("id") == topic_id), None)
+    if not topic:
+        raise ValueError(f"Tema con id '{topic_id}' no encontrado en topics.json")
+    
+    video_path = topic.get("video_path")
+    if not video_path or not os.path.isfile(video_path):
+        task_id = topic.get("task_id", "")
+        candidate = os.path.join(PROJECT_ROOT, "storage", "tasks", task_id, "final-1.mp4")
+        if os.path.isfile(candidate):
+            video_path = candidate
+            topic["video_path"] = candidate
+        else:
+            raise FileNotFoundError(f"Video final no encontrado para el tema {topic_id}: {video_path}")
+    
+    settings = data.get("schedule_settings", {})
+    try:
+        upload_result = publish_topic_video(topic, settings)
+        logger.info(f"Resultado de publicación para [{topic_id}]: {upload_result}")
+    except Exception as e:
+        logger.error(f"Error publicando [{topic_id}]: {e}")
+        upload_result = {"success": False, "error": str(e)}
+    
+    if upload_result and upload_result.get("success"):
+        topic["status"] = "published"
+        topic["upload_result"] = upload_result
+        topic["published_at"] = datetime.now().isoformat()
+        save_topics_data(data)
+        logger.info(f"Tema [{topic_id}] actualizado como 'published' en topics.json.")
+    
+    return {
+        "success": bool(upload_result and upload_result.get("success")),
+        "topic_id": topic_id,
+        "video_path": video_path,
+        "upload_result": upload_result
+    }
+
+
+def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict:
     logger.info("=== INICIANDO AUTO-PRODUCER MONEYPRINTERTURBO ===")
     data = load_topics_data()
     settings = data.get("schedule_settings", {})
+    
+    # Auto-refill queue with new viral topics if running low
+    refill_topics_if_needed(data, min_pending=3, batch_size=10)
+    
+    if smart_check:
+        should_run, reason = check_smart_slot_needed(data)
+        logger.info(f"Smart Check: {reason}")
+        if not should_run:
+            return {"success": True, "skipped": True, "reason": reason}
     
     topic = get_next_pending_topic(data)
     if not topic:
@@ -64,7 +291,7 @@ def run_production(auto_publish: bool = True) -> dict:
     
     topic_id = topic["id"]
     subject = topic["subject"]
-    script_text = topic["script"]
+    script_text = ensure_dramatic_pauses(topic["script"])
     terms = topic.get("search_terms", [])
     tags = topic.get("tags", [])
     
@@ -88,20 +315,26 @@ def run_production(auto_publish: bool = True) -> dict:
     voice_res = mpt_synthesize_voice(task_id=task_id, voice_name=voice_name)
     logger.info(f"Voz sintetizada con {voice_name}: {voice_res}")
     
-    # 4. Generación de Subtítulos Premium
+    # 4. Generación de Subtítulos Dinámicos Karaoke (Amarillo + Blanco + Borde Negro + Pop Spring)
     sub_res = mpt_generate_subtitles(
         task_id=task_id,
         font_name=settings.get("font_name", "BeVietnamPro-Bold.ttf"),
-        font_size=settings.get("font_size", 75),
+        font_size=settings.get("font_size", 70),
         stroke_color=settings.get("stroke_color", "#000000"),
-        stroke_width=settings.get("stroke_width", 2.5),
+        stroke_width=settings.get("stroke_width", 6),
         text_color=settings.get("text_color", "#FFFFFF"),
-        text_background_color="#000000",
-        rounded_subtitle_background=settings.get("rounded_subtitle_background", True),
+        text_background_color="",
+        rounded_subtitle_background=False,
         subtitle_position="bottom",
-        custom_position=72.0
+        custom_position=58.0,
+        subtitle_animation="pop_spring"
     )
-    logger.info("Subtítulos generados con estilo premium.")
+    # QA Check 1: Validar que el archivo de subtítulos (.srt) existe y no está vacío
+    task_dir = os.path.join(utils.task_dir(), task_id)
+    srt_file = os.path.join(task_dir, "subtitle.srt")
+    if not os.path.isfile(srt_file) or os.path.getsize(srt_file) < 30:
+        raise RuntimeError(f"QA GATE FAILED: El archivo de subtítulos {srt_file} no existe o está vacío. Abortando producción para evitar video sin subtítulos.")
+    logger.info(f"QA GATE PASSED: Subtítulos verificados ({os.path.getsize(srt_file)} bytes).")
     
     # 5. Descarga de Materiales 4K (Pexels)
     mat_res = mpt_fetch_materials(task_id=task_id, source="pexels")
@@ -118,35 +351,19 @@ def run_production(auto_publish: bool = True) -> dict:
     logger.info(f"Render final completado: {render_res}")
     
     video_path = render_res["videos"][0] if render_res.get("videos") else None
-    if not video_path or not os.path.isfile(video_path):
-        raise RuntimeError(f"El video generado no existe en la ruta: {video_path}")
+    if not video_path or not os.path.isfile(video_path) or os.path.getsize(video_path) < 1_000_000:
+        raise RuntimeError(f"QA GATE FAILED: El video generado no existe o pesa menos de 1MB: {video_path}")
+    logger.info(f"QA GATE PASSED: Video final verificado ({os.path.getsize(video_path)/(1024*1024):.2f} MB).")
     
     # 7. Publicación en YouTube
     upload_result = None
     if auto_publish:
         try:
             logger.info("Iniciando publicación en YouTube...")
-            ups = UploadPostService()
-            youtube_title = f"{subject[:75]} 😱 #Shorts"
-            youtube_desc = f"{script_text}\n\n¿Qué opinas? ¡Comenta tu respuesta! 👇\n\n" + " ".join(f"#{t}" for t in tags)
-            
-            youtube_extra = {
-                "youtube_title": youtube_title,
-                "youtube_description": youtube_desc,
-                "tags": tags,
-                "privacyStatus": "public",
-                "containsSyntheticMedia": "true"
-            }
-            
-            upload_result = ups.upload_video(
-                video_path=video_path,
-                title=youtube_title,
-                platforms=["youtube"],
-                youtube_extra=youtube_extra
-            )
-            logger.info(f"Resultado de publicación: {upload_result}")
+            upload_result = publish_topic_video(topic, settings, video_path=video_path)
+            logger.info(f"Resultado de publicación en {settings.get('platforms', ['youtube'])}: {upload_result}")
         except Exception as e:
-            logger.error(f"Error publicando en YouTube: {e}")
+            logger.error(f"Error publicando en {settings.get('platforms', ['youtube'])}: {e}")
             upload_result = {"success": False, "error": str(e)}
     
     # 8. Actualizar topics.json
@@ -171,6 +388,14 @@ def run_production(auto_publish: bool = True) -> dict:
 
 
 if __name__ == "__main__":
+    if "--publish-rendered" in sys.argv:
+        idx = sys.argv.index("--publish-rendered")
+        target_id = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else "topic_067"
+        res = publish_rendered_topic(target_id)
+        print(json.dumps(res, indent=2, ensure_ascii=False))
+        sys.exit(0 if res.get("success") else 1)
+
     auto_pub = "--no-publish" not in sys.argv
-    result = run_production(auto_publish=auto_pub)
+    smart_mode = "--smart" in sys.argv
+    result = run_production(auto_publish=auto_pub, smart_check=smart_mode)
     print(json.dumps(result, indent=2, ensure_ascii=False))

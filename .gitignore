@@ -1,6 +1,12 @@
 .DS_Store
 /config.toml
 /config.toml.bak
+/gcp-key.json
+/secrets/
+/voices/*.wav
+/voices/*.mp3
+/voices/*.mp4
+/voices/*.srt
 /storage/
 /.idea/
 /app/services/__pycache__
@@ -42,3 +48,6 @@ htmlcov/
 .codegraph
 /docs/superpowers
 .understand-anything
+
+# Claude Code 订阅令牌（docker compose 自动读取），禁止提交
+.env

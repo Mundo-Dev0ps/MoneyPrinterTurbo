@@ -1,54 +1,32 @@
 {
   "schedule_settings": {
     "daily_slots": [
-      "10:30",
-      "14:30",
+      "12:00",
       "19:30"
     ],
     "voice_name": "gemini:Charon-Male",
     "clip_duration": 2,
     "aspect": "9:16",
     "font_name": "BeVietnamPro-Bold.ttf",
-    "font_size": 75,
+    "font_size": 70,
     "stroke_color": "#000000",
-    "stroke_width": 2.5,
+    "stroke_width": 6,
     "text_color": "#FFFFFF",
-    "rounded_subtitle_background": true
+    "subtitle_active_color": "#FFE600",
+    "subtitle_position": "bottom",
+    "rounded_subtitle_background": false,
+    "user_name": "ErDivertido",
+    "platforms": [
+      "youtube",
+      "instagram"
+    ]
   },
   "topics": [
-    {
-      "id": "topic_001",
-      "subject": "Que pasaria si el Sol se apagara por 24 horas",
-      "category": "Cosmos & Que pasaria si",
-      "status": "rendered",
-      "script": "Tardaríamos exactamente ocho minutos en darnos cuenta de que la luz del Sol se apagó. Al instante, la Tierra quedaría sumergida en una oscuridad total y las temperaturas comenzarían a desplomarse a toda velocidad. En pocas horas, la superficie de los océanos empezaría a congelarse y el cielo se llenaría de miles de millones de estrellas. Las plantas detendrían la fotosíntesis y el pánico se apoderaría de la humanidad. ¿Te imaginas sobrevivir a un día entero sin Sol? ¡Comenta tu respuesta!",
-      "search_terms": [
-        "sun solar flare dark space stars",
-        "planet earth dark night satellite view",
-        "aurora borealis northern lights night sky",
-        "frozen ice snow arctic winter landscape",
-        "milky way galaxy stars deep space"
-      ],
-      "tags": [
-        "shorts",
-        "sol",
-        "espacio",
-        "ciencia",
-        "planetatierra",
-        "curiosidades",
-        "astronomia",
-        "erdivertido"
-      ],
-      "rendered_at": "2026-08-18T16:27:08.909029",
-      "task_id": "c0270f7a-9e62-432d-9941-1b55c0a5ddd5",
-      "video_path": "/MoneyPrinterTurbo/storage/tasks/c0270f7a-9e62-432d-9941-1b55c0a5ddd5/final-1.mp4",
-      "upload_result": null
-    },
     {
       "id": "topic_002",
       "subject": "TON 618: El Agujero Negro mas colosal del Universo",
       "category": "Monstruos Cosmicos",
-      "status": "pending",
+      "status": "published",
       "script": "En el corazón del cosmos existe un monstruo que desafía la imaginación: TON seiscientos dieciocho. Este agujero negro ultramasivo tiene la masa de sesenta y seis mil millones de soles juntos. Su tamaño es tan titánico que once sistemas solares completos cabrían dentro de su horizonte de sucesos. Si estuvieras cerca, su brutal gravedad destrozaría el tiempo y la luz a tu alrededor en una milésima de segundo. ¿Te imaginas contemplar este abismo de cerca? ¡Comenta tu opinión!",
       "search_terms": [
         "black hole space cosmos gravity",
@@ -65,13 +43,47 @@
         "astronomia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-18T18:40:10.958365",
+      "task_id": "25ec142b-2386-42ff-bf84-3b472c302b61",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/25ec142b-2386-42ff-bf84-3b472c302b61/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "hsqfemu_LNo",
+            "url": "https://www.youtube.com/watch?v=hsqfemu_LNo",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 37.6,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 14,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "7532f41bb5254b149f1df9a2b111d21e",
+        "job_id": "58ef8b48d2f9468e927f6c81cfd319d7",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_003",
       "subject": "El Megatsunami de Bahia Lituya: La ola de 500 metros",
       "category": "Megadesastres Naturales",
-      "status": "pending",
+      "status": "published",
       "script": "En mil novecientos cincuenta y ocho, un gigantesco terremoto en Alaska provocó el desprendimiento de una montaña entera sobre el agua. El impacto levantó una colosal ola de más de quinientos metros de altura, más alta que el mismísimo Empire State. La fuerza del agua arrancó millones de árboles y borró bosques enteros en cuestión de segundos, convirtiéndose en la ola más alta jamás registrada por la humanidad. ¿Te imaginas ver una ola así frente a ti? ¡Comenta qué harías!",
       "search_terms": [
         "giant tsunami ocean wave storm",
@@ -88,36 +100,47 @@
         "ciencia",
         "oceano",
         "erdivertido"
-      ]
-    },
-    {
-      "id": "topic_004",
-      "subject": "El Pozo Superprofundo de Kola: Lo que hallaron a 12 km bajo tierra",
-      "category": "Secretos de la Tierra",
-      "status": "pending",
-      "script": "Durante casi dos décadas, científicos soviéticos perforaron la corteza terrestre hasta alcanzar más de doce kilómetros de profundidad en el Pozo de Kola. A esa distancia encontraron temperaturas extremas de ciento ochenta grados, rocas saturadas de agua hirviendo y gases que desafiaban todas las teorías geológicas. Las perforadoras se derretían y el proyecto tuvo que ser sellado para siempre. ¿Qué otros secretos crees que oculta el centro de la Tierra? ¡Comenta tu teoría!",
-      "search_terms": [
-        "deep drill drilling machinery geology",
-        "glowing hot magma lava flow",
-        "dark cave underground rocks exploration",
-        "planet earth core geology science"
       ],
-      "tags": [
-        "shorts",
-        "pozodekola",
-        "misterios",
-        "geologia",
-        "tierrapromundo",
-        "ciencia",
-        "curiosidades",
-        "erdivertido"
-      ]
+      "rendered_at": "2026-08-19T00:02:54.443229",
+      "task_id": "a777a4cb-1d46-4c88-89cd-2453d2246041",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a777a4cb-1d46-4c88-89cd-2453d2246041/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "NccK1xP9Gv4",
+            "url": "https://www.youtube.com/watch?v=NccK1xP9Gv4",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 30.57,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 22,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "c05f3976aa6e4c9886fca74f407c6f82",
+        "job_id": "e0f37d3e98dc46aeb1796b1b55b7d492",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_005",
       "subject": "Que pasaria si la Tierra fuera del tamano de Jupiter",
       "category": "Cosmos & Que pasaria si",
-      "status": "pending",
+      "status": "published",
       "script": "Si nuestro planeta tuviera las dimensiones descomunales de Júpiter, tu peso aumentaría casi tres veces al instante debido a la brutal gravedad. Caminar se volvería casi imposible, la atmósfera se volvería tan densa que aplastaría estructuras y la Luna se estrellaría contra nosotros o saldría disparada al espacio. Los continentes serían tan gigantescos que tardarías meses en viajar de una costa a otra. ¿Crees que podríamos sobrevivir? ¡Comenta qué opinas!",
       "search_terms": [
         "planet jupiter space cosmos gas giant",
@@ -134,13 +157,47 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-19T19:45:11.996619",
+      "task_id": "0ce92583-7690-4818-9dca-abea9766a46d",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/0ce92583-7690-4818-9dca-abea9766a46d/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "JeObd2L_M4Q",
+            "url": "https://www.youtube.com/watch?v=JeObd2L_M4Q",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 33.37,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 23,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "f916f29a9f884032884fa1a6d7a7ba3e",
+        "job_id": "676292c13fbb4e24a6e98aa20ae6f6c6",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_006",
       "subject": "El Lago Vostok: El mundo sellado bajo el hielo de la Antartida",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "A cuatro mil metros bajo el hielo eterno de la Antártida se oculta el Lago Vostok, una masa de agua completamente aislada del resto del mundo durante más de quince millones de años. Sin luz solar y bajo una presión descomunal, este ecosistema congelado alberga bacterias y microorganismos únicos que no existen en ninguna otra parte de la Tierra. Los científicos creen que podría ser la clave para hallar vida en lunas alienígenas. ¿Qué seres crees que habitan allí abajo? ¡Comenta!",
       "search_terms": [
         "antarctica ice glaciers frozen water",
@@ -157,13 +214,47 @@
         "biologia",
         "abismo",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-20T14:40:55.372644",
+      "task_id": "7a89b88d-ec80-4cfd-a53b-01e9f0ae0ac3",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/7a89b88d-ec80-4cfd-a53b-01e9f0ae0ac3/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "L1mxLtdYqSc",
+            "url": "https://www.youtube.com/watch?v=L1mxLtdYqSc",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 32.9,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 25,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "ed975519a28a41fc8a0ef3d1cb8f1b5a",
+        "job_id": "02bc4004556a4b1e80764f72f0ecfba6",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_007",
       "subject": "El Misterio del Triangulo de las Bermudas: Lo que la ciencia descubrio",
       "category": "Misterios del Oceano",
-      "status": "pending",
+      "status": "published",
       "script": "Durante décadas, el Triángulo de las Bermudas fue el epicentro de misteriosas desapariciones de barcos y aviones. Aunque las leyendas hablaban de portales o fuerzas sobrenaturales, los oceanógrafos descubrieron que en esta zona confluyen violentas olas gigantescas de más de treinta metros y profundas fosas marinas donde las corrientes oceánicas tragan cualquier resto en minutos. El mar es implacable. ¿Crees en la ciencia o en la leyenda? ¡Comenta tu opinión!",
       "search_terms": [
         "ocean storm waves high contrast motion",
@@ -180,13 +271,47 @@
         "barcos",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-20T16:52:24.277118",
+      "task_id": "2126efed-0dc2-4d54-818e-c23266f8e351",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/2126efed-0dc2-4d54-818e-c23266f8e351/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "LorW4Mb33v8",
+            "url": "https://www.youtube.com/watch?v=LorW4Mb33v8",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 32.9,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 30,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "45f0695e46b340db967fc3f01c92b5b2",
+        "job_id": "59da1c25119d483eb8ced0fa2442acf9",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_008",
       "subject": "La Gran Mancha Roja de Jupiter: La tormenta que devora planetas",
       "category": "Monstruos Cosmicos",
-      "status": "pending",
+      "status": "published",
       "script": "En la atmósfera de Júpiter ruge un huracán monstruoso conocido como la Gran Mancha Roja. Esta gigantesca tormenta lleva activa más de trescientos años ininterrumpidos y tiene un tamaño tan colosal que la Tierra entera cabría en su interior con facilidad. Sus vientos superan los seiscientos kilómetros por hora con relámpagos mil veces más potentes que los terrestres. ¿Te imaginas presenciar una tormenta eterna desde el espacio? ¡Comenta qué te parece!",
       "search_terms": [
         "planet jupiter space cosmos gas giant",
@@ -203,13 +328,47 @@
         "tormentas",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-20T17:09:37.347482",
+      "task_id": "7e10ec4c-1e26-406f-be32-2f5518dfa4e7",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/7e10ec4c-1e26-406f-be32-2f5518dfa4e7/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "55fMQvkAJL8",
+            "url": "https://www.youtube.com/watch?v=55fMQvkAJL8",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 34.33,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 31,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "5e42ef312921484dac02d626bc15fdb1",
+        "job_id": "6f82c6cf735a4817bfbee06958d92304",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_009",
       "subject": "Que pasaria si cayeras dentro de un Agujero Negro",
       "category": "Cosmos & Que pasaria si",
-      "status": "pending",
+      "status": "published",
       "script": "Si cruzaras el horizonte de sucesos de un agujero negro, experimentarías un fenómeno aterrador conocido como espaguetificación. La gravedad en tus pies sería millones de veces más fuerte que en tu cabeza, estirando tu cuerpo como un hilo. Desde tu perspectiva verías la historia entera del universo acelerándose frente a tus ojos en un solo segundo debido a la distorsión extrema del tiempo. Nadie ha regresado para contarlo. ¿Te atreverías a entrar? ¡Comenta!",
       "search_terms": [
         "black hole space cosmos gravity",
@@ -226,13 +385,47 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-20T21:10:59.942115",
+      "task_id": "defe14da-db83-4f1e-a9ae-8c693b126eb2",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/defe14da-db83-4f1e-a9ae-8c693b126eb2/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "9OdIuotGwc8",
+            "url": "https://www.youtube.com/watch?v=9OdIuotGwc8",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 31.1,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 44,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "0271965f409f4a9f92818ad876e46e80",
+        "job_id": "20565da165294c66b9c3edb355e4bc6a",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_010",
       "subject": "El Rayo Globular: La misteriosa esfera de fuego flotante",
       "category": "Fenomenos Extremos",
-      "status": "pending",
+      "status": "published",
       "script": "Durante violentas tormentas eléctricas, testigos de todo el mundo han reportado un fenómeno inexplicable: el rayo globular. Se trata de esferas de plasma brillante del tamaño de un balón que flotan en el aire, atraviesan paredes sólidas y emiten un zumbido aterrador antes de explotar con fuerza destructiva. Durante siglos se creyó que era un mito, pero la física moderna aún lucha por explicar cómo se forman. ¿Alguna vez has visto algo similar? ¡Comenta tu experiencia!",
       "search_terms": [
         "lightning storm night dramatic sky",
@@ -249,13 +442,47 @@
         "misterios",
         "fisica",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-21T13:40:57.992038",
+      "task_id": "8917c27b-79ff-4154-815e-5564eb48d971",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/8917c27b-79ff-4154-815e-5564eb48d971/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "qW1MD_bGo7U",
+            "url": "https://www.youtube.com/watch?v=qW1MD_bGo7U",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 32.2,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 57,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "03da967ee7994296a1898a6cb63d38f2",
+        "job_id": "c2d48635ebbe460db600e2205d5d479e",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_011",
       "subject": "La Cueva de los Cristales Gigantes de Naica",
       "category": "Secretos de la Tierra",
-      "status": "pending",
+      "status": "published",
       "script": "A trescientos metros bajo el desierto de Chihuahua se oculta la Cueva de los Cristales, un lugar que parece sacado de otro planeta. Allí se encuentran columnas de selenita de más de doce metros de largo y cincuenta toneladas de peso. Con una temperatura de cincuenta grados y cien por ciento de humedad, un ser humano sin equipo especial moriría asfixiado en menos de diez minutos. Es un horno subterráneo de belleza letal. ¿Te atreverías a explorarla? ¡Comenta!",
       "search_terms": [
         "dark cave underground rocks exploration",
@@ -272,13 +499,47 @@
         "mexico",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-22T13:40:16.483535",
+      "task_id": "f646f01b-9129-427a-bf8f-af0e128bfc60",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/f646f01b-9129-427a-bf8f-af0e128bfc60/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "qnufokmLqKA",
+            "url": "https://www.youtube.com/watch?v=qnufokmLqKA",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 30.8,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 73,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "debc1e537a9b4dcbb4a90ae4d949b5a6",
+        "job_id": "ed01596257ba40a2b7f7fc43506861e7",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_012",
       "subject": "El Calamar Colosal: El titan de las aguas antarticas",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "En las gélidas profundidades del océano Antártico habita el invertebrado más grande del planeta: el calamar colosal. Con ojos del tamaño de platos de comida capaces de ver en la oscuridad total y tentáculos armados con afilados garfios giratorios, este cazador del abismo lucha a muerte contra los cachalotes a miles de metros bajo el mar. Muy pocos humanos han logrado ver uno con vida. ¿Te da miedo lo que se oculta en el océano profundo? ¡Comenta!",
       "search_terms": [
         "deep sea creature swimming in underwater darkness",
@@ -295,13 +556,47 @@
         "animalesmarinos",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-22T16:10:30.281718",
+      "task_id": "0ec4038d-c641-4374-a165-f29c0d0a1c61",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/0ec4038d-c641-4374-a165-f29c0d0a1c61/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "MtH_RyPhXoQ",
+            "url": "https://www.youtube.com/watch?v=MtH_RyPhXoQ",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 32.23,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 78,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "8c323b8718514443a2e90b4d9da0fb6d",
+        "job_id": "96b8023750434168aa37774f14e3460f",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_013",
       "subject": "El Impacto de Chicxulub: El dia que murieron los dinosaurios",
       "category": "Megadesastres Naturales",
-      "status": "pending",
+      "status": "published",
       "script": "Hace sesenta y seis millones de años, un asteroide de diez kilómetros de ancho impactó contra la península de Yucatán con la fuerza de diez mil millones de bombas atómicas. La colisión desató incendios globales, megatsunamis de cientos de metros y una nube de polvo que bloqueó la luz solar durante décadas, extinguiendo al setenta y cinco por ciento de las especies de la Tierra. Si un asteroide similar viniera hoy, ¿crees que podríamos detenerlo? ¡Comenta tu opinión!",
       "search_terms": [
         "meteor asteroid falling fire impact space",
@@ -318,13 +613,47 @@
         "historia",
         "megadesastres",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-22T18:39:26.689618",
+      "task_id": "4c166ca8-3453-4d54-a5eb-f303cd51ac72",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4c166ca8-3453-4d54-a5eb-f303cd51ac72/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "vHd-V9mQn5U",
+            "url": "https://www.youtube.com/watch?v=vHd-V9mQn5U",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 31.03,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 85,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "b365e3d488084765bbd42a4a1f353507",
+        "job_id": "107bed5bafef473bb111ffef52b46d8c",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_014",
       "subject": "Que pasaria si el Oxigeno desapareciera por 5 segundos",
       "category": "Cosmos & Que pasaria si",
-      "status": "pending",
+      "status": "published",
       "script": "Si el oxígeno desapareciera por solo cinco segundos, el cielo se volvería completamente negro en pleno día. Todas las construcciones de hormigón se desmoronarían al instante, el tímpano de cada ser humano explotaría por el cambio de presión y la corteza terrestre se fracturaría al perder su enlace químico. Al mismo tiempo, los océanos comenzarían a evaporarse al espacio. Cinco segundos bastarían para acabar con la civilización. ¿Te imaginas ese instante? ¡Comenta qué opinas!",
       "search_terms": [
         "satellite view earth space clouds atmosphere",
@@ -341,13 +670,47 @@
         "curiosidades",
         "fisica",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-22T21:09:05.334053",
+      "task_id": "4ba1f16f-c277-4598-ba8c-2e4a79aef2d4",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4ba1f16f-c277-4598-ba8c-2e4a79aef2d4/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "results": {
+          "youtube": {
+            "success": true,
+            "post_id": "tgIrlEKBUEY",
+            "url": "https://www.youtube.com/watch?v=tgIrlEKBUEY",
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 31.17,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "status": "completed",
+            "attempts": 1
+          }
+        },
+        "usage": {
+          "count": 90,
+          "limit": -1,
+          "last_reset": "2026-08-15T16:01:10.849114"
+        },
+        "request_id": "0c84e1acf2f641ef8e8f6f16d6a3eeb4",
+        "job_id": "4a56ba28e572421dad5fa6f8a49f9a0e",
+        "status": "completed"
+      }
     },
     {
       "id": "topic_015",
       "subject": "Las Puertas del Infierno: El crater de fuego eterno de Darvaza",
       "category": "Secretos de la Tierra",
-      "status": "pending",
+      "status": "published",
       "script": "En medio del desierto de Turkmenistán arde un cráter colosal de setenta metros de ancho conocido como Las Puertas del Infierno. En mil novecientos setenta y uno, ingenieros soviéticos perforaron accidentalmente una bolsa de gas y decidieron encenderle fuego esperando que se apagara en pocos días. Han pasado más de cincuenta años y el pozo sigue ardiendo con llamaradas incandescentes día y noche. ¿Visitarías este lugar de pesadilla? ¡Comenta tu respuesta!",
       "search_terms": [
         "active volcano glowing heat night",
@@ -364,13 +727,23 @@
         "geologia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-23T15:34:08.100364",
+      "task_id": "9af5894a-c37a-479e-a455-1fcbbd282a9f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/9af5894a-c37a-479e-a455-1fcbbd282a9f/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=62907590e613444eb1c4245f367fea6f. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "62907590e613444eb1c4245f367fea6f",
+        "total_platforms": 2,
+        "job_id": "0d1dbf53b0ba4730ab47d9b8e90b2d45"
+      }
     },
     {
       "id": "topic_016",
       "subject": "El Triangulo de las Bermudas del Espacio: La Anomalia del Atlantico Sur",
       "category": "Monstruos Cosmicos",
-      "status": "pending",
+      "status": "published",
       "script": "Sobre las costas de Sudamérica se encuentra una falla invisible en el campo magnético de la Tierra: la Anomalía del Atlántico Sur. Cuando los satélites espaciales y la Estación Espacial Internacional cruzan esta región, la radiación cósmica bombardea sus circuitos, provocando apagones, reinicios inesperados y fallos en los sistemas electrónicos. Los astronautas incluso afirman ver extraños destellos en sus ojos al cerrarlos. ¿Qué opinas de este misterio invisible? ¡Comenta!",
       "search_terms": [
         "satellite view earth space clouds atmosphere",
@@ -387,13 +760,23 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-08-23T15:57:08.935385",
+      "task_id": "06eaa79c-121e-477c-a7a7-3591dd6150a8",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/06eaa79c-121e-477c-a7a7-3591dd6150a8/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=2258940865ba4adca09b0489be4f94c5. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "2258940865ba4adca09b0489be4f94c5",
+        "total_platforms": 2,
+        "job_id": "c05909b0c8d441a4af8de071a83fe528"
+      }
     },
     {
       "id": "topic_017",
       "subject": "La Falla de San Andres: El terremoto colosal que espera a California",
       "category": "Megadesastres Naturales",
-      "status": "pending",
+      "status": "published",
       "script": "A lo largo de más de mil trescientos kilómetros en la costa oeste de América se extiende la Falla de San Andrés. Los geólogos advierten que la fricción entre las placas tectónicas del Pacífico y Norteamérica lleva acumulando energía durante más de un siglo. El temido Big One liberará una sacudida telúrica de magnitud superior a ocho, alterando la geografía para siempre. La naturaleza es imparable. ¿Crees que las ciudades modernas resistirían? ¡Comenta tu opinión!",
       "search_terms": [
         "drone footage of volcanic crater",
@@ -416,7 +799,7 @@
       "id": "topic_018",
       "subject": "El Misterio de las Luces de Hessdalen",
       "category": "Fenomenos Extremos",
-      "status": "pending",
+      "status": "published",
       "script": "En un solitario valle de Noruega ocurre uno de los fenómenos más desconcertantes del mundo: las Luces de Hessdalen. Desde hace décadas, esferas luminosas multicolores del tamaño de automóviles flotan silenciosamente sobre las montañas, aceleran a velocidades supersónicas y cambian de forma en segundos. Científicos de todo el planeta han instalado radares y cámaras de espectro sin lograr descifrar su origen. ¿Fenómeno natural o algo más? ¡Comenta tu teoría!",
       "search_terms": [
         "aurora borealis northern lights night sky",
@@ -439,7 +822,7 @@
       "id": "topic_019",
       "subject": "El Ojo del Sahara: La colosal estructura misteriosa de Africa",
       "category": "Secretos de la Tierra",
-      "status": "pending",
+      "status": "published",
       "script": "En medio de las dunas del desierto de Mauritania se encuentra la Estructura de Richat, conocida como El Ojo del Sahara. Con más de cuarenta kilómetros de diámetro, estos anillos concéntricos son tan inmensos que solo pueden apreciarse en su totalidad desde la órbita espacial. Aunque la geología indica un domo erosionado, muchos teóricos e historiadores sugieren que coincide con las descripciones de la legendaria Atlántida. ¿Qué crees tú? ¡Comenta tu opinión!",
       "search_terms": [
         "satellite view earth space clouds atmosphere",
@@ -462,7 +845,7 @@
       "id": "topic_020",
       "subject": "Que pasaria si toda el agua de la Tierra se evaporara",
       "category": "Cosmos & Que pasaria si",
-      "status": "pending",
+      "status": "published",
       "script": "Si los océanos de la Tierra se evaporaran por completo, el planeta se transformaría en un desierto gigantesco y sofocante similar a Venus. Sin agua para regular la temperatura, el calor subiría a más de cien grados en pocos días, la vegetación ardería en incendios masivos y la atmósfera se volvería irrespirable. La Tierra se convertiría en una roca estéril flotando en el vacío del espacio. El agua es nuestra vida. ¿Te imaginas un mundo así? ¡Comenta qué opinas!",
       "search_terms": [
         "dark storm clouds rolling timelapse",
@@ -485,7 +868,7 @@
       "id": "topic_021",
       "subject": "El Monstruo de la Zona Abisal: El Pez Diablo Negro",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "A miles de metros en la negrura absoluta del océano vive el rape abisal o pez diablo negro. Con dientes transparentes como agujas y una antena con una bombilla bioluminiscente que brilla en la oscuridad para atraer presas, este depredador es capaz de engullir criaturas dos veces más grandes que su propio cuerpo gracias a su estómago expandible. La evolución creó criaturas de pesadilla en el fondo del mundo. ¿Te atreverías a tocarlo? ¡Comenta!",
       "search_terms": [
         "bioluminescence glowing creature underwater",
@@ -501,6 +884,1433 @@
         "oceano",
         "misterios",
         "biologia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_022",
+      "subject": "El Megaterremoto de Valdivia 1960: El sismo de 9.5 que movio la Tierra",
+      "category": "Megaterremotos & Sismos",
+      "status": "published",
+      "script": "En mil novecientos sesenta, el terremoto más potente jamás registrado en la historia sacudió a Chile con una brutal magnitud de nueve coma cinco. La energía liberada fue tan colosal que movió el eje de rotación de la Tierra, partió montañas a la mitad y generó tsunamis que cruzaron todo el océano Pacífico destruyendo costas en Japón y Hawái. ¿Crees que la naturaleza pueda superar esta magnitud en el futuro? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "earthquake destruction city ruins disaster",
+        "massive ocean tsunami wave disaster",
+        "cracked earth ground earthquake seismic",
+        "dark stormy ocean massive waves"
+      ],
+      "tags": [
+        "shorts",
+        "terremoto",
+        "valdivia",
+        "chile",
+        "megasismo",
+        "ciencia",
+        "geologia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_023",
+      "subject": "La Falla de Cascadia: El megaterremoto silencioso que amenaza a America",
+      "category": "Megaterremotos & Sismos",
+      "status": "published",
+      "script": "Frente a las costas de Norteamérica duerme un monstruo geológico: la Falla de Cascadia. Los científicos han descubierto que esta gigantesca zona de subducción acumula energía desde hace más de trescientos años. Cuando se rompa, desatará un megaterremoto de magnitud nueve con tsunamis de treinta metros en menos de quince minutos. ¿Estamos realmente preparados para un megasismo de esta escala? ¡Déjalo en los comentarios!",
+      "search_terms": [
+        "ocean coast rocky shore aerial",
+        "earthquake ground cracking seismic fault",
+        "tsunami massive wave rushing coast",
+        "seismograph needle recording earthquake"
+      ],
+      "tags": [
+        "shorts",
+        "terremoto",
+        "cascadia",
+        "megadesastres",
+        "ciencia",
+        "geologia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_024",
+      "subject": "¿Es posible un Terremoto de Magnitud 10? Lo que dice la fisica",
+      "category": "Megaterremotos & Sismos",
+      "status": "published",
+      "script": "Muchos se preguntan si algún día viviremos un terremoto de magnitud diez. Según la geofísica, para que ocurra un sismo así se necesitaría una falla continua de más de diez mil kilómetros, algo que no existe en nuestro planeta. Sin embargo, el impacto de un asteroide gigante sí podría desencadenar una sacudida de esa fuerza devastadora capaz de colapsar continentes enteros. ¿Qué harías si ocurriera algo así? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "earthquake shaking building collapsing disaster",
+        "asteroid hitting earth space collision",
+        "cracked desert ground drought seismic",
+        "volcanic eruption smoke ash explosion"
+      ],
+      "tags": [
+        "shorts",
+        "terremoto",
+        "magnitud10",
+        "ciencia",
+        "geologia",
+        "quepasaria",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_025",
+      "subject": "El Cinturon de Fuego del Pacifico: La zona donde tiembla sin parar",
+      "category": "Megaterremotos & Sismos",
+      "status": "published",
+      "script": "Una gigantesca herradura de cuarenta mil kilómetros en el océano concentra el noventa por ciento de todos los terremotos del planeta y el setenta y cinco por ciento de los volcanes activos del mundo. Es el Cinturón de Fuego del Pacífico, donde gigantescas placas tectónicas chocan sin tregua bajo nuestros pies liberando tensiones capaces de alterar la geografía. ¿Vives en un país del Cinturón de Fuego? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "glowing hot volcano lava eruption night",
+        "planet earth rotating space pacific ocean",
+        "earthquake seismic crack ground",
+        "waves crashing volcanic rock shore"
+      ],
+      "tags": [
+        "shorts",
+        "cinturondefuego",
+        "terremotos",
+        "volcanes",
+        "ciencia",
+        "geologia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_026",
+      "subject": "El Gran Terremoto de Shaanxi de 1556: La mayor catastrofe sismica",
+      "category": "Megaterremotos & Sismos",
+      "status": "published",
+      "script": "En el año mil quinientos cincuenta y seis, la provincia china de Shaanxi vivió el sismo más letal de la historia humana. En cuestión de minutos, montañas enteras se desmoronaron, abismos gigantescos se tragaron pueblos enteros y más de ochocientas mil personas perdieron la vida debido a que vivían en cuevas excavadas en arcilla. Fue una tragedia sin precedentes que redefinió la historia. ¿Conocías este evento histórico? ¡Déjalo en los comentarios!",
+      "search_terms": [
+        "ancient ruins destroyed city earthquake",
+        "foggy mountains cliff ancient china landscape",
+        "dark storm clouds thunder cinematic",
+        "cracked earth deep ground canyon"
+      ],
+      "tags": [
+        "shorts",
+        "terremoto",
+        "historia",
+        "shaanxi",
+        "catastrofes",
+        "curiosidades",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_027",
+      "subject": "¿La Luna suena como una campana? El aterrador misterio de los sismos lunares 😱",
+      "category": "Misterios del Cosmos",
+      "status": "published",
+      "script": "Cuando la misión Apolo estrelló deliberadamente una etapa del cohete contra la Luna, los sismógrafos registraron algo escalofriante: la Luna comenzó a vibrar como una campana hueca durante más de tres horas. A diferencia de la Tierra, los terremotos lunares duran hasta diez minutos y pueden alcanzar magnitud cinco y medio sin placas tectónicas. ¿Por qué vibra así nuestro satélite? ¡Comenta tu teoría!",
+      "search_terms": [
+        "apollo astronaut walking moon surface nasa",
+        "moon surface crater space earth orbit",
+        "seismograph seismic wave vibration science",
+        "deep space stars galaxy universe"
+      ],
+      "tags": [
+        "shorts",
+        "luna",
+        "apolo",
+        "misterios",
+        "espacio",
+        "astronomia",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-25T20:36:40.122404",
+      "task_id": "057bc09e-f8df-4480-85a2-80a0ccd442a2",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/057bc09e-f8df-4480-85a2-80a0ccd442a2/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_036",
+      "subject": "Lo que hallaron a 11.000 metros en el fondo de la Fosa de las Marianas 🌊",
+      "category": "Secretos del Océano",
+      "status": "published",
+      "script": "En el punto más profundo de la Tierra, la presión equivale a tener cincuenta aviones jumbo sobre tu cabeza y la oscuridad es absoluta. Sin embargo, los submarinos han descubierto criaturas transparentes que desafían la biología, volcanes de lodo hirviendo y misteriosas señales sonoras no identificadas en el lecho marino. ¿Bajarías a este abismo sin luz? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "deep sea submarine lights abyss dark ocean",
+        "glowing deep sea strange alien creature",
+        "underwater trench abyss Mariana trench animation",
+        "bubbling hydrothermal vent dark ocean floor"
+      ],
+      "tags": [
+        "shorts",
+        "fosadelasmarianas",
+        "oceano",
+        "misterios",
+        "abismo",
+        "ciencia",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-25T23:38:45.602888",
+      "task_id": "34bfe7b3-263d-487f-8957-43f85c59e599",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/34bfe7b3-263d-487f-8957-43f85c59e599/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_032",
+      "subject": "¿Qué pasaría si la Luna chocara contra la Tierra hoy mismo? 💥",
+      "category": "¿Qué pasaría si...?",
+      "status": "published",
+      "script": "Si la Luna comenzara a caer hacia nosotros, el primer síntoma serían mareas gigantescas de mil metros de altura arrasando todos los continentes. A medida que cruzara el límite de Roche, la gravedad de la Tierra destrozaría la Luna en millones de fragmentos incandescentes, creando un anillo brillante como el de Saturno antes de que una lluvia de meteoritos esterilizara el planeta. ¿Te gustaría ver un anillo en el cielo? ¡Comenta!",
+      "search_terms": [
+        "moon crashing into earth space collision asteroid",
+        "colossal tsunami tidal wave destroying coastline",
+        "earth surrounded by glowing asteroid debris ring",
+        "meteor shower fireballs burning night sky"
+      ],
+      "tags": [
+        "shorts",
+        "luna",
+        "quepasariasi",
+        "colision",
+        "espacio",
+        "ciencia",
+        "finisterre",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-26T02:08:03.033597",
+      "task_id": "a69fa1e3-c1ad-496a-9e42-dc5a140287d1",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a69fa1e3-c1ad-496a-9e42-dc5a140287d1/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_043",
+      "subject": "El lago más letal del mundo: Una hora aquí basta para perder la vida ☢️",
+      "category": "Lugares Prohibidos",
+      "status": "published",
+      "script": "En los montes Urales se esconde el Lago Karachay, un cuerpo de agua tan radiactivo que permanecer sesenta minutos en su orilla te expondría a una dosis mortal de seiscientos roentgens. Utilizado en secreto para verter desechos nucleares, el polvo de sus aguas secas contaminó a medio millón de personas, obligando a sepultarlo bajo diez mil bloques de concreto. ¿Conocías este letal lugar? ¡Comenta!",
+      "search_terms": [
+        "toxic green glowing radioactive waste water",
+        "abandoned nuclear wasteland bunker hazard",
+        "radiation meter geiger counter glowing screen",
+        "apocalyptic barren toxic landscape aerial"
+      ],
+      "tags": [
+        "shorts",
+        "radiactivo",
+        "nuclear",
+        "karachay",
+        "misterios",
+        "historia",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-26T12:41:17.120910",
+      "task_id": "1acf06e5-9d62-4754-8289-7225bcc21ee2",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/1acf06e5-9d62-4754-8289-7225bcc21ee2/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_044",
+      "subject": "El planeta infernal donde llueve vidrio derretido a 8.000 km/h 🌪️",
+      "category": "Monstruos Cósmicos",
+      "status": "published",
+      "script": "A sesenta y cuatro años luz orbita un exoplaneta con un color azul cobalto fascinante pero engañoso: HD 189733b. En su atmósfera ruge un huracán eterno de vientos a ocho mil kilómetros por hora, cargado de partículas de silicato que forman una lluvia constante de cristal fundido que cae de forma horizontal a velocidades hipersónicas. ¿Te imaginas sobrevivir un segundo allí? ¡Comenta tu opinión!",
+      "search_terms": [
+        "deep space blue giant planet violent storm",
+        "hypersonic violent wind space hurricane vortex",
+        "molten glowing glass fiery sparks magma",
+        "alien star system exoplanet orbit telescope"
+      ],
+      "tags": [
+        "shorts",
+        "exoplaneta",
+        "espacio",
+        "vidrio",
+        "cosmos",
+        "astronomia",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-26T15:45:06.653964",
+      "task_id": "dcd484e9-abc8-4d19-aec1-3fd2a56b69bc",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/dcd484e9-abc8-4d19-aec1-3fd2a56b69bc/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_037",
+      "subject": "El tsunami de 2004 que cambió la rotación de la Tierra en 10 minutos 🌊",
+      "category": "Megasismos & Catástrofes",
+      "status": "published",
+      "script": "El 26 de diciembre de 2004, una falla submarina de mil seiscientos kilómetros se rompió con una violencia equivalente a veintitrés mil bombas atómicas. La sacudida fue tan descomunal que hizo tambalear el eje del planeta y desató un tsunami de treinta metros que cruzó océanos enteros a la velocidad de un avión comercial. ¿Te imaginas la fuerza imparable del océano? ¡Comenta tu respuesta!",
+      "search_terms": [
+        "massive ocean tsunami wave disaster incoming",
+        "earthquake seismic crack deep ocean rupture",
+        "raging turbulent storm sea ocean waves",
+        "satellite view globe earth planet rotation"
+      ],
+      "tags": [
+        "shorts",
+        "tsunami",
+        "terremoto",
+        "sumatra",
+        "catastrofe",
+        "geologia",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-26T18:09:19.159099",
+      "task_id": "21d819e4-7e9b-480f-9917-97a8b9a203ce",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/21d819e4-7e9b-480f-9917-97a8b9a203ce/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_039",
+      "subject": "La tormenta infinita que lanza 280 rayos por hora durante 300 noches al año ⚡",
+      "category": "Fenómenos Extremos",
+      "status": "published",
+      "script": "En el lago de Maracaibo ocurre el show de luces más extremo del planeta: el Relámpago del Catatumbo. Durante diez horas continuas casi todas las noches del año, el cielo se ilumina con miles de descargas eléctricas silenciosas alimentadas por gases de metano y vientos andinos. Es el mayor faro natural y protector de la capa de ozono. ¿Te atreverías a navegar bajo esta tormenta? ¡Comenta!",
+      "search_terms": [
+        "lightning storm electric flashes night sky lake",
+        "dramatic lightning bolt strike slow motion",
+        "thunderstorm dark clouds electrical energy",
+        "night aerial view electrical storm clouds"
+      ],
+      "tags": [
+        "shorts",
+        "catatumbo",
+        "rayos",
+        "tormenta",
+        "meteorologia",
+        "naturaleza",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-26T20:35:41.071223",
+      "task_id": "1cffd23c-f103-405e-87db-6bcb494f18f3",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/1cffd23c-f103-405e-87db-6bcb494f18f3/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_028",
+      "subject": "El monstruoso agujero negro descubierto acechando cerca de la Tierra 🕳️",
+      "category": "Monstruos Cósmicos",
+      "status": "published",
+      "script": "A tan solo mil quinientos años luz, en nuestro propio patio trasero galáctico, los astrónomos descubrieron a Gaia BH1: un agujero negro durmiente diez veces más masivo que el Sol. No emite radiación ni devora materia visible, lo que lo hace completamente invisible hasta que su gravedad desvía la luz de su estrella compañera. ¿Qué otros titanes invisibles nos rodean en la oscuridad? ¡Comenta!",
+      "search_terms": [
+        "black hole gravitational lensing deep space nebula",
+        "supermassive black hole event horizon glowing accretion",
+        "binary star system orbiting invisible black hole",
+        "milky way galaxy deep stars universe"
+      ],
+      "tags": [
+        "shorts",
+        "agujeronegro",
+        "gaiabh1",
+        "espacio",
+        "astronomia",
+        "cosmos",
+        "misterios",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-26T23:39:16.201645",
+      "task_id": "d169a4d6-c371-4a79-b500-7da5cb92cf13",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/d169a4d6-c371-4a79-b500-7da5cb92cf13/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_030",
+      "subject": "¿Qué pasará el día que despierte el Supervolcán de Yellowstone? 🌋",
+      "category": "Catástrofes Globales",
+      "status": "published",
+      "script": "Bajo los géiseres del parque de Yellowstone duerme una cámara de magma de setenta kilómetros de largo. Si hiciera erupción, lanzaría miles de kilómetros cúbicos de roca pulverizada y ceniza tóxica, enterrando a Estados Unidos bajo un metro de polvo y sumergiendo al planeta entero en un invierno volcánico sin cosechas durante una década. ¿Crees que la humanidad sobreviviría? ¡Comenta tu opinión!",
+      "search_terms": [
+        "yellowstone geyser hot spring aerial steam",
+        "massive volcanic eruption plume explosion ash cloud",
+        "supervolcano caldera glowing magma chamber",
+        "dark apocalyptic winter snow freezing landscape"
+      ],
+      "tags": [
+        "shorts",
+        "yellowstone",
+        "supervolcan",
+        "erupcion",
+        "geologia",
+        "catastrofe",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-27T02:08:37.392740",
+      "task_id": "5f48b906-19d4-430b-aeb5-d6cd579f30d6",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/5f48b906-19d4-430b-aeb5-d6cd579f30d6/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_041",
+      "subject": "El exoplaneta ardiente compuesto de puro diamante comprimido 💎",
+      "category": "Monstruos Cósmicos",
+      "status": "published",
+      "script": "Imagina un mundo dos veces más grande que la Tierra donde el suelo no está hecho de roca, sino de puro diamante y grafito. En 55 Cancri e, las temperaturas de dos mil grados y una presión extrema convirtieron todo su carbono interior en piedras preciosas descomunales. Su valor estimado supera trillones de veces toda la economía mundial. ¿Viajarías a este tesoro del cosmos? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "exoplanet glowing hot magma lava space orbit",
+        "glowing sparkling diamond crystal refraction abstract",
+        "alien star system planetary surface space",
+        "futuristic space exploration telescope cosmos"
+      ],
+      "tags": [
+        "shorts",
+        "diamante",
+        "exoplaneta",
+        "espacio",
+        "astronomia",
+        "cosmos",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-27T12:39:10.265081",
+      "task_id": "f1e38b4a-6f88-4737-aea9-ef5e5ae64ec2",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/f1e38b4a-6f88-4737-aea9-ef5e5ae64ec2/final-1.mp4",
+      "upload_result": {
+        "success": false,
+        "error": "name 'ups' is not defined"
+      }
+    },
+    {
+      "id": "topic_040",
+      "subject": "El aterrador abismo submarino que congeló a los exploradores en el Caribe 🤿",
+      "category": "Secretos del Océano",
+      "status": "published",
+      "script": "En el Gran Agujero Azul de Belice se abre una caverna vertical de ciento veinticinco metros de profundidad. Al descender más allá de los noventa metros, una densa capa de sulfuro de hidrógeno bloquea toda la luz solar y el agua pierde todo su oxígeno, preservando intactas enormes estalactitas prehistóricas en un silencio sepulcral. ¿Te atreverías a bucear en este pozo sin fondo? ¡Comenta!",
+      "search_terms": [
+        "aerial view great blue hole ocean reef turquoise",
+        "scuba diver descending into dark underwater abyss",
+        "underwater stalactites prehistoric submerged cave",
+        "crystal clear blue ocean water reef drone"
+      ],
+      "tags": [
+        "shorts",
+        "agujeroazul",
+        "oceano",
+        "buceo",
+        "misterios",
+        "naturaleza",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-27T14:54:39.242083",
+      "task_id": "4c036f60-d473-4c37-a5ae-79cd4ebf28a0",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4c036f60-d473-4c37-a5ae-79cd4ebf28a0/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=ba5c6e66d5a64e539bf022e427a95357. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "ba5c6e66d5a64e539bf022e427a95357",
+        "total_platforms": 2,
+        "job_id": "8a07b3c56ac747118d8e3de3577eff57"
+      }
+    },
+    {
+      "id": "topic_045",
+      "subject": "El Gran Atractor: El misterioso monstruo que arrastra a nuestra galaxia 🌌",
+      "category": "Monstruos Cósmicos",
+      "status": "published",
+      "script": "Nuestra Vía Láctea y millones de otras galaxias están siendo succionadas a más de dos millones de kilómetros por hora hacia una fuerza invisible conocida como el Gran Atractor. Oculto detrás del centro galáctico, posee una gravedad equivalente a decenas de miles de billones de soles. Nadie sabe con certeza qué colosal megaestructura nos espera allí. ¿Qué crees que hay al final del viaje? ¡Comenta tu teoría!",
+      "search_terms": [
+        "deep space cosmic web gravitational anomaly void",
+        "milky way galaxy spiral rotating cosmos",
+        "massive cluster of galaxies hubble space view",
+        "dark matter cosmic structure universe simulation"
+      ],
+      "tags": [
+        "shorts",
+        "granatractor",
+        "galaxia",
+        "universo",
+        "astronomia",
+        "misterios",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-08-31T23:38:46.882141",
+      "task_id": "fd649f52-dc25-46c1-9712-95a28e107d0a",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/fd649f52-dc25-46c1-9712-95a28e107d0a/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=86af8bdc55da4d3aac30ecd544dd68b9. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "86af8bdc55da4d3aac30ecd544dd68b9",
+        "total_platforms": 2,
+        "job_id": "5570122c12794207b1db0bd4f02381b8"
+      }
+    },
+    {
+      "id": "topic_038",
+      "subject": "El terremoto que destruyó una ciudad entera en 6 minutos en 1755 🏛️",
+      "category": "Megasismos & Catástrofes",
+      "status": "published",
+      "script": "El día de Todos los Santos de 1755, Lisboa fue sacudida por un megaterremoto de magnitud casi nueve. Mientras las catedrales colapsaban sobre miles de fieles, el mar se retiró varios kilómetros para regresar como un tsunami de quince metros, seguido de incendios imparables que ardieron durante cinco días seguidos. El ochenta y cinco por ciento de la capital quedó borrada del mapa. ¿Conocías esta tragedia histórica? ¡Comenta!",
+      "search_terms": [
+        "historic city ruins rubble earthquake disaster",
+        "raging fire flames burning ancient buildings",
+        "giant ocean tsunami tidal wave storm coastal",
+        "dramatic dark storm clouds lightning sky"
+      ],
+      "tags": [
+        "shorts",
+        "lisboa",
+        "terremoto",
+        "tsunami",
+        "historia",
+        "geologia",
+        "catastrofe",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-01T16:08:20.549350",
+      "task_id": "34c8d392-bb47-43b2-890a-08c59783a4d8",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/34c8d392-bb47-43b2-890a-08c59783a4d8/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=cd240bc53ea940c3b77ff29a084c6954. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "cd240bc53ea940c3b77ff29a084c6954",
+        "total_platforms": 2,
+        "job_id": "85c12d711b1c45b78d8d4510628457e4"
+      }
+    },
+    {
+      "id": "topic_034",
+      "subject": "La explosión de Tunguska: La detonación espacial que arrasó un bosque entero 💥",
+      "category": "Misterios de la Tierra",
+      "status": "published",
+      "script": "En 1908, una explosión mil veces más potente que la bomba de Hiroshima detonó en el cielo de Siberia, derribando ochenta millones de árboles en dos mil kilómetros cuadrados en un parpadeo. No dejó cráter alguno, y el brillo nocturno fue tan intenso que en Londres se podía leer el periódico a medianoche. ¿Asteroide, cometa o antimateria? ¿Cuál es tu teoría? ¡Comenta!",
+      "search_terms": [
+        "meteor fireball burning atmosphere airburst explosion",
+        "vast flattened forest fallen trees siberia taiga",
+        "night sky glowing bright aurora mysterious light",
+        "satellite view siberian wilderness forest aerial"
+      ],
+      "tags": [
+        "shorts",
+        "tunguska",
+        "asteroide",
+        "misterios",
+        "espacio",
+        "siberia",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-01T23:44:54.629999",
+      "task_id": "7cd60c42-b328-4940-8e7a-0e0a9e892b81",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/7cd60c42-b328-4940-8e7a-0e0a9e892b81/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=8eb5251da6454e11afe69e0391ffe3bd. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "8eb5251da6454e11afe69e0391ffe3bd",
+        "total_platforms": 2,
+        "job_id": "eb4b4c7f6c474e82880d7b7d2a108fc5"
+      }
+    },
+    {
+      "id": "topic_050",
+      "subject": "El lago de aguas rojas que convierte a los animales en estatuas de piedra 🪨",
+      "category": "Lugares Prohibidos",
+      "status": "published",
+      "script": "En Tanzania existe el Lago Natron, una masa de agua alcalina y rojiza con temperaturas de hasta sesenta grados y un pH cáustico similar al amoníaco. Los animales que caen y mueren en sus aguas no se descomponen; los minerales de carbonato de sodio los calcifican, convirtiéndolos en espeluznantes estatuas de sal petrificadas. ¿Te atreverías a meter la mano en este lago? ¡Comenta!",
+      "search_terms": [
+        "lake natron red saline water aerial view drone",
+        "crystallized salt mineral white crust red lake",
+        "flamingos flying shallow mineral red water",
+        "surreal red landscape rift valley volcanoes"
+      ],
+      "tags": [
+        "shorts",
+        "lagonatron",
+        "tanzania",
+        "naturaleza",
+        "misterios",
+        "ciencia",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-02T16:11:08.801585",
+      "task_id": "1306d850-9121-4286-b610-4237dbecb5a0",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/1306d850-9121-4286-b610-4237dbecb5a0/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=b88652a630954b60a3350945d59bd8e5. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "b88652a630954b60a3350945d59bd8e5",
+        "total_platforms": 2,
+        "job_id": "5fb3c4796e3f40018d139f11325b4e8c"
+      }
+    },
+    {
+      "id": "topic_048",
+      "subject": "Betelgeuse está a punto de explotar y volverá el cielo de noche en día 🌟",
+      "category": "Monstruos Cósmicos",
+      "status": "published",
+      "script": "En la constelación de Orión brilla Betelgeuse, una estrella colosal setecientas veces más grande que el Sol que se encuentra agonizando. Cuando colapse en supernova, brillará tanto como la Luna llena, proyectando sombras en plena noche durante meses y siendo visible incluso a plena luz del día. ¿Te emociona la idea de ver una supernova en vivo? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "red supergiant star surface plasma glowing space",
+        "supernova explosion cosmic blast shockwave nebula",
+        "constellation Orion glowing stars night sky telescope",
+        "deep space astronomy galaxy telescope view"
+      ],
+      "tags": [
+        "shorts",
+        "betelgeuse",
+        "supernova",
+        "estrellas",
+        "espacio",
+        "astronomia",
+        "cosmos",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-02T23:37:48.988033",
+      "task_id": "3f8262f2-1d72-407a-b954-eb219f18f1b8",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/3f8262f2-1d72-407a-b954-eb219f18f1b8/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=44b5c50d269741b6b86eaf831463e2e2. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "44b5c50d269741b6b86eaf831463e2e2",
+        "total_platforms": 2,
+        "job_id": "ffdfe5b88ab44f1c87ef9b32a6ec6959"
+      }
+    },
+    {
+      "id": "topic_053",
+      "subject": "El volcán que borró el verano del planeta y congeló el mundo en 1816 ❄️",
+      "category": "Catástrofes Globales",
+      "status": "published",
+      "script": "En 1815, el volcán Tambora en Indonesia desató la erupción más letal de la historia. Expulsó tanta ceniza y gases a la estratosfera que un velo oscuro cubrió la Tierra, provocando tormentas de nieve en pleno julio en América y Europa. El famoso año sin verano desató hambrunas y heladas globales. ¿Te imaginas un julio bajo cero? ¡Comenta tu opinión!",
+      "search_terms": [
+        "massive volcanic eruption plume ash cloud lightning",
+        "volcano crater caldera aerial dramatic steam",
+        "snow winter landscape freezing summer dark sky",
+        "historical dark skies volcanic winter painting"
+      ],
+      "tags": [
+        "shorts",
+        "tambora",
+        "volcan",
+        "erupcion",
+        "clima",
+        "historia",
+        "geologia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-03T16:07:08.783153",
+      "task_id": "25868c7b-68d4-4929-b944-d90916158891",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/25868c7b-68d4-4929-b944-d90916158891/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=89a4d7aeae4a491db2730a43cf813994. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "89a4d7aeae4a491db2730a43cf813994",
+        "total_platforms": 2,
+        "job_id": "5629e570b5b0415dbd09375f1fe156dc"
+      }
+    },
+    {
+      "id": "topic_051",
+      "subject": "La gigantesca falla sísmica de 1.000 km oculta bajo la Patagonia 🇨🇱",
+      "category": "Megasismos & Catástrofes",
+      "status": "published",
+      "script": "Atravesando fiordos, volcanes y glaciares en el sur de Chile se extiende la Falla Liquiñe-Ofqui, una fractura de más de mil kilómetros de longitud. Esta falla controla directamente la furia de los volcanes más activos del continente y es capaz de generar terremotos corticares destructivos. ¿Conocías este gigante dormido del sur? ¡Comenta tu respuesta!",
+      "search_terms": [
+        "patagonia fiords snow mountains aerial drone landscape",
+        "active volcano smoke ash eruption Andes",
+        "geological mountain fault line crack tectonic",
+        "glacier blue ice southern Chile landscape"
+      ],
+      "tags": [
+        "shorts",
+        "patagonia",
+        "chile",
+        "volcanes",
+        "falla",
+        "geologia",
+        "sismos",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-03T23:37:43.527960",
+      "task_id": "5ef26fb7-a8ce-4074-ba21-50f08e0875ce",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/5ef26fb7-a8ce-4074-ba21-50f08e0875ce/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=1957b589477a492fac723553dde510b0. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "1957b589477a492fac723553dde510b0",
+        "total_platforms": 2,
+        "job_id": "529cdd5a2e314e459eafe16c57dd6f9f"
+      }
+    },
+    {
+      "id": "topic_052",
+      "subject": "El Síndrome de Kessler: La trampa espacial que podría dejarnos sin internet 🛰️",
+      "category": "Cosmos & Futuro",
+      "status": "published",
+      "script": "Más de treinta mil fragmentos de basura espacial viajan a veintiocho mil kilómetros por hora en órbita. Si dos satélites chocan, provocarían un efecto dominó destruyendo telecomunicaciones, GPS y pronósticos del clima, atrapando a la humanidad en la Tierra sin poder volver al espacio durante siglos. ¿Qué opinas de esta amenaza silenciosa? ¡Comenta!",
+      "search_terms": [
+        "space debris junk orbiting planet earth satellite",
+        "satellite orbital collision explosion space animation",
+        "earth surrounded by space debris swarm",
+        "international space station astronaut orbit earth"
+      ],
+      "tags": [
+        "shorts",
+        "satelites",
+        "basuraespacial",
+        "espacio",
+        "tecnologia",
+        "ciencia",
+        "futuro",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-04T16:08:47.717760",
+      "task_id": "ba3bcdad-00c9-4a2e-92ce-bc91d142ca65",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/ba3bcdad-00c9-4a2e-92ce-bc91d142ca65/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=3643ab7aec9546d9bd63eb045a55c703. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "3643ab7aec9546d9bd63eb045a55c703",
+        "total_platforms": 2,
+        "job_id": "4eca48673504422291f3c33b4d3b6cb7"
+      }
+    },
+    {
+      "id": "topic_055",
+      "subject": "El misterioso tsunami huérfano que golpeó Japón sin que nadie sintiera un sismo 🌊",
+      "category": "Megasismos & Catástrofes",
+      "status": "published",
+      "script": "En el año 1700, una ola gigante de cinco metros golpeó las costas de Japón sin advertencia ni terremoto previo. Siglos después, geólogos descubrieron que el sismo de magnitud nueve ocurrió al otro lado del planeta, en la Falla de Cascadia en Norteamérica, arrasando bosques enteros cuyos árboles fantasma aún siguen en pie. ¿Conocías el misterio del tsunami huérfano? ¡Comenta!",
+      "search_terms": [
+        "pacific northwest coastline ghost forest dead trees",
+        "massive ocean tsunami wave wave storm disaster",
+        "deep tectonic plate subduction animation earth",
+        "aerial view stormy ocean crashing rocky shore"
+      ],
+      "tags": [
+        "shorts",
+        "cascadia",
+        "tsunami",
+        "terremoto",
+        "geologia",
+        "historia",
+        "misterios",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-04T23:40:25.948274",
+      "task_id": "6eb0aa01-168e-4302-9d86-53a813feee8d",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/6eb0aa01-168e-4302-9d86-53a813feee8d/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=fc80815e03014b65a79807ed6e7d98a0. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "fc80815e03014b65a79807ed6e7d98a0",
+        "total_platforms": 2,
+        "job_id": "48343c1e76d643fdb6778b50ebc125bd"
+      }
+    },
+    {
+      "id": "topic_057",
+      "subject": "¿Qué pasaría si la Tierra dejara de girar por solo un segundo? 🌍💥",
+      "category": "¿Qué pasaría si...?",
+      "status": "published",
+      "script": "Si la Tierra se detuviera de golpe durante un solo segundo, la atmósfera continuaría moviéndose a mil seiscientos kilómetros por hora. Vientos supersónicos barrerían ciudades enteras, montañas colapsarían y gigantescos tsunamis cubrirían continentes en segundos. Los océanos se desplazarían hacia los polos, dividiendo al planeta en dos superocéanos polares y un desierto central gigante. ¿Te imaginas sobrevivir a ese segundo apocalíptico? ¡Comenta!",
+      "search_terms": [
+        "planet earth spinning fast space globe orbit",
+        "violent hurricane wind storm destroying landscape",
+        "massive tsunami wave sweeping city coastline",
+        "apocalyptic dark sky storm destruction earth"
+      ],
+      "tags": [
+        "shorts",
+        "quepasariasi",
+        "planetatierra",
+        "espacio",
+        "ciencia",
+        "curiosidades",
+        "catastrofe",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-05T16:10:46.317496",
+      "task_id": "0f54490b-7146-4f15-88cb-3967c5e6592f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/0f54490b-7146-4f15-88cb-3967c5e6592f/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=cb1801e661d545e4961ac6f7a6e9ea6f. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "cb1801e661d545e4961ac6f7a6e9ea6f",
+        "total_platforms": 2,
+        "job_id": "dc8b57a6dc494cdf84cd205528679045"
+      }
+    },
+    {
+      "id": "topic_058",
+      "subject": "El Monstruo de Bloop: El rugido submarino más potente jamás detectado 🔊",
+      "category": "Secretos del Océano",
+      "status": "published",
+      "script": "En el verano de 1997, micrófonos militares en el fondo del océano Pacífico captaron un sonido colosal de baja frecuencia bautizado como el Bloop. Fue registrado por estaciones a más de cinco mil kilómetros de distancia, superando por mucho el rugido de la ballena azul más grande. Aunque la ciencia sugiere que fue un terremoto de hielo en la Antártida, muchos aún sospechan de un leviatán en las profundidades. ¿Qué crees que lo causó? ¡Comenta!",
+      "search_terms": [
+        "deep dark ocean water underwater sonar soundwaves",
+        "colossal blue whale swimming deep blue sea",
+        "massive antarctic iceberg cracking falling glacier",
+        "dark underwater abyss submarine light mystery"
+      ],
+      "tags": [
+        "shorts",
+        "bloop",
+        "oceano",
+        "misterios",
+        "abismo",
+        "antartida",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-05T23:39:53.489167",
+      "task_id": "390ac99a-e964-45cb-a133-05e01940bb85",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/390ac99a-e964-45cb-a133-05e01940bb85/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=7216f38d019f4e64aeead2cadfa4758b. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "7216f38d019f4e64aeead2cadfa4758b",
+        "total_platforms": 2,
+        "job_id": "7d9c89adffc14654837702cb6b639598"
+      }
+    },
+    {
+      "id": "topic_059",
+      "subject": "La Puerta del Infierno de Darvaza: El cráter que arde sin parar desde 1971 🔥",
+      "category": "Lugares Prohibidos",
+      "status": "published",
+      "script": "En medio del desierto de Karakum se abre un cráter de setenta metros de ancho ardiendo en llamas incandescentes día y noche. En 1971, ingenieros perforaron una cueva de gas natural que colapsó y decidieron prenderle fuego creyendo que se apagaría en pocas semanas. Han pasado más de cincuenta años y el abismo sigue ardiendo como un portal al inframundo. ¿Te atreverías a acampar al borde de este cráter? ¡Comenta!",
+      "search_terms": [
+        "darvaza gas crater burning fiery pit night desert",
+        "glowing fire flames inferno night aerial drone",
+        "vast arid desert sand dunes karakum sunset",
+        "burning fiery crater night tourism glow"
+      ],
+      "tags": [
+        "shorts",
+        "darvaza",
+        "fuego",
+        "turkmenistan",
+        "misterios",
+        "geologia",
+        "lugaresprohibidos",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-06T15:09:26.927150",
+      "task_id": "9f088390-2508-4dcf-88a2-4fbcef726909",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/9f088390-2508-4dcf-88a2-4fbcef726909/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=c28b17e427124c66b451027823e7db0d. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "c28b17e427124c66b451027823e7db0d",
+        "total_platforms": 2,
+        "job_id": "1a30230c9cc54b8aa749d5aac89974cf"
+      }
+    },
+    {
+      "id": "topic_060",
+      "subject": "Estrellas de Neutrones: Una cucharada que pesa tanto como el Monte Everest ⚛️",
+      "category": "Monstruos Cósmicos",
+      "status": "published",
+      "script": "Cuando una estrella gigante muere, su núcleo se comprime en una esfera de solo veinte kilómetros de diámetro con una densidad tan absurda que toda la humanidad comprimida cabría en un terrón de azúcar. Una sola cucharadita de materia de una estrella de neutrones pesaría mil millones de toneladas en la Tierra, equivalente a todo el Monte Everest. ¿Te imaginas la fuerza gravitacional de este monstruo? ¡Comenta!",
+      "search_terms": [
+        "pulsar neutron star magnetic field glowing beams",
+        "supernova core collapse nebula explosion cosmos",
+        "mount everest snow mountain peak high altitude",
+        "quantum gravity space simulation astrophysics"
+      ],
+      "tags": [
+        "shorts",
+        "estrellas",
+        "neutron",
+        "espacio",
+        "astronomia",
+        "fisica",
+        "cosmos",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-06T22:39:37.799935",
+      "task_id": "4daa4978-1490-431c-8712-ad24310d5cfa",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4daa4978-1490-431c-8712-ad24310d5cfa/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=86e8f1ec03c54e119463eec8ae056f18. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "86e8f1ec03c54e119463eec8ae056f18",
+        "total_platforms": 2,
+        "job_id": "12ec461963b1440da3c3ff96fe07ca4d"
+      }
+    },
+    {
+      "id": "topic_061",
+      "subject": "El Megaterremoto de Chile 2010: El sismo de 8.8 que acortó los días de la Tierra 🇨🇱",
+      "category": "Megasismos & Catástrofes",
+      "status": "published",
+      "script": "El 27 de febrero de 2010, un brutal sismo de magnitud 8.8 sacudió el centro-sur de Chile durante casi cuatro minutos eternos. La energía liberada fue tan gigantesca que desplazó la ciudad de Concepción tres metros hacia el oeste, movió el eje de la Tierra ocho centímetros y acortó permanentemente la duración del día en microsegundos. ¿Viviste este histórico terremoto? ¡Cuéntame tu experiencia en los comentarios!",
+      "search_terms": [
+        "earthquake seismic destruction bridge collapse rubble",
+        "massive stormy ocean tsunami wave coastline Chile",
+        "globe earth planet axis shift space view",
+        "aerial view coastline earthquake aftermath tsunami"
+      ],
+      "tags": [
+        "shorts",
+        "terremoto",
+        "chile",
+        "sismos",
+        "tsunami",
+        "geologia",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-07T15:08:32.389948",
+      "task_id": "737ae8b4-818b-46d8-badf-0bec89f4aa17",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/737ae8b4-818b-46d8-badf-0bec89f4aa17/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=8801eb0b21e24772b545ff5f5cabbfc5. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "8801eb0b21e24772b545ff5f5cabbfc5",
+        "total_platforms": 2,
+        "job_id": "f2554644d76046b4a7e460bee59c770c"
+      }
+    },
+    {
+      "id": "topic_062",
+      "subject": "La Zona del Silencio: El Triángulo de las Bermudas en el desierto de México 📻",
+      "category": "Misterios de la Tierra",
+      "status": "published",
+      "script": "En el desierto de Durango se encuentra la Zona del Silencio, un misterioso territorio donde las señales de radio desaparecen, las brújulas giran sin control y los satélites pierden comunicación. Es una zona magnética anómala donde impactan meteoritos con frecuencia inusual y la fauna presenta extrañas mutaciones. ¿Qué crees que oculta este enigmático desierto? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "vast arid desert silence cactus mountains Mexico",
+        "spinning compass needle lost magnetic field",
+        "meteorite burning trail night sky desert",
+        "mysterious glowing horizon desert twilight aerial"
+      ],
+      "tags": [
+        "shorts",
+        "zonadelsilencio",
+        "mexico",
+        "misterios",
+        "extraterrestre",
+        "geologia",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-07T22:36:52.587612",
+      "task_id": "400a8d4e-1692-4484-bc58-a713c02f3437",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/400a8d4e-1692-4484-bc58-a713c02f3437/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=54c6110cd6e346c58755ff0e93473132. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "54c6110cd6e346c58755ff0e93473132",
+        "total_platforms": 2,
+        "job_id": "87827e28e5dd4b2a8a76928697f037ce"
+      }
+    },
+    {
+      "id": "topic_063",
+      "subject": "¿Qué pasaría si la gravedad de la Tierra se duplicara de repente? 🏋️",
+      "category": "¿Qué pasaría si...?",
+      "status": "published",
+      "script": "Si la gravedad aumentara al doble, tu peso pasaría de setenta a ciento cuarenta kilos al instante. Caminar sería agotador, los edificios colapsarían bajo su propio peso y la presión arterial haría que nuestros corazones fallaran en pocas horas. Los árboles caerían y los aviones no podrían despegar jamás, obligando a la vida a arrastrarse pegada al suelo. ¿Crees que sobrevivirías en un mundo hiperpesado? ¡Comenta!",
+      "search_terms": [
+        "planet earth gravity space simulation heavy atmosphere",
+        "skyscraper building collapsing destruction rubble",
+        "dense jungle trees falling heavy stormy ground",
+        "astronaut crawling heavy gravity space environment"
+      ],
+      "tags": [
+        "shorts",
+        "gravedad",
+        "quepasariasi",
+        "ciencia",
+        "fisica",
+        "planetatierra",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-08T15:08:54.291624",
+      "task_id": "b3a4fecc-6f3d-49d5-a11c-acf92be87505",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/b3a4fecc-6f3d-49d5-a11c-acf92be87505/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=fad53e872bd14acd865c2c4ab0c4983b. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "fad53e872bd14acd865c2c4ab0c4983b",
+        "total_platforms": 2,
+        "job_id": "4a203d72554641f5a7b3470a1f65062f"
+      }
+    },
+    {
+      "id": "topic_064",
+      "subject": "El Calamar Vampiro del Infierno: El rey de las sombras en el abismo 🦑",
+      "category": "Secretos del Océano",
+      "status": "published",
+      "script": "A mil metros bajo el mar, donde no llega ni un solo fotón de luz y casi no hay oxígeno, habita el Vampyroteuthis infernalis, el calamar vampiro del infierno. Tiene los ojos más grandes del reino animal en proporción a su cuerpo, cuerpo de color rojo sangre y cuando se siente amenazado, se envuelve en una capa de espinas y expulsa una nube de moco bioluminiscente brillante. ¿Te asustaría encontrarlo en el fondo del mar? ¡Comenta!",
+      "search_terms": [
+        "deep sea vampire squid glowing bioluminescent blue",
+        "dark underwater abyss strange alien sea creature",
+        "glowing jellyfish ocean deep darkness floating",
+        "submarine light exploring dark ocean abyss floor"
+      ],
+      "tags": [
+        "shorts",
+        "calamarvampiro",
+        "oceano",
+        "abismo",
+        "animales",
+        "naturaleza",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-08T22:41:05.046391",
+      "task_id": "8d09cc95-c7b4-4158-a90d-5435fab99d0d",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/8d09cc95-c7b4-4158-a90d-5435fab99d0d/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=35577b6391d44d2fa63a78a8b03ed73a. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "35577b6391d44d2fa63a78a8b03ed73a",
+        "total_platforms": 2,
+        "job_id": "b8eb3b60501643a1a78d7778eb5d8d4b"
+      }
+    },
+    {
+      "id": "topic_065",
+      "subject": "La Tormenta Solar de Carrington: El evento que casi quema el telégrafo en 1859 ☀️",
+      "category": "Catástrofes Globales",
+      "status": "published",
+      "script": "En septiembre de 1859, una gigantesca eyección de masa coronal del Sol impactó la Tierra con una furia sin precedentes. Las auroras boreales brillaron tanto que la gente en Cuba podía leer de noche, y las líneas de telégrafo chisporrotearon solas prendiendo fuego a las oficinas. Si una tormenta igual ocurriera hoy, apagaría la red eléctrica e internet global durante meses. ¿Estamos preparados para una supertormenta solar? ¡Comenta!",
+      "search_terms": [
+        "sun coronal mass ejection solar flare plasma eruption",
+        "aurora borealis northern lights glowing night sky",
+        "electrical sparks fire telegraph vintage wire",
+        "planet earth magnetic field solar wind storm shield"
+      ],
+      "tags": [
+        "shorts",
+        "solartormenta",
+        "carrington",
+        "sol",
+        "espacio",
+        "astronomia",
+        "tecnologia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-09T15:11:27.385247",
+      "task_id": "94d95fd1-59c2-477c-a4f2-3b139b500fc3",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/94d95fd1-59c2-477c-a4f2-3b139b500fc3/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=303e1b1c2ded4edb974d95bc0657ae29. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "303e1b1c2ded4edb974d95bc0657ae29",
+        "total_platforms": 2,
+        "job_id": "3fccd88ab81b464fbd1f5d480d19bbdd"
+      }
+    },
+    {
+      "id": "topic_066",
+      "subject": "El Bosque de Piedra de Madagascar: El laberinto más afilado y peligroso 🪨",
+      "category": "Secretos de la Tierra",
+      "status": "published",
+      "script": "En la reserva de Tsingy de Bemaraha se eleva un bosque impenetrable formado por agujas de piedra caliza de más de cien metros de altura, afiladas como hojas de afeitar. Un solo paso en falso puede ser fatal. En sus grietas inaccesibles evolucionaron especies de lémures y plantas que no existen en ningún otro lugar del planeta. ¿Te atreverías a cruzar este laberinto de navajas de piedra? ¡Comenta tu opinión!",
+      "search_terms": [
+        "tsingy madagascar sharp limestone needle peaks aerial",
+        "aerial view sharp limestone razor stone forest",
+        "lemur jumping rocky sharp peaks madagascar wildlife",
+        "dramatic limestone canyon rock formation drone"
+      ],
+      "tags": [
+        "shorts",
+        "madagascar",
+        "tsingy",
+        "geologia",
+        "naturaleza",
+        "lugaresprohibidos",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-09T22:41:45.518487",
+      "task_id": "4f570ab6-9b4e-4e3d-9c44-7174d4463f2f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4f570ab6-9b4e-4e3d-9c44-7174d4463f2f/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=1383a3d2f7fe48c888f14e2b72711946. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "1383a3d2f7fe48c888f14e2b72711946",
+        "total_platforms": 2,
+        "job_id": "6ccc86ffe4d0429c80a3bea62d5f5fa2"
+      }
+    },
+    {
+      "id": "topic_067",
+      "subject": "El Megaterremoto de Valdivia 1960: El sismo más colosal jamás registrado en la Tierra 🇨🇱",
+      "category": "Megaterremotos & Tsunamis",
+      "status": "published",
+      "script": "En 1960, el sur de Chile tembló con una violencia nunca antes vista. [pause:0.7] Un terremoto magnitud 9.5 liberó tanta energía que desgarró la corteza terrestre, hundió ciudades enteras y generó tsunamis que cruzaron todo el océano Pacífico hasta Japón. Fue el sismo más destructivo de la historia moderna. ¿Crees que la naturaleza podría superar esta magnitud? ¡Comenta tu opinión!",
+      "search_terms": [
+        "colossal earthquake tsunami waves ocean coastline",
+        "aerial destroyed city earthquake rubble cracks",
+        "massive ocean waves storm seismic",
+        "tectonic plates geological earth animation"
+      ],
+      "tags": [
+        "shorts",
+        "valdivia",
+        "terremoto",
+        "chile",
+        "tsunami",
+        "historia",
+        "ciencia",
+        "erdivertido"
+      ],
+      "rendered_at": "2026-09-11T16:44:58.610036",
+      "task_id": "4d21c092-f81d-4104-976b-3b5ac50596a0",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4d21c092-f81d-4104-976b-3b5ac50596a0/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=bd4fe5f545bb4314a9f4e3815683dd8c. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "bd4fe5f545bb4314a9f4e3815683dd8c",
+        "total_platforms": 2,
+        "job_id": "ecc58c1d83494eb48857214849c97319"
+      },
+      "published_at": "2026-09-11T19:33:34.959035"
+    },
+    {
+      "id": "topic_068",
+      "subject": "La Fosa de las Marianas: El abismo más profundo y oscuro del planeta Tierra 🌊",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "A once kilómetros bajo la superficie del mar reina una oscuridad absoluta. [pause:0.6] La presión es tan aplastante que equivale a soportar cincuenta aviones comerciales sobre tu cabeza. Sin embargo, en ese infierno gélido habitan criaturas translúcidas que desafían toda la biología conocida. [pause:0.6] ¿Te atreverías a descender al fondo de la Tierra? ¡Déjamelo en los comentarios!",
+      "search_terms": [
+        "mariana trench deep dark sea ocean abyss",
+        "deep sea submarine bioluminescent glowing creatures",
+        "underwater underwater trench dark deep",
+        "abyssal glowing fish ocean floor exploration"
+      ],
+      "tags": [
+        "shorts",
+        "marianas",
+        "oceano",
+        "abismo",
+        "misterios",
+        "animales",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_069",
+      "subject": "Krakatoa 1883: La detonación volcánica que dio 4 vueltas al planeta entero 🌋",
+      "category": "Catástrofes Históricas",
+      "status": "pending",
+      "script": "En agosto de 1883, la isla de Krakatoa detonó con la fuerza de trece mil bombas atómicas. [pause:0.7] El estruendo fue tan aterrador que reventó los tímpanos de personas a sesenta kilómetros y se escuchó a casi cinco mil kilómetros de distancia. La onda de choque recorrió la Tierra cuatro veces consecutivas. ¿Te imaginas escuchar una explosión a miles de kilómetros? ¡Comenta!",
+      "search_terms": [
+        "massive volcanic eruption explosion ash smoke cloud",
+        "volcano lava smoke shockwave explosion dramatic",
+        "ocean giant tsunami storm waves coastline",
+        "satellite view volcanic plume earth space"
+      ],
+      "tags": [
+        "shorts",
+        "krakatoa",
+        "volcan",
+        "historia",
+        "catastrofe",
+        "ciencia",
+        "curiosidades",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_070",
+      "subject": "El Misterio del Agujero Azul de Belice: La caverna submarina que devora a los buzos 🕳️",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "Visto desde el aire parece un portal perfecto hacia el abismo. [pause:0.6] Con más de trescientos metros de ancho y ciento veinte de profundidad, el Gran Agujero Azul oculta estalagmitas gigantes y una capa letal de sulfuro de hidrógeno sin oxígeno donde nada puede sobrevivir. Quien desciende demasiado rápido, rara vez vuelve. ¿Bucearías en esta caverna infinita? ¡Comenta tu respuesta!",
+      "search_terms": [
+        "great blue hole belize aerial drone tropical ocean",
+        "deep sea diver underwater dark cave cavern",
+        "blue hole underwater vertical reef corals",
+        "deep ocean abyss diving dangerous cave"
+      ],
+      "tags": [
+        "shorts",
+        "bluehole",
+        "belice",
+        "oceano",
+        "buceo",
+        "misterios",
+        "naturaleza",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_071",
+      "subject": "El Megatsunami de Bahía Lituya: La ola monstruosa de 524 metros de altura 🌊",
+      "category": "Megaterremotos & Tsunamis",
+      "status": "pending",
+      "script": "En 1958, un terremoto en Alaska provocó el derrumbe de treinta millones de metros cúbicos de roca sobre un fiordo estrecho. [pause:0.7] El impacto disparó una muralla de agua de quinientos veinticuatro metros de altura, más alta que el Empire State. Arrasó bosques enteros hasta la roca viva. ¿Qué harías si ves acercarse una ola de medio kilómetro? ¡Déjalo en los comentarios!",
+      "search_terms": [
+        "colossal giant tsunami wave ocean bay",
+        "alaska fjord mountain landslide rockfall dust",
+        "massive ocean storm surge coastal devastation",
+        "mountain peak glacier snow aerial view"
+      ],
+      "tags": [
+        "shorts",
+        "megatsunami",
+        "lituya",
+        "alaska",
+        "tsunami",
+        "geologia",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_072",
+      "subject": "La Señal Wow!: El mensaje espacial de 72 segundos que nunca se volvió a repetir 📡",
+      "category": "Enigmas Cósmicos",
+      "status": "pending",
+      "script": "En agosto de 1977, un radiotelescopio captó una señal de radio proveniente del espacio profundo treinta veces más potente que el ruido de fondo. [pause:0.7] Duró setenta y dos segundos exactos y tenía todas las características de una transmisión artificial extraterrestre. El astrónomo escribió 'Wow!' en el papel. Desde entonces, el cosmos ha guardado silencio. ¿Crees que fue un mensaje alienígena? ¡Comenta!",
+      "search_terms": [
+        "radio telescope dish array night sky starry milky way",
+        "deep space radio waves nebula galaxy telescope",
+        "cosmic signal glowing interstellar space animation",
+        "astronomy observatory telescope looking at stars"
+      ],
+      "tags": [
+        "shorts",
+        "senalwow",
+        "espacio",
+        "astronomia",
+        "alienigenas",
+        "misterios",
+        "cosmos",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_073",
+      "subject": "El Terremoto de Japón 2011: El cataclismo que desplazó el eje del planeta Tierra 🇯🇵",
+      "category": "Megaterremotos & Tsunamis",
+      "status": "pending",
+      "script": "El 11 de marzo de 2011, la tierra bajo Japón se fracturó con una violencia descomunal. [pause:0.6] El terremoto de magnitud 9.1 desplazó la isla principal de Japón dos metros y medio hacia el este y aceleró la rotación del planeta entero, acortando los días para siempre. Luego, vino el océano. ¿Recuerdas dónde estabas cuando ocurrió este sismo? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "japan earthquake tsunami massive waves flooding coast",
+        "seismic sea wave destruction port aerial view",
+        "satellite view japan earthquake fault line",
+        "ocean water surging inland flooding buildings"
+      ],
+      "tags": [
+        "shorts",
+        "japon2011",
+        "terremoto",
+        "tsunami",
+        "sismos",
+        "historia",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_074",
+      "subject": "El Misterio del Triángulo de las Bermudas: Lo que la ciencia descubrió en el fondo marino 🚢",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "Durante décadas, aviones y barcos enteros se esfumaron sin dejar rastro en el Triángulo de las Bermudas. [pause:0.6] Hoy, los oceanógrafos han descubierto enormes bolsas de gas metano bajo el lecho marino y olas gigantescas de treinta metros capaces de partir un navío en dos en segundos. [pause:0.6] ¿Crees que la ciencia ya explicó todo el misterio? ¡Déjamelo en los comentarios!",
+      "search_terms": [
+        "ocean storm cargo ship massive rogue waves dark sky",
+        "underwater ocean methane gas bubbles rising seafloor",
+        "bermuda triangle tropical aerial ocean waters",
+        "ship navigating dark stormy dangerous rough sea"
+      ],
+      "tags": [
+        "shorts",
+        "bermudas",
+        "triangulodelasbermudas",
+        "misterios",
+        "barcos",
+        "oceano",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_075",
+      "subject": "El Tsunami del Océano Índico 2004: La falla de 1.300 km que sacudió al mundo entero 🌊",
+      "category": "Megaterremotos & Tsunamis",
+      "status": "pending",
+      "script": "En la mañana de Navidad de 2004, una fractura colosal de mil trescientos kilómetros se abrió en el fondo del océano Índico. [pause:0.7] Liberó una energía equivalente a veintitrés mil bombas nucleares. Olas veloces como aviones a reacción azotaron catorce países al mismo tiempo sin aviso alguno. ¿Sabías que este sismo hizo oscilar al planeta entero? ¡Comenta tu respuesta!",
+      "search_terms": [
+        "giant ocean tsunami wave approaching tropical beach",
+        "underwater earthquake tectonic fault rupture seismic",
+        "ocean water draining rapidly from shoreline",
+        "massive tsunami destruction coastline flooding"
+      ],
+      "tags": [
+        "shorts",
+        "tsunami2004",
+        "terremoto",
+        "indonesia",
+        "historia",
+        "geologia",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_076",
+      "subject": "El Cráter de Batagaika: La grieta siberiana que revela secretos de la Era de Hielo ❄️",
+      "category": "Secretos Geológicos",
+      "status": "pending",
+      "script": "En medio de la taiga siberiana existe una herida abierta de un kilómetro de longitud que crece cada día. [pause:0.6] Los lugareños la llaman la puerta al inframundo. El permafrost se está derritiendo y dejando al descubierto bosques congelados y restos de mamuts de hace seiscientos mil años. ¿Qué crees que podría despertar si este hielo sigue derritiéndose? ¡Comenta!",
+      "search_terms": [
+        "siberian permafrost crater fissure aerial drone cliff",
+        "frozen soil melting crater geological fault siberia",
+        "ice age mammoth prehistoric fossils frozen ground",
+        "aerial view vast siberian tundra forest wilderness"
+      ],
+      "tags": [
+        "shorts",
+        "batagaika",
+        "siberia",
+        "permafrost",
+        "geologia",
+        "misterios",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_077",
+      "subject": "La Falla de San Andrés: La cuenta regresiva del gran terremoto que partirá a California ⚡",
+      "category": "Megaterremotos & Sismos",
+      "status": "pending",
+      "script": "Bajo las colinas de California dos placas tectónicas monstruosas están trabadas acumulando una tensión titánica. [pause:0.7] Los geólogos advierten que el sector sur no ha liberado energía en más de trescientos años. El 'Big One' no es una posibilidad, es una certeza matemática que ocurrirá en cualquier momento. ¿Estás preparado si ocurriera hoy? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "san andreas fault line aerial view desert california",
+        "cracked dry earth ground earthquake fault seismic",
+        "seismograph recording massive earthquake needle vibration",
+        "highway cracked damaged by severe earthquake"
+      ],
+      "tags": [
+        "shorts",
+        "sanandres",
+        "california",
+        "terremoto",
+        "sismo",
+        "geologia",
+        "ciencia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_078",
+      "subject": "El Lago Vostok: El océano subterráneo atrapado bajo 4 kilómetros de hielo antártico 🧊",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "A cuatro mil metros bajo la capa de hielo más gélida de la Antártida descansa un lago colosal del tamaño del lago Ontario. [pause:0.6] Lleva aislado del resto del mundo quince millones de años en total oscuridad y alta presión. Los científicos creen que allí habitan formas de vida alienígenas únicas en el planeta. ¿Te atreverías a beber agua de hace millones de años? ¡Comenta!",
+      "search_terms": [
+        "antarctic ice sheet vast snowy blizzard glacier aerial",
+        "deep ice drilling scientific station antarctica snow",
+        "underwater subglacial liquid water dark cave blue",
+        "antarctic research expedition extreme cold landscape"
+      ],
+      "tags": [
+        "shorts",
+        "vostok",
+        "antartida",
+        "hielo",
+        "misterios",
+        "ciencia",
+        "naturaleza",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_079",
+      "subject": "La Destrucción de Pompeya: La furia volcánica que congeló el tiempo en el año 79 🏛️",
+      "category": "Catástrofes Históricas",
+      "status": "pending",
+      "script": "En cuestión de horas, el Monte Vesubio vomitó una nube ardiente de cenizas y gases a más de quinientos grados sobre la ciudad romana de Pompeya. [pause:0.7] Los habitantes quedaron petrificados al instante en sus posiciones finales, preservados durante casi dos mil años como si el tiempo se hubiera congelado. ¿Qué harías si un volcán despierta a tu lado? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "ancient roman ruins pompei vesuvius volcano background",
+        "pyroclastic flow volcanic eruption ash cloud dark",
+        "ancient roman city stone columns ruins aerial",
+        "volcano smoking crater mountain landscape dramatic"
+      ],
+      "tags": [
+        "shorts",
+        "pompeya",
+        "vesubio",
+        "historia",
+        "arqueologia",
+        "volcan",
+        "catastrofe",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_080",
+      "subject": "El Tiburón Duende: El fósil viviente de mandíbula disparable en el fondo del mar 🦈",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "Navegando en profundidades de más de mil metros habita una criatura rosada que parece salida de una pesadilla. [pause:0.6] El tiburón duende posee una mandíbula con resortes elásticos que se dispara hacia adelante a velocidad supersónica para atrapar a sus presas en la oscuridad abisal. Lleva ciento veinticinco millones de años sin evolucionar. ¿No te parece fascinante este monstruo marino? ¡Comenta!",
+      "search_terms": [
+        "deep sea goblin shark swimming dark abyssal water",
+        "deep ocean strange bioluminescent creature dark sea",
+        "shark swimming deep blue ocean underwater footage",
+        "underwater submarine lights exploring dark abyss"
+      ],
+      "tags": [
+        "shorts",
+        "tiburonduende",
+        "animales",
+        "abismo",
+        "oceano",
+        "misterios",
+        "biologia",
+        "erdivertido"
+      ]
+    },
+    {
+      "id": "topic_081",
+      "subject": "La Anomalía del Mar Báltico: El misterioso objeto circular en el lecho marino 🛸",
+      "category": "Misterios Abisales",
+      "status": "pending",
+      "script": "En 2011, un equipo de cazadores de tesoros con sonar detectó un gigantesco disco de sesenta metros en el fondo del Mar Báltico. [pause:0.6] Tenía ángulos rectos perfectos, pasillos y una rampa de piedra que dejaba una extraña pista de aterrizaje. Además, los equipos electrónicos fallaban misteriosamente al acercarse. ¿Crees que es una formación geológica o algo más? ¡Déjalo en los comentarios!",
+      "search_terms": [
+        "sonar scan underwater circular object seafloor seabed",
+        "deep sea submarine exploration dark mysterious structure",
+        "diver exploring underwater stone mystery seabed",
+        "ocean depths murky underwater dark exploration"
+      ],
+      "tags": [
+        "shorts",
+        "marbaltico",
+        "anomalia",
+        "misterios",
+        "arqueologia",
+        "oceano",
+        "curiosidades",
         "erdivertido"
       ]
     }
