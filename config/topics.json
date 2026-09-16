@@ -1996,7 +1996,7 @@
       "id": "topic_068",
       "subject": "La Fosa de las Marianas: El abismo más profundo y oscuro del planeta Tierra 🌊",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "A once kilómetros bajo la superficie del mar reina una oscuridad absoluta. [pause:0.6] La presión es tan aplastante que equivale a soportar cincuenta aviones comerciales sobre tu cabeza. Sin embargo, en ese infierno gélido habitan criaturas translúcidas que desafían toda la biología conocida. [pause:0.6] ¿Te atreverías a descender al fondo de la Tierra? ¡Déjamelo en los comentarios!",
       "search_terms": [
         "mariana trench deep dark sea ocean abyss",
@@ -2013,13 +2013,23 @@
         "animales",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-11T22:37:42.456811",
+      "task_id": "26619735-b009-403e-9e72-619e585c1c19",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/26619735-b009-403e-9e72-619e585c1c19/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=9cd3824d083f43a6a308d6882c594eb6. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "9cd3824d083f43a6a308d6882c594eb6",
+        "total_platforms": 2,
+        "job_id": "9e21ca703a1f46be9490a79545d41b29"
+      }
     },
     {
       "id": "topic_069",
       "subject": "Krakatoa 1883: La detonación volcánica que dio 4 vueltas al planeta entero 🌋",
       "category": "Catástrofes Históricas",
-      "status": "pending",
+      "status": "published",
       "script": "En agosto de 1883, la isla de Krakatoa detonó con la fuerza de trece mil bombas atómicas. [pause:0.7] El estruendo fue tan aterrador que reventó los tímpanos de personas a sesenta kilómetros y se escuchó a casi cinco mil kilómetros de distancia. La onda de choque recorrió la Tierra cuatro veces consecutivas. ¿Te imaginas escuchar una explosión a miles de kilómetros? ¡Comenta!",
       "search_terms": [
         "massive volcanic eruption explosion ash smoke cloud",
@@ -2036,13 +2046,23 @@
         "ciencia",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-12T15:08:11.231851",
+      "task_id": "a517d41d-284d-4c46-be6a-102b789f2373",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a517d41d-284d-4c46-be6a-102b789f2373/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=614d2c8e606e45b0a8e1985abb89559a. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "614d2c8e606e45b0a8e1985abb89559a",
+        "total_platforms": 2,
+        "job_id": "e81886c50c454bac973057278980a18e"
+      }
     },
     {
       "id": "topic_070",
       "subject": "El Misterio del Agujero Azul de Belice: La caverna submarina que devora a los buzos 🕳️",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "Visto desde el aire parece un portal perfecto hacia el abismo. [pause:0.6] Con más de trescientos metros de ancho y ciento veinte de profundidad, el Gran Agujero Azul oculta estalagmitas gigantes y una capa letal de sulfuro de hidrógeno sin oxígeno donde nada puede sobrevivir. Quien desciende demasiado rápido, rara vez vuelve. ¿Bucearías en esta caverna infinita? ¡Comenta tu respuesta!",
       "search_terms": [
         "great blue hole belize aerial drone tropical ocean",
@@ -2059,13 +2079,23 @@
         "misterios",
         "naturaleza",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-12T22:40:09.622473",
+      "task_id": "7e084462-5b95-49df-a6b2-5a22565f3022",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/7e084462-5b95-49df-a6b2-5a22565f3022/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=bfd79e5cfd304779b86a8a4ebaea2f11. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "bfd79e5cfd304779b86a8a4ebaea2f11",
+        "total_platforms": 2,
+        "job_id": "7563d7a3b5aa443181bbe166f7e486f7"
+      }
     },
     {
       "id": "topic_071",
       "subject": "El Megatsunami de Bahía Lituya: La ola monstruosa de 524 metros de altura 🌊",
       "category": "Megaterremotos & Tsunamis",
-      "status": "pending",
+      "status": "published",
       "script": "En 1958, un terremoto en Alaska provocó el derrumbe de treinta millones de metros cúbicos de roca sobre un fiordo estrecho. [pause:0.7] El impacto disparó una muralla de agua de quinientos veinticuatro metros de altura, más alta que el Empire State. Arrasó bosques enteros hasta la roca viva. ¿Qué harías si ves acercarse una ola de medio kilómetro? ¡Déjalo en los comentarios!",
       "search_terms": [
         "colossal giant tsunami wave ocean bay",
@@ -2082,13 +2112,23 @@
         "geologia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-13T15:08:43.677869",
+      "task_id": "0af421cf-9370-4a4d-ab4a-f5a0194703df",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/0af421cf-9370-4a4d-ab4a-f5a0194703df/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=8cf3f1946d55415980040d9196d53bd0. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "8cf3f1946d55415980040d9196d53bd0",
+        "total_platforms": 2,
+        "job_id": "d306c2572bf945f6866474de3a278794"
+      }
     },
     {
       "id": "topic_072",
       "subject": "La Señal Wow!: El mensaje espacial de 72 segundos que nunca se volvió a repetir 📡",
       "category": "Enigmas Cósmicos",
-      "status": "pending",
+      "status": "published",
       "script": "En agosto de 1977, un radiotelescopio captó una señal de radio proveniente del espacio profundo treinta veces más potente que el ruido de fondo. [pause:0.7] Duró setenta y dos segundos exactos y tenía todas las características de una transmisión artificial extraterrestre. El astrónomo escribió 'Wow!' en el papel. Desde entonces, el cosmos ha guardado silencio. ¿Crees que fue un mensaje alienígena? ¡Comenta!",
       "search_terms": [
         "radio telescope dish array night sky starry milky way",
@@ -2105,13 +2145,23 @@
         "misterios",
         "cosmos",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-13T22:38:11.571901",
+      "task_id": "4de6a030-22fb-43ca-b353-05d453fad8bb",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4de6a030-22fb-43ca-b353-05d453fad8bb/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=e333900959ad4949a115773b51e8c404. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "e333900959ad4949a115773b51e8c404",
+        "total_platforms": 2,
+        "job_id": "729e7470704c4767b5b51304526fa80c"
+      }
     },
     {
       "id": "topic_073",
       "subject": "El Terremoto de Japón 2011: El cataclismo que desplazó el eje del planeta Tierra 🇯🇵",
       "category": "Megaterremotos & Tsunamis",
-      "status": "pending",
+      "status": "published",
       "script": "El 11 de marzo de 2011, la tierra bajo Japón se fracturó con una violencia descomunal. [pause:0.6] El terremoto de magnitud 9.1 desplazó la isla principal de Japón dos metros y medio hacia el este y aceleró la rotación del planeta entero, acortando los días para siempre. Luego, vino el océano. ¿Recuerdas dónde estabas cuando ocurrió este sismo? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
         "japan earthquake tsunami massive waves flooding coast",
@@ -2128,13 +2178,23 @@
         "historia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-14T15:10:52.448350",
+      "task_id": "ffafa081-5594-4577-a378-9b574997f259",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/ffafa081-5594-4577-a378-9b574997f259/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=ad5073914ff741de96243506dd9dffc7. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "ad5073914ff741de96243506dd9dffc7",
+        "total_platforms": 2,
+        "job_id": "01e06e413535491b969853cf98a24627"
+      }
     },
     {
       "id": "topic_074",
       "subject": "El Misterio del Triángulo de las Bermudas: Lo que la ciencia descubrió en el fondo marino 🚢",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "Durante décadas, aviones y barcos enteros se esfumaron sin dejar rastro en el Triángulo de las Bermudas. [pause:0.6] Hoy, los oceanógrafos han descubierto enormes bolsas de gas metano bajo el lecho marino y olas gigantescas de treinta metros capaces de partir un navío en dos en segundos. [pause:0.6] ¿Crees que la ciencia ya explicó todo el misterio? ¡Déjamelo en los comentarios!",
       "search_terms": [
         "ocean storm cargo ship massive rogue waves dark sky",
@@ -2151,13 +2211,23 @@
         "oceano",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-14T22:40:29.299944",
+      "task_id": "4f73f85d-578b-4455-be33-f099b0d33cc5",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/4f73f85d-578b-4455-be33-f099b0d33cc5/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=94a8f160d3f347deaa2a85f429d1dd69. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "94a8f160d3f347deaa2a85f429d1dd69",
+        "total_platforms": 2,
+        "job_id": "79e653c4990346e0946fd1fc3badf16e"
+      }
     },
     {
       "id": "topic_075",
       "subject": "El Tsunami del Océano Índico 2004: La falla de 1.300 km que sacudió al mundo entero 🌊",
       "category": "Megaterremotos & Tsunamis",
-      "status": "pending",
+      "status": "published",
       "script": "En la mañana de Navidad de 2004, una fractura colosal de mil trescientos kilómetros se abrió en el fondo del océano Índico. [pause:0.7] Liberó una energía equivalente a veintitrés mil bombas nucleares. Olas veloces como aviones a reacción azotaron catorce países al mismo tiempo sin aviso alguno. ¿Sabías que este sismo hizo oscilar al planeta entero? ¡Comenta tu respuesta!",
       "search_terms": [
         "giant ocean tsunami wave approaching tropical beach",
@@ -2174,13 +2244,23 @@
         "geologia",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-15T15:16:46.745501",
+      "task_id": "ca50c98d-2362-48f1-8f2b-5f14b1f550ec",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/ca50c98d-2362-48f1-8f2b-5f14b1f550ec/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=5a4617c2e269418e867cadd9c0050015. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "5a4617c2e269418e867cadd9c0050015",
+        "total_platforms": 2,
+        "job_id": "874021de338943358fae72497a2c49c8"
+      }
     },
     {
       "id": "topic_076",
       "subject": "El Cráter de Batagaika: La grieta siberiana que revela secretos de la Era de Hielo ❄️",
       "category": "Secretos Geológicos",
-      "status": "pending",
+      "status": "published",
       "script": "En medio de la taiga siberiana existe una herida abierta de un kilómetro de longitud que crece cada día. [pause:0.6] Los lugareños la llaman la puerta al inframundo. El permafrost se está derritiendo y dejando al descubierto bosques congelados y restos de mamuts de hace seiscientos mil años. ¿Qué crees que podría despertar si este hielo sigue derritiéndose? ¡Comenta!",
       "search_terms": [
         "siberian permafrost crater fissure aerial drone cliff",
@@ -2197,7 +2277,17 @@
         "misterios",
         "ciencia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-15T22:39:59.787141",
+      "task_id": "dfafc635-1d6b-4681-9d79-a0e21e5fe338",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/dfafc635-1d6b-4681-9d79-a0e21e5fe338/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=6c73b8dbf7e74b59a1f281efb52d497a. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "6c73b8dbf7e74b59a1f281efb52d497a",
+        "total_platforms": 2,
+        "job_id": "e487245fee5a4196840df84eafe96a83"
+      }
     },
     {
       "id": "topic_077",

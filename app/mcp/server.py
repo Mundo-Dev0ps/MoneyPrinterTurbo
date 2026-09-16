@@ -12,7 +12,7 @@ from mcp.server.fastmcp import FastMCP
 
 from app.config import config
 from app.models import const
-from app.models.schema import VideoAspect, VideoConcatMode, VideoParams, VideoTransitionMode
+from app.models.schema import VideoAspect, VideoConcatMode, VideoFitMode, VideoParams, VideoTransitionMode
 from app.services import bgm, llm, material, subtitle, task as tm, task_artifacts, voice
 from app.services import state as sm
 from app.utils import utils
@@ -254,7 +254,21 @@ def mpt_list_voices(language: str = "") -> list[dict[str, Any]]:
                 "description": f"ElevenLabs ({el})",
             })
 
-    # 8. No-voice sentinel
+    # 8. Kokoro voices
+    try:
+        for kv in voice.get_kokoro_voices():
+            gender = "Male" if kv.endswith("-Male") else "Female" if kv.endswith("-Female") else "Unknown"
+            voices.append({
+                "name": kv,
+                "gender": gender,
+                "provider": "kokoro",
+                "language": "multilingual",
+                "description": f"Kokoro TTS ({kv})",
+            })
+    except Exception:
+        pass
+
+    # 9. No-voice sentinel
     voices.append({
         "name": voice.NO_VOICE_NAME,
         "gender": "None",
@@ -820,6 +834,7 @@ def mpt_render_video(
     video_concat_mode: str = "random",
     video_transition_mode: Optional[str] = None,
     video_clip_duration: int = 5,
+    video_fit_mode: str = "cover",
 ) -> dict[str, Any]:
     """
     Render and combine the final video(s) for a task using audio, subtitles, and downloaded materials.
@@ -867,6 +882,12 @@ def mpt_render_video(
                 transition_val = tm_enum
                 break
 
+    fit_mode_val = VideoFitMode.cover
+    if video_fit_mode in ("contain", VideoFitMode.contain.value):
+        fit_mode_val = VideoFitMode.contain
+    elif params_dict.get("video_fit_mode") in ("contain", VideoFitMode.contain.value):
+        fit_mode_val = VideoFitMode.contain
+
     params = VideoParams(
         video_subject=params_dict.get("video_subject", ""),
         video_script=script_data.get("script", ""),
@@ -875,6 +896,7 @@ def mpt_render_video(
         video_concat_mode=concat_val,
         video_transition_mode=transition_val,
         video_clip_duration=video_clip_duration or int(params_dict.get("video_clip_duration", 2)),
+        video_fit_mode=fit_mode_val,
         bgm_name=bgm_name,
         bgm_volume=bgm_volume,
         subtitle_enabled=bool(subtitle_path and os.path.exists(subtitle_path)),
