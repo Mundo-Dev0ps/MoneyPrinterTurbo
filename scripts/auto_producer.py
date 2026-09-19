@@ -290,8 +290,62 @@ def publish_rendered_topic(topic_id: str) -> dict:
     }
 
 
+def prune_old_storage(max_cache_age_days: int = 2, max_task_age_days: int = 2) -> dict:
+    """
+    Limpia automáticamente el almacenamiento para evitar saturar el disco:
+    1. Limpia clips huérfanos de cache_videos con más de max_cache_age_days días.
+    2. En storage/tasks, elimina archivos pesados (.mp4, .wav, .mov) de tareas con más de max_task_age_days días,
+       preservando script.json y subtítulos como registro histórico.
+    """
+    stats = {"cache_deleted": 0, "cache_bytes": 0, "task_deleted": 0, "task_bytes": 0}
+    
+    # 1. Limpieza de cache_videos
+    try:
+        from app.services.cache_manager import clean_video_cache
+        res = clean_video_cache(max_age_days=max_cache_age_days)
+        stats["cache_deleted"] = res.deleted_count
+        stats["cache_bytes"] = res.deleted_size
+        if res.deleted_count > 0:
+            logger.info(f"Limpieza de caché: {res.deleted_count} clips eliminados ({res.deleted_size / (1024*1024):.2f} MB).")
+    except Exception as e:
+        logger.warning(f"Error limpiando cache_videos: {e}")
+
+    # 2. Limpieza de videos pesados en storage/tasks antiguos
+    try:
+        tasks_dir = os.path.join(PROJECT_ROOT, "storage", "tasks")
+        cutoff_time = time.time() - (max_task_age_days * 86400)
+        if os.path.isdir(tasks_dir):
+            for task_folder in os.listdir(tasks_dir):
+                task_path = os.path.join(tasks_dir, task_folder)
+                if not os.path.isdir(task_path):
+                    continue
+                try:
+                    folder_mtime = os.path.getmtime(task_path)
+                    if folder_mtime < cutoff_time:
+                        for f in os.listdir(task_path):
+                            if f.endswith((".mp4", ".mov", ".avi", ".mkv", ".wav")):
+                                f_path = os.path.join(task_path, f)
+                                if os.path.isfile(f_path):
+                                    f_size = os.path.getsize(f_path)
+                                    os.unlink(f_path)
+                                    stats["task_deleted"] += 1
+                                    stats["task_bytes"] += f_size
+                except Exception as ex_folder:
+                    logger.debug(f"Saltando carpeta {task_folder}: {ex_folder}")
+        if stats["task_deleted"] > 0:
+            logger.info(f"Limpieza de tareas antiguas: {stats['task_deleted']} videos eliminados ({stats['task_bytes'] / (1024*1024):.2f} MB).")
+    except Exception as e:
+        logger.warning(f"Error limpiando videos pesados de tasks: {e}")
+
+    return stats
+
+
 def run_production(auto_publish: bool = True, smart_check: bool = False) -> dict:
     logger.info("=== INICIANDO AUTO-PRODUCER MONEYPRINTERTURBO ===")
+    
+    # Mantenimiento preventivo de almacenamiento (< 2 días de retención)
+    prune_old_storage(max_cache_age_days=2, max_task_age_days=2)
+    
     data = load_topics_data()
     settings = data.get("schedule_settings", {})
     

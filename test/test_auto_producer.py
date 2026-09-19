@@ -21,6 +21,7 @@ class TestAutoProducer(unittest.TestCase):
         self.assertTrue(hasattr(auto_producer, "mpt_generate_subtitles"))
         self.assertTrue(hasattr(auto_producer, "mpt_fetch_materials"))
         self.assertTrue(hasattr(auto_producer, "mpt_render_video"))
+        self.assertTrue(hasattr(auto_producer, "prune_old_storage"))
 
     @patch("scripts.auto_producer.UploadPostService")
     @patch("scripts.auto_producer.mpt_render_video")
@@ -254,6 +255,20 @@ class TestAutoProducer(unittest.TestCase):
         self.assertEqual(call_kwargs["user_name"], "ErDivertido")
         self.assertEqual(call_kwargs["platforms"], ["youtube"])
         self.assertEqual(call_kwargs["youtube_extra"]["selfDeclaredMadeForKids"], False)
+
+    @patch("app.services.cache_manager.clean_video_cache")
+    @patch("os.path.isdir")
+    @patch("os.listdir")
+    def test_prune_old_storage(self, mock_listdir, mock_isdir, mock_clean_cache):
+        """Valida que prune_old_storage invoca clean_video_cache y limpia tareas viejas."""
+        from app.services.cache_manager import VideoCacheCleanupResult
+        mock_clean_cache.return_value = VideoCacheCleanupResult(deleted_count=5, deleted_size=50000000)
+        mock_isdir.return_value = False
+
+        stats = auto_producer.prune_old_storage(max_cache_age_days=2, max_task_age_days=2)
+        mock_clean_cache.assert_called_once_with(max_age_days=2)
+        self.assertEqual(stats["cache_deleted"], 5)
+        self.assertEqual(stats["cache_bytes"], 50000000)
 
 
 if __name__ == "__main__":

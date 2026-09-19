@@ -2326,7 +2326,7 @@
       "id": "topic_078",
       "subject": "La Fosa de las Sandwich del Sur: El abismo helado y volcánico de la Antártida 🌋",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "En las aguas más gélidas del planeta, cerca de la Antártida, la tierra se abre en un abismo de más de ocho mil metros. [pause:0.6] Es la Fosa de las Sandwich del Sur, donde volcanes submarinos activos conviven con aguas bajo cero y presiones colosales. Allí habitan criaturas transparentes que jamás han visto la luz solar y sobreviven comiendo azufre volcánico hirviente. ¿Te atreverías a descender a este infierno congelado? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
         "deep sea underwater hydrothermal vent boiling volcanic",
@@ -2343,13 +2343,23 @@
         "misterios",
         "oceanos",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-16T22:42:47.923018",
+      "task_id": "671b8202-6d27-4c6d-b43d-d7a98dc3a5f8",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/671b8202-6d27-4c6d-b43d-d7a98dc3a5f8/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=c9a6b49a778b4ec89430b1ee2ef44f9b. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "c9a6b49a778b4ec89430b1ee2ef44f9b",
+        "total_platforms": 2,
+        "job_id": "500db9b1337e4695ab084179ec6365d3"
+      }
     },
     {
       "id": "topic_079",
       "subject": "La Destrucción de Pompeya: La furia volcánica que congeló el tiempo en el año 79 🏛️",
       "category": "Catástrofes Históricas",
-      "status": "pending",
+      "status": "published",
       "script": "En cuestión de horas, el Monte Vesubio vomitó una nube ardiente de cenizas y gases a más de quinientos grados sobre la ciudad romana de Pompeya. [pause:0.7] Los habitantes quedaron petrificados al instante en sus posiciones finales, preservados durante casi dos mil años como si el tiempo se hubiera congelado. ¿Qué harías si un volcán despierta a tu lado? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
         "ancient roman ruins pompei vesuvius volcano background",
@@ -2366,13 +2376,23 @@
         "volcan",
         "catastrofe",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-17T15:12:20.260851",
+      "task_id": "01d6a347-1df6-4bf7-955e-e17d63f3aec6",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/01d6a347-1df6-4bf7-955e-e17d63f3aec6/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=3c0c3afa6ed74651a609301b535ecba1. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "3c0c3afa6ed74651a609301b535ecba1",
+        "total_platforms": 2,
+        "job_id": "7bf3414d811b45a4ba8cc40d839a8cec"
+      }
     },
     {
       "id": "topic_080",
       "subject": "El Tiburón Duende: El fósil viviente de mandíbula disparable en el fondo del mar 🦈",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "Navegando en profundidades de más de mil metros habita una criatura rosada que parece salida de una pesadilla. [pause:0.6] El tiburón duende posee una mandíbula con resortes elásticos que se dispara hacia adelante a velocidad supersónica para atrapar a sus presas en la oscuridad abisal. Lleva ciento veinticinco millones de años sin evolucionar. ¿No te parece fascinante este monstruo marino? ¡Comenta!",
       "search_terms": [
         "deep sea goblin shark swimming dark abyssal water",
@@ -2389,13 +2409,23 @@
         "misterios",
         "biologia",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-18T15:11:33.563505",
+      "task_id": "e6b1612f-b8bf-4dcd-8c44-d4afd7ea808e",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/e6b1612f-b8bf-4dcd-8c44-d4afd7ea808e/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=7ae825d9e2e748bebf3749a4d980d174. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "7ae825d9e2e748bebf3749a4d980d174",
+        "total_platforms": 2,
+        "job_id": "6b838ccb9ca042be928d825fd80084c8"
+      }
     },
     {
       "id": "topic_081",
       "subject": "La Anomalía del Mar Báltico: El misterioso objeto circular en el lecho marino 🛸",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "script": "En 2011, un equipo de cazadores de tesoros con sonar detectó un gigantesco disco de sesenta metros en el fondo del Mar Báltico. [pause:0.6] Tenía ángulos rectos perfectos, pasillos y una rampa de piedra que dejaba una extraña pista de aterrizaje. Además, los equipos electrónicos fallaban misteriosamente al acercarse. ¿Crees que es una formación geológica o algo más? ¡Déjalo en los comentarios!",
       "search_terms": [
         "sonar scan underwater circular object seafloor seabed",
@@ -2412,7 +2442,17 @@
         "oceano",
         "curiosidades",
         "erdivertido"
-      ]
+      ],
+      "rendered_at": "2026-09-18T22:44:01.479622",
+      "task_id": "fe56afe4-0ca6-4ba3-b252-e219cdc45a09",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/fe56afe4-0ca6-4ba3-b252-e219cdc45a09/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=1fac2b8e94364086b0eee1997349d32a. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "1fac2b8e94364086b0eee1997349d32a",
+        "total_platforms": 2,
+        "job_id": "49d4fa0fcd30487eaf52c3c6baecfb5d"
+      }
     }
   ]
 }
