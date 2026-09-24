@@ -270,6 +270,42 @@ class TestAutoProducer(unittest.TestCase):
         self.assertEqual(stats["cache_deleted"], 5)
         self.assertEqual(stats["cache_bytes"], 50000000)
 
+    @patch("app.services.llm.generate_response")
+    @patch("scripts.auto_producer.save_topics_data")
+    def test_refill_topics_if_needed(self, mock_save, mock_llm_gen):
+        """Verifica que refill_topics_if_needed genera y filtra temas sin errores de imports."""
+        mock_data = {
+            "schedule_settings": {},
+            "topics": [
+                {
+                    "id": "topic_001",
+                    "subject": "El Megaterremoto de Valdivia 1960",
+                    "status": "published"
+                }
+            ]
+        }
+        mock_llm_gen.return_value = json.dumps([
+            {
+                "subject": "El Megaterremoto de Valdivia 1960",
+                "category": "Sismos",
+                "script": "Texto repetido",
+                "search_terms": ["valdivia earthquake"],
+                "tags": ["shorts"]
+            },
+            {
+                "subject": "La Fosa de las Sandwich del Sur Inédita",
+                "category": "Abismo",
+                "script": "Texto inédito con [pause:0.6]",
+                "search_terms": ["sandwich trench"],
+                "tags": ["shorts"]
+            }
+        ])
+        added = auto_producer.refill_topics_if_needed(mock_data, min_pending=2, batch_size=2)
+        self.assertEqual(added, 1)
+        self.assertEqual(len(mock_data["topics"]), 2)
+        self.assertEqual(mock_data["topics"][-1]["id"], "topic_002")
+        self.assertEqual(mock_data["topics"][-1]["subject"], "La Fosa de las Sandwich del Sur Inédita")
+
 
 if __name__ == "__main__":
     unittest.main()
