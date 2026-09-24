@@ -7,6 +7,7 @@ Executes automated Shorts generation and publication based on config/topics.json
 import os
 import sys
 import json
+import re
 import time
 from datetime import datetime
 from loguru import logger
