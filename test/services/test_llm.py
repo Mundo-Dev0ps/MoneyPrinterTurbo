@@ -315,6 +315,11 @@ class TestLiteLLMProvider(unittest.TestCase):
         self.assertEqual(openrouter.default_base_url, "https://openrouter.ai/api/v1")
         self.assertEqual(openrouter.adapter, "openai_compatible")
         self.assertTrue(openrouter.requires_api_key)
+        api_route = get_llm_provider("api_route")
+        self.assertEqual(api_route.default_model, "gpt-5.4-mini")
+        self.assertEqual(api_route.default_base_url, "https://www.api-route.com/v1")
+        self.assertEqual(api_route.adapter, "openai_compatible")
+        self.assertTrue(api_route.requires_api_key)
         pollinations = get_llm_provider("pollinations")
         self.assertEqual(pollinations.default_model, "openai-fast")
         self.assertEqual(
@@ -371,6 +376,8 @@ class TestLiteLLMProvider(unittest.TestCase):
                 "aimlapi",
                 "evolink",
                 "openrouter",
+                "api_route",
+                "fluxionai",
                 "ollama",
                 "claude_code",
                 "oneapi",
@@ -410,6 +417,17 @@ class TestLiteLLMProvider(unittest.TestCase):
         )
         self.assertEqual(openrouter.default_model, "minimax/minimax-m3:free")
         self.assertEqual(openrouter.default_base_url, "https://openrouter.ai/api/v1")
+        api_route = get_llm_provider("api_route")
+        self.assertEqual(
+            api_route.api_key_url,
+            "https://www.api-route.com",
+        )
+        self.assertEqual(api_route.default_model, "gpt-5.4-mini")
+        self.assertEqual(api_route.default_base_url, "https://www.api-route.com/v1")
+        self.assertEqual(
+            api_route.model_docs_url,
+            "https://www.api-route.com/pricing",
+        )
 
     def test_provider_registry_uses_conventional_locale_and_config_keys(self):
         """统一命名规则可避免 WebUI 为每个 Provider 增加硬编码映射。"""
@@ -476,7 +494,9 @@ class TestLiteLLMProvider(unittest.TestCase):
                     default_model=provider.default_model,
                     default_base_url=provider.effective_default_base_url,
                     model_docs_url=(
-                        default_endpoint.model_docs_url if default_endpoint else ""
+                        default_endpoint.model_docs_url
+                        if default_endpoint
+                        else provider.effective_model_docs_url()
                     ),
                     docker_hint="",
                     **{
@@ -535,7 +555,9 @@ class TestLiteLLMProvider(unittest.TestCase):
                         default_model=provider.default_model,
                         default_base_url=provider.effective_default_base_url,
                         model_docs_url=(
-                            default_endpoint.model_docs_url if default_endpoint else ""
+                            default_endpoint.model_docs_url
+                            if default_endpoint
+                            else provider.effective_model_docs_url()
                         ),
                         docker_hint="",
                         **{
@@ -998,7 +1020,7 @@ class TestLiteLLMProvider(unittest.TestCase):
         """
         config.app["llm_provider"] = "groq"
         config.app["groq_api_key"] = "groq-key"
-        config.app["groq_model_name"] = "llama-3.3-70b-versatile"
+        config.app["groq_model_name"] = "openai/gpt-oss-120b"
         config.app["groq_base_url"] = (
             "https://myuser:mypassword@proxy.example.com/openai/v1"
         )
@@ -1325,6 +1347,47 @@ class TestLiteLLMProvider(unittest.TestCase):
         )
         self.assertEqual(result, "hello\nopenrouter")
 
+    def test_api_route_provider_uses_openai_compatible_client(self):
+        """
+        API Route exposes OpenAI-compatible Chat Completions through one
+        unified endpoint with intelligent routing and high availability.
+        """
+        config.app["llm_provider"] = "api_route"
+        config.app["api_route_api_key"] = "api-route-key"
+        config.app["api_route_base_url"] = ""
+        config.app["api_route_model_name"] = ""
+
+        class FakeCompletions:
+            def create(self, **kwargs):
+                self.kwargs = kwargs
+                message = types.SimpleNamespace(content="hello\napi_route")
+                choice = types.SimpleNamespace(message=message)
+                return types.SimpleNamespace(choices=[choice])
+
+        fake_completions = FakeCompletions()
+        fake_client = types.SimpleNamespace(
+            chat=types.SimpleNamespace(completions=fake_completions)
+        )
+
+        with (
+            patch.object(llm, "OpenAI", return_value=fake_client) as openai_client,
+            patch.object(llm, "ChatCompletion", types.SimpleNamespace),
+        ):
+            result = llm._generate_response("Say hello")
+
+        openai_client.assert_called_once_with(
+            api_key="api-route-key",
+            base_url="https://www.api-route.com/v1",
+        )
+        self.assertEqual(
+            fake_completions.kwargs,
+            {
+                "model": "gpt-5.4-mini",
+                "messages": [{"role": "user", "content": "Say hello"}],
+            },
+        )
+        self.assertEqual(result, "hello\napi_route")
+
     def test_volcengine_provider_uses_openai_compatible_client(self):
         """
         VolcEngine Ark 暴露 OpenAI-compatible Chat Completions。
@@ -1383,7 +1446,7 @@ class TestLiteLLMProvider(unittest.TestCase):
         config.app["llm_provider"] = "groq"
         config.app["groq_api_key"] = ""
         config.app["groq_base_url"] = "https://api.groq.com/openai/v1"
-        config.app["groq_model_name"] = "llama-3.3-70b-versatile"
+        config.app["groq_model_name"] = "openai/gpt-oss-120b"
 
         result = llm._generate_response("test")
 
@@ -1395,7 +1458,7 @@ class TestLiteLLMProvider(unittest.TestCase):
         config.app["llm_provider"] = "groq"
         config.app["groq_api_key"] = "groq-test-key"
         config.app["groq_base_url"] = ""
-        config.app["groq_model_name"] = "llama-3.3-70b-versatile"
+        config.app["groq_model_name"] = "openai/gpt-oss-120b"
 
         fake_response = types.SimpleNamespace(
             choices=[
