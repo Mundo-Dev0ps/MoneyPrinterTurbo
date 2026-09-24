@@ -75,6 +75,15 @@ GEMINI_TTS_VOICES = (
     ("Sulafat", "Warm"),
 )
 _MINIMAX_TTS_MAX_AUDIO_HEX_CHARS = 100 * 1024 * 1024
+VOXCPM_DEFAULT_BASE_URL = "https://api.modelbest.cn/v1"
+VOXCPM_DEFAULT_VOICE = "default"
+VOXCPM_REFERENCE_AUDIO_MAX_UPLOAD_BYTES = 20 * 1024 * 1024
+VOXCPM_REFERENCE_AUDIO_MAX_WAV_BYTES = 5 * 1024 * 1024
+VOXCPM_REFERENCE_AUDIO_CONVERSION_TIMEOUT_SECONDS = 15
+VOXCPM_REFERENCE_AUDIO_MAX_DURATION_SECONDS = 120
+VOXCPM_REFERENCE_AUDIO_FILE_TYPES = ("wav", "mp3", "m4a", "aac", "ogg", "flac")
+_VOXCPM_NON_RETRYABLE_STATUS_CODES = {400, 401, 403, 404, 422}
+_VOXCPM_RETRY_DELAY_SECONDS = (1.0, 2.0)
 NO_VOICE_NAME = "no-voice"
 # `none` 是 PR #981 里曾使用过的无配音标识。这里短期兼容这个值，避免
 # 已经手动调用过该分支的 API 用户升级后立即失效；WebUI 和新代码统一使用
@@ -312,6 +321,22 @@ def get_fish_audio_voices() -> list[str]:
     return result
 
 
+def get_voxcpm_voices(voice_id: str | None = None) -> list[str]:
+    """Return the ModelBest VoxCPM voice selected in the local configuration.
+
+    ModelBest accepts ``default`` when no explicit voice is selected. Voice
+    design is expressed in the input text and voice cloning requires a separate
+    reference-audio workflow, so the first integration deliberately keeps the
+    standard TTS selector to one configured voice id.
+    """
+    voice_id = str(
+        voice_id
+        or config.voxcpm.get("voice_id", VOXCPM_DEFAULT_VOICE)
+        or VOXCPM_DEFAULT_VOICE
+    ).strip()
+    return [f"voxcpm:{voice_id}"]
+
+
 _AZURE_VOICES_DATA_FILE = os.path.join(
     os.path.dirname(__file__), "data", "azure_voices.json"
 )
@@ -412,6 +437,10 @@ def is_fish_audio_voice(voice_name: str) -> bool:
     return (voice_name or "").startswith("fish_audio:")
 
 
+def is_voxcpm_voice(voice_name: str | None) -> bool:
+    return (voice_name or "").startswith("voxcpm:")
+
+
 def get_fish_audio_api_key() -> str:
     configured_key = str(config.fish_audio.get("api_key", "") if hasattr(config, "fish_audio") and isinstance(config.fish_audio, dict) else "").strip()
     return configured_key or os.getenv("FISH_API_KEY", "").strip()
@@ -457,6 +486,8 @@ def is_azure_v1_voice(voice_name: str | None) -> bool:
     if is_kokoro_voice(name):
         return False
     if is_fish_audio_voice(name):
+        return False
+    if is_voxcpm_voice(name):
         return False
     return True
 
@@ -544,6 +575,8 @@ def generate_silent_audio(duration_seconds: float, output_file: str) -> bool:
         command,
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         check=False,
     )
     if result.returncode != 0:
@@ -567,6 +600,9 @@ def _single_tts(
     voice_rate: float,
     voice_file: str,
     voice_volume: float = 1.0,
+    voxcpm_reference_audio: bytes | None = None,
+    voxcpm_prompt_audio: bytes | None = None,
+    voxcpm_prompt_text: str = "",
 ) -> Union[SubMaker, None]:
     if is_no_voice(voice_name):
         duration_seconds = estimate_no_voice_duration(text)
@@ -672,6 +708,23 @@ def _single_tts(
         if reference_id == "default":
             reference_id = None
         return fish_audio_tts(text, voice_file, voice_rate, voice_volume, reference_id=reference_id)
+    elif is_voxcpm_voice(voice_name):
+        voice_id = voice_name.split(":", 1)[1].strip()
+        if voice_id:
+            if voxcpm_reference_audio is None:
+                return voxcpm_tts(text, voice_id, voice_file, voice_rate, voice_volume)
+            return voxcpm_tts(
+                text,
+                voice_id,
+                voice_file,
+                voice_rate,
+                voice_volume,
+                reference_audio=voxcpm_reference_audio,
+                prompt_audio=voxcpm_prompt_audio,
+                prompt_text=voxcpm_prompt_text,
+            )
+        logger.error(f"Invalid VoxCPM voice name format: {voice_name}")
+        return None
     return azure_tts_v1(text, voice_name, voice_rate, voice_file)
 
 
@@ -732,7 +785,7 @@ def _concat_audio_files(audio_files: list[str], output_file: str) -> bool:
                     "pcm_s16le",
                     pcm_wav,
                 ]
-                res = subprocess.run(cmd, capture_output=True, text=True, check=False)
+                res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", check=False)
                 if res.returncode == 0 and os.path.exists(pcm_wav):
                     try:
                         with wave.open(pcm_wav, "rb") as wf:
@@ -768,7 +821,7 @@ def _concat_audio_files(audio_files: list[str], output_file: str) -> bool:
             "4",
             output_file,
         ]
-        result = subprocess.run(command, capture_output=True, text=True, check=False)
+        result = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", errors="replace", check=False)
         if result.returncode != 0:
             logger.error(
                 "failed to encode concatenated audio to mp3: "
@@ -880,7 +933,7 @@ def _tts_with_pauses(
                     "pcm_s16le",
                     chunk_wav,
                 ]
-                res = subprocess.run(cmd, capture_output=True, text=True, check=False)
+                res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", check=False)
                 if res.returncode != 0 or not os.path.exists(chunk_wav) or os.path.getsize(chunk_wav) == 0:
                     logger.error(
                         f"failed to decode speech chunk audio to PCM WAV: {speech_text[:50]}, "
@@ -945,6 +998,9 @@ def tts(
     voice_rate: float,
     voice_file: str,
     voice_volume: float = 1.0,
+    voxcpm_reference_audio: bytes | None = None,
+    voxcpm_prompt_audio: bytes | None = None,
+    voxcpm_prompt_text: str = "",
 ) -> Union[SubMaker, None]:
     # 无停顿标签时，原样直通原始文本，避免无意义的正则处理或空白截断
     if not utils.has_pause_tags(text):
@@ -954,6 +1010,9 @@ def tts(
             voice_rate=voice_rate,
             voice_file=voice_file,
             voice_volume=voice_volume,
+            voxcpm_reference_audio=voxcpm_reference_audio,
+            voxcpm_prompt_audio=voxcpm_prompt_audio,
+            voxcpm_prompt_text=voxcpm_prompt_text,
         )
 
     # 仅 Azure TTS v1 (Edge TTS) 且脚本包含停顿标签时进入分段合成
@@ -975,6 +1034,9 @@ def tts(
         voice_rate=voice_rate,
         voice_file=voice_file,
         voice_volume=voice_volume,
+        voxcpm_reference_audio=voxcpm_reference_audio,
+        voxcpm_prompt_audio=voxcpm_prompt_audio,
+        voxcpm_prompt_text=voxcpm_prompt_text,
     )
 
 
@@ -2412,6 +2474,305 @@ def fish_audio_tts(
             )
         except Exception as e:
             logger.error(f"fish audio tts failed: {str(e)}")
+
+    return None
+
+
+def _iter_voxcpm_sse_events(response):
+    """Yield JSON payloads from ModelBest's Server-Sent Event stream."""
+    event_data = []
+    for raw_line in response.iter_lines(decode_unicode=True):
+        line = raw_line.decode("utf-8") if isinstance(raw_line, bytes) else raw_line
+        if not line:
+            if event_data:
+                try:
+                    yield json.loads("\n".join(event_data))
+                except (TypeError, ValueError) as exc:
+                    raise ValueError("VoxCPM returned invalid SSE event data") from exc
+                event_data = []
+            continue
+        if line.startswith("data:"):
+            event_data.append(line.removeprefix("data:").strip())
+    if event_data:
+        try:
+            yield json.loads("\n".join(event_data))
+        except (TypeError, ValueError) as exc:
+            raise ValueError("VoxCPM returned invalid trailing SSE event data") from exc
+
+
+def prepare_voxcpm_reference_audio(uploaded_audio: bytes, suffix: str = "") -> bytes:
+    """Convert an uploaded reference clip into ModelBest's bounded WAV payload.
+
+    The WebUI keeps the returned bytes only in its current session and passes a
+    copy to the request that needs it. Temporary source and converted files are
+    always scoped to this function, including FFmpeg timeouts and failures.
+    """
+    if not isinstance(uploaded_audio, bytes) or not uploaded_audio:
+        raise ValueError("reference audio is empty")
+    if len(uploaded_audio) > VOXCPM_REFERENCE_AUDIO_MAX_UPLOAD_BYTES:
+        raise ValueError("reference audio upload exceeds 20 MiB")
+
+    normalized_suffix = str(suffix or "").lower()
+    if normalized_suffix and not normalized_suffix.startswith("."):
+        normalized_suffix = f".{normalized_suffix}"
+    if normalized_suffix.removeprefix(".") not in VOXCPM_REFERENCE_AUDIO_FILE_TYPES:
+        raise ValueError("unsupported reference audio format")
+
+    try:
+        with tempfile.TemporaryDirectory(prefix="voxcpm-reference-") as temp_dir:
+            input_path = os.path.join(temp_dir, f"input{normalized_suffix or '.audio'}")
+            output_path = os.path.join(temp_dir, "reference.wav")
+            with open(input_path, "wb") as source:
+                source.write(uploaded_audio)
+
+            result = subprocess.run(
+                [
+                    utils.get_ffmpeg_binary(),
+                    "-nostdin",
+                    "-v",
+                    "error",
+                    "-xerror",
+                    "-t",
+                    str(VOXCPM_REFERENCE_AUDIO_MAX_DURATION_SECONDS),
+                    "-i",
+                    input_path,
+                    "-map",
+                    "0:a:0",
+                    "-ac",
+                    "1",
+                    "-ar",
+                    "16000",
+                    "-c:a",
+                    "pcm_s16le",
+                    "-f",
+                    "wav",
+                    output_path,
+                ],
+                capture_output=True,
+                timeout=VOXCPM_REFERENCE_AUDIO_CONVERSION_TIMEOUT_SECONDS,
+                check=False,
+            )
+            if result.returncode != 0 or not os.path.isfile(output_path):
+                raise ValueError(
+                    "reference audio must contain a decodable audio stream"
+                )
+
+            with open(output_path, "rb") as converted:
+                wav_audio = converted.read()
+            if (
+                not wav_audio
+                or len(wav_audio) > VOXCPM_REFERENCE_AUDIO_MAX_WAV_BYTES
+            ):
+                raise ValueError(
+                    "converted reference audio exceeds ModelBest's 5 MiB limit"
+                )
+
+            try:
+                with wave.open(io.BytesIO(wav_audio), "rb") as wav_file:
+                    if wav_file.getnframes() <= 0:
+                        raise ValueError("reference audio is empty")
+            except wave.Error as exc:
+                raise ValueError(
+                    "reference audio conversion did not produce a valid WAV"
+                ) from exc
+            return wav_audio
+    except subprocess.TimeoutExpired as exc:
+        raise ValueError("reference audio conversion timed out") from exc
+    except OSError as exc:
+        raise ValueError("failed to convert reference audio") from exc
+
+
+def _encode_voxcpm_audio_data_uri(
+    audio_bytes: bytes | None,
+    field_name: str,
+) -> str | None:
+    if audio_bytes is None:
+        return None
+    if not isinstance(audio_bytes, bytes) or not audio_bytes:
+        raise ValueError(f"{field_name} audio is empty")
+    if len(audio_bytes) > VOXCPM_REFERENCE_AUDIO_MAX_WAV_BYTES:
+        raise ValueError(f"{field_name} audio exceeds ModelBest's 5 MiB limit")
+    try:
+        with wave.open(io.BytesIO(audio_bytes), "rb") as wav_file:
+            if wav_file.getnframes() <= 0:
+                raise ValueError(f"{field_name} audio is empty")
+    except wave.Error as exc:
+        raise ValueError(f"{field_name} audio must be a valid WAV") from exc
+    return "data:audio/wav;base64," + base64.b64encode(audio_bytes).decode("ascii")
+
+
+def voxcpm_tts(
+    text: str,
+    voice_id: str,
+    voice_file: str,
+    voice_rate: float = 1.0,
+    voice_volume: float = 1.0,
+    reference_audio: bytes | None = None,
+    prompt_audio: bytes | None = None,
+    prompt_text: str = "",
+) -> Union[SubMaker, None]:
+    """Generate speech through ModelBest's VoxCPM Audio Speech API.
+
+    ModelBest always streams Base64-encoded WAV chunks through SSE. The
+    assembled WAV is decoded and exported to the project's requested output
+    format so that the regular subtitle and video paths remain unchanged.
+    ModelBest does not define a numeric speed field, so ``voice_rate`` is not
+    sent. ``voice_volume`` is applied later by MoneyPrinterTurbo's video mixer.
+    """
+    from pydub import AudioSegment
+
+    text = (text or "").strip()
+    if not text:
+        logger.error("VoxCPM TTS text is empty")
+        return None
+
+    api_key = str(config.voxcpm.get("api_key", "") or "").strip()
+    if not api_key:
+        logger.error("VoxCPM API key is not set")
+        return None
+
+    base_url = str(
+        config.voxcpm.get("base_url", VOXCPM_DEFAULT_BASE_URL)
+        or VOXCPM_DEFAULT_BASE_URL
+    ).strip().rstrip("/")
+    model_id = str(config.voxcpm.get("model_id", "") or "").strip()
+    if not model_id:
+        logger.error("VoxCPM model ID is not set")
+        return None
+    voice_id = str(voice_id or VOXCPM_DEFAULT_VOICE).strip() or VOXCPM_DEFAULT_VOICE
+
+    url = f"{base_url}/audio/speech"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "Accept": "text/event-stream",
+    }
+    payload = {
+        "model": model_id,
+        "input": text,
+        "voice": voice_id,
+        "response_format": "wav",
+        "stream": True,
+    }
+    prompt_text = str(prompt_text or "").strip()
+    if bool(prompt_audio) != bool(prompt_text):
+        logger.error("VoxCPM prompt audio and prompt text must be provided together")
+        return None
+    try:
+        encoded_reference_audio = _encode_voxcpm_audio_data_uri(
+            reference_audio,
+            "reference",
+        )
+        encoded_prompt_audio = _encode_voxcpm_audio_data_uri(
+            prompt_audio,
+            "prompt",
+        )
+    except ValueError as exc:
+        logger.error(f"VoxCPM audio prompt is invalid: {exc}")
+        return None
+    if encoded_reference_audio:
+        payload["ref_audio"] = encoded_reference_audio
+    if encoded_prompt_audio:
+        payload["prompt_audio"] = encoded_prompt_audio
+        payload["prompt_text"] = prompt_text
+    _configure_pydub_ffmpeg(AudioSegment)
+
+    for attempt in range(3):
+        temporary_audio = None
+        response = None
+        try:
+            logger.info(
+                f"start VoxCPM TTS, model: {model_id}, voice: {voice_id}, "
+                f"try: {attempt + 1}"
+            )
+            response = requests.post(
+                url,
+                json=payload,
+                headers=headers,
+                stream=True,
+                timeout=(10, 120),
+            )
+            if response.status_code != 200:
+                logger.error(
+                    f"VoxCPM TTS failed with status {response.status_code}: "
+                    f"{response.text[:200]}"
+                )
+                if response.status_code in _VOXCPM_NON_RETRYABLE_STATUS_CODES:
+                    return None
+                if attempt < 2:
+                    time.sleep(_VOXCPM_RETRY_DELAY_SECONDS[attempt])
+                continue
+
+            audio_chunks = []
+            completed = False
+            for event in _iter_voxcpm_sse_events(response):
+                event_type = event.get("type")
+                if event_type == "speech.audio.delta":
+                    encoded_chunk = event.get("audio")
+                    if not isinstance(encoded_chunk, str) or not encoded_chunk:
+                        raise ValueError("VoxCPM returned an empty audio chunk")
+                    try:
+                        audio_chunks.append(base64.b64decode(encoded_chunk, validate=True))
+                    except (ValueError, TypeError) as exc:
+                        raise ValueError("VoxCPM returned invalid Base64 audio") from exc
+                elif event_type == "speech.audio.done":
+                    completed = True
+                    break
+
+            if not completed:
+                raise ValueError("VoxCPM stream ended before speech.audio.done")
+            audio_bytes = b"".join(audio_chunks)
+            if not audio_bytes:
+                raise ValueError("VoxCPM returned no audio data")
+
+            audio_segment = AudioSegment.from_file(io.BytesIO(audio_bytes), format="wav")
+            if len(audio_segment) <= 0:
+                raise ValueError("VoxCPM returned an empty WAV")
+
+            ensure_file_path_exists(voice_file)
+            output_format = utils.parse_extension(voice_file) or "mp3"
+            with tempfile.NamedTemporaryFile(
+                dir=os.path.dirname(os.path.abspath(voice_file)),
+                suffix=f".{output_format}",
+                delete=False,
+            ) as output:
+                temporary_audio = output.name
+            audio_segment.export(temporary_audio, format=output_format)
+
+            audio_clip = AudioFileClip(temporary_audio)
+            try:
+                audio_duration = audio_clip.duration
+            finally:
+                audio_clip.close()
+            if not math.isfinite(audio_duration) or audio_duration <= 0:
+                raise ValueError("VoxCPM produced an invalid audio duration")
+
+            sub_maker = ensure_legacy_submaker_fields(SubMaker())
+            os.replace(temporary_audio, voice_file)
+            logger.success(f"VoxCPM TTS succeeded: {voice_file}")
+            return populate_legacy_submaker_with_full_text(
+                sub_maker=sub_maker,
+                text=text,
+                audio_duration_seconds=audio_duration,
+            )
+        except requests.RequestException as exc:
+            logger.error(f"VoxCPM TTS request failed: {exc}")
+            if attempt < 2:
+                time.sleep(_VOXCPM_RETRY_DELAY_SECONDS[attempt])
+        except Exception as exc:
+            # Invalid SSE/WAV data and local conversion failures are deterministic;
+            # retrying the same response cannot repair them.
+            logger.error(f"VoxCPM TTS failed: {exc}")
+            return None
+        finally:
+            close_response = getattr(response, "close", None)
+            if callable(close_response):
+                close_response()
+            if temporary_audio and os.path.exists(temporary_audio):
+                try:
+                    os.unlink(temporary_audio)
+                except OSError as exc:
+                    logger.warning(f"could not remove temporary VoxCPM audio: {exc}")
 
     return None
 
