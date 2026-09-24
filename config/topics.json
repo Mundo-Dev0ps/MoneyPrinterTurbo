@@ -2473,7 +2473,17 @@
         "erdivertido"
       ],
       "id": "topic_082",
-      "status": "pending"
+      "status": "published",
+      "rendered_at": "2026-09-24T01:34:19.735762",
+      "task_id": "b6f12c69-e620-42c3-9d41-ce705a8ff1ba",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/b6f12c69-e620-42c3-9d41-ce705a8ff1ba/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=70fd771905ba477db4195d0187382d1d. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "70fd771905ba477db4195d0187382d1d",
+        "total_platforms": 2,
+        "job_id": "290d1d138be0402cbcfcced95e0df087"
+      }
     },
     {
       "subject": "Apophis 2029: El asteroide que rozará la Tierra",
