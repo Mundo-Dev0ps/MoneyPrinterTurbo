@@ -1577,6 +1577,7 @@ def siliconflow_tts(
 
     for i in range(3):  # 尝试3次
         temporary_audio = None
+        response_accepted = False
         try:
             logger.info(
                 f"start siliconflow tts, model: {model}, voice: {voice}, try: {i + 1}"
@@ -1590,6 +1591,7 @@ def siliconflow_tts(
             )
 
             if response.status_code == 200:
+                response_accepted = True
                 if not response.content:
                     logger.error("siliconflow tts returned empty audio")
                     return None
@@ -1649,6 +1651,10 @@ def siliconflow_tts(
             return None
         except Exception as e:
             logger.error(f"siliconflow tts failed: {str(e)}")
+            if response_accepted:
+                # Retrying local processing cannot recover this accepted response
+                # and would submit another synthesis request.
+                return None
         finally:
             if temporary_audio and os.path.exists(temporary_audio):
                 try:
@@ -2507,6 +2513,7 @@ def _openai_compatible_tts(
 
     for i in range(3):
         temporary_audio = None
+        response_accepted = False
         try:
             logger.info(f"start {provider} tts, voice: {voice}, try: {i + 1}")
             ensure_file_path_exists(voice_file)
@@ -2518,6 +2525,7 @@ def _openai_compatible_tts(
                 )
                 continue
 
+            response_accepted = True
             if not response.content:
                 raise ValueError(f"{provider} returned empty audio")
 
@@ -2548,6 +2556,10 @@ def _openai_compatible_tts(
             )
         except Exception as e:
             logger.error(f"{provider} tts failed: {str(e)}")
+            if response_accepted:
+                # Retrying local processing cannot recover this accepted response
+                # and would submit another synthesis request.
+                return None
         finally:
             if temporary_audio and os.path.exists(temporary_audio):
                 try:
