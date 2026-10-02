@@ -288,7 +288,7 @@ def _matches_video_aspect(
     try:
         normalized_width = int(float(width))
         normalized_height = int(float(height))
-    except (TypeError, ValueError):
+    except (OverflowError, TypeError, ValueError):
         normalized_width = 0
         normalized_height = 0
 
@@ -342,13 +342,16 @@ def search_videos_pexels(
     video_aspect: VideoAspect = VideoAspect.portrait,
 ) -> List[MaterialInfo]:
     aspect = VideoAspect(video_aspect)
-    video_orientation = aspect.name
     video_width, video_height = aspect.to_resolution()
     api_key = get_api_key("pexels_api_keys")
     headers = {
         "Authorization": api_key,
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
     }
+    # Build URL
+    params = {"query": search_term, "per_page": 20}
+    if aspect != VideoAspect.square:
+        params["orientation"] = aspect.name
     logger.info(f"searching videos on pexels: term={search_term!r}")
 
     def _fetch_pexels(params_dict):
@@ -363,9 +366,17 @@ def search_videos_pexels(
         return r.json()
 
     try:
-        params = {"query": search_term, "per_page": 30, "orientation": video_orientation}
+        params = {"query": search_term, "per_page": 30}
+        if aspect != VideoAspect.square:
+            params["orientation"] = aspect.name
         response = _fetch_pexels(params)
-        videos = response.get("videos", []) if isinstance(response, dict) else []
+        video_items = []
+        if not isinstance(response, dict) or not isinstance(
+            response.get("videos"), list
+        ):
+            logger.error("pexels video search returned an unsupported response")
+            return video_items
+        videos = [video for video in response["videos"] if isinstance(video, dict)]
 
         # 提取核心关键词（如 octopus）用于精准匹配
         core_words = [w.lower() for w in search_term.split() if len(w) > 3]
@@ -381,44 +392,65 @@ def search_videos_pexels(
         # 优先排序含有核心主体名称的素材
         videos = sorted(videos, key=_score_video, reverse=True)
 
-        video_items = []
+        # loop through each video in the result
         for v in videos:
-            duration = v.get("duration", 0)
-            if duration < minimum_duration:
+            duration = v.get("duration")
+            # check if video has desired minimum duration
+            if (
+                isinstance(duration, bool)
+                or not isinstance(duration, (int, float))
+                or not math.isfinite(duration)
+                or duration < minimum_duration
+            ):
                 continue
-            video_files = v.get("video_files", [])
-            # 寻找最高清的文件（优先 1080p / 4K）
-            best_file = None
-            max_res = 0
-            for vf in video_files:
-                w = int(vf.get("width", 0))
-                h = int(vf.get("height", 0))
-                if not _matches_video_aspect(w, h, aspect):
+            video_files = v.get("video_files")
+            if not isinstance(video_files, list):
+                continue
+            # Prefer the smallest rendition that can fill the output canvas.
+            # Square output can crop either orientation, as other providers do.
+            renditions = []
+            for video in video_files:
+                if not isinstance(video, dict):
                     continue
-                res_score = w * h
-                if res_score > max_res:
-                    max_res = res_score
-                    best_file = vf
-
-            if best_file:
+                try:
+                    w = int(video.get("width"))
+                    h = int(video.get("height"))
+                except (OverflowError, TypeError, ValueError):
+                    continue
+                video_url = video.get("link")
+                if not isinstance(video_url, str) or not video_url:
+                    continue
+                if (
+                    (aspect == VideoAspect.square or _matches_video_aspect(w, h, aspect))
+                    and w >= video_width
+                    and h >= video_height
+                ):
+                    renditions.append((w * h, video, w, h, video_url))
+            if renditions:
+                _, video, w, h, video_url = min(renditions, key=lambda candidate: candidate[0])
                 item = MaterialInfo()
                 item.provider = "pexels"
-                item.url = best_file["link"]
+                item.url = video_url
                 item.duration = duration
                 item.source_info = {
                     "provider": "pexels",
                     "search_term": search_term,
-                    "asset_id": str(v.get("id")) if v.get("id") is not None else None,
+                    "asset_id": (
+                        str(v.get("id")) if v.get("id") is not None else None
+                    ),
                     "source_page": _safe_public_url(v.get("url")),
                     "creator": _creator_info(v.get("user")),
                     "rendition": {
-                        "id": str(best_file.get("id")) if best_file.get("id") is not None else None,
-                        "width": int(best_file.get("width", 0)),
-                        "height": int(best_file.get("height", 0)),
+                        "id": (
+                            str(video.get("id"))
+                            if video.get("id") is not None
+                            else None
+                        ),
+                        "width": w,
+                        "height": h,
                     },
                 }
                 video_items.append(item)
-
         return video_items
     except Exception as e:
         logger.error(
@@ -494,24 +526,39 @@ def search_videos_pixabay(
             return []
 
         video_items = []
-        if "hits" not in response:
+        if not isinstance(response, dict) or not isinstance(
+            response.get("hits"), list
+        ):
             logger.error("pixabay video search returned an unsupported response")
             return video_items
         videos = response["hits"]
         # loop through each video in the result
         for v in videos:
-            duration = v["duration"]
-            # check if video has desired minimum duration
-            if duration < minimum_duration:
+            if not isinstance(v, dict):
                 continue
-            video_files = v["videos"]
+            duration = v.get("duration")
+            # check if video has desired minimum duration
+            if (
+                isinstance(duration, bool)
+                or not isinstance(duration, (int, float))
+                or not math.isfinite(duration)
+                or duration < minimum_duration
+            ):
+                continue
+            video_files = v.get("videos")
+            if not isinstance(video_files, dict):
+                continue
             # loop through each url to determine the best quality
-            for video_type in video_files:
-                video = video_files[video_type]
+            for video_type, video in video_files.items():
+                if not isinstance(video, dict):
+                    continue
                 try:
                     w = int(video["width"])
                     h = int(video["height"])
-                except (KeyError, TypeError, ValueError):
+                except (KeyError, OverflowError, TypeError, ValueError):
+                    continue
+                video_url = video.get("url")
+                if not isinstance(video_url, str) or not video_url:
                     continue
                 # Pixabay 很少返回原生方形视频；1:1 输出继续接受满足分辨率的
                 # 候选并由合成阶段裁剪。横竖屏则必须严格匹配目标方向。
@@ -521,7 +568,7 @@ def search_videos_pixabay(
                 if orientation_matches and w >= video_width:
                     item = MaterialInfo()
                     item.provider = "pixabay"
-                    item.url = video["url"]
+                    item.url = video_url
                     item.duration = duration
                     item.source_info = {
                         "provider": "pixabay",
@@ -607,22 +654,33 @@ def search_videos_coverr(
         response = r.json()
         video_items: List[MaterialInfo] = []
 
-        if not isinstance(response, dict) or "hits" not in response:
+        if not isinstance(response, dict) or not isinstance(
+            response.get("hits"), list
+        ):
             logger.error("coverr video search returned an unsupported response")
             return video_items
 
         for v in response["hits"]:
+            if not isinstance(v, dict):
+                continue
             # duration 在不同响应里可能是 number(11.625) 或 string("10.500000")
             try:
                 duration = int(float(v.get("duration") or 0))
-            except (TypeError, ValueError):
+            except (OverflowError, TypeError, ValueError):
                 continue
             if duration < minimum_duration:
                 continue
 
             video_id = v.get("id")
-            mp4_download_url = (v.get("urls") or {}).get("mp4_download")
-            if not video_id or not mp4_download_url:
+            urls = v.get("urls")
+            if not isinstance(urls, dict):
+                continue
+            mp4_download_url = urls.get("mp4_download")
+            if (
+                not video_id
+                or not isinstance(mp4_download_url, str)
+                or not mp4_download_url
+            ):
                 continue
             if aspect != VideoAspect.square and not _matches_video_aspect(
                 v.get("max_width"),
@@ -1502,6 +1560,7 @@ def _request_openai_image(endpoint: str, payload: dict) -> tuple[bytes | None, s
                 proxies=config.proxy,
                 verify=_get_tls_verify(),
                 timeout=OPENAI_IMAGE_REQUEST_TIMEOUT,
+                allow_redirects=False,
             )
         except requests.exceptions.ConnectTimeout as e:
             # 连接阶段超时：请求确定没有送达服务端，没有创建生成任务，
@@ -1519,6 +1578,12 @@ def _request_openai_image(endpoint: str, payload: dict) -> tuple[bytes | None, s
             ) from e
         else:
             status = int(getattr(response, "status_code", 200) or 200)
+            if 300 <= status < 400:
+                response.close()
+                raise OpenAIImageUnconfirmedError(
+                    "image submission returned a redirect; no redirected request "
+                    "or retry was sent because the paid outcome is unconfirmed"
+                )
             if status in OPENAI_IMAGE_KEY_ERROR_STATUS_CODES:
                 failure_detail = _openai_image_http_failure(response, status, api_key)
                 # 只有多 key 配置下，重试才可能轮换到可用 key。
