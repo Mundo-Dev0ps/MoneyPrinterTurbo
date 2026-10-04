@@ -1,10 +1,7 @@
 {
   "schedule_settings": {
-    "daily_slots": [
-      "12:00",
-      "19:30"
-    ],
-    "voice_name": "gemini:Charon-Male",
+    "daily_slots": ["19:30"],
+    "voice_name": "gemini:Charon-Informative",
     "clip_duration": 2,
     "aspect": "9:16",
     "font_name": "BeVietnamPro-Bold.ttf",
@@ -16,10 +13,7 @@
     "subtitle_position": "bottom",
     "rounded_subtitle_background": false,
     "user_name": "ErDivertido",
-    "platforms": [
-      "youtube",
-      "instagram"
-    ]
+    "platforms": ["youtube", "instagram"]
   },
   "topics": [
     {
@@ -2465,13 +2459,7 @@
         "pacific ocean deep sea",
         "submarine canyon 4k"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
       "id": "topic_082",
       "status": "published",
       "rendered_at": "2026-09-24T01:34:19.735762",
@@ -2486,130 +2474,118 @@
       }
     },
     {
+      "id": "topic_083",
       "subject": "Apophis 2029: El asteroide que rozará la Tierra",
       "category": "Cosmos Extremo",
-      "script": "En 2029, un asteroide del tamaño de un rascacielos pasará entre la Tierra y nuestros satélites. [pause:0.6] Se llama Apophis, y durante horas será visible a simple vista. La roca, de 340 metros, viaja a 30 kilómetros por segundo. [pause:0.6] Los científicos calcularon su órbita con precisión milimétrica: no impactará, pero su paso deformará levemente nuestro planeta. ¿Te gustaría verlo cruzar el cielo? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "status": "pending",
+      "editorial_version": "retention-v1",
+      "experiment_variant": "A",
+      "voice_name": "gemini:Charon-Informative",
+      "youtube_title": "Apofis pasará dentro de la órbita satelital",
+      "script": "Apofis pasará más cerca que muchos satélites. [pause:0.4] El 13 de abril de 2029, este asteroide de unos 340 metros cruzará a solo 32.000 kilómetros de la superficie terrestre. No chocará con nosotros: la gravedad de la Tierra alterará su órbita y podría sacudir su superficie.",
       "search_terms": [
-        "asteroid flying space 4k",
-        "near earth asteroid close up",
-        "space rock approaching planet",
-        "astronomical observatory night sky",
-        "orbit earth satellite view"
+        "Apophis asteroid space animation Earth",
+        "geostationary satellites orbiting planet Earth",
+        "large rocky asteroid close up",
+        "asteroid passing near blue Earth",
+        "spacecraft observing asteroid rocky surface"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
-      "id": "topic_083",
-      "status": "pending"
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
+      "id": "topic_084",
       "subject": "La Caldera de Toba: La supererupción que casi extinguió a la humanidad",
       "category": "Secretos Geológicos",
-      "script": "Hace 74.000 años, en Indonesia, ocurrió una erupción que casi borró a la humanidad. [pause:0.6] La caldera de Toba lanzó ceniza hasta India y creó un invierno volcánico global. El cielo se volvió gris durante años. [pause:0.6] Estudios genéticos sugieren que nuestra especie quedó reducida a unos pocos miles de sobrevivientes. ¿Fue Toba el evento que nos puso al borde de la extinción? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "status": "pending",
+      "editorial_version": "retention-v1",
+      "experiment_variant": "B",
+      "voice_name": "gemini:Sulafat-Warm",
+      "youtube_title": "Toba cubrió de ceniza medio planeta",
+      "script": "Toba dejó una cicatriz de escala provincial. [pause:0.4] Hace 74.000 años, su supererupción expulsó miles de kilómetros cúbicos de material y levantó la enorme caldera que hoy ocupa el lago Toba. La ceniza cubrió unos 40 millones de kilómetros cuadrados: una huella todavía visible en el paisaje.",
       "search_terms": [
-        "volcanic caldera aerial",
-        "supervolcano eruption ash cloud",
-        "lake toba indonesia",
-        "volcanic winter ash sky",
-        "geothermal crater landscape"
+        "aerial view Lake Toba Indonesia caldera",
+        "massive volcanic eruption ash cloud",
+        "volcanic ash covering tropical landscape",
+        "satellite view Sumatra Indonesia lake",
+        "steep caldera cliffs Lake Toba"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
-      "id": "topic_084",
-      "status": "pending"
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
+      "id": "topic_085",
       "subject": "El Megaterremoto de Kamchatka 1952: El tsunami que cruzó el Pacífico",
       "category": "Megaterremotos & Sismos",
-      "script": "En la península de Kamchatka, un terremoto de magnitud 9.0 sacudió el Pacífico en 1952. [pause:0.6] El sismo generó un tsunami que arrasó las islas Kuriles y Hawaii. Las olas viajaron a 800 kilómetros por hora. [pause:0.6] En Severo-Kurilsk, la mayoría de los edificios desapareció en minutos y el mar volvió dos veces. ¿Está el próximo gran sismo esperando en Kamchatka? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "status": "pending",
+      "editorial_version": "retention-v1",
+      "experiment_variant": "A",
+      "voice_name": "gemini:Charon-Informative",
+      "youtube_title": "El tsunami de Kamchatka cruzó el Pacífico",
+      "script": "Un terremoto envió una ola a otro continente. [pause:0.4] El 4 de noviembre de 1952, un sismo de magnitud 9 frente a Kamchatka generó olas locales de 13 metros. Horas después, el tsunami alcanzó Hawái y quedó registrado por mareógrafos en decenas de estaciones alrededor de todo el Pacífico.",
       "search_terms": [
-        "kamchatka peninsula earthquake",
-        "tsunami hits coast buildings",
-        "pacific ocean waves disaster",
-        "seismic destroyed town",
-        "volcanic peninsula russia"
+        "Kamchatka volcanic peninsula snowy coast",
+        "powerful ocean earthquake seismic waves",
+        "massive tsunami wave open ocean",
+        "Hawaii coastline powerful incoming waves",
+        "vintage tide gauge ocean station"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
-      "id": "topic_085",
-      "status": "pending"
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
+      "id": "topic_086",
       "subject": "El Pez Caracol Hadal: El vertebrado que sobrevive a 8.000 metros",
       "category": "Misterios Abisales",
-      "script": "A 8.000 metros de profundidad, donde no llega la luz, nada un pez que parece hecho de gelatina. [pause:0.6] Es el pez caracol hadal, el vertebrado más profundo filmado. Su cuerpo transparente soporta presión equivalente a 800 elefantes sobre un balón. [pause:0.6] Sin vejiga natatoria, sus huesos flexibles y proteínas especiales impiden que sus células colapsen. ¿Es el verdadero dueño del abismo? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "status": "pending",
+      "editorial_version": "retention-v1",
+      "experiment_variant": "B",
+      "voice_name": "gemini:Sulafat-Warm",
+      "youtube_title": "El pez más profundo vive bajo presión extrema",
+      "script": "Este pez vive donde aplastaría a casi cualquiera. [pause:0.4] Científicos filmaron un pez caracol a 8.336 metros en la fosa de Izu-Ogasawara, al sur de Japón. Era un juvenil nadando en oscuridad total. Su cuerpo gelatinoso soporta una presión más de ochocientas veces superior a la de la superficie.",
       "search_terms": [
-        "deep sea snailfish",
-        "hadal zone transparent fish",
-        "deep ocean creature 4k",
-        "submersible abyss exploration",
-        "extreme pressure underwater"
+        "deep sea snailfish underwater close up",
+        "ocean trench submersible dark water",
+        "deep sea research camera lights",
+        "small pale fish ocean floor",
+        "Japan ocean trench map animation"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
-      "id": "topic_086",
-      "status": "pending"
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
+      "id": "topic_087",
       "subject": "El Impacto de Chelyabinsk: El asteroide que estalló sobre Rusia",
       "category": "Cosmos Extremo",
-      "script": "El 15 de febrero de 2013, una bola de fuego cruzó el cielo de Rusia y estalló sobre Chelyabinsk. [pause:0.6] La onda expansiva rompió ventanas de miles de edificios y dejó 1.500 heridos. El asteroide medía solo 20 metros. [pause:0.6] Aunque parezca increíble, liberó una energía 30 veces mayor que la bomba de Hiroshima. ¿Podríamos detectar el próximo a tiempo? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "status": "pending",
+      "editorial_version": "retention-v1",
+      "experiment_variant": "A",
+      "voice_name": "gemini:Charon-Informative",
+      "youtube_title": "Cheliábinsk explotó antes de tocar el suelo",
+      "script": "El asteroide nunca tocó la ciudad. [pause:0.4] El 15 de febrero de 2013, una roca de unos 20 metros explotó sobre Cheliábinsk con energía equivalente a 440.000 toneladas de TNT. La onda expansiva rompió ventanas en cientos de kilómetros cuadrados e hirió a más de 1.600 personas, principalmente con cristales.",
       "search_terms": [
-        "chelyabinsk meteor explosion",
-        "fireball meteor sky",
-        "asteroid airburst shockwave",
-        "broken windows aftermath",
-        "russian city meteor 2013"
+        "Chelyabinsk meteor trail winter sky",
+        "bright fireball crossing blue sky",
+        "city windows shattered broken glass",
+        "Russian winter city apartment buildings",
+        "meteor explosion atmospheric shockwave animation"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
-      "id": "topic_087",
-      "status": "pending"
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
+      "id": "topic_088",
       "subject": "La Ciudad Perdida: Las chimeneas hidrotermales del Atlántico",
       "category": "Secretos Geológicos",
-      "script": "En medio del Atlántico, a 700 metros de profundidad, se alzan torres de piedra de 60 metros. [pause:0.6] Es la Ciudad Perdida, un campo hidrotermal que no depende de volcanes. Sus chimeneas emiten hidrógeno y metano a 40 grados. [pause:0.6] Allí viven microbios que podrían explicar cómo surgió la vida en la Tierra. ¿Estamos ante el origen de todo? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "status": "pending",
+      "editorial_version": "retention-v1",
+      "experiment_variant": "B",
+      "voice_name": "gemini:Sulafat-Warm",
+      "youtube_title": "La Ciudad Perdida fabrica combustible para vida",
+      "script": "Estas torres submarinas funcionan sin volcanes. [pause:0.4] En la Ciudad Perdida del Atlántico, chimeneas de carbonato alcanzan hasta 60 metros y expulsan fluidos de hasta 91 grados. El agua reacciona con rocas del manto, produce hidrógeno y metano, y alimenta microbios sin depender de la luz solar.",
       "search_terms": [
-        "lost city hydrothermal field",
-        "deep sea hydrothermal vents",
-        "underwater chimneys atlantic",
-        "hydrothermal vent microbes",
-        "submarine geology 4k"
+        "white hydrothermal vent towers underwater",
+        "deep Atlantic ocean seafloor rocks",
+        "submarine chimney carbonate close up",
+        "underwater research submersible lights",
+        "microorganisms hydrothermal vent ecosystem"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
-      "id": "topic_088",
-      "status": "pending"
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
       "subject": "El Terremoto de Nepal 2015: La avalancha que sepultó el Everest",
@@ -2622,13 +2598,7 @@
         "snow mountain avalanche",
         "rescue himalaya earthquake"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
       "id": "topic_089",
       "status": "pending"
     },
@@ -2643,13 +2613,7 @@
         "deep sea trench 4k",
         "underwater landslide tsunami"
       ],
-      "tags": [
-        "shorts",
-        "ciencia",
-        "misterios",
-        "curiosidades",
-        "erdivertido"
-      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
       "id": "topic_090",
       "status": "pending"
     }
