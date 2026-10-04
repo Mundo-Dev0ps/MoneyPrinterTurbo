@@ -892,12 +892,12 @@ class TestAutoProducer(unittest.TestCase):
 
         topics = {t["id"]: t for t in data.get("topics", [])}
         exp_ids = [
-            "topic_083",
-            "topic_084",
-            "topic_085",
-            "topic_086",
-            "topic_087",
-            "topic_088",
+            "topic_100",
+            "topic_101",
+            "topic_102",
+            "topic_103",
+            "topic_104",
+            "topic_105",
         ]
         expected_variants = ["A", "B", "A", "B", "A", "B"]
         expected_voices = [
@@ -922,8 +922,8 @@ class TestAutoProducer(unittest.TestCase):
             # Must pass strict editorial validation
             auto_producer.validate_topic_for_production(t)
 
-        # Verify topic_089 and topic_090 remain clean pending legacy topics
-        for legacy_id in ["topic_089", "topic_090"]:
+        # Verify topic_106 and topic_107 remain clean pending legacy topics
+        for legacy_id in ["topic_106", "topic_107"]:
             self.assertIn(legacy_id, topics)
             t = topics[legacy_id]
             self.assertEqual(t.get("status"), "pending")

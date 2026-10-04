@@ -2474,7 +2474,432 @@
       }
     },
     {
+      "subject": "Apophis 2029: El asteroide que rozará la Tierra",
+      "category": "Cosmos Extremo",
+      "script": "En 2029, un asteroide del tamaño de un rascacielos pasará entre la Tierra y nuestros satélites. [pause:0.6] Se llama Apophis, y durante horas será visible a simple vista. La roca, de 340 metros, viaja a 30 kilómetros por segundo. [pause:0.6] Los científicos calcularon su órbita con precisión milimétrica: no impactará, pero su paso deformará levemente nuestro planeta. ¿Te gustaría verlo cruzar el cielo? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "asteroid flying space 4k",
+        "near earth asteroid close up",
+        "space rock approaching planet",
+        "astronomical observatory night sky",
+        "orbit earth satellite view"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
       "id": "topic_083",
+      "status": "published",
+      "rendered_at": "2026-09-24T15:08:29.015462",
+      "task_id": "8a7bd764-a6b9-43ab-8ced-b38955e06911",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/8a7bd764-a6b9-43ab-8ced-b38955e06911/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=6f36501c214048db9905ca0bd25481f2. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "6f36501c214048db9905ca0bd25481f2",
+        "total_platforms": 2,
+        "job_id": "cb743c018dcf496687f5442db92d6060"
+      }
+    },
+    {
+      "subject": "La Caldera de Toba: La supererupción que casi extinguió a la humanidad",
+      "category": "Secretos Geológicos",
+      "script": "Hace 74.000 años, en Indonesia, ocurrió una erupción que casi borró a la humanidad. [pause:0.6] La caldera de Toba lanzó ceniza hasta India y creó un invierno volcánico global. El cielo se volvió gris durante años. [pause:0.6] Estudios genéticos sugieren que nuestra especie quedó reducida a unos pocos miles de sobrevivientes. ¿Fue Toba el evento que nos puso al borde de la extinción? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "volcanic caldera aerial",
+        "supervolcano eruption ash cloud",
+        "lake toba indonesia",
+        "volcanic winter ash sky",
+        "geothermal crater landscape"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_084",
+      "status": "published",
+      "rendered_at": "2026-09-24T22:42:32.432516",
+      "task_id": "615a4dac-a585-4212-8ea8-fa194fa7640e",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/615a4dac-a585-4212-8ea8-fa194fa7640e/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=ce8ecdee5ae3420a84baef41ad33a56c. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "ce8ecdee5ae3420a84baef41ad33a56c",
+        "total_platforms": 2,
+        "job_id": "682aaf531eb545d49a8cb98121c5cf87"
+      }
+    },
+    {
+      "subject": "El Megaterremoto de Kamchatka 1952: El tsunami que cruzó el Pacífico",
+      "category": "Megaterremotos & Sismos",
+      "script": "En la península de Kamchatka, un terremoto de magnitud 9.0 sacudió el Pacífico en 1952. [pause:0.6] El sismo generó un tsunami que arrasó las islas Kuriles y Hawaii. Las olas viajaron a 800 kilómetros por hora. [pause:0.6] En Severo-Kurilsk, la mayoría de los edificios desapareció en minutos y el mar volvió dos veces. ¿Está el próximo gran sismo esperando en Kamchatka? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "kamchatka peninsula earthquake",
+        "tsunami hits coast buildings",
+        "pacific ocean waves disaster",
+        "seismic destroyed town",
+        "volcanic peninsula russia"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_085",
+      "status": "published",
+      "rendered_at": "2026-09-25T15:13:02.288953",
+      "task_id": "5af0332b-7e37-44b1-b99b-dbb851b22dcf",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/5af0332b-7e37-44b1-b99b-dbb851b22dcf/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=b8857bff294d4c8ab7de7b4cc66dc443. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "b8857bff294d4c8ab7de7b4cc66dc443",
+        "total_platforms": 2,
+        "job_id": "26fbdc076320419faf8b40b2391369b8"
+      }
+    },
+    {
+      "subject": "El Pez Caracol Hadal: El vertebrado que sobrevive a 8.000 metros",
+      "category": "Misterios Abisales",
+      "script": "A 8.000 metros de profundidad, donde no llega la luz, nada un pez que parece hecho de gelatina. [pause:0.6] Es el pez caracol hadal, el vertebrado más profundo filmado. Su cuerpo transparente soporta presión equivalente a 800 elefantes sobre un balón. [pause:0.6] Sin vejiga natatoria, sus huesos flexibles y proteínas especiales impiden que sus células colapsen. ¿Es el verdadero dueño del abismo? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "deep sea snailfish",
+        "hadal zone transparent fish",
+        "deep ocean creature 4k",
+        "submersible abyss exploration",
+        "extreme pressure underwater"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_086",
+      "status": "published",
+      "rendered_at": "2026-09-25T22:43:10.405446",
+      "task_id": "930a33a3-ca0d-44be-903f-10a27e18a3fc",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/930a33a3-ca0d-44be-903f-10a27e18a3fc/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=efb2574724f24f749095bca8440d7576. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "efb2574724f24f749095bca8440d7576",
+        "total_platforms": 2,
+        "job_id": "a6477828a0d34cb6b92225c8afb6e199"
+      }
+    },
+    {
+      "subject": "El Impacto de Chelyabinsk: El asteroide que estalló sobre Rusia",
+      "category": "Cosmos Extremo",
+      "script": "El 15 de febrero de 2013, una bola de fuego cruzó el cielo de Rusia y estalló sobre Chelyabinsk. [pause:0.6] La onda expansiva rompió ventanas de miles de edificios y dejó 1.500 heridos. El asteroide medía solo 20 metros. [pause:0.6] Aunque parezca increíble, liberó una energía 30 veces mayor que la bomba de Hiroshima. ¿Podríamos detectar el próximo a tiempo? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "chelyabinsk meteor explosion",
+        "fireball meteor sky",
+        "asteroid airburst shockwave",
+        "broken windows aftermath",
+        "russian city meteor 2013"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_087",
+      "status": "published",
+      "rendered_at": "2026-09-26T15:11:01.088484",
+      "task_id": "d3579e4d-f0a3-46de-bcaf-0634de1eca40",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/d3579e4d-f0a3-46de-bcaf-0634de1eca40/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=09c57b76f7a4433f8ad20abc0b2de859. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "09c57b76f7a4433f8ad20abc0b2de859",
+        "total_platforms": 2,
+        "job_id": "aa5764d9007a44cd8c535c66cc840ffc"
+      }
+    },
+    {
+      "subject": "La Ciudad Perdida: Las chimeneas hidrotermales del Atlántico",
+      "category": "Secretos Geológicos",
+      "script": "En medio del Atlántico, a 700 metros de profundidad, se alzan torres de piedra de 60 metros. [pause:0.6] Es la Ciudad Perdida, un campo hidrotermal que no depende de volcanes. Sus chimeneas emiten hidrógeno y metano a 40 grados. [pause:0.6] Allí viven microbios que podrían explicar cómo surgió la vida en la Tierra. ¿Estamos ante el origen de todo? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "lost city hydrothermal field",
+        "deep sea hydrothermal vents",
+        "underwater chimneys atlantic",
+        "hydrothermal vent microbes",
+        "submarine geology 4k"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_088",
+      "status": "published",
+      "rendered_at": "2026-09-26T22:44:54.860965",
+      "task_id": "3f9551d1-66e3-44a2-bcdb-3abc7ea041b5",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/3f9551d1-66e3-44a2-bcdb-3abc7ea041b5/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=1bdfa053d9df4d00a0bfd3108dab4076. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "1bdfa053d9df4d00a0bfd3108dab4076",
+        "total_platforms": 2,
+        "job_id": "150704d83ec8438094cc5e5e4a925298"
+      }
+    },
+    {
+      "subject": "El Terremoto de Nepal 2015: La avalancha que sepultó el Everest",
+      "category": "Megaterremotos & Sismos",
+      "script": "En 2015, Nepal sufrió un terremoto de magnitud 7.8 que despertó una avalancha sobre el Everest. [pause:0.6] El sismo movió la montaña y sepultó el campamento base con hielo y roca. Murieron 19 personas en el techo del mundo. [pause:0.6] Los científicos descubrieron que el Everest se desplazó tres centímetros. ¿Puede un sismo cambiar la montaña más alta? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "nepal earthquake 2015 everest",
+        "avalanche everest base camp",
+        "himalaya earthquake damage",
+        "snow mountain avalanche",
+        "rescue himalaya earthquake"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_089",
+      "status": "published",
+      "rendered_at": "2026-09-27T15:12:37.307022",
+      "task_id": "deb25b76-dc07-44b2-86aa-7fa4274a3660",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/deb25b76-dc07-44b2-86aa-7fa4274a3660/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=85b90710c8eb41ce9fbc6b94d6fcf495. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "85b90710c8eb41ce9fbc6b94d6fcf495",
+        "total_platforms": 2,
+        "job_id": "a8fa81582e024a80be7ad4bf5d415783"
+      }
+    },
+    {
+      "subject": "La Fosa de Java: El abismo que traga el océano Índico",
+      "category": "Misterios Abisales",
+      "script": "Al sur de Indonesia, la Fosa de Java se hunde 7.290 metros bajo el océano Índico. [pause:0.6] Allí, la placa australiana se desliza bajo la euroasiática y genera terremotos y tsunamis mortales. En 2006, un sismo despertó olas de siete metros. [pause:0.6] Aún más inquietante: enormes deslizamientos submarinos podrían romper cables y provocar maremotos sin aviso. ¿Qué secretos guarda esta grieta? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "java trench indian ocean",
+        "subduction zone underwater",
+        "tsunami indonesia coast",
+        "deep sea trench 4k",
+        "underwater landslide tsunami"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_090",
+      "status": "published",
+      "rendered_at": "2026-09-27T22:41:55.829690",
+      "task_id": "7a70f32f-abfa-46e4-b3c5-b34225ba8a4e",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/7a70f32f-abfa-46e4-b3c5-b34225ba8a4e/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=8d06ccf322b341039a595716d38c74fb. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "8d06ccf322b341039a595716d38c74fb",
+        "total_platforms": 2,
+        "job_id": "04735d0627d74f2da3114abbc85f5f06"
+      }
+    },
+    {
+      "subject": "El Megaterremoto de Alaska 1964: El sismo de 9.2 que hizo temblar el planeta",
+      "category": "Megaterremotos & Sismos",
+      "script": "En 1964, Alaska sufrió un megaterremoto brutal de magnitud 9.2. [pause:0.6] Durante cuatro minutos interminables, la tierra se levantó, los ríos cambiaron y ciudades enteras se partieron. El suelo onduló como agua y el tsunami cruzó el Pacífico. [pause:0.6] Los científicos descubrieron que la falla liberó energía equivalente a millones de bombas nucleares. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "alaska earthquake 1964 damaged road",
+        "aerial cracked ground fault line",
+        "tsunami waves hitting coast",
+        "seismic monitor earthquake reading",
+        "abandoned city earthquake ruins"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_091",
+      "status": "published",
+      "rendered_at": "2026-09-28T15:12:47.060447",
+      "task_id": "a4286106-00d4-4f48-8789-f3a14b09360f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a4286106-00d4-4f48-8789-f3a14b09360f/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=3889948c23f044d1a1f1ab4c22bfd62e. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "3889948c23f044d1a1f1ab4c22bfd62e",
+        "total_platforms": 2,
+        "job_id": "f9b289d6e65c4e4d870c50af4a929742"
+      }
+    },
+    {
+      "subject": "La Fosa de Puerto Rico: El abismo que podría desatar un megatsunami en el Caribe",
+      "category": "Misterios Abisales",
+      "script": "Bajo el Caribe se esconde la Fosa de Puerto Rico, un abismo de más de 8.000 metros. [pause:0.6] Allí, la placa del Atlántico se hunde bajo el Caribe y acumula una tensión monstruosa. Los sismólogos temen un megaterremoto y un tsunami capaz de golpear varias costas. [pause:0.6] En 1918, un sismo de magnitud 7.3 ya desató olas mortales. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "deep ocean trench underwater",
+        "caribbean sea abyss dark water",
+        "tectonic plates subduction animation",
+        "tsunami warning ocean waves",
+        "underwater canyon caribbean"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_092",
+      "status": "published",
+      "rendered_at": "2026-09-28T22:43:48.211898",
+      "task_id": "a9716ce2-4727-4e40-b8d4-2d166022cee0",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a9716ce2-4727-4e40-b8d4-2d166022cee0/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=71db7cd5d70e4daf8f8c1056975d5021. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "71db7cd5d70e4daf8f8c1056975d5021",
+        "total_platforms": 2,
+        "job_id": "4c78d0443be34b1b852a7f897b77a24a"
+      }
+    },
+    {
+      "subject": "El Cráter de Vredefort: La cicatriz del asteroide más grande que golpeó la Tierra",
+      "category": "Cosmos Extremo",
+      "script": "En Sudáfrica yace el cráter de Vredefort, la cicatriz de impacto más grande visible en la Tierra. [pause:0.6] Hace 2.000 millones de años, un asteroide de unos 10 kilómetros golpeó el planeta. La explosión fue tan colosal que levantó montañas y fundió la corteza. [pause:0.6] Hoy, su anillo deformado revela secretos de los cataclismos cósmicos más antiguos. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "meteor crater aerial view",
+        "huge impact crater landscape",
+        "asteroid impact explosion space",
+        "south africa rocky mountains",
+        "geological rock layers crater"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_093",
+      "status": "published",
+      "rendered_at": "2026-10-01T15:08:49.395039",
+      "task_id": "29098125-8bcb-4690-a922-2a74877ddd35",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/29098125-8bcb-4690-a922-2a74877ddd35/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=08604822e0da4562bf85ec623b0e2f80. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "08604822e0da4562bf85ec623b0e2f80",
+        "total_platforms": 2,
+        "job_id": "db14ad10058040829dd66240c711762f"
+      }
+    },
+    {
+      "subject": "Eldgjá: La erupción volcánica que oscureció Europa en el año 939",
+      "category": "Secretos Geológicos",
+      "script": "En el año 939, Islandia despertó con Eldgjá, la erupción fisural más grande de su historia. [pause:0.6] La grieta lanzó lava y gases sulfúricos durante años, oscureciendo el cielo europeo. Cosechas murieron, inviernos se volvieron brutales y hambrunas siguieron. [pause:0.6] Los núcleos de hielo revelan que aquel volcán cambió el clima global entero. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "volcanic fissure eruption iceland",
+        "lava field aerial",
+        "sulfur gas volcanic smoke",
+        "ice core climate research",
+        "dark volcanic landscape"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_094",
+      "status": "published",
+      "rendered_at": "2026-10-01T22:41:23.614790",
+      "task_id": "dbad48c3-8636-4cd6-af52-9cdc05dfa275",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/dbad48c3-8636-4cd6-af52-9cdc05dfa275/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=dc02b89b2d3e4587bc9f4726b84c90e9. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "dc02b89b2d3e4587bc9f4726b84c90e9",
+        "total_platforms": 2,
+        "job_id": "1565bce381434ee7a98d478d6a1f7584"
+      }
+    },
+    {
+      "subject": "Los Terremotos de Nueva Madrid: Cuando el río Misisipi corrió al revés",
+      "category": "Megaterremotos & Sismos",
+      "script": "En 1811, el centro de Estados Unidos tembló con los terremotos de Nueva Madrid. [pause:0.6] Tres sismos de magnitud cercana a 8 hicieron que el río Misisipi corriera al revés y se formaran lagos. Las campanas sonaron en Boston y la tierra se licuó. [pause:0.6] Hoy, esa falla sigue activa bajo el corazón del país. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "mississippi river aerial",
+        "earthquake cracked soil",
+        "seismic fault line ground",
+        "flooded farmland earthquake",
+        "historic church bells"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_095",
+      "status": "published",
+      "rendered_at": "2026-10-02T15:09:45.174426",
+      "task_id": "33ab2ae7-d3ac-4404-8076-c6cc6fc65a63",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/33ab2ae7-d3ac-4404-8076-c6cc6fc65a63/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=150cb656f4104ca8bc558712f9cc2d24. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "150cb656f4104ca8bc558712f9cc2d24",
+        "total_platforms": 2,
+        "job_id": "ce18105573074f8b8113873c679c65ca"
+      }
+    },
+    {
+      "subject": "La Fosa de Atacama: El abismo sin oxígeno donde la vida se vuelve alienígena",
+      "category": "Misterios Abisales",
+      "script": "Frente a Chile y Perú se abre la Fosa de Atacama, un abismo hadal casi sin oxígeno. [pause:0.6] A más de 8.000 metros, la presión aplasta y la luz nunca llega. Allí sobreviven criaturas translúcidas, anfípodos gigantes y peces adaptados a un mundo letal. [pause:0.6] Los científicos hallaron microbios que podrían revelar cómo nace la vida extrema. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "hadal zone deep sea",
+        "deep ocean creature translucent",
+        "amphipod deep sea",
+        "underwater pressure dark abyss",
+        "scientific submersible deep sea"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_096",
+      "status": "published",
+      "rendered_at": "2026-10-02T22:43:45.967914",
+      "task_id": "0fe32251-b739-435d-a706-1ffa61fa1a5f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/0fe32251-b739-435d-a706-1ffa61fa1a5f/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=d77cc370bab54a4b9a5a6d85f3ab1f0c. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "d77cc370bab54a4b9a5a6d85f3ab1f0c",
+        "total_platforms": 2,
+        "job_id": "ae04f3b2c5c3450081c2ca486ef63282"
+      }
+    },
+    {
+      "subject": "La Gran Muralla de Hércules: La estructura más colosal del universo conocido",
+      "category": "Cosmos Extremo",
+      "script": "En el universo lejano existe la Gran Muralla de Hércules, la estructura más colosal jamás detectada. [pause:0.6] Se extiende miles de millones de años luz y agrupa galaxias gigantes como si fueran polvo. Su colosal tamaño aún desafía los modelos cosmológicos. [pause:0.6] Algunos astrónomos creen que revela hilos invisibles de materia oscura profunda. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "galaxy cluster space telescope",
+        "cosmic web dark matter",
+        "deep space galaxies",
+        "astronomer observatory night sky",
+        "supercomputer cosmology simulation"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_097",
+      "status": "published",
+      "rendered_at": "2026-10-03T15:10:36.528715",
+      "task_id": "6c094551-0cab-4b00-8ac8-da06575a0657",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/6c094551-0cab-4b00-8ac8-da06575a0657/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=c0f325d0f09a496e9210adb4d2325dc3. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "c0f325d0f09a496e9210adb4d2325dc3",
+        "total_platforms": 2,
+        "job_id": "176a0478f3584304be7508ca0022dd28"
+      }
+    },
+    {
+      "subject": "Las Trampas Siberianas: La erupción que casi acaba con la vida en la Tierra",
+      "category": "Secretos Geológicos",
+      "script": "Hace 252 millones de años, Siberia se partió con las Trampas Siberianas. [pause:0.6] Durante un millón de años, erupciones gigantes cubrieron millones de kilómetros con lava y gas. El clima colapsó, los océanos se acidificaron y el 96% de las especies murió. [pause:0.6] Fue la extinción masiva más letal de la historia terrestre. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "siberian traps lava landscape",
+        "volcanic basalt cliffs",
+        "mass extinction fossils",
+        "prehistoric volcanic eruption",
+        "global climate volcanic winter"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_098",
+      "status": "published",
+      "rendered_at": "2026-10-03T22:41:02.307525",
+      "task_id": "a75d78a1-3737-434a-bbf9-ba4d8df572fd",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a75d78a1-3737-434a-bbf9-ba4d8df572fd/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=666b119db3cf4ee38e439328d969ee6e. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "666b119db3cf4ee38e439328d969ee6e",
+        "total_platforms": 2,
+        "job_id": "b8e8d5fff16f48afa50183377f11136c"
+      }
+    },
+    {
+      "subject": "El Terremoto de Messina 1908: El tsunami que borró ciudades de Italia",
+      "category": "Megaterremotos & Sismos",
+      "script": "En 1908, un terremoto brutal de magnitud 7.1 destruyó por completo Messina y Reggio Calabria durante la madrugada. [pause:0.6] Segundos después, un tsunami de hasta 12 metros arrasó la costa italiana. Más de 80.000 personas murieron entre escombros, fuego y olas. [pause:0.6] Fue una de las catástrofes sísmicas más mortales de la historia europea. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "messina italy old ruins",
+        "tsunami waves city coast",
+        "earthquake damaged buildings",
+        "rescue workers rubble historic",
+        "sicily coastline storm waves"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_099",
+      "status": "published",
+      "rendered_at": "2026-10-04T15:13:30.893537",
+      "task_id": "dfadac80-c808-4fb5-b327-51614a9e3a16",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/dfadac80-c808-4fb5-b327-51614a9e3a16/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=5cfaf50baf2c436e8d20f6b498ab9d1b. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "5cfaf50baf2c436e8d20f6b498ab9d1b",
+        "total_platforms": 2,
+        "job_id": "47ad33e5f0c14e93bde6fe5ceeebbf80"
+      }
+    },
+    {
+      "id": "topic_100",
       "subject": "Apophis 2029: El asteroide que rozará la Tierra",
       "category": "Cosmos Extremo",
       "status": "pending",
@@ -2493,7 +2918,7 @@
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
-      "id": "topic_084",
+      "id": "topic_101",
       "subject": "La Caldera de Toba: La supererupción que casi extinguió a la humanidad",
       "category": "Secretos Geológicos",
       "status": "pending",
@@ -2512,7 +2937,7 @@
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
-      "id": "topic_085",
+      "id": "topic_102",
       "subject": "El Megaterremoto de Kamchatka 1952: El tsunami que cruzó el Pacífico",
       "category": "Megaterremotos & Sismos",
       "status": "pending",
@@ -2531,7 +2956,7 @@
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
-      "id": "topic_086",
+      "id": "topic_103",
       "subject": "El Pez Caracol Hadal: El vertebrado que sobrevive a 8.000 metros",
       "category": "Misterios Abisales",
       "status": "pending",
@@ -2550,7 +2975,7 @@
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
-      "id": "topic_087",
+      "id": "topic_104",
       "subject": "El Impacto de Chelyabinsk: El asteroide que estalló sobre Rusia",
       "category": "Cosmos Extremo",
       "status": "pending",
@@ -2569,7 +2994,7 @@
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
-      "id": "topic_088",
+      "id": "topic_105",
       "subject": "La Ciudad Perdida: Las chimeneas hidrotermales del Atlántico",
       "category": "Secretos Geológicos",
       "status": "pending",
@@ -2588,33 +3013,78 @@
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
     },
     {
-      "subject": "El Terremoto de Nepal 2015: La avalancha que sepultó el Everest",
-      "category": "Megaterremotos & Sismos",
-      "script": "En 2015, Nepal sufrió un terremoto de magnitud 7.8 que despertó una avalancha sobre el Everest. [pause:0.6] El sismo movió la montaña y sepultó el campamento base con hielo y roca. Murieron 19 personas en el techo del mundo. [pause:0.6] Los científicos descubrieron que el Everest se desplazó tres centímetros. ¿Puede un sismo cambiar la montaña más alta? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "subject": "El Cangrejo Yeti: El gigante peludo de las fumarolas abisales",
+      "category": "Misterios Abisales",
+      "script": "En la oscuridad de las fumarolas hidrotermales vive un crustáceo blanco cubierto de pelos. [pause:0.6] Es el cangrejo yeti, descubierto a más de dos mil metros de profundidad en el Pacífico. Sus brazos peludos cultivan bacterias que le sirven de alimento. [pause:0.6] Lo más sorprendente es que estas colonias pueden sobrevivir en agua casi hirviendo, sin luz solar y con metales tóxicos. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
-        "nepal earthquake 2015 everest",
-        "avalanche everest base camp",
-        "himalaya earthquake damage",
-        "snow mountain avalanche",
-        "rescue himalaya earthquake"
+        "hydrothermal vent deep sea",
+        "yeti crab underwater",
+        "deep ocean vent bacteria",
+        "underwater volcanic vent",
+        "white crab deep sea"
       ],
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
-      "id": "topic_089",
+      "id": "topic_106",
       "status": "pending"
     },
     {
-      "subject": "La Fosa de Java: El abismo que traga el océano Índico",
-      "category": "Misterios Abisales",
-      "script": "Al sur de Indonesia, la Fosa de Java se hunde 7.290 metros bajo el océano Índico. [pause:0.6] Allí, la placa australiana se desliza bajo la euroasiática y genera terremotos y tsunamis mortales. En 2006, un sismo despertó olas de siete metros. [pause:0.6] Aún más inquietante: enormes deslizamientos submarinos podrían romper cables y provocar maremotos sin aviso. ¿Qué secretos guarda esta grieta? ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "subject": "El Vacío de Boötes: El lugar más solitario del universo",
+      "category": "Cosmos Extremo",
+      "script": "Hay un lugar en el universo donde casi no existen galaxias. [pause:0.6] Se llama el Vacío de Boötes, una burbuja cósmica de trescientos millones de años luz donde la materia parece haber desaparecido. [pause:0.6] Si nuestra Vía Láctea estuviera en su centro, el cielo nocturno apenas mostraría estrellas, revelando la escala aterradora de la soledad cósmica. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
       "search_terms": [
-        "java trench indian ocean",
-        "subduction zone underwater",
-        "tsunami indonesia coast",
-        "deep sea trench 4k",
-        "underwater landslide tsunami"
+        "deep space galaxies void",
+        "cosmic void astronomy",
+        "universe dark emptiness",
+        "galaxy cluster space",
+        "night sky stars milky way"
       ],
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
-      "id": "topic_090",
+      "id": "topic_107",
+      "status": "pending"
+    },
+    {
+      "subject": "El Pozo Superprofundo de Kola: La perforación que llegó al límite de la Tierra",
+      "category": "Secretos Geológicos",
+      "script": "En la península de Kola, la Unión Soviética perforó un agujero de más de doce kilómetros para explorar la corteza terrestre. [pause:0.6] El Pozo Superprofundo de Kola alcanzó temperaturas inesperadas y rocas que fluían como plástico. [pause:0.6] Allí se descubrió agua fósil a profundidades imposibles, cambiando lo que creíamos saber sobre la geología del planeta. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "deep borehole drilling rig",
+        "kola superdeep borehole",
+        "underground rock layers",
+        "scientific drilling rig",
+        "geology rock core sample"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_108",
+      "status": "pending"
+    },
+    {
+      "subject": "La Fosa de Hikurangi: El megaterremoto durmiente bajo Nueva Zelanda",
+      "category": "Megaterremotos & Sismos",
+      "script": "Frente a las costas de Nueva Zelanda se esconde una zona de subducción llamada Hikurangi. [pause:0.6] Allí, la placa Pacífica se hunde bajo la placa Australiana, acumulando tensión desde hace siglos. Los científicos han detectado movimiento lento, pero un megaterremoto podría generar un tsunami devastador. [pause:0.6] Lo más inquietante es que Hikurangi puede liberar energía en minutos y apenas deja señales antes. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "new zealand coast aerial",
+        "underwater tectonic subduction",
+        "tsunami wave coast",
+        "seismic fault ocean floor",
+        "earthquake monitor new zealand"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_109",
+      "status": "pending"
+    },
+    {
+      "subject": "El Calamar de Cristal: El fantasma transparente del océano profundo",
+      "category": "Misterios Abisales",
+      "script": "En las profundidades del océano flota una criatura casi invisible. [pause:0.6] Es el calamar de cristal, un depredador transparente que usa bioluminiscencia para desaparecer y cazar. Su cuerpo deja ver sus órganos, y algunos ejemplares alcanzan seis metros. [pause:0.6] Habita en la zona mesopelágica, donde la luz solar se desvanece, y rara vez ha sido filmado con vida. ¿Qué opinas? ¡Déjamelo saber en los comentarios!",
+      "search_terms": [
+        "transparent squid deep sea",
+        "bioluminescent deep ocean",
+        "glass squid underwater",
+        "mesopelagic creature",
+        "deep sea alien fish"
+      ],
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "id": "topic_110",
       "status": "pending"
     }
   ]
