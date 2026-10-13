@@ -105,7 +105,7 @@ class VideoParams(BaseModel):
 
     video_subject: str
     video_script: str = ""  # Script used to generate the video
-    video_terms: Optional[str | list] = None  # Keywords used to generate the video
+    video_terms: Optional[str | List[str]] = None  # Keywords used to generate the video
     video_aspect: Optional[VideoAspect] = VideoAspect.portrait.value
     video_fit_mode: VideoFitMode = VideoFitMode.cover
     video_concat_mode: Optional[VideoConcatMode] = VideoConcatMode.random.value
@@ -146,15 +146,17 @@ class VideoParams(BaseModel):
     subtitle_animation: SubtitleAnimation = _get_valid_ui_choice(
         "subtitle_animation", _SUBTITLE_ANIMATIONS, "none"
     )
-    custom_position: float = config.ui.get("custom_position", 70.0)
+    custom_position: float = Field(
+        default=config.ui.get("custom_position", 70.0), ge=0, le=100, allow_inf_nan=False
+    )
     font_name: Optional[str] = "STHeitiMedium.ttc"
     text_fore_color: Optional[str] = "#FFFFFF"
     text_background_color: Union[bool, str] = False
     rounded_subtitle_background: bool = False
 
-    font_size: int = 60
+    font_size: int = Field(default=60, ge=1)
     stroke_color: Optional[str] = "#000000"
-    stroke_width: float = 1.5
+    stroke_width: float = Field(default=1.5, ge=0, allow_inf_nan=False)
     n_threads: Optional[int] = 2
     paragraph_number: int = Field(default=1, ge=1, le=10)
     video_script_prompt: str = Field(default="", max_length=2000)
@@ -181,9 +183,9 @@ class SubtitleRequest(BaseModel):
     text_fore_color: Optional[str] = "#FFFFFF"
     text_background_color: Union[bool, str] = False
     rounded_subtitle_background: bool = False
-    font_size: int = 60
+    font_size: int = Field(default=60, ge=1)
     stroke_color: Optional[str] = "#000000"
-    stroke_width: float = 1.5
+    stroke_width: float = Field(default=1.5, ge=0, allow_inf_nan=False)
     video_source: Optional[str] = "local"
     subtitle_enabled: Optional[bool] = True
 
@@ -253,7 +255,11 @@ class VideoSocialMetadataParams:
 
 
 class TaskVideoRequest(VideoParams, BaseModel):
-    pass
+    # Bound API resource requests while leaving the CLI's explicit batch and
+    # FFmpeg thread controls in VideoParams unchanged.
+    video_count: int = Field(default=1, ge=1, le=5)
+    video_clip_duration: int = Field(default=5, ge=1, le=15)
+    n_threads: Optional[int] = Field(default=2, ge=1, le=16)
 
 
 class TaskQueryRequest(BaseModel):
@@ -265,7 +271,9 @@ class VideoScriptRequest(VideoScriptParams, BaseModel):
 
 
 class VideoTermsRequest(VideoTermsParams, BaseModel):
-    pass
+    # Ordered term generation allocates an example list proportional to amount
+    # before contacting the model. Reject malformed or excessive API requests.
+    amount: int = Field(default=5, ge=1, le=50)
 
 
 class VideoSocialMetadataRequest(VideoSocialMetadataParams, BaseModel):

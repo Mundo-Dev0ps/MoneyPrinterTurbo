@@ -2,6 +2,7 @@ import json
 import os.path
 import re
 import tempfile
+import threading
 from timeit import default_timer as timer
 
 try:
@@ -11,26 +12,27 @@ except ImportError:
 from loguru import logger
 
 from app.config import config
+from app.models import const
 from app.utils import utils
+from app.utils.subtitle_writer import write_subtitle_file
 
 model_size = config.whisper.get("model_size", "medium")
 device = config.whisper.get("device", "cpu")
 compute_type = config.whisper.get("compute_type", "int8")
 initial_prompt = config.whisper.get("initial_prompt", "") or None
 model = None
+_model_init_lock = threading.Lock()
 
 
-def create(
-    audio_file,
-    subtitle_file: str = "",
-    word_level: bool = False,
-    log_details: bool = True,
-):
+def _ensure_model_loaded() -> bool:
+    """Load the large Whisper model once, even when jobs start concurrently."""
     global model
-    if WhisperModel is None:
-        logger.warning("faster_whisper not available, skipping whisper subtitle generation")
-        return ""
-    if not model:
+    if model is not None:
+        return True
+
+    with _model_init_lock:
+        if model is not None:
+            return True
         model_path = f"{utils.root_dir()}/models/whisper-{model_size}"
         model_bin_file = f"{model_path}/model.bin"
         if not os.path.isdir(model_path) or not os.path.isfile(model_bin_file):
@@ -52,7 +54,23 @@ def create(
                 f"see [README.md FAQ](https://github.com/harry0703/MoneyPrinterTurbo) for more details.\n"
                 f"********************************************\n\n"
             )
-            return None
+            return False
+    return True
+
+
+def create(
+    audio_file,
+    subtitle_file: str = "",
+    word_level: bool = False,
+    log_details: bool = True,
+):
+    if WhisperModel is None:
+        logger.warning(
+            "faster_whisper not available, skipping whisper subtitle generation"
+        )
+        return ""
+    if not _ensure_model_loaded():
+        return None
 
     if log_details:
         logger.info(f"start, output file: {subtitle_file}")
@@ -90,7 +108,14 @@ def create(
         )
 
     for segment in segments:
-        if word_level and segment.words:
+        if not segment.words:
+            # Faster Whisper exposes words as Optional[List[Word]]. A segment
+            # can still have usable text and timestamps when alignment yields
+            # no words; keep that subtitle in both sentence and word modes.
+            recognized(segment.text, segment.start, segment.end)
+            continue
+
+        if word_level:
             for word in segment.words:
                 cleaned_word = word.word.strip()
                 if cleaned_word:
@@ -116,26 +141,29 @@ def create(
                 seg_end = word.end
                 seg_text += word.word
                 if w_str:
-                    current_chunk_words.append({
-                        "word": w_str,
-                        "start": word.start,
-                        "end": word.end
-                    })
+                    current_chunk_words.append(
+                        {"word": w_str, "start": word.start, "end": word.end}
+                    )
 
-                if utils.str_contains_punctuation(word.word) or len(current_chunk_words) >= 3:
-                    clean_text = seg_text.strip()
-                    if clean_text and utils.str_contains_punctuation(clean_text[-1:]):
-                        clean_text = clean_text[:-1].strip()
+                if (
+                    word.word.rstrip().endswith(tuple(const.PUNCTUATIONS))
+                    or len(current_chunk_words) >= 3
+                ):
+                    clean_text = (
+                        seg_text.strip().rstrip("".join(const.PUNCTUATIONS)).strip()
+                    )
 
                     if clean_text:
                         recognized(clean_text, seg_start, seg_end)
                         if current_chunk_words:
-                            words_data.append({
-                                "phrase": clean_text,
-                                "start_time": seg_start,
-                                "end_time": seg_end,
-                                "words": current_chunk_words
-                            })
+                            words_data.append(
+                                {
+                                    "phrase": clean_text,
+                                    "start_time": seg_start,
+                                    "end_time": seg_end,
+                                    "words": current_chunk_words,
+                                }
+                            )
 
                     is_segmented = False
                     seg_text = ""
@@ -151,12 +179,14 @@ def create(
             clean_text = seg_text.strip()
             recognized(clean_text, seg_start, seg_end)
             if current_chunk_words:
-                words_data.append({
-                    "phrase": clean_text,
-                    "start_time": seg_start,
-                    "end_time": seg_end,
-                    "words": current_chunk_words
-                })
+                words_data.append(
+                    {
+                        "phrase": clean_text,
+                        "start_time": seg_start,
+                        "end_time": seg_end,
+                        "words": current_chunk_words,
+                    }
+                )
 
     end = timer()
 
@@ -176,8 +206,10 @@ def create(
             idx += 1
 
     sub = "\n".join(lines) + "\n"
-    with open(subtitle_file, "w", encoding="utf-8") as f:
-        f.write(sub)
+    if not lines:
+        logger.warning("transcription produced no subtitle cues")
+        return
+    write_subtitle_file(subtitle_file, sub)
     if log_details:
         logger.info(f"subtitle file created: {subtitle_file}")
 
@@ -186,9 +218,13 @@ def create(
         try:
             with open(words_file, "w", encoding="utf-8") as f:
                 json.dump(words_data, f, indent=2, ensure_ascii=False)
-            logger.info(f"word-level subtitle metadata created: {words_file}")
+            if log_details:
+                logger.info("word-level subtitle metadata created")
         except Exception as e:
-            logger.warning(f"failed to save word-level subtitle metadata: {e}")
+            if log_details:
+                logger.warning(f"failed to save word-level subtitle metadata: {e}")
+            else:
+                logger.warning("failed to save word-level subtitle metadata")
 
 
 def file_to_subtitles(filename):
@@ -352,10 +388,19 @@ def correct(subtitle_file, video_script):
         script_index += 1
         corrected = True
 
+    if subtitle_index < len(subtitle_items):
+        logger.warning(
+            f"Dropping {len(subtitle_items) - subtitle_index} transcription cue(s) "
+            "after the script ends"
+        )
+        corrected = True
+
     if corrected:
-        with open(subtitle_file, "w", encoding="utf-8") as fd:
-            for i, item in enumerate(new_subtitle_items):
-                fd.write(f"{i + 1}\n{item[1]}\n{item[2]}\n\n")
+        content = "".join(
+            f"{i + 1}\n{item[1]}\n{item[2]}\n\n"
+            for i, item in enumerate(new_subtitle_items)
+        )
+        write_subtitle_file(subtitle_file, content)
         logger.info("Subtitle corrected")
     else:
         logger.success("Subtitle is correct")
