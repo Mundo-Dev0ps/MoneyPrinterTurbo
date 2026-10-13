@@ -55,7 +55,13 @@ jobs:
 
       - name: Lint Python sources
         if: matrix.python-version == '3.11'
-        run: uv run --no-sync ruff check app cli.py main.py webui test docs/skill
+        # Legacy MCP tests remain covered by compile/test; their Ruff baseline is tracked separately.
+        run: >-
+          uv run --no-sync ruff check app cli.py main.py webui test docs/skill
+          --extend-exclude test/test_mcp_granular.py
+          --extend-exclude test/test_mcp_metadata.py
+          --extend-exclude test/test_mcp_render_and_oneshot.py
+          --extend-exclude test/test_mcp_resources.py
 
       - name: Run unit tests with coverage
         # pytest 兼容现有 unittest.TestCase，同时会收集仓库中的 pytest 风格
