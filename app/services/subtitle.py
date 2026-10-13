@@ -65,7 +65,9 @@ def create(
     log_details: bool = True,
 ):
     if WhisperModel is None:
-        logger.warning("faster_whisper not available, skipping whisper subtitle generation")
+        logger.warning(
+            "faster_whisper not available, skipping whisper subtitle generation"
+        )
         return ""
     if not _ensure_model_loaded():
         return None
@@ -139,24 +141,29 @@ def create(
                 seg_end = word.end
                 seg_text += word.word
                 if w_str:
-                    current_chunk_words.append({
-                        "word": w_str,
-                        "start": word.start,
-                        "end": word.end
-                    })
+                    current_chunk_words.append(
+                        {"word": w_str, "start": word.start, "end": word.end}
+                    )
 
-                if word.word.rstrip().endswith(tuple(const.PUNCTUATIONS)) or len(current_chunk_words) >= 3:
-                    clean_text = seg_text.strip().rstrip("".join(const.PUNCTUATIONS)).strip()
+                if (
+                    word.word.rstrip().endswith(tuple(const.PUNCTUATIONS))
+                    or len(current_chunk_words) >= 3
+                ):
+                    clean_text = (
+                        seg_text.strip().rstrip("".join(const.PUNCTUATIONS)).strip()
+                    )
 
                     if clean_text:
                         recognized(clean_text, seg_start, seg_end)
                         if current_chunk_words:
-                            words_data.append({
-                                "phrase": clean_text,
-                                "start_time": seg_start,
-                                "end_time": seg_end,
-                                "words": current_chunk_words
-                            })
+                            words_data.append(
+                                {
+                                    "phrase": clean_text,
+                                    "start_time": seg_start,
+                                    "end_time": seg_end,
+                                    "words": current_chunk_words,
+                                }
+                            )
 
                     is_segmented = False
                     seg_text = ""
@@ -172,12 +179,14 @@ def create(
             clean_text = seg_text.strip()
             recognized(clean_text, seg_start, seg_end)
             if current_chunk_words:
-                words_data.append({
-                    "phrase": clean_text,
-                    "start_time": seg_start,
-                    "end_time": seg_end,
-                    "words": current_chunk_words
-                })
+                words_data.append(
+                    {
+                        "phrase": clean_text,
+                        "start_time": seg_start,
+                        "end_time": seg_end,
+                        "words": current_chunk_words,
+                    }
+                )
 
     end = timer()
 

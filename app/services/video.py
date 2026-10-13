@@ -44,6 +44,7 @@ from app.services import bgm as bgm_service
 from app.services.utils import video_effects
 from app.utils import file_security, logging_utils, utils
 
+
 class SubClippedVideoClip:
     def __init__(
         self,
@@ -92,10 +93,14 @@ _CLIP_PROCESSING_CONCURRENCY = 1
 
 def _get_clip_processing_concurrency() -> int:
     try:
-        concurrency = int(config.app.get("video_clip_concurrency", _CLIP_PROCESSING_CONCURRENCY))
+        concurrency = int(
+            config.app.get("video_clip_concurrency", _CLIP_PROCESSING_CONCURRENCY)
+        )
     except (TypeError, ValueError):
         concurrency = _CLIP_PROCESSING_CONCURRENCY
     return max(1, min(8, concurrency))
+
+
 _DEFAULT_VIDEO_CODEC = "libx264"
 # ffmpeg 串联片段期间没有阶段日志，`subprocess.run` 又阻塞到进程退出，耗时拼接在
 # 日志上表现为“无输出”。这里按间隔记录存活信息，便于区分编码中与已经卡死。
@@ -159,9 +164,7 @@ def _scale_subtitle_frame_on_canvas(frame: np.ndarray, scale: float) -> np.ndarr
     if frame.ndim == 2:
         # MoviePy 蒙版使用 0～1 浮点数，Pillow 的 L 模式使用 0～255；转换后
         # 再恢复原始类型和范围，确保 CompositeVideoClip 的透明度语义不变。
-        mask_image = Image.fromarray(
-            np.clip(frame * 255.0, 0, 255).astype(np.uint8)
-        )
+        mask_image = Image.fromarray(np.clip(frame * 255.0, 0, 255).astype(np.uint8))
         resized_mask = mask_image.resize(
             (scaled_width, scaled_height),
             Image.Resampling.BILINEAR,
@@ -416,7 +419,9 @@ def _get_temp_audio_dir(output_dir: str) -> str:
     return output_dir
 
 
-def _fallback_write_videofile(clip, output_file: str, failed_codec: str, reason: str, **kwargs):
+def _fallback_write_videofile(
+    clip, output_file: str, failed_codec: str, reason: str, **kwargs
+):
     """
     硬件编码失败后用 libx264 重试，只有重试成功才禁用该硬件编码器。
 
@@ -632,8 +637,12 @@ def concat_video_clips_with_ffmpeg(
     concat_list_file = None
     try:
         with tempfile.NamedTemporaryFile(
-            mode="w", encoding="utf-8", prefix="ffmpeg-concat-", suffix=".txt",
-            dir=output_dir, delete=False,
+            mode="w",
+            encoding="utf-8",
+            prefix="ffmpeg-concat-",
+            suffix=".txt",
+            dir=output_dir,
+            delete=False,
         ) as fp:
             concat_list_file = fp.name
             for clip_file in clip_files:
@@ -721,11 +730,16 @@ def _sanitize_image_file(image_path: str) -> str:
                 upright.load()
                 # Strip metadata after applying the camera's orientation.
                 # Palette transparency belongs to pixels, not removable metadata.
-                mode = "RGBA" if "A" in upright.getbands() or "transparency" in upright.info else "RGB"
+                mode = (
+                    "RGBA"
+                    if "A" in upright.getbands() or "transparency" in upright.info
+                    else "RGB"
+                )
                 cleaned_image = upright.convert(mode)
                 cleaned_image.info.clear()
                 descriptor, temp_path = tempfile.mkstemp(
-                    prefix=".image-sanitize-", suffix=".png",
+                    prefix=".image-sanitize-",
+                    suffix=".png",
                     dir=os.path.dirname(os.path.abspath(sanitized_path)),
                 )
                 os.close(descriptor)
@@ -806,39 +820,40 @@ def _open_video_clip_quietly(video_path: str, audio: bool = False) -> VideoFileC
 def close_clip(clip):
     if clip is None:
         return
-        
+
     try:
         # close main resources
-        if hasattr(clip, 'reader') and clip.reader is not None:
+        if hasattr(clip, "reader") and clip.reader is not None:
             clip.reader.close()
-            
+
         # close audio resources
-        if hasattr(clip, 'audio') and clip.audio is not None:
-            if hasattr(clip.audio, 'reader') and clip.audio.reader is not None:
+        if hasattr(clip, "audio") and clip.audio is not None:
+            if hasattr(clip.audio, "reader") and clip.audio.reader is not None:
                 clip.audio.reader.close()
             del clip.audio
-            
+
         # close mask resources
-        if hasattr(clip, 'mask') and clip.mask is not None:
-            if hasattr(clip.mask, 'reader') and clip.mask.reader is not None:
+        if hasattr(clip, "mask") and clip.mask is not None:
+            if hasattr(clip.mask, "reader") and clip.mask.reader is not None:
                 clip.mask.reader.close()
             del clip.mask
-            
+
         # handle child clips in composite clips
-        if hasattr(clip, 'clips') and clip.clips:
+        if hasattr(clip, "clips") and clip.clips:
             for child_clip in clip.clips:
                 if child_clip is not clip:  # avoid possible circular references
                     close_clip(child_clip)
-            
+
         # clear clip list
-        if hasattr(clip, 'clips'):
+        if hasattr(clip, "clips"):
             clip.clips = []
-            
+
     except Exception as e:
         logger.error(f"failed to close clip: {str(e)}")
-    
+
     del clip
     gc.collect()
+
 
 def delete_files(files: List[str] | str):
     if isinstance(files, str):
@@ -871,9 +886,7 @@ def get_bgm_file(bgm_type: str = "random", bgm_file: str = ""):
         except ValueError as exc:
             # API 请求里的 bgm_file 来自用户输入，只允许解析到用户 BGM 或内置
             # 歌曲目录，阻止 MoviePy 读取配置、密钥等任意服务器文件。
-            logger.warning(
-                f"reject unsafe bgm file: {bgm_file}, error: {str(exc)}"
-            )
+            logger.warning(f"reject unsafe bgm file: {bgm_file}, error: {str(exc)}")
             return ""
         return resolved_bgm_file
 
@@ -941,9 +954,9 @@ def _fit_clip_to_canvas(
     background = ColorClip(
         size=(target_width, target_height), color=(0, 0, 0)
     ).with_duration(clip.duration)
-    resized_clip = clip.resized(
-        new_size=(resized_width, resized_height)
-    ).with_position("center")
+    resized_clip = clip.resized(new_size=(resized_width, resized_height)).with_position(
+        "center"
+    )
     return CompositeVideoClip(
         [background, resized_clip], size=(target_width, target_height)
     ).with_duration(clip.duration)
@@ -1005,7 +1018,7 @@ def combine_videos(
     processed_clips = []
     subclipped_items = []
     video_duration = 0
-    IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.webp', '.bmp')
+    IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp", ".bmp")
 
     for video_path in video_paths:
         is_image = str(video_path).lower().endswith(IMAGE_EXTENSIONS)
@@ -1047,7 +1060,7 @@ def combine_videos(
             continue
         finally:
             close_clip(clip)
-        
+
         start_time = 0
 
         while start_time < clip_duration:
@@ -1075,12 +1088,15 @@ def combine_videos(
     subclipped_items = _prioritize_unique_source_clips(
         subclipped_items=subclipped_items,
         concat_mode=video_concat_mode,
-        **({"source_usage": source_usage, "source_groups": source_groups}
-           if source_usage is not None else {}),
+        **(
+            {"source_usage": source_usage, "source_groups": source_groups}
+            if source_usage is not None
+            else {}
+        ),
     )
-        
+
     logger.debug(f"total subclipped items: {len(subclipped_items)}")
-    
+
     # Add downloaded clips over and over until the duration of the audio (max_duration) has been reached
     def process_one_clip(indexed_item):
         """把一个源片段裁剪、变速、转场后写出，失败时返回 None。"""
@@ -1199,7 +1215,9 @@ def combine_videos(
     process_clip_in_task_scope = logging_utils.bind_log_scope(process_one_clip)
     clip_processing_workers = 1
     if len(subclipped_items) >= 2:
-        clip_processing_workers = min(_get_clip_processing_concurrency(), len(subclipped_items))
+        clip_processing_workers = min(
+            _get_clip_processing_concurrency(), len(subclipped_items)
+        )
     with ThreadPoolExecutor(
         max_workers=clip_processing_workers,
         thread_name_prefix="clip-process",
@@ -1213,7 +1231,10 @@ def combine_videos(
             batch = []
             batch_duration = 0.0
             candidate_index = next_candidate_index
-            while candidate_index < len(subclipped_items) and batch_duration < remaining_duration:
+            while (
+                candidate_index < len(subclipped_items)
+                and batch_duration < remaining_duration
+            ):
                 subclipped_item = subclipped_items[candidate_index]
                 source_duration = subclipped_item.end_time - subclipped_item.start_time
                 output_duration = min(
@@ -1240,7 +1261,7 @@ def combine_videos(
                     progress_callback, video_duration, required_video_duration
                 )
             next_candidate_index = candidate_index
-    
+
     # loop processed clips until the video duration covers the audio duration and the small safety margin.
     if video_duration < required_video_duration:
         logger.warning(
@@ -1256,9 +1277,9 @@ def combine_videos(
         logger.info(
             f"video duration: {video_duration:.2f}s, audio duration: {audio_duration:.2f}s, "
             f"required duration: {required_video_duration:.2f}s, "
-            f"looped {len(processed_clips)-len(base_clips)} clips"
+            f"looped {len(processed_clips) - len(base_clips)} clips"
         )
-     
+
     # merge video clips progressively, avoid loading all videos at once to avoid memory overflow
     logger.info("starting clip merging process")
     if not processed_clips:
@@ -1266,7 +1287,7 @@ def combine_videos(
             raise RuntimeError("no readable video clips available for merging")
         logger.warning("no clips available for merging")
         return combined_video_path
-    
+
     clip_files = [clip.file_path for clip in processed_clips]
     logger.info(f"concatenating {len(clip_files)} clips with ffmpeg")
     try:
@@ -1289,7 +1310,7 @@ def combine_videos(
         # FFmpeg failures and timeouts must not strand one encoded MP4 per clip.
         # Repeated clips share a path; delete_files already deduplicates them.
         delete_files(clip_files)
-            
+
     logger.info("video combining completed")
     return combined_video_path
 
@@ -1587,7 +1608,9 @@ def create_dynamic_karaoke_clips(
             if not w_text:
                 continue
             w_width = font.getbbox(w_text)[2] - font.getbbox(w_text)[0]
-            needed_w = w_width if not current_line else current_line_w + space_w + w_width
+            needed_w = (
+                w_width if not current_line else current_line_w + space_w + w_width
+            )
 
             if current_line and needed_w > max_line_width:
                 lines.append((current_line, current_line_w))
@@ -1600,7 +1623,9 @@ def create_dynamic_karaoke_clips(
         if current_line:
             lines.append((current_line, current_line_w))
 
-        total_h = max(int(font_size * 2.2), len(lines) * line_height + int(font_size * 0.5))
+        total_h = max(
+            int(font_size * 2.2), len(lines) * line_height + int(font_size * 0.5)
+        )
 
         # Determine Y position (Safe Zone: 58% screen height avoids YouTube/TikTok UI avatar and title)
         if subtitle_position == "bottom":
@@ -1625,7 +1650,7 @@ def create_dynamic_karaoke_clips(
             for line_idx, (line_words, line_w) in enumerate(lines):
                 curr_x = (video_width - line_w) // 2
                 curr_y = line_idx * line_height + int(font_size * 0.2)
-                for (w_idx, w_text, w_w) in line_words:
+                for w_idx, w_text, w_w in line_words:
                     color = active_color if w_idx == active_idx else inactive_color
                     draw.text(
                         (curr_x, curr_y),
@@ -1746,10 +1771,7 @@ def generate_video(
         # 一个更保守的高度，把行间距和额外上下留白一并算进去，保证字幕
         # 背景框与文字本身都能完整渲染出来。
         clip_h = int(
-            txt_height
-            + vertical_padding
-            + (interline * line_count)
-            + stroke_padding
+            txt_height + vertical_padding + (interline * line_count) + stroke_padding
         )
 
         if rounded_bg_enabled:
@@ -1857,7 +1879,11 @@ def generate_video(
             _clip = _clip.with_position(("center", video_height * 0.95 - _clip.h))
         elif params.subtitle_position == "top":
             _clip = _clip.with_position(("center", video_height * 0.05))
-        elif params.subtitle_position in ("two_thirds_bottom", "two_thirds", "2/3_bottom"):
+        elif params.subtitle_position in (
+            "two_thirds_bottom",
+            "two_thirds",
+            "2/3_bottom",
+        ):
             # 2/3 from the bottom = 1/3 from the top: y = (video_height - _clip.h) * (1/3)
             y_two_thirds = (video_height - _clip.h) / 3.0
             _clip = _clip.with_position(("center", y_two_thirds))
@@ -1898,13 +1924,19 @@ def generate_video(
         if params.subtitle_enabled and subtitle_path and os.path.exists(subtitle_path):
             words_file = f"{subtitle_path}.words.json"
             if not os.path.exists(words_file):
-                words_file = os.path.join(os.path.dirname(subtitle_path), "subtitle.srt.words.json")
+                words_file = os.path.join(
+                    os.path.dirname(subtitle_path), "subtitle.srt.words.json"
+                )
 
             use_dynamic_karaoke = os.path.exists(words_file)
 
             if use_dynamic_karaoke:
-                logger.info("rendering dynamic word-by-word highlighted subtitles (karaoke style)")
-                active_color = getattr(params, "subtitle_active_color", "#FFE600") or "#FFE600"
+                logger.info(
+                    "rendering dynamic word-by-word highlighted subtitles (karaoke style)"
+                )
+                active_color = (
+                    getattr(params, "subtitle_active_color", "#FFE600") or "#FFE600"
+                )
                 inactive_color = params.text_fore_color or "#FFFFFF"
                 stroke_color = params.stroke_color or "#000000"
                 stroke_width = params.stroke_width if params.stroke_width else 6
@@ -1921,7 +1953,9 @@ def generate_video(
                     stroke_width=stroke_width,
                     subtitle_position=params.subtitle_position,
                     custom_position=params.custom_position,
-                    subtitle_animation=getattr(params, "subtitle_animation", "pop_spring"),
+                    subtitle_animation=getattr(
+                        params, "subtitle_animation", "pop_spring"
+                    ),
                 )
                 if karaoke_clips:
                     video_clip = CompositeVideoClip([video_clip, *karaoke_clips])
@@ -1944,9 +1978,7 @@ def generate_video(
                 video_clip = CompositeVideoClip([video_clip, *text_clips])
                 clip_stack.callback(video_clip.close)
 
-        bgm_enabled = bgm_service.should_use_bgm(
-            params.bgm_type, params.bgm_volume
-        )
+        bgm_enabled = bgm_service.should_use_bgm(params.bgm_type, params.bgm_volume)
         if not bgm_enabled and params.bgm_type:
             # 所有 BGM 来源共用这一条短路规则。音量不大于 0 时不能解析随机或
             # 自定义文件，也不能加载提供商返回的文件，避免无意义的 IO 和混音。

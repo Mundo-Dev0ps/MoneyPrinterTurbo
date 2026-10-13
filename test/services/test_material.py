@@ -98,7 +98,9 @@ class TestMaterialTlsVerification(unittest.TestCase):
             }
         )
 
-        with patch("app.services.material.requests.get", return_value=fake_response) as get:
+        with patch(
+            "app.services.material.requests.get", return_value=fake_response
+        ) as get:
             results = material.search_videos_pexels("cat", minimum_duration=1)
 
         self.assertEqual(len(results), 1)
@@ -222,18 +224,14 @@ class TestMaterialTlsVerification(unittest.TestCase):
                         "duration": 8,
                         "max_width": float("inf"),
                         "max_height": 1920,
-                        "urls": {
-                            "mp4_download": "https://example.com/overflow.mp4"
-                        },
+                        "urls": {"mp4_download": "https://example.com/overflow.mp4"},
                     },
                     {
                         "id": "good",
                         "duration": 8,
                         "max_width": 1080,
                         "max_height": 1920,
-                        "urls": {
-                            "mp4_download": "https://example.com/coverr-good.mp4"
-                        },
+                        "urls": {"mp4_download": "https://example.com/coverr-good.mp4"},
                     },
                 ]
             }
@@ -273,10 +271,12 @@ class TestMaterialTlsVerification(unittest.TestCase):
                         },
                     }
                 ]
-            }
+            },
         )
 
-        with patch("app.services.material.requests.get", return_value=fake_response) as get:
+        with patch(
+            "app.services.material.requests.get", return_value=fake_response
+        ) as get:
             results = material.search_videos_pixabay(
                 "cat",
                 minimum_duration=1,
@@ -366,18 +366,14 @@ class TestMaterialTlsVerification(unittest.TestCase):
                         "duration": 8,
                         "max_width": 1920,
                         "max_height": 1080,
-                        "urls": {
-                            "mp4_download": "https://example.com/landscape.mp4"
-                        },
+                        "urls": {"mp4_download": "https://example.com/landscape.mp4"},
                     },
                     {
                         "id": "portrait",
                         "duration": 8,
                         "max_width": 1080,
                         "max_height": 1920,
-                        "urls": {
-                            "mp4_download": "https://example.com/portrait.mp4"
-                        },
+                        "urls": {"mp4_download": "https://example.com/portrait.mp4"},
                     },
                     {
                         "id": "unknown",
@@ -491,10 +487,13 @@ class TestMaterialTlsVerification(unittest.TestCase):
         )
 
         for aspect, expected_filter in cases:
-            with self.subTest(aspect=aspect), patch(
-                "app.services.material.requests.get",
-                return_value=fake_response,
-            ) as get:
+            with (
+                self.subTest(aspect=aspect),
+                patch(
+                    "app.services.material.requests.get",
+                    return_value=fake_response,
+                ) as get,
+            ):
                 material.search_videos_coverr(
                     "city",
                     minimum_duration=1,
@@ -591,9 +590,10 @@ class TestMaterialTlsVerification(unittest.TestCase):
             json=lambda: {"hits": []},
         )
 
-        with patch(
-            "app.services.material.requests.get", return_value=fake_response
-        ), patch("app.services.material.logger.info") as log:
+        with (
+            patch("app.services.material.requests.get", return_value=fake_response),
+            patch("app.services.material.logger.info") as log,
+        ):
             material.search_videos_pixabay("cat", minimum_duration=1)
 
         logged_messages = " ".join(str(call.args[0]) for call in log.call_args_list)
@@ -617,9 +617,10 @@ class TestMaterialTlsVerification(unittest.TestCase):
             text="<html><title>Just a moment...</title></html>",
         )
 
-        with patch(
-            "app.services.material.requests.get", return_value=fake_response
-        ), patch("app.services.material.logger.error") as log:
+        with (
+            patch("app.services.material.requests.get", return_value=fake_response),
+            patch("app.services.material.logger.error") as log,
+        ):
             results = material.search_videos_pixabay("nature", minimum_duration=1)
 
         logged_messages = " ".join(str(call.args[0]) for call in log.call_args_list)
@@ -646,9 +647,10 @@ class TestMaterialTlsVerification(unittest.TestCase):
             text="API rate limit exceeded",
         )
 
-        with patch(
-            "app.services.material.requests.get", return_value=fake_response
-        ), patch("app.services.material.logger.error") as log:
+        with (
+            patch("app.services.material.requests.get", return_value=fake_response),
+            patch("app.services.material.logger.error") as log,
+        ):
             results = material.search_videos_pixabay("nature", minimum_duration=1)
 
         logged_messages = " ".join(str(call.args[0]) for call in log.call_args_list)
@@ -674,9 +676,10 @@ class TestMaterialTlsVerification(unittest.TestCase):
             json=raise_invalid_json,
         )
 
-        with patch(
-            "app.services.material.requests.get", return_value=fake_response
-        ), patch("app.services.material.logger.error") as log:
+        with (
+            patch("app.services.material.requests.get", return_value=fake_response),
+            patch("app.services.material.logger.error") as log,
+        ):
             results = material.search_videos_pixabay("nature", minimum_duration=1)
 
         logged_messages = " ".join(str(call.args[0]) for call in log.call_args_list)
@@ -693,13 +696,13 @@ class TestMaterialTlsVerification(unittest.TestCase):
         config.app["pixabay_api_keys"] = [api_key]
         config.proxy.clear()
         error = requests.ConnectionError(
-            "request failed for "
-            f"https://pixabay.com/api/videos/?q=nature&key={api_key}"
+            f"request failed for https://pixabay.com/api/videos/?q=nature&key={api_key}"
         )
 
-        with patch(
-            "app.services.material.requests.get", side_effect=error
-        ), patch("app.services.material.logger.error") as log:
+        with (
+            patch("app.services.material.requests.get", side_effect=error),
+            patch("app.services.material.logger.error") as log,
+        ):
             results = material.search_videos_pixabay("nature", minimum_duration=1)
 
         logged_messages = " ".join(str(call.args[0]) for call in log.call_args_list)
@@ -721,9 +724,10 @@ class TestMaterialTlsVerification(unittest.TestCase):
             f"failed to connect to proxy {proxy_url}"
         )
 
-        with patch(
-            "app.services.material.requests.get", side_effect=error
-        ), patch("app.services.material.logger.error") as log:
+        with (
+            patch("app.services.material.requests.get", side_effect=error),
+            patch("app.services.material.logger.error") as log,
+        ):
             results = material.search_videos_pixabay("nature", minimum_duration=1)
 
         logged_messages = " ".join(str(call.args[0]) for call in log.call_args_list)
@@ -749,9 +753,12 @@ class TestMaterialTlsVerification(unittest.TestCase):
                 return None
 
         with tempfile.TemporaryDirectory() as temp_dir:
-            with patch(
-                "app.services.material.requests.get", return_value=fake_response
-            ) as get, patch("app.services.material.VideoFileClip", FakeVideoFileClip):
+            with (
+                patch(
+                    "app.services.material.requests.get", return_value=fake_response
+                ) as get,
+                patch("app.services.material.VideoFileClip", FakeVideoFileClip),
+            ):
                 video_path = material.save_video(
                     "https://example.com/video.mp4?token=abc", save_dir=temp_dir
                 )
@@ -767,7 +774,9 @@ class TestMaterialTlsVerification(unittest.TestCase):
 
             @property
             def content(self):
-                raise AssertionError("the complete video must not be buffered in memory")
+                raise AssertionError(
+                    "the complete video must not be buffered in memory"
+                )
 
             def __enter__(self):
                 return self
@@ -795,9 +804,12 @@ class TestMaterialTlsVerification(unittest.TestCase):
 
         response = StreamingResponse()
         with tempfile.TemporaryDirectory() as temp_dir:
-            with patch(
-                "app.services.material.requests.get", return_value=response
-            ) as get, patch("app.services.material.VideoFileClip", FakeVideoFileClip):
+            with (
+                patch(
+                    "app.services.material.requests.get", return_value=response
+                ) as get,
+                patch("app.services.material.VideoFileClip", FakeVideoFileClip),
+            ):
                 video_path = material.save_video(
                     "https://example.com/large.mp4", save_dir=temp_dir
                 )
@@ -898,13 +910,16 @@ class TestMaterialTlsVerification(unittest.TestCase):
                 pass
 
         with tempfile.TemporaryDirectory() as temp_dir:
-            with patch(
-                "app.services.material.requests.get",
-                side_effect=[
-                    _FakeVideoDownloadResponse(b"first generated scene"),
-                    _FakeVideoDownloadResponse(b"second generated scene"),
-                ],
-            ) as get, patch("app.services.material.VideoFileClip", FakeVideoFileClip):
+            with (
+                patch(
+                    "app.services.material.requests.get",
+                    side_effect=[
+                        _FakeVideoDownloadResponse(b"first generated scene"),
+                        _FakeVideoDownloadResponse(b"second generated scene"),
+                    ],
+                ) as get,
+                patch("app.services.material.VideoFileClip", FakeVideoFileClip),
+            ):
                 first_path = material.save_video(first_url, save_dir=temp_dir)
                 second_path = material.save_video(second_url, save_dir=temp_dir)
                 cached_path = material.save_video(first_url, save_dir=temp_dir)
@@ -992,13 +1007,16 @@ class TestMaterialTlsVerification(unittest.TestCase):
                 pass
 
         with tempfile.TemporaryDirectory() as temp_dir:
-            with patch(
-                "app.services.material.requests.get",
-                side_effect=[
-                    _FakeVideoDownloadResponse(b"broken"),
-                    _FakeVideoDownloadResponse(b"valid"),
-                ],
-            ) as get, patch("app.services.material.VideoFileClip", FakeVideoFileClip):
+            with (
+                patch(
+                    "app.services.material.requests.get",
+                    side_effect=[
+                        _FakeVideoDownloadResponse(b"broken"),
+                        _FakeVideoDownloadResponse(b"valid"),
+                    ],
+                ) as get,
+                patch("app.services.material.VideoFileClip", FakeVideoFileClip),
+            ):
                 self.assertEqual(material.save_video(url, save_dir=temp_dir), "")
                 self.assertFalse((Path(temp_dir) / cached_name).exists())
                 self.assertEqual(
@@ -1021,12 +1039,17 @@ class TestMaterialTlsVerification(unittest.TestCase):
                 pass
 
         with tempfile.TemporaryDirectory() as temp_dir:
-            with patch(
-                "app.services.material.requests.get",
-                return_value=_FakeVideoDownloadResponse(b"bad metadata"),
-            ), patch("app.services.material.VideoFileClip", FakeVideoFileClip):
+            with (
+                patch(
+                    "app.services.material.requests.get",
+                    return_value=_FakeVideoDownloadResponse(b"bad metadata"),
+                ),
+                patch("app.services.material.VideoFileClip", FakeVideoFileClip),
+            ):
                 self.assertEqual(
-                    material.save_video("https://example.com/nan.mp4", save_dir=temp_dir),
+                    material.save_video(
+                        "https://example.com/nan.mp4", save_dir=temp_dir
+                    ),
                     "",
                 )
             self.assertEqual(list(Path(temp_dir).iterdir()), [])
@@ -1372,9 +1395,7 @@ class TestMaterialTlsVerification(unittest.TestCase):
                 {"material_directory": "", "material_concurrency": 4},
             ),
             patch.object(material, "search_videos_pexels", return_value=[item]),
-            patch.object(
-                material, "save_video", side_effect=RuntimeError("boom")
-            ),
+            patch.object(material, "save_video", side_effect=RuntimeError("boom")),
             patch.object(
                 material.material_cache,
                 "load_material_search_cache",
@@ -1605,11 +1626,7 @@ class TestMaterialTlsVerification(unittest.TestCase):
 
         self.assertEqual(result, ["/tmp/a.mp4", "/tmp/c.mp4"])
         self.assertTrue(
-            [
-                call
-                for call in warning.call_args_list
-                if "progress" in str(call.args[0])
-            ]
+            [call for call in warning.call_args_list if "progress" in str(call.args[0])]
         )
 
     def test_each_finished_material_is_logged_with_its_position(self):
@@ -1891,9 +1908,7 @@ class TestCoverrProvider(unittest.TestCase):
             }
         )
 
-        with patch(
-            "app.services.material.requests.get", return_value=fake_response
-        ):
+        with patch("app.services.material.requests.get", return_value=fake_response):
             results = material.search_videos_coverr("x", minimum_duration=5)
 
         self.assertEqual(len(results), 1)
@@ -1929,9 +1944,7 @@ class TestCoverrProvider(unittest.TestCase):
             }
         )
 
-        with patch(
-            "app.services.material.requests.get", return_value=fake_response
-        ):
+        with patch("app.services.material.requests.get", return_value=fake_response):
             results = material.search_videos_coverr("x", minimum_duration=1)
 
         self.assertEqual(len(results), 1)
@@ -1948,9 +1961,7 @@ class TestCoverrProvider(unittest.TestCase):
 
         # Subtest A: malformed response (no "hits" key)
         with self.subTest("malformed response"):
-            fake_response = SimpleNamespace(
-                json=lambda: {"error": "rate limited"}
-            )
+            fake_response = SimpleNamespace(json=lambda: {"error": "rate limited"})
             with patch(
                 "app.services.material.requests.get", return_value=fake_response
             ):
@@ -1986,17 +1997,22 @@ class TestCoverrProvider(unittest.TestCase):
         fake_item.url = "https://storage.coverr.co/videos/abc/download?token=xyz"
         fake_item.duration = 10
 
-        with patch(
-            "app.services.material.search_videos_coverr",
-            return_value=[fake_item],
-        ) as search, patch(
-            "app.services.material.save_video",
-            return_value="/tmp/coverr-saved.mp4",
-        ) as save, patch(
-            "app.services.material.material_cache.load_material_search_cache",
-            return_value=None,
-        ), patch(
-            "app.services.material.material_cache.save_material_search_cache",
+        with (
+            patch(
+                "app.services.material.search_videos_coverr",
+                return_value=[fake_item],
+            ) as search,
+            patch(
+                "app.services.material.save_video",
+                return_value="/tmp/coverr-saved.mp4",
+            ) as save,
+            patch(
+                "app.services.material.material_cache.load_material_search_cache",
+                return_value=None,
+            ),
+            patch(
+                "app.services.material.material_cache.save_material_search_cache",
+            ),
         ):
             result = material.download_videos(
                 task_id="t-coverr",
@@ -2146,7 +2162,9 @@ class TestWaveSpeedProvider(unittest.TestCase):
 
     def test_generate_wavespeed_returns_empty_on_failed_prediction(self):
         """failed/cancelled/timeout 都按空结果返回,让上层跳过该关键词继续。"""
-        submit_response = self._json_response({"code": 200, "data": {"id": "pred-fail"}})
+        submit_response = self._json_response(
+            {"code": 200, "data": {"id": "pred-fail"}}
+        )
         poll_response = self._json_response(
             {
                 "code": 200,
@@ -2168,7 +2186,9 @@ class TestWaveSpeedProvider(unittest.TestCase):
 
     def test_generate_wavespeed_returns_empty_on_rejected_submission(self):
         """非 200 envelope(如 key 无效)不能进入轮询,直接返回空结果。"""
-        submit_response = self._json_response({"code": 401, "message": "invalid api key"})
+        submit_response = self._json_response(
+            {"code": 401, "message": "invalid api key"}
+        )
 
         with (
             patch("app.services.material.requests.post", return_value=submit_response),
@@ -2348,9 +2368,7 @@ class TestWaveSpeedProvider(unittest.TestCase):
 
         self.assertEqual(ctx.exception.prediction_id, "pred-term-1")
         self.assertEqual(generate.call_count, 1)
-        self.assertEqual(
-            save.call_count, material.WAVESPEED_MAX_DOWNLOAD_RETRIES + 1
-        )
+        self.assertEqual(save.call_count, material.WAVESPEED_MAX_DOWNLOAD_RETRIES + 1)
 
     def test_download_videos_wavespeed_retries_original_download_url(self):
         """
@@ -2546,7 +2564,9 @@ class TestWaveSpeedProvider(unittest.TestCase):
             ) as generate,
             patch(
                 "app.services.material.save_video",
-                side_effect=lambda video_url, save_dir="": f"/tmp/{video_url.rsplit('/', 1)[-1]}",
+                side_effect=lambda video_url, save_dir="": (
+                    f"/tmp/{video_url.rsplit('/', 1)[-1]}"
+                ),
             ),
         ):
             result = material.download_videos(
@@ -2586,7 +2606,9 @@ class TestWaveSpeedProvider(unittest.TestCase):
             ) as generate,
             patch(
                 "app.services.material.save_video",
-                side_effect=lambda video_url, save_dir="": f"/tmp/{video_url.rsplit('/', 1)[-1]}",
+                side_effect=lambda video_url, save_dir="": (
+                    f"/tmp/{video_url.rsplit('/', 1)[-1]}"
+                ),
             ),
         ):
             result = material.download_videos(
@@ -2601,11 +2623,15 @@ class TestWaveSpeedProvider(unittest.TestCase):
         self.assertEqual(generate.call_count, 2)
         self.assertEqual(result, ["/tmp/1.mp4", "/tmp/2.mp4"])
 
-    def test_download_videos_wavespeed_rejects_nonfinite_duration_before_submission(self):
+    def test_download_videos_wavespeed_rejects_nonfinite_duration_before_submission(
+        self,
+    ):
         """NaN/Infinity must not buy a video for every script keyword."""
         for duration in (float("nan"), float("inf"), -float("inf")):
             with self.subTest(duration=duration):
-                with patch("app.services.material.generate_videos_wavespeed") as generate:
+                with patch(
+                    "app.services.material.generate_videos_wavespeed"
+                ) as generate:
                     with self.assertRaisesRegex(ValueError, "finite"):
                         material.download_videos(
                             task_id="test-wavespeed-invalid-duration",

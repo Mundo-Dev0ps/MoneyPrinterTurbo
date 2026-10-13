@@ -135,10 +135,13 @@ class TestSubtitleService(unittest.TestCase):
 
     def test_create_returns_none_when_whisper_model_cannot_load(self):
         """模型下载或初始化失败时必须返回失败结果，并允许任务层更新状态。"""
-        with patch.object(subtitle, "model", None), patch.object(
-            subtitle,
-            "WhisperModel",
-            side_effect=RuntimeError("model unavailable"),
+        with (
+            patch.object(subtitle, "model", None),
+            patch.object(
+                subtitle,
+                "WhisperModel",
+                side_effect=RuntimeError("model unavailable"),
+            ),
         ):
             self.assertIsNone(subtitle.create("audio.mp3"))
 
@@ -168,10 +171,13 @@ class TestSubtitleService(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp_dir:
             subtitle_file = Path(tmp_dir) / "generated.srt"
-            with patch.object(subtitle, "model", None), patch.object(
-                subtitle,
-                "WhisperModel",
-                _FakeWhisperModel,
+            with (
+                patch.object(subtitle, "model", None),
+                patch.object(
+                    subtitle,
+                    "WhisperModel",
+                    _FakeWhisperModel,
+                ),
             ):
                 subtitle.create("audio.mp3", str(subtitle_file))
 
@@ -196,8 +202,9 @@ class TestSubtitleService(unittest.TestCase):
         )
         with tempfile.TemporaryDirectory() as tmp_dir:
             output = Path(tmp_dir) / "numeric.srt"
-            with patch.object(subtitle, "model", fake_model), patch.object(
-                subtitle, "WhisperModel", object()
+            with (
+                patch.object(subtitle, "model", fake_model),
+                patch.object(subtitle, "WhisperModel", object()),
             ):
                 subtitle.create("audio.mp3", str(output))
             items = subtitle.file_to_subtitles(str(output))
@@ -223,8 +230,9 @@ class TestSubtitleService(unittest.TestCase):
         )
         with tempfile.TemporaryDirectory() as tmp_dir:
             output = Path(tmp_dir) / "suffix.srt"
-            with patch.object(subtitle, "model", fake_model), patch.object(
-                subtitle, "WhisperModel", object()
+            with (
+                patch.object(subtitle, "model", fake_model),
+                patch.object(subtitle, "WhisperModel", object()),
             ):
                 subtitle.create("audio.mp3", str(output))
             items = subtitle.file_to_subtitles(str(output))
@@ -250,10 +258,13 @@ class TestSubtitleService(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp_dir:
             subtitle_file = Path(tmp_dir) / "word-level.srt"
-            with patch.object(subtitle, "model", None), patch.object(
-                subtitle,
-                "WhisperModel",
-                _FakeWhisperModel,
+            with (
+                patch.object(subtitle, "model", None),
+                patch.object(
+                    subtitle,
+                    "WhisperModel",
+                    _FakeWhisperModel,
+                ),
             ):
                 subtitle.create(
                     "audio.mp3",
