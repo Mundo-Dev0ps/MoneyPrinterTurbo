@@ -12,6 +12,7 @@ except ImportError:
 from loguru import logger
 
 from app.config import config
+from app.models import const
 from app.utils import utils
 from app.utils.subtitle_writer import write_subtitle_file
 
@@ -144,10 +145,8 @@ def create(
                         "end": word.end
                     })
 
-                if utils.str_contains_punctuation(word.word) or len(current_chunk_words) >= 3:
-                    clean_text = seg_text.strip()
-                    if clean_text and utils.str_contains_punctuation(clean_text[-1:]):
-                        clean_text = clean_text[:-1].strip()
+                if word.word.rstrip().endswith(tuple(const.PUNCTUATIONS)) or len(current_chunk_words) >= 3:
+                    clean_text = seg_text.strip().rstrip("".join(const.PUNCTUATIONS)).strip()
 
                     if clean_text:
                         recognized(clean_text, seg_start, seg_end)
@@ -210,9 +209,13 @@ def create(
         try:
             with open(words_file, "w", encoding="utf-8") as f:
                 json.dump(words_data, f, indent=2, ensure_ascii=False)
-            logger.info(f"word-level subtitle metadata created: {words_file}")
+            if log_details:
+                logger.info("word-level subtitle metadata created")
         except Exception as e:
-            logger.warning(f"failed to save word-level subtitle metadata: {e}")
+            if log_details:
+                logger.warning(f"failed to save word-level subtitle metadata: {e}")
+            else:
+                logger.warning("failed to save word-level subtitle metadata")
 
 
 def file_to_subtitles(filename):

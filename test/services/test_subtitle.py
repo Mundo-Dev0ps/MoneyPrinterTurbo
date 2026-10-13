@@ -204,8 +204,9 @@ class TestSubtitleService(unittest.TestCase):
         self.assertEqual(
             items,
             [
-                (1, "00:00:00,000 --> 00:00:01,400", "Value 3.14 costs 1,000 dollars"),
-                (2, "00:00:01,500 --> 00:00:01,800", "Next"),
+                (1, "00:00:00,000 --> 00:00:00,800", "Value 3.14 costs"),
+                (2, "00:00:00,800 --> 00:00:01,400", "1,000 dollars"),
+                (3, "00:00:01,500 --> 00:00:01,800", "Next"),
             ],
         )
 
