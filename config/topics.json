@@ -2902,7 +2902,7 @@
       "id": "topic_100",
       "subject": "Apophis 2029: El asteroide que rozará la Tierra",
       "category": "Cosmos Extremo",
-      "status": "pending",
+      "status": "published",
       "editorial_version": "retention-v1",
       "experiment_variant": "A",
       "voice_name": "gemini:Charon-Informative",
@@ -2915,13 +2915,25 @@
         "asteroid passing near blue Earth",
         "spacecraft observing asteroid rocky surface"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-10-04T22:36:29.362835",
+      "task_id": "260c6de3-bbfa-433d-bae3-50417486ded7",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/260c6de3-bbfa-433d-bae3-50417486ded7/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=2340a7e9a23f4b29845cda20dcb9d36a. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "2340a7e9a23f4b29845cda20dcb9d36a",
+        "total_platforms": 2,
+        "job_id": "bad7e856eed044d89d6f41e4e6765376"
+      }
     },
     {
       "id": "topic_101",
       "subject": "La Caldera de Toba: La supererupción que casi extinguió a la humanidad",
       "category": "Secretos Geológicos",
-      "status": "pending",
+      "status": "published",
       "editorial_version": "retention-v1",
       "experiment_variant": "B",
       "voice_name": "gemini:Sulafat-Warm",
@@ -2934,13 +2946,25 @@
         "satellite view Sumatra Indonesia lake",
         "steep caldera cliffs Lake Toba"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "voice_used": "gemini:Sulafat-Warm",
+      "voice_fallback": false,
+      "rendered_at": "2026-10-05T22:39:14.153634",
+      "task_id": "a63c63a2-be5b-49df-b9fe-7a3fb81d7e4c",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a63c63a2-be5b-49df-b9fe-7a3fb81d7e4c/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=65467732dd684b51bd8c6d5c119689ba. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "65467732dd684b51bd8c6d5c119689ba",
+        "total_platforms": 2,
+        "job_id": "d71bdd36044a465bb223f2d3506fcf54"
+      }
     },
     {
       "id": "topic_102",
       "subject": "El Megaterremoto de Kamchatka 1952: El tsunami que cruzó el Pacífico",
       "category": "Megaterremotos & Sismos",
-      "status": "pending",
+      "status": "published",
       "editorial_version": "retention-v1",
       "experiment_variant": "A",
       "voice_name": "gemini:Charon-Informative",
@@ -2953,13 +2977,25 @@
         "Hawaii coastline powerful incoming waves",
         "vintage tide gauge ocean station"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-10-06T22:38:47.044690",
+      "task_id": "ac6e566d-4a60-48cd-975b-61f15339d7cd",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/ac6e566d-4a60-48cd-975b-61f15339d7cd/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=b00f85fa4c1f47fdae4b6e72f2357bd0. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "b00f85fa4c1f47fdae4b6e72f2357bd0",
+        "total_platforms": 2,
+        "job_id": "c312fc235a4244efb79fc73cd4761bd6"
+      }
     },
     {
       "id": "topic_103",
       "subject": "El Pez Caracol Hadal: El vertebrado que sobrevive a 8.000 metros",
       "category": "Misterios Abisales",
-      "status": "pending",
+      "status": "published",
       "editorial_version": "retention-v1",
       "experiment_variant": "B",
       "voice_name": "gemini:Sulafat-Warm",
@@ -2972,13 +3008,25 @@
         "small pale fish ocean floor",
         "Japan ocean trench map animation"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "voice_used": "gemini:Sulafat-Warm",
+      "voice_fallback": false,
+      "rendered_at": "2026-10-07T22:38:39.732859",
+      "task_id": "db2e5797-9784-41d7-aed8-910eb5cc5c66",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/db2e5797-9784-41d7-aed8-910eb5cc5c66/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=10fbddd1e19044c99a631b33a67fa6b3. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "10fbddd1e19044c99a631b33a67fa6b3",
+        "total_platforms": 2,
+        "job_id": "d17285af9f1143f5ac2f45994bf9dc52"
+      }
     },
     {
       "id": "topic_104",
       "subject": "El Impacto de Chelyabinsk: El asteroide que estalló sobre Rusia",
       "category": "Cosmos Extremo",
-      "status": "pending",
+      "status": "published",
       "editorial_version": "retention-v1",
       "experiment_variant": "A",
       "voice_name": "gemini:Charon-Informative",
@@ -2991,13 +3039,25 @@
         "Russian winter city apartment buildings",
         "meteor explosion atmospheric shockwave animation"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-10-08T22:39:34.971264",
+      "task_id": "80038ade-87cb-42e9-8e8c-c52863a66df9",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/80038ade-87cb-42e9-8e8c-c52863a66df9/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=6aa800557af84224aff6015c8e146e95. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "6aa800557af84224aff6015c8e146e95",
+        "total_platforms": 2,
+        "job_id": "4d78d4b35a9745608b8d71e6093b1a40"
+      }
     },
     {
       "id": "topic_105",
       "subject": "La Ciudad Perdida: Las chimeneas hidrotermales del Atlántico",
       "category": "Secretos Geológicos",
-      "status": "pending",
+      "status": "published",
       "editorial_version": "retention-v1",
       "experiment_variant": "B",
       "voice_name": "gemini:Sulafat-Warm",
@@ -3010,7 +3070,19 @@
         "underwater research submersible lights",
         "microorganisms hydrothermal vent ecosystem"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"]
+      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "voice_used": "gemini:Sulafat-Warm",
+      "voice_fallback": false,
+      "rendered_at": "2026-10-09T22:39:09.863265",
+      "task_id": "76d4455d-275f-44ee-888e-5d875a7b6aa6",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/76d4455d-275f-44ee-888e-5d875a7b6aa6/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=a95beb43b1674e31ae93c9d03b1e8e1c. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "a95beb43b1674e31ae93c9d03b1e8e1c",
+        "total_platforms": 2,
+        "job_id": "d8c8480bc9b64ee78766edd2f9c1cf09"
+      }
     },
     {
       "subject": "El Cangrejo Yeti: El gigante peludo de las fumarolas abisales",
@@ -3025,7 +3097,19 @@
       ],
       "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
       "id": "topic_106",
-      "status": "pending"
+      "status": "published",
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-10-10T22:41:32.040380",
+      "task_id": "88feb4b5-a74a-480c-9845-5930ca8b344e",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/88feb4b5-a74a-480c-9845-5930ca8b344e/final-1.mp4",
+      "upload_result": {
+        "success": true,
+        "message": "Upload initiated successfully in background. Your synchronous request was taking too long and has been durably handed off to the upload worker. Check its status with GET /api/uploadposts/status?request_id=966b013d0ced4f0f926ab16e611c992f. Docs: https://docs.upload-post.com/api/upload-status",
+        "request_id": "966b013d0ced4f0f926ab16e611c992f",
+        "total_platforms": 2,
+        "job_id": "edd9145eef06467b9f852dd385b2d6b2"
+      }
     },
     {
       "subject": "El Vacío de Boötes: El lugar más solitario del universo",

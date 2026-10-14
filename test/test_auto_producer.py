@@ -1,7 +1,7 @@
 import json
 import unittest
 from datetime import datetime
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 from scripts import auto_producer
 
@@ -219,8 +219,8 @@ class TestAutoProducer(unittest.TestCase):
         }
 
         mock_isfile.return_value = True
-        # Subtitle is good (500 bytes), but video file is only 500 bytes (corrupt/empty)
-        mock_getsize.side_effect = lambda f: 500 if "subtitle.srt" in f else 500
+        # Subtitle is good (500 bytes), but video file is only 400 bytes (corrupt/empty)
+        mock_getsize.side_effect = lambda f: 500 if "subtitle.srt" in f else 400
 
         with self.assertRaises(RuntimeError) as ctx:
             auto_producer.run_production(auto_publish=True)
@@ -922,8 +922,8 @@ class TestAutoProducer(unittest.TestCase):
             # Must pass strict editorial validation
             auto_producer.validate_topic_for_production(t)
 
-        # Verify topic_106 and topic_107 remain clean pending legacy topics
-        for legacy_id in ["topic_106", "topic_107"]:
+        # Verify topic_107 and topic_108 remain clean pending legacy topics
+        for legacy_id in ["topic_107", "topic_108"]:
             self.assertIn(legacy_id, topics)
             t = topics[legacy_id]
             self.assertEqual(t.get("status"), "pending")
