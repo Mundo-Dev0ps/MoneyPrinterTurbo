@@ -954,11 +954,15 @@ def _fit_clip_to_canvas(
     background = ColorClip(
         size=(target_width, target_height), color=(0, 0, 0)
     ).with_duration(clip.duration)
-    resized_clip = clip.resized(new_size=(resized_width, resized_height)).with_position(
-        "center"
-    )
+    resized_clip = clip.resized(
+        new_size=(resized_width, resized_height)
+    ).with_position("center")
+    # bg_color keeps the composite opaque, so MoviePy does not build and encode
+    # a full-frame transparency mask for every frame.
     return CompositeVideoClip(
-        [background, resized_clip], size=(target_width, target_height)
+        [background, resized_clip],
+        size=(target_width, target_height),
+        bg_color=(0, 0, 0),
     ).with_duration(clip.duration)
 
 
@@ -1958,7 +1962,9 @@ def generate_video(
                     ),
                 )
                 if karaoke_clips:
-                    video_clip = CompositeVideoClip([video_clip, *karaoke_clips])
+                    video_clip = CompositeVideoClip(
+                        [video_clip, *karaoke_clips], bg_color=(0, 0, 0)
+                    )
                     clip_stack.callback(video_clip.close)
                 else:
                     use_dynamic_karaoke = False
@@ -1975,7 +1981,10 @@ def generate_video(
                 for item in sub.subtitles:
                     clip = create_text_clip(subtitle_item=item)
                     text_clips.append(clip)
-                video_clip = CompositeVideoClip([video_clip, *text_clips])
+                # bg_color makes the composite opaque, avoiding redundant alpha mask calculation.
+                video_clip = CompositeVideoClip(
+                    [video_clip, *text_clips], bg_color=(0, 0, 0)
+                )
                 clip_stack.callback(video_clip.close)
 
         bgm_enabled = bgm_service.should_use_bgm(params.bgm_type, params.bgm_volume)
