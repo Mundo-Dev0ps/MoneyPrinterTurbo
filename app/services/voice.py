@@ -514,7 +514,10 @@ def estimate_no_voice_duration(text: str) -> float:
     4. 每个断句补一点停顿，让字幕切换不至于过于紧凑；
     5. 最少 3 秒，避免极短脚本生成 0 秒音频。
     """
-    normalized_text = (text or "").strip()
+    # 与 create_subtitle() 使用同一套脚本清理：`---`、`***` 这类 Markdown
+    # 分隔行不会被朗读，若参与按字符比例分配，会占用一段音频时长，导致
+    # 后续字幕提前出现，或最后一句字幕在音频结束前就消失。
+    normalized_text = utils.normalize_script_for_subtitle_matching(text or "").strip()
     if not normalized_text:
         return 3.0
 
@@ -1214,7 +1217,10 @@ def populate_legacy_submaker_with_full_text(
     sub_maker.subs = []
     sub_maker.offset = []
 
-    normalized_text = (text or "").strip()
+    # 与 create_subtitle() 使用同一套脚本清理：`---`、`***` 这类 Markdown
+    # 分隔行不会被朗读，若参与按字符比例分配，会占用一段音频时长，导致
+    # 后续字幕提前出现，或最后一句字幕在音频结束前就消失。
+    normalized_text = utils.normalize_script_for_subtitle_matching(text or "").strip()
     if not normalized_text:
         return sub_maker
 
@@ -1883,7 +1889,7 @@ def gemini_tts(
                         contents=text,
                         config=generation_config,
                     )
-                if response and response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
+                if response:
                     break
             except Exception as e:
                 logger.warning(f"Gemini TTS attempt {attempt} failed: {e}")
