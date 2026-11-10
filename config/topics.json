@@ -1,6 +1,8 @@
 {
   "schedule_settings": {
-    "daily_slots": ["19:30"],
+    "daily_slots": [
+      "19:30"
+    ],
     "voice_name": "gemini:Charon-Informative",
     "clip_duration": 2,
     "aspect": "9:16",
@@ -13,7 +15,10 @@
     "subtitle_position": "bottom",
     "rounded_subtitle_background": false,
     "user_name": "ErDivertido",
-    "platforms": ["youtube", "instagram"]
+    "platforms": [
+      "youtube",
+      "instagram"
+    ]
   },
   "topics": [
     {
@@ -2459,7 +2464,13 @@
         "pacific ocean deep sea",
         "submarine canyon 4k"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_082",
       "status": "published",
       "rendered_at": "2026-09-24T01:34:19.735762",
@@ -2484,7 +2495,13 @@
         "astronomical observatory night sky",
         "orbit earth satellite view"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_083",
       "status": "published",
       "rendered_at": "2026-09-24T15:08:29.015462",
@@ -2509,7 +2526,13 @@
         "volcanic winter ash sky",
         "geothermal crater landscape"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_084",
       "status": "published",
       "rendered_at": "2026-09-24T22:42:32.432516",
@@ -2534,7 +2557,13 @@
         "seismic destroyed town",
         "volcanic peninsula russia"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_085",
       "status": "published",
       "rendered_at": "2026-09-25T15:13:02.288953",
@@ -2559,7 +2588,13 @@
         "submersible abyss exploration",
         "extreme pressure underwater"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_086",
       "status": "published",
       "rendered_at": "2026-09-25T22:43:10.405446",
@@ -2584,7 +2619,13 @@
         "broken windows aftermath",
         "russian city meteor 2013"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_087",
       "status": "published",
       "rendered_at": "2026-09-26T15:11:01.088484",
@@ -2609,7 +2650,13 @@
         "hydrothermal vent microbes",
         "submarine geology 4k"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_088",
       "status": "published",
       "rendered_at": "2026-09-26T22:44:54.860965",
@@ -2634,7 +2681,13 @@
         "snow mountain avalanche",
         "rescue himalaya earthquake"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_089",
       "status": "published",
       "rendered_at": "2026-09-27T15:12:37.307022",
@@ -2659,7 +2712,13 @@
         "deep sea trench 4k",
         "underwater landslide tsunami"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_090",
       "status": "published",
       "rendered_at": "2026-09-27T22:41:55.829690",
@@ -2684,7 +2743,13 @@
         "seismic monitor earthquake reading",
         "abandoned city earthquake ruins"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_091",
       "status": "published",
       "rendered_at": "2026-09-28T15:12:47.060447",
@@ -2709,7 +2774,13 @@
         "tsunami warning ocean waves",
         "underwater canyon caribbean"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_092",
       "status": "published",
       "rendered_at": "2026-09-28T22:43:48.211898",
@@ -2734,7 +2805,13 @@
         "south africa rocky mountains",
         "geological rock layers crater"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_093",
       "status": "published",
       "rendered_at": "2026-10-01T15:08:49.395039",
@@ -2759,7 +2836,13 @@
         "ice core climate research",
         "dark volcanic landscape"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_094",
       "status": "published",
       "rendered_at": "2026-10-01T22:41:23.614790",
@@ -2784,7 +2867,13 @@
         "flooded farmland earthquake",
         "historic church bells"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_095",
       "status": "published",
       "rendered_at": "2026-10-02T15:09:45.174426",
@@ -2809,7 +2898,13 @@
         "underwater pressure dark abyss",
         "scientific submersible deep sea"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_096",
       "status": "published",
       "rendered_at": "2026-10-02T22:43:45.967914",
@@ -2834,7 +2929,13 @@
         "astronomer observatory night sky",
         "supercomputer cosmology simulation"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_097",
       "status": "published",
       "rendered_at": "2026-10-03T15:10:36.528715",
@@ -2859,7 +2960,13 @@
         "prehistoric volcanic eruption",
         "global climate volcanic winter"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_098",
       "status": "published",
       "rendered_at": "2026-10-03T22:41:02.307525",
@@ -2884,7 +2991,13 @@
         "rescue workers rubble historic",
         "sicily coastline storm waves"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_099",
       "status": "published",
       "rendered_at": "2026-10-04T15:13:30.893537",
@@ -2915,7 +3028,13 @@
         "asteroid passing near blue Earth",
         "spacecraft observing asteroid rocky surface"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "voice_used": "gemini:Charon-Informative",
       "voice_fallback": false,
       "rendered_at": "2026-10-04T22:36:29.362835",
@@ -2946,7 +3065,13 @@
         "satellite view Sumatra Indonesia lake",
         "steep caldera cliffs Lake Toba"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "voice_used": "gemini:Sulafat-Warm",
       "voice_fallback": false,
       "rendered_at": "2026-10-05T22:39:14.153634",
@@ -2977,7 +3102,13 @@
         "Hawaii coastline powerful incoming waves",
         "vintage tide gauge ocean station"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "voice_used": "gemini:Charon-Informative",
       "voice_fallback": false,
       "rendered_at": "2026-10-06T22:38:47.044690",
@@ -3008,7 +3139,13 @@
         "small pale fish ocean floor",
         "Japan ocean trench map animation"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "voice_used": "gemini:Sulafat-Warm",
       "voice_fallback": false,
       "rendered_at": "2026-10-07T22:38:39.732859",
@@ -3039,7 +3176,13 @@
         "Russian winter city apartment buildings",
         "meteor explosion atmospheric shockwave animation"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "voice_used": "gemini:Charon-Informative",
       "voice_fallback": false,
       "rendered_at": "2026-10-08T22:39:34.971264",
@@ -3070,7 +3213,13 @@
         "underwater research submersible lights",
         "microorganisms hydrothermal vent ecosystem"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "voice_used": "gemini:Sulafat-Warm",
       "voice_fallback": false,
       "rendered_at": "2026-10-09T22:39:09.863265",
@@ -3095,7 +3244,13 @@
         "underwater volcanic vent",
         "white crab deep sea"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_106",
       "status": "published",
       "voice_used": "gemini:Charon-Informative",
@@ -3122,9 +3277,113 @@
         "galaxy cluster space",
         "night sky stars milky way"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_107",
-      "status": "pending"
+      "status": "published",
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-10-14T22:38:25.497502",
+      "task_id": "85667faa-5835-4b5b-b555-41d6de13e5fa",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/85667faa-5835-4b5b-b555-41d6de13e5fa/final-1.mp4",
+      "upload_result": {
+        "status": "completed",
+        "completed": 2,
+        "total": 2,
+        "results": [
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "youtube",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-10-14T22:36:52.264Z"
+            },
+            "success": true,
+            "platform_post_id": "PfboZk9hJwE",
+            "post_url": "https://www.youtube.com/watch?v=PfboZk9hJwE",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 20756560,
+            "post_title": "El Vacío de Boötes: El lugar más solitario del universo #Shorts",
+            "post_caption": "Hay un lugar en el universo donde casi no existen galaxias. [pause:0.6] Se llama el Vacío de Boötes, una burbuja cósmica de trescientos millones de años luz donde la materia parece haber desaparecido. [pause:0.6] Si nuestra Vía Láctea estuviera en su centro, el cielo nocturno apenas mostraría estrellas, revelando la escala aterradora de la soledad cósmica. ¿Qué opinas? ¡Déjamelo saber en los comentarios!\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n#shorts #ciencia #misterios #curiosidades #erdivertido",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 24.43,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "2ee8995e-499b-4233-8105-06be83a01572",
+            "request_id_logs": "2ee8995e-499b-4233-8105-06be83a01572",
+            "job_id": "1f68bee8f7a44fca90a787aacef47a85",
+            "request_total_platforms": 2
+          },
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "instagram",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-10-14T22:38:22.021Z"
+            },
+            "success": true,
+            "platform_post_id": "18566941123075074",
+            "post_url": "https://www.instagram.com/reel/DefeUD2gWS0/",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 20756560,
+            "post_title": "El Vacío de Boötes: El lugar más solitario del universo #Shorts",
+            "post_caption": "El Vacío de Boötes: El lugar más solitario del universo #Shorts",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 24.43,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "2ee8995e-499b-4233-8105-06be83a01572",
+            "request_id_logs": "2ee8995e-499b-4233-8105-06be83a01572",
+            "job_id": "1f68bee8f7a44fca90a787aacef47a85",
+            "request_total_platforms": 2
+          }
+        ],
+        "external_id": null,
+        "last_update": {
+          "$date": "2026-10-14T22:38:22.021Z"
+        },
+        "request_id": "2ee8995e-499b-4233-8105-06be83a01572",
+        "success": true
+      }
     },
     {
       "subject": "El Pozo Superprofundo de Kola: La perforación que llegó al límite de la Tierra",
@@ -3137,7 +3396,13 @@
         "scientific drilling rig",
         "geology rock core sample"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_108",
       "status": "pending"
     },
@@ -3152,7 +3417,13 @@
         "seismic fault ocean floor",
         "earthquake monitor new zealand"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_109",
       "status": "pending"
     },
@@ -3167,7 +3438,13 @@
         "mesopelagic creature",
         "deep sea alien fish"
       ],
-      "tags": ["shorts", "ciencia", "misterios", "curiosidades", "erdivertido"],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
       "id": "topic_110",
       "status": "pending"
     }

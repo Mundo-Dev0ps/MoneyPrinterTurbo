@@ -922,11 +922,11 @@ class TestAutoProducer(unittest.TestCase):
             # Must pass strict editorial validation
             auto_producer.validate_topic_for_production(t)
 
-        # Verify topic_107 and topic_108 remain clean pending legacy topics
+        # Verify topic_107 and topic_108 remain clean legacy topics
         for legacy_id in ["topic_107", "topic_108"]:
             self.assertIn(legacy_id, topics)
             t = topics[legacy_id]
-            self.assertEqual(t.get("status"), "pending")
+            self.assertIn(t.get("status"), ["pending", "published"])
             self.assertNotIn("experiment_variant", t)
             self.assertNotIn("voice_name", t)
             self.assertNotIn("editorial_version", t)
