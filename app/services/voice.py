@@ -514,7 +514,10 @@ def estimate_no_voice_duration(text: str) -> float:
     4. 每个断句补一点停顿，让字幕切换不至于过于紧凑；
     5. 最少 3 秒，避免极短脚本生成 0 秒音频。
     """
-    normalized_text = (text or "").strip()
+    # 与 create_subtitle() 使用同一套脚本清理：`---`、`***` 这类 Markdown
+    # 分隔行不会被朗读，若参与按字符比例分配，会占用一段音频时长，导致
+    # 后续字幕提前出现，或最后一句字幕在音频结束前就消失。
+    normalized_text = utils.normalize_script_for_subtitle_matching(text or "").strip()
     if not normalized_text:
         return 3.0
 
@@ -1093,6 +1096,13 @@ def tts(
     voxcpm_prompt_audio: bytes | None = None,
     voxcpm_prompt_text: str = "",
 ) -> Union[SubMaker, None]:
+    # Emoji are not narrated: Edge TTS reads their names aloud ("chart
+    # increasing"), and each one gets its own word boundary.
+    narration = utils.remove_emoji(text)
+    if narration != text and not narration.strip():
+        logger.warning("the script has no text to narrate once emoji are removed")
+        return None
+    text = narration
     # 无停顿标签时，原样直通原始文本，避免无意义的正则处理或空白截断
     if not utils.has_pause_tags(text):
         return _single_tts(
@@ -1207,7 +1217,10 @@ def populate_legacy_submaker_with_full_text(
     sub_maker.subs = []
     sub_maker.offset = []
 
-    normalized_text = (text or "").strip()
+    # 与 create_subtitle() 使用同一套脚本清理：`---`、`***` 这类 Markdown
+    # 分隔行不会被朗读，若参与按字符比例分配，会占用一段音频时长，导致
+    # 后续字幕提前出现，或最后一句字幕在音频结束前就消失。
+    normalized_text = utils.normalize_script_for_subtitle_matching(text or "").strip()
     if not normalized_text:
         return sub_maker
 
@@ -1876,7 +1889,7 @@ def gemini_tts(
                         contents=text,
                         config=generation_config,
                     )
-                if response and response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
+                if response:
                     break
             except Exception as e:
                 logger.warning(f"Gemini TTS attempt {attempt} failed: {e}")
@@ -1884,20 +1897,25 @@ def gemini_tts(
                     raise e
                 time.sleep(1.5)
 
-        # 检查响应
-        if not response or not response.candidates or not response.candidates[0].content:
-            logger.error("No audio content received from Gemini TTS")
-            return None
-            
-        # 获取音频数据
+        # A blocked prompt can have no candidates; a stopped candidate can
+        # have no content or parts. All are empty-audio responses, not decoder
+        # errors. Preserve the provider's reason without logging its text.
+        candidate = response.candidates[0] if response and response.candidates else None
+        content = getattr(candidate, "content", None)
         audio_data = None
-        for part in response.candidates[0].content.parts:
+        for part in getattr(content, "parts", None) or []:
             if hasattr(part, 'inline_data') and part.inline_data:
                 audio_data = part.inline_data.data
                 break
                 
         if not audio_data:
-            logger.error("No audio data found in response")
+            feedback = getattr(response, "prompt_feedback", None)
+            logger.error(
+                "No audio data received from Gemini TTS: "
+                "finish_reason={}, prompt_block_reason={}",
+                getattr(candidate, "finish_reason", None),
+                getattr(feedback, "block_reason", None),
+            )
             return None
             
         # 音频数据已经是原始字节，不需要base64解码
