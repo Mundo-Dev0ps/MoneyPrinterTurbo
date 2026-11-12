@@ -4,6 +4,7 @@ import os
 import re
 import shutil
 import subprocess
+import unicodedata
 from functools import lru_cache
 from pathlib import Path
 import threading
@@ -274,9 +275,29 @@ def str_contains_punctuation(word):
     return False
 
 
-def split_string_by_punctuations(s):
+# Thai and Lao letters, vowel signs and tone marks. The repetition marks ๆ and ໆ
+# and the abbreviation marks ฯ and ຯ are left out: a space next to them is inside
+# a sentence, as in "เด็ก ๆ ชอบ" and "กรุงเทพฯ เป็น".
+_THAI_OR_LAO_LETTER = (
+    r"[\u0E01-\u0E2E\u0E30-\u0E3A\u0E40-\u0E45\u0E47-\u0E4E"
+    r"\u0E81-\u0EAE\u0EB0-\u0EBD\u0EC0-\u0EC4\u0EC8-\u0ECE\u0EDC-\u0EDF]"
+)
+# Thai and Lao separate sentences with a space instead of a full stop. A space
+# next to a number or a word in Latin letters is part of the sentence.
+_THAI_OR_LAO_SENTENCE_SPACE = re.compile(
+    rf"(?<={_THAI_OR_LAO_LETTER})\s+(?={_THAI_OR_LAO_LETTER})"
+)
+# Titles that stand before a name, as in "Mr. Smith", "Dr. Walker" and "Mt. Everest". "St." and
+# "Jr." are left out: they can end a sentence, as in "Our shop is on Main St. We open at 9."
+_TITLE_BEFORE_NAME = re.compile(r"(?<!\w)(?:Mr|Mrs|Ms|Dr|Prof|Mt)$")
+
+
+def split_string_by_punctuations(s, *, split_thai_and_lao_sentences=True):
     result = []
     txt = ""
+    if split_thai_and_lao_sentences:
+        # A space that ends a Thai or Lao sentence ends the line like a line break.
+        s = _THAI_OR_LAO_SENTENCE_SPACE.sub("\n", s)
 
     previous_char = ""
     next_char = ""
@@ -297,8 +318,47 @@ def split_string_by_punctuations(s):
             txt += char
             continue
 
-        if char == "," and previous_char.isdigit() and next_char.isdigit():
-            # 英文数字里的千分位逗号不是断句符，例如 "1,000 years"。
+        if (
+            char == "."
+            and previous_char.isalpha()
+            and next_char.isalpha()
+            and unicodedata.east_asian_width(previous_char) != "W"
+            and unicodedata.east_asian_width(next_char) != "W"
+        ):
+            # Edge TTS reads "U.S.", "e.g.", "9 a.m." and "example.com" as one word each. Next to a
+            # Chinese, Japanese or Korean character the dot still ends the sentence, as in "很好.我们".
+            txt += char
+            continue
+
+        if (
+            char == "."
+            and previous_char.isalpha()
+            and next_char.isdigit()
+            and unicodedata.east_asian_width(previous_char) != "W"
+        ):
+            # Edge TTS usually returns "No.1", "Vol.2" and "Fig.3" as one word. After a Chinese,
+            # Japanese or Korean character the dot still ends the sentence, as in "很好.2025年".
+            txt += char
+            continue
+
+        if char == "." and next_char == " " and _TITLE_BEFORE_NAME.search(txt):
+            # "Dr. Smith" and "Mt. Everest" stay in one line: the dot of a title before a name
+            # ends no sentence, and a line break there showed "Dr" or "Mt" alone as a subtitle.
+            txt += char
+            continue
+
+        if char in (":", "：") and previous_char.isdigit() and next_char.isdigit():
+            # Edge TTS returns a clock time such as "10:30" or "10：30" as one word, so it is no line break.
+            txt += char
+            continue
+
+        if char in (",", "，", "、") and previous_char.isdigit() and next_char.isdigit():
+            # 数字中间的逗号和顿号不是断句符，例如 "1,000 years"、"1，299元"、"第1、2名"。
+            # Edge TTS 的 word boundary 通常会把这种数字整体作为连续内容返回；
+            # 如果这里拆成 "1" 和 "000 years"，后续字幕聚合会无法匹配脚本原文，
+            # 进而错误回退到 Whisper。
+            txt += char
+            continue
             # Edge TTS 的 word boundary 通常会把这种数字整体作为连续内容返回；
             # 如果这里拆成 "1" 和 "000 years"，后续字幕聚合会无法匹配脚本原文，
             # 进而错误回退到 Whisper。
