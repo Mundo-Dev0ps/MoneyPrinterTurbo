@@ -791,6 +791,7 @@ def get_video_materials(
                 ),
                 audio_duration=audio_duration * params.video_count,
                 max_clip_duration=params.video_clip_duration,
+                clip_speed=params.video_clip_speed,
                 match_script_order=params.match_materials_to_script,
                 # 素材阶段占用 40%~50%：每下完一个文件推进一次，慢速网络下
                 # 进度条不再长时间停在 40%。
