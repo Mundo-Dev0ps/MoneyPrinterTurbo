@@ -3404,7 +3404,105 @@
         "erdivertido"
       ],
       "id": "topic_108",
-      "status": "pending"
+      "status": "published",
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-11-10T22:36:39.822964",
+      "task_id": "a6cbbf62-c381-4792-8d85-cdd0d4e8a8ec",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/a6cbbf62-c381-4792-8d85-cdd0d4e8a8ec/final-1.mp4",
+      "upload_result": {
+        "status": "completed",
+        "completed": 2,
+        "total": 2,
+        "results": [
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "youtube",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-10T22:36:07.579Z"
+            },
+            "success": true,
+            "platform_post_id": "iQRCd2BKetM",
+            "post_url": "https://www.youtube.com/watch?v=iQRCd2BKetM",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 15384165,
+            "post_title": "El Pozo Superprofundo de Kola: La perforación que llegó al límite de la Tierra #Shorts",
+            "post_caption": "En la península de Kola, la Unión Soviética perforó un agujero de más de doce kilómetros para explorar la corteza terrestre. [pause:0.6] El Pozo Superprofundo de Kola alcanzó temperaturas inesperadas y rocas que fluían como plástico. [pause:0.6] Allí se descubrió agua fósil a profundidades imposibles, cambiando lo que creíamos saber sobre la geología del planeta. ¿Qué opinas? ¡Déjamelo saber en los comentarios!\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n#shorts #ciencia #misterios #curiosidades #erdivertido",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 26.53,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "bf6eea89-d04a-41d0-9c9b-9ec42717d0e6",
+            "request_id_logs": "bf6eea89-d04a-41d0-9c9b-9ec42717d0e6",
+            "job_id": "e7fd9bf3cad34b85ab4139d2222300d9",
+            "request_total_platforms": 2
+          },
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "instagram",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-10T22:36:35.771Z"
+            },
+            "success": true,
+            "platform_post_id": "18087609236330637",
+            "post_url": "https://www.instagram.com/reel/Dfk_lVEIBTe/",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 15384165,
+            "post_title": "El Pozo Superprofundo de Kola: La perforación que llegó al límite de la Tierra #Shorts",
+            "post_caption": "El Pozo Superprofundo de Kola: La perforación que llegó al límite de la Tierra #Shorts",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 26.53,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "bf6eea89-d04a-41d0-9c9b-9ec42717d0e6",
+            "request_id_logs": "bf6eea89-d04a-41d0-9c9b-9ec42717d0e6",
+            "job_id": "e7fd9bf3cad34b85ab4139d2222300d9",
+            "request_total_platforms": 2
+          }
+        ],
+        "external_id": null,
+        "last_update": {
+          "$date": "2026-11-10T22:36:35.771Z"
+        },
+        "request_id": "bf6eea89-d04a-41d0-9c9b-9ec42717d0e6",
+        "success": true
+      }
     },
     {
       "subject": "La Fosa de Hikurangi: El megaterremoto durmiente bajo Nueva Zelanda",
@@ -3425,7 +3523,105 @@
         "erdivertido"
       ],
       "id": "topic_109",
-      "status": "pending"
+      "status": "published",
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-11-11T22:39:09.021148",
+      "task_id": "8a41f0c9-cc09-4e9e-893e-194bf79cf25e",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/8a41f0c9-cc09-4e9e-893e-194bf79cf25e/final-1.mp4",
+      "upload_result": {
+        "status": "completed",
+        "completed": 2,
+        "total": 2,
+        "results": [
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "youtube",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-11T22:38:36.935Z"
+            },
+            "success": true,
+            "platform_post_id": "gASLZkRWoG0",
+            "post_url": "https://www.youtube.com/watch?v=gASLZkRWoG0",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 29010996,
+            "post_title": "La Fosa de Hikurangi: El megaterremoto durmiente bajo Nueva Zelanda #Shorts",
+            "post_caption": "Frente a las costas de Nueva Zelanda se esconde una zona de subducción llamada Hikurangi. [pause:0.6] Allí, la placa Pacífica se hunde bajo la placa Australiana, acumulando tensión desde hace siglos. Los científicos han detectado movimiento lento, pero un megaterremoto podría generar un tsunami devastador. [pause:0.6] Lo más inquietante es que Hikurangi puede liberar energía en minutos y apenas deja señales antes. ¿Qué opinas? ¡Déjamelo saber en los comentarios!\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n#shorts #ciencia #misterios #curiosidades #erdivertido",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 28.63,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "941134f8-4d15-4c66-aa6c-b6140fabe00b",
+            "request_id_logs": "941134f8-4d15-4c66-aa6c-b6140fabe00b",
+            "job_id": "032351f57dbc4ad89f864ff3abdceafa",
+            "request_total_platforms": 2
+          },
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "instagram",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-11T22:39:08.857Z"
+            },
+            "success": true,
+            "platform_post_id": "17957909505033272",
+            "post_url": "https://www.instagram.com/reel/DfnkqcNnIGD/",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 29010996,
+            "post_title": "La Fosa de Hikurangi: El megaterremoto durmiente bajo Nueva Zelanda #Shorts",
+            "post_caption": "La Fosa de Hikurangi: El megaterremoto durmiente bajo Nueva Zelanda #Shorts",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 28.63,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "941134f8-4d15-4c66-aa6c-b6140fabe00b",
+            "request_id_logs": "941134f8-4d15-4c66-aa6c-b6140fabe00b",
+            "job_id": "032351f57dbc4ad89f864ff3abdceafa",
+            "request_total_platforms": 2
+          }
+        ],
+        "external_id": null,
+        "last_update": {
+          "$date": "2026-11-11T22:39:08.857Z"
+        },
+        "request_id": "941134f8-4d15-4c66-aa6c-b6140fabe00b",
+        "success": true
+      }
     },
     {
       "subject": "El Calamar de Cristal: El fantasma transparente del océano profundo",
@@ -3446,6 +3642,530 @@
         "erdivertido"
       ],
       "id": "topic_110",
+      "status": "published",
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-11-12T22:38:52.534432",
+      "task_id": "21dc47ba-f06b-4230-a487-668bf75f540f",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/21dc47ba-f06b-4230-a487-668bf75f540f/final-1.mp4",
+      "upload_result": {
+        "status": "completed",
+        "completed": 2,
+        "total": 2,
+        "results": [
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "youtube",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-12T22:37:27.621Z"
+            },
+            "success": true,
+            "platform_post_id": "i6OkXSpBgWg",
+            "post_url": "https://www.youtube.com/watch?v=i6OkXSpBgWg",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 19840860,
+            "post_title": "El Calamar de Cristal: El fantasma transparente del océano profundo #Shorts",
+            "post_caption": "En las profundidades del océano flota una criatura casi invisible. [pause:0.6] Es el calamar de cristal, un depredador transparente que usa bioluminiscencia para desaparecer y cazar. Su cuerpo deja ver sus órganos, y algunos ejemplares alcanzan seis metros. [pause:0.6] Habita en la zona mesopelágica, donde la luz solar se desvanece, y rara vez ha sido filmado con vida. ¿Qué opinas? ¡Déjamelo saber en los comentarios!\n\n¿Qué opinas? ¡Déjamelo saber en los comentarios y suscríbete para más curiosidades! 👇\n\n#shorts #ciencia #misterios #curiosidades #erdivertido",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 30.2,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "cb21708c-f066-4cb8-9822-2f7a25337b71",
+            "request_id_logs": "cb21708c-f066-4cb8-9822-2f7a25337b71",
+            "job_id": "6f6050fdc15b4595b0f4f7327bb39ac1",
+            "request_total_platforms": 2
+          },
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "instagram",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-12T22:38:42.159Z"
+            },
+            "success": true,
+            "platform_post_id": "18087333191370498",
+            "post_url": "https://www.instagram.com/reel/DfqJaPQjLWh/",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 19840860,
+            "post_title": "El Calamar de Cristal: El fantasma transparente del océano profundo #Shorts",
+            "post_caption": "El Calamar de Cristal: El fantasma transparente del océano profundo #Shorts",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 30.2,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "cb21708c-f066-4cb8-9822-2f7a25337b71",
+            "request_id_logs": "cb21708c-f066-4cb8-9822-2f7a25337b71",
+            "job_id": "6f6050fdc15b4595b0f4f7327bb39ac1",
+            "request_total_platforms": 2
+          }
+        ],
+        "external_id": null,
+        "last_update": {
+          "$date": "2026-11-12T22:38:42.159Z"
+        },
+        "request_id": "cb21708c-f066-4cb8-9822-2f7a25337b71",
+        "success": true
+      }
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "El terremoto que borró Tangshan en 1976",
+      "subject": "Terremoto de Tangshan 1976",
+      "category": "Megaterremotos & Sismos",
+      "script": "Tangshan durmió sin saber que moriría. [pause:0.4] En 1976, un sismo de magnitud 7.6 partió la ciudad antes del amanecer. Las réplicas, el fuego y los edificios colapsados borraron calles enteras. La revelación llegó décadas después: la falla estaba oculta bajo sedimentos blandos que amplificaron cada onda sísmica.",
+      "search_terms": [
+        "Tangshan city night aerial view",
+        "earthquake destroyed buildings rubble",
+        "collapsed concrete buildings smoke dust",
+        "seismic fault rupture ground closeup",
+        "rescue workers night earthquake aftermath"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_111",
+      "status": "published",
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-11-13T22:36:52.813706",
+      "task_id": "6ac8c0e6-8a5d-41f7-a87d-e711f0905e13",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/6ac8c0e6-8a5d-41f7-a87d-e711f0905e13/final-1.mp4",
+      "upload_result": {
+        "status": "completed",
+        "completed": 2,
+        "total": 2,
+        "results": [
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "youtube",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-13T22:36:10.526Z"
+            },
+            "success": true,
+            "platform_post_id": "iVEmg_IpSw0",
+            "post_url": "https://www.youtube.com/watch?v=iVEmg_IpSw0",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 18659676,
+            "post_title": "El terremoto que borró Tangshan en 1976",
+            "post_caption": "Tangshan durmió sin saber que moriría. [pause:0.4] En 1976, un sismo de magnitud 7.6 partió la ciudad antes del amanecer. Las réplicas, el fuego y los edificios colapsados borraron calles enteras. La revelación llegó décadas después: la falla estaba oculta bajo sedimentos blandos que amplificaron cada onda sísmica.\n\n#shorts #ciencia #misterios #curiosidades #erdivertido",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 29.3,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "7b06ca7d-b837-46c0-971d-1bbdcbae1948",
+            "request_id_logs": "7b06ca7d-b837-46c0-971d-1bbdcbae1948",
+            "job_id": "909498a19a7645b4893955d1bd8cf2eb",
+            "request_total_platforms": 2
+          },
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "instagram",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-13T22:36:44.528Z"
+            },
+            "success": true,
+            "platform_post_id": "18107510312207700",
+            "post_url": "https://www.instagram.com/reel/Dfst-dpGbB7/",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 18659676,
+            "post_title": "El terremoto que borró Tangshan en 1976",
+            "post_caption": "El terremoto que borró Tangshan en 1976",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 29.3,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "7b06ca7d-b837-46c0-971d-1bbdcbae1948",
+            "request_id_logs": "7b06ca7d-b837-46c0-971d-1bbdcbae1948",
+            "job_id": "909498a19a7645b4893955d1bd8cf2eb",
+            "request_total_platforms": 2
+          }
+        ],
+        "external_id": null,
+        "last_update": {
+          "$date": "2026-11-13T22:36:44.528Z"
+        },
+        "request_id": "7b06ca7d-b837-46c0-971d-1bbdcbae1948",
+        "success": true
+      }
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "Los crustáceos gigantes de la fosa Kermadec",
+      "subject": "Crustáceos gigantes de la fosa Kermadec",
+      "category": "Misterios Abisales",
+      "script": "En la fosa Kermadec hay gigantes ciegos. [pause:0.4] A casi diez mil metros, crustáceos albinos superan veinte centímetros y devoran restos que caen desde la superficie. La presión debería aplastarlos, pero su caparazón y enzimas adaptadas los sostienen. Los científicos filmaron un ejército de carroñeros gigantes donde la luz nunca llega.",
+      "search_terms": [
+        "Kermadec trench deep sea amphipods",
+        "deep ocean giant amphipod footage",
+        "hadal zone dark underwater expedition",
+        "submarine trench pressure underwater lights",
+        "scientific deep sea rover trench"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_112",
+      "status": "published",
+      "voice_used": "gemini:Charon-Informative",
+      "voice_fallback": false,
+      "rendered_at": "2026-11-14T22:36:51.275232",
+      "task_id": "6f3be4a4-27fb-4abd-91d9-476b3c915818",
+      "video_path": "/MoneyPrinterTurbo/storage/tasks/6f3be4a4-27fb-4abd-91d9-476b3c915818/final-1.mp4",
+      "upload_result": {
+        "status": "completed",
+        "completed": 2,
+        "total": 2,
+        "results": [
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "youtube",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-14T22:35:58.315Z"
+            },
+            "success": true,
+            "platform_post_id": "bekRygv7SyQ",
+            "post_url": "https://www.youtube.com/watch?v=bekRygv7SyQ",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 15775768,
+            "post_title": "Los crustáceos gigantes de la fosa Kermadec",
+            "post_caption": "En la fosa Kermadec hay gigantes ciegos. [pause:0.4] A casi diez mil metros, crustáceos albinos superan veinte centímetros y devoran restos que caen desde la superficie. La presión debería aplastarlos, pero su caparazón y enzimas adaptadas los sostienen. Los científicos filmaron un ejército de carroñeros gigantes donde la luz nunca llega.\n\n#shorts #ciencia #misterios #curiosidades #erdivertido",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 24.77,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "eff30c11-21f7-413d-97e9-55515457b98e",
+            "request_id_logs": "eff30c11-21f7-413d-97e9-55515457b98e",
+            "job_id": "d3f86170b16a426f8b4e8673bc5dfb1e",
+            "request_total_platforms": 2
+          },
+          {
+            "user_email": "jonathanstivenvelasco@gmail.com",
+            "profile_username": "ErDivertido",
+            "platform": "instagram",
+            "media_type": "video",
+            "upload_timestamp": {
+              "$date": "2026-11-14T22:36:44.186Z"
+            },
+            "success": true,
+            "platform_post_id": "18121235485983712",
+            "post_url": "https://www.instagram.com/reel/DfvSvwuk7ho/",
+            "error_message": null,
+            "error_signature": null,
+            "error_code": null,
+            "failure_stage": null,
+            "media_size_bytes": 15775768,
+            "post_title": "Los crustáceos gigantes de la fosa Kermadec",
+            "post_caption": "Los crustáceos gigantes de la fosa Kermadec",
+            "is_async": true,
+            "dashboard": false,
+            "source": "api",
+            "client": "python_generic",
+            "client_version": null,
+            "video_was_transcoded": false,
+            "changes": [],
+            "prevalidation_metadata": {
+              "width": 1080,
+              "height": 1920,
+              "fps": 30.0,
+              "duration": 24.77,
+              "container": "mov,mp4,m4a,3gp,3g2,mj2",
+              "video_codec": "h264",
+              "audio_codec": "aac"
+            },
+            "target_linkedin_page_id": null,
+            "request_id": "eff30c11-21f7-413d-97e9-55515457b98e",
+            "request_id_logs": "eff30c11-21f7-413d-97e9-55515457b98e",
+            "job_id": "d3f86170b16a426f8b4e8673bc5dfb1e",
+            "request_total_platforms": 2
+          }
+        ],
+        "external_id": null,
+        "last_update": {
+          "$date": "2026-11-14T22:36:44.186Z"
+        },
+        "request_id": "eff30c11-21f7-413d-97e9-55515457b98e",
+        "success": true
+      }
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "El terremoto que incendió Tokio en 1923",
+      "subject": "Gran terremoto de Kanto 1923",
+      "category": "Megaterremotos & Sismos",
+      "script": "Tokio ardió después del primer temblor. [pause:0.4] En 1923, el terremoto de Kanto, magnitud 7.9, derribó cocinas de carbón y desató incendios en madera apretada. Un tifón avivó las llamas y creó una tormenta de fuego que consumió barrios enteros. La revelación: el suelo blando y los edificios ligeros convirtieron el sismo en una catástrofe térmica.",
+      "search_terms": [
+        "Tokyo 1923 earthquake historical footage",
+        "Japanese city firestorm old film",
+        "wooden buildings collapse earthquake",
+        "historical earthquake rescue ruins",
+        "smoke fire devastated city aerial"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_115",
+      "status": "pending"
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "El terremoto que partió Ciudad de México",
+      "subject": "Terremoto de México de 1985",
+      "category": "Megaterremotos & Sismos",
+      "script": "Ciudad de México se partió al amanecer. [pause:0.4] En 1985, un terremoto de magnitud 8.1 frente a las costas de Michoacán sacudió la capital, construida sobre un lago seco. El suelo blando amplificó las ondas y derribó edificios altos. La revelación: la distancia no protegió a la ciudad; el terreno fangoso multiplicó el desastre.",
+      "search_terms": [
+        "Mexico City 1985 earthquake ruins",
+        "collapsed buildings rescue Mexico",
+        "soft soil seismic waves city",
+        "historic earthquake news footage",
+        "Mexico City aerial old footage"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_119",
+      "status": "pending"
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "El pulpo Dumbo que flota en el abismo",
+      "subject": "Pulpo Dumbo de la zona abisal",
+      "category": "Misterios Abisales",
+      "script": "El pulpo Dumbo flota como un fantasma. [pause:0.4] En la zona abisal, a miles de metros, agita sus aletas y se deja caer sobre presas diminutas. Su cuerpo gelatinoso resiste la presión, pero casi no tiene músculo. Cuando se siente amenazado, despliega una membrana oscura y desaparece en la oscuridad total.",
+      "search_terms": [
+        "dumbo octopus deep sea swimming",
+        "deep ocean octopus dark footage",
+        "abyssal zone marine creature",
+        "gelatinous octopus underwater closeup",
+        "deep sea submersible lights creature"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_116",
+      "status": "pending"
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "El supervolcán dormido que amenaza Europa",
+      "subject": "Caldera de Campi Flegrei",
+      "category": "Secretos Geológicos",
+      "script": "Bajo Nápoles respira un gigante dormido. [pause:0.4] La caldera de Campi Flegrei se hunde y se eleva con enjambres sísmicos. Sus fumarolas y suelo deformado delatan magma bajo una ciudad densa. Estudios recientes detectan fracturación creciente. La revelación: no es un volcán clásico, sino una caldera urbana que cambia de estado sin gran erupción visible.",
+      "search_terms": [
+        "supervolcano smoke eruption danger aerial",
+        "volcanic fumaroles crater closeup",
+        "seismic swarm earthquake city",
+        "ground deformation volcano monitoring",
+        "Naples city volcano background"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_118",
+      "status": "pending"
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "El tiburón que vive 400 años en aguas heladas",
+      "subject": "Tiburón de Groenlandia",
+      "category": "Misterios Abisales",
+      "script": "Un tiburón nada siglos bajo el hielo. [pause:0.4] El tiburón de Groenlandia crece muy lento y alcanza cuatrocientos años. Habita aguas profundas y frías, donde su carne acumula toxinas y sus ojos albergan parásitos luminosos. La revelación: su longevidad extrema lo convierte en un archivo vivo de contaminantes y cambios climáticos del Ártico.",
+      "search_terms": [
+        "Greenland shark swimming arctic water",
+        "deep cold ocean shark footage",
+        "shark eye parasite glowing closeup",
+        "underwater arctic ice dark",
+        "marine biologist shark research"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_120",
+      "status": "pending"
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "La cascada de sangre que fluye en la Antártida",
+      "subject": "Blood Falls en el glaciar Taylor",
+      "category": "Secretos Geológicos",
+      "script": "Una cascada roja sangra en la Antártida. [pause:0.4] Bajo el glaciar Taylor, agua salada atrapada millones de años escapa por una grieta y se oxida al contacto con el aire. No es sangre, sino hierro y microbios antiguos que sobreviven sin luz ni oxígeno. Cada chorro revela un ecosistema oculto bajo el hielo.",
+      "search_terms": [
+        "blood falls antarctica red waterfall",
+        "glacier taylor red iron water",
+        "antarctic glacier ice closeup",
+        "subglacial brine flowing ice",
+        "microbes under antarctic ice"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_114",
+      "status": "pending"
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "La explosión cósmica que casi perfora la Tierra",
+      "subject": "Estallido de rayos gamma GRB 221009A",
+      "category": "Cosmos Extremo",
+      "script": "Un destello cósmico cegó los telescopios. [pause:0.4] En 2022, el estallido de rayos gamma más brillante jamás registrado atravesó el universo y saturó sensores en órbita. Nació de una estrella colapsando en un agujero negro, lanzando chorros casi a la velocidad de la luz. Aunque duró minutos, su resplandor reveló colisiones extremas imposibles de reproducir.",
+      "search_terms": [
+        "giant cosmic explosion space blinding flash",
+        "black hole jets energetic space",
+        "supernova star collapse cosmic explosion",
+        "astronomers observatory night sky",
+        "bright cosmic flash deep space"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_113",
+      "status": "pending"
+    },
+    {
+      "editorial_version": "retention-v1",
+      "youtube_title": "La estrella de Tabby y su luz inexplicable",
+      "subject": "Estrella de Tabby KIC 8462852",
+      "category": "Cosmos Extremo",
+      "script": "Una estrella pierde luz sin explicación. [pause:0.4] KIC 8462852, llamada estrella de Tabby, muestra caídas irregulares de brillo de hasta veintidós por ciento. Nubes de polvo, fragmentos cometarios o un disco asimétrico podrían bloquearla. Aun así, ningún modelo reproduce todas sus bajadas. La revelación es un sistema estelar joven con escombros que desafían los patrones conocidos.",
+      "search_terms": [
+        "Tabby star mysterious light dips",
+        "star brightness anomaly space telescope",
+        "cosmic dust disk star",
+        "astronomical data graph star",
+        "deep space star field telescope"
+      ],
+      "tags": [
+        "shorts",
+        "ciencia",
+        "misterios",
+        "curiosidades",
+        "erdivertido"
+      ],
+      "id": "topic_117",
       "status": "pending"
     }
   ]

@@ -270,12 +270,17 @@ def refill_topics_if_needed(
     existing_list_str = "\n- ".join(existing_subjects)
 
     prompt = f"""Eres un creador de contenido experto en YouTube Shorts virales de ciencia, catástrofes históricas, megaterremotos y misterios abisales del océano.
-Genera exactamente {batch_size} NUEVOS temas virales de altísima retención e intriga visual, alternando entre:
-1. Grandes terremotos y megatsunamis históricos o zonas de subducción activas poco exploradas
-2. Anomalías abisales oceánicas, fosas inexploradas y criaturas de aguas profundas extremas
-3. Enigmas astrofísicos reales, impactos de asteroides y colisiones cósmicas
-4. Procesos geológicos colosales (fosas tectónicas submarinas, calderas activas, emanaciones hidrotermales extremas)
-PROHIBIDO generar temas hipotéticos abstractos tipo "¿Qué pasaría si...?" porque carecen de imágenes reales de stock.
+Genera exactamente {batch_size} NUEVOS temas virales de altísima retención e intriga visual.
+DATOS REALES DEL CANAL: Los videos de desastres históricos reales (terremotos catastróficos, tsunamis, tormentas de fuego) y criaturas abisales alienígenas superan 1.000 a 1.500 visualizaciones, mientras que la ciencia abstracta se estanca en menos de 30 vistas.
+
+Distribuye los {batch_size} temas con esta proporción ganadora:
+1. (70%) Grandes desastres y catástrofes históricas documentadas: megaterremotos, tsunamis colosales, supervolcanes e inviernos volcánicos con alto drama y pérdida humana o geológica.
+2. (30%) Criaturas abisales extremas y fenómenos oceánicos profundos con bioluminiscencia, formas alienígenas o fosas inexploradas.
+
+PROHIBIDO TERMINANTEMENTE:
+- Astronomía abstracta o lejana (estallidos de rayos gamma teóricos, vacíos cósmicos invisibles, telescopios, estrellas lejanas).
+- Geología lenta o industrial sin drama (pozos científicos, formaciones rocosas secas, glaciares estáticos).
+- Hipótesis abstractas tipo "¿Qué pasaría si...?".
 
 CRÍTICO - CONTROL ESTRICTO ANTI-DUPLICIDAD:
 Está TERMINANTEMENTE PROHIBIDO repetir temas, lugares o eventos ya cubiertos.
@@ -293,6 +298,7 @@ REGLAS EDITORIALES ESTRICTAS FORMATO retention-v1:
    - NUNCA incluyas llamadas a la acción fijas como 'déjamelo saber en los comentarios', '¿qué opinas?' ni 'suscríbete'.
 4. "search_terms": Exactamente 5 términos de búsqueda en inglés, específicos para metraje en 4K.
    - Cada término debe tener entre 4 y 8 palabras en inglés.
+   - REGLA CRÍTICA PARA EL TÉRMINO 1 ("search_terms[0]"): Define la miniatura del Short. Debe describir una escena dramática de máximo impacto visual (ej: "earthquake rescue ruins rubble", "massive tsunami wave crashing destruction", "volcano erupting lightning lava night", "glowing alien deep sea creature close up").
    - Todos los términos deben ser diferentes y representar escenas distintas. El primer término debe representar el gancho.
 
 Responde ÚNICAMENTE con un JSON válido que sea una lista de objetos con esta estructura exacta (sin texto adicional):
