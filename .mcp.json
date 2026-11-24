@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "moneyprinterturbo": {
+      "type": "stdio",
+      "command": "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/scripts/run-mcp.sh",
+      "args": []
+    }
+  }
+}
