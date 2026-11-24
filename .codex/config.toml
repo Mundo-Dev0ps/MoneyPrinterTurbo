@@ -1,0 +1,4 @@
+[mcp_servers.moneyprinterturbo]
+command = "/home/mundo-devops/mundo-devops/repos/MoneyPrinterTurbo/scripts/run-mcp.sh"
+startup_timeout_sec = 60
+args = []
